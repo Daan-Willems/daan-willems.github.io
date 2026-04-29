@@ -1,8 +1,140 @@
 {
-  "generatedAt": null,
+  "generatedAt": "2026-04-29T12:59:44.086Z",
   "youtube": {
-    "channel": null,
-    "latest": [],
-    "top": []
+    "channel": {
+      "id": "UC0ubM_L6ISEgqr5SJfI8XTA",
+      "title": "Daan Willems Automotive",
+      "description": "Backstage content @ DWA",
+      "customUrl": "@daanwillemsautomotive",
+      "thumbnail": "https://yt3.ggpht.com/detUp-KiUpa87pQMFhrF8VYnoeFxVmY8p32YcIK0wUD6Hg-aXiw8P3epTkhg-qU8CHxMAeXLoA=s800-c-k-c0x00ffffff-no-rj",
+      "subscriberCount": 27500,
+      "videoCount": 37,
+      "viewCount": 2843747,
+      "bannerUrl": "https://yt3.googleusercontent.com/cWsaMtnvgU5eJLvw8FslnFzFkOIz17VW91WgXpruaN3U5yTEiNus57eAdmlr1ecCDMTPVBuAMA"
+    },
+    "latest": [
+      {
+        "id": "mG14MxirIQI",
+        "url": "https://www.youtube.com/watch?v=mG14MxirIQI",
+        "title": "GAAT DAAN WILLEMS NAAR EEN SAUNACLUB?!!! WERKELIJK IETS APARTS! VLOG#28",
+        "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud Bekijk aanbod ...",
+        "publishedAt": "2026-04-26T09:01:04Z",
+        "thumbnail": "https://i.ytimg.com/vi/mG14MxirIQI/hqdefault.jpg",
+        "viewCount": 34803,
+        "likeCount": 774
+      },
+      {
+        "id": "IAN_eltoz64",
+        "url": "https://www.youtube.com/watch?v=IAN_eltoz64",
+        "title": "POLO GTI TAXEREN MET DAAN!! WERKELIJK IETS APARTS!! VLOG #27",
+        "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud Bekijk aanbod ...",
+        "publishedAt": "2026-04-22T14:51:44Z",
+        "thumbnail": "https://i.ytimg.com/vi/IAN_eltoz64/hqdefault.jpg",
+        "viewCount": 50483,
+        "likeCount": 1133
+      },
+      {
+        "id": "p1uZ6qQfh7Y",
+        "url": "https://www.youtube.com/watch?v=p1uZ6qQfh7Y",
+        "title": "DAAN DRAAIT DOOR IN DE AUTO!! + NIEUWE VOORRAAD BINNEN EN VEEL VERKOCHT!! VLOG #26",
+        "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud ...",
+        "publishedAt": "2026-04-19T11:40:38Z",
+        "thumbnail": "https://i.ytimg.com/vi/p1uZ6qQfh7Y/hqdefault.jpg",
+        "viewCount": 42712,
+        "likeCount": 944
+      },
+      {
+        "id": "kQzi74Yr7F4",
+        "url": "https://www.youtube.com/watch?v=kQzi74Yr7F4",
+        "title": "AUTO TAXEREN MET DAAN WILLEMS // WEL OF GEEN DEAL?! VLOG #25",
+        "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud Camera man + editor ...",
+        "publishedAt": "2026-04-15T15:25:24Z",
+        "thumbnail": "https://i.ytimg.com/vi/kQzi74Yr7F4/hqdefault.jpg",
+        "viewCount": 50280,
+        "likeCount": 1162
+      },
+      {
+        "id": "3WWRInWPjU4",
+        "url": "https://www.youtube.com/watch?v=3WWRInWPjU4",
+        "title": "DAAN REAGEERT OP HAAT COMMENTS. WERKELIJK IETS APARTS!!! VLOG #24",
+        "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud editor + cameraman ...",
+        "publishedAt": "2026-04-12T09:25:40Z",
+        "thumbnail": "https://i.ytimg.com/vi/3WWRInWPjU4/hqdefault.jpg",
+        "viewCount": 63679,
+        "likeCount": 1253
+      },
+      {
+        "id": "6TifWuJDmnw",
+        "url": "https://www.youtube.com/watch?v=6TifWuJDmnw",
+        "title": "KLANT DOET GROTE MISKOOP BIJ DAAN?! + NIEUWE AUTO BINNEN! VLOG #23",
+        "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud editor+cameraman ...",
+        "publishedAt": "2026-04-08T15:00:12Z",
+        "thumbnail": "https://i.ytimg.com/vi/6TifWuJDmnw/hqdefault.jpg",
+        "viewCount": 55568,
+        "likeCount": 1217
+      }
+    ],
+    "top": [
+      {
+        "id": "9vBJKYhhptM",
+        "url": "https://www.youtube.com/watch?v=9vBJKYhhptM",
+        "title": "RAUL GROENEN &amp; DAAN WILLEMS MAKEN CHAOS IN EINDHOVEN!! WERKELIJK IETS APARTS!!! VLOG #16",
+        "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud Bekijk aanbod ...",
+        "publishedAt": "2026-03-09T17:26:22Z",
+        "thumbnail": "https://i.ytimg.com/vi/9vBJKYhhptM/hqdefault.jpg",
+        "viewCount": 142977,
+        "likeCount": 3527
+      },
+      {
+        "id": "N2Mr3ddlArc",
+        "url": "https://www.youtube.com/watch?v=N2Mr3ddlArc",
+        "title": "Taxatie loopt uit de hand? Langs bij Danny van House of Cars | DWA",
+        "description": "Abonneer voor meer backstage content @ Daan Willems Automotive Emblemen Oeteldonk ...",
+        "publishedAt": "2025-12-07T08:00:35Z",
+        "thumbnail": "https://i.ytimg.com/vi/N2Mr3ddlArc/hqdefault.jpg",
+        "viewCount": 142608,
+        "likeCount": 3932
+      },
+      {
+        "id": "h3Yjlt1tr4A",
+        "url": "https://www.youtube.com/watch?v=h3Yjlt1tr4A",
+        "title": "Raúl Groenen op bezoek, kantoor bouwen en langs bij Keukensale Den Bosch | DWA Vlog #3",
+        "description": "Abonneer voor meer backstage content @ Daan Willems Automotive In deze video: Van De Pol Bouw- en Timmerwerken ...",
+        "publishedAt": "2025-12-20T09:30:24Z",
+        "thumbnail": "https://i.ytimg.com/vi/h3Yjlt1tr4A/hqdefault.jpg",
+        "viewCount": 106448,
+        "likeCount": 1668
+      },
+      {
+        "id": "KTJRmjAvIPg",
+        "url": "https://www.youtube.com/watch?v=KTJRmjAvIPg",
+        "title": "DAAN IS BOOS!!! &amp; BMW TAXEREN GAAT FOUT, VLOG #13",
+        "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud CAMERA MAN ...",
+        "publishedAt": "2026-02-25T16:05:56Z",
+        "thumbnail": "https://i.ytimg.com/vi/KTJRmjAvIPg/hqdefault.jpg",
+        "viewCount": 107754,
+        "likeCount": 1721
+      },
+      {
+        "id": "AB2L1OJD_PA",
+        "url": "https://www.youtube.com/watch?v=AB2L1OJD_PA",
+        "title": "DAAN NAAR DE KAMASUTRA BEURS, GAAT FOUT!! DEEL 1 VLOG #20",
+        "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud CAMERAMAN + ...",
+        "publishedAt": "2026-03-29T09:20:30Z",
+        "thumbnail": "https://i.ytimg.com/vi/AB2L1OJD_PA/hqdefault.jpg",
+        "viewCount": 102165,
+        "likeCount": 1757
+      },
+      {
+        "id": "WnrWtWy-fVk",
+        "url": "https://www.youtube.com/watch?v=WnrWtWy-fVk",
+        "title": "DAAN WILLEMS OP BEZOEK BIJ HOUSE OF CARS + NIEUWE MOTOR KIJKEN &amp; RONDLEIDING MALELIONS VLOG #9",
+        "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud Editor+filmer, jongen ...",
+        "publishedAt": "2026-02-01T11:39:59Z",
+        "thumbnail": "https://i.ytimg.com/vi/WnrWtWy-fVk/hqdefault.jpg",
+        "viewCount": 100475,
+        "likeCount": 1902
+      }
+    ]
   }
 }
