@@ -1,0 +1,30 @@
+# raw asset drops (not committed)
+original_media
+
+# nuxt
+.nuxt
+.output
+.data
+dist
+
+# playwright + ad-hoc screenshots
+.playwright-mcp/
+/[0-9][0-9]-*.png
+
+# node
+node_modules
+*.log
+
+# editor / OS
+.idea
+.vscode
+.DS_Store
+Thumbs.db
+
+# claude personal overrides (project allowlist stays committed)
+.claude/settings.local.json
+
+# env
+.env
+.env.*
+!.env.example
