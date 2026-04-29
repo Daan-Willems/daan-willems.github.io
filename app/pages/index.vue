@@ -87,6 +87,11 @@ function formatPrice(n?: number) {
   return n ? n.toLocaleString('nl-NL') : ''
 }
 
+// Toggle to hide all prices behind "Prijs op aanvraag" / "Price on request"
+// while keeping fromPrice values intact in content.json. Flip to true to re-show.
+const pricesVisible = false
+const priceOnRequestLabel = computed(() => locale.value === 'en' ? 'Price on request' : 'Prijs op aanvraag')
+
 function formatCompact(n?: number | null) {
   if (!n) return '0'
   return n.toLocaleString('en-US', {
@@ -351,7 +356,7 @@ useHead({
                 >
                   <div class="svc-tile__head">
                     <span class="svc-tile__title">{{ s.title }}</span>
-                    <span class="svc-tile__price">{{ s.currency }}{{ formatPrice(s.fromPrice) }}</span>
+                    <span class="svc-tile__price">{{ pricesVisible ? `${s.currency}${formatPrice(s.fromPrice)}` : priceOnRequestLabel }}</span>
                   </div>
                   <p class="svc-tile__blurb">{{ s.blurb }}</p>
                   <span class="svc-tile__cta">{{ (servicesCopy as any).moreLabel }} <span aria-hidden="true">→</span></span>
@@ -380,7 +385,7 @@ useHead({
                 >
                   <div class="svc-tile__head">
                     <span class="svc-tile__title">{{ s.title }}</span>
-                    <span class="svc-tile__price">{{ s.currency }}{{ formatPrice(s.fromPrice) }}</span>
+                    <span class="svc-tile__price">{{ pricesVisible ? `${s.currency}${formatPrice(s.fromPrice)}` : priceOnRequestLabel }}</span>
                   </div>
                   <p class="svc-tile__blurb">{{ s.blurb }}</p>
                   <span class="svc-tile__cta">{{ (servicesCopy as any).moreLabel }} <span aria-hidden="true">→</span></span>
@@ -428,8 +433,11 @@ useHead({
           <RevealOnScroll :delay="120">
             <div class="spotlight__action">
               <div class="spotlight__price">
-                <span class="eyebrow">{{ (performancesCopy as any).priceLabel || 'Vanaf' }}</span>
-                <span class="spotlight__price-value">€2.495</span>
+                <span v-if="pricesVisible" class="eyebrow">{{ (performancesCopy as any).priceLabel || 'Vanaf' }}</span>
+                <span
+                  class="spotlight__price-value"
+                  :class="{ 'spotlight__price-value--label': !pricesVisible }"
+                >{{ pricesVisible ? '€2.495' : priceOnRequestLabel }}</span>
               </div>
               <CtaButton variant="gold" size="lg" href="#contact">
                 {{ (performancesCopy as any).ctaLabel || 'Boek een optreden' }}
@@ -741,8 +749,8 @@ useHead({
       <div v-if="openService" class="svc-detail">
         <p class="svc-detail__blurb">{{ openService.blurb }}</p>
         <div class="svc-detail__price">
-          <span class="eyebrow">{{ (servicesCopy as any).fromLabel }}</span>
-          <span class="svc-detail__amount">{{ openService.currency }}{{ openService.fromPrice?.toLocaleString('nl-NL') }}</span>
+          <span v-if="pricesVisible" class="eyebrow">{{ (servicesCopy as any).fromLabel }}</span>
+          <span class="svc-detail__amount">{{ pricesVisible ? `${openService.currency}${openService.fromPrice?.toLocaleString('nl-NL')}` : priceOnRequestLabel }}</span>
         </div>
         <div v-if="openService.deliverables?.length" class="svc-detail__list">
           <h4>{{ (servicesCopy as any).deliverablesLabel }}</h4>
@@ -961,6 +969,15 @@ useHead({
   font-size: var(--fs-900);
   line-height: 1;
   color: var(--c-fg);
+}
+/* When showing "Prijs op aanvraag" instead of a number, scale the type
+   way down — the label is long and the display-9 size only fits an amount. */
+.spotlight__price-value--label {
+  font-size: var(--fs-700);
+  font-weight: 600;
+  font-style: italic;
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--lh-snug);
 }
 .spotlight__hint {
   font-size: var(--fs-300);
