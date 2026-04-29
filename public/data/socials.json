@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-04-29T16:01:08.671Z",
+  "generatedAt": "2026-04-29T17:31:08.551Z",
   "youtube": {
     "status": "ok",
-    "lastFetchedAt": "2026-04-29T16:01:05.496Z",
+    "lastFetchedAt": "2026-04-29T17:31:05.148Z",
     "channel": {
       "id": "UC0ubM_L6ISEgqr5SJfI8XTA",
       "title": "Daan Willems Automotive",
@@ -22,8 +22,8 @@
         "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud cameraman+editor ...",
         "publishedAt": "2026-04-29T15:00:09Z",
         "thumbnail": "https://i.ytimg.com/vi/5zRc2eCIlS0/hqdefault.jpg",
-        "viewCount": 2595,
-        "likeCount": 126
+        "viewCount": 5557,
+        "likeCount": 249
       },
       {
         "id": "mG14MxirIQI",
@@ -32,8 +32,8 @@
         "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud Bekijk aanbod ...",
         "publishedAt": "2026-04-26T09:01:04Z",
         "thumbnail": "https://i.ytimg.com/vi/mG14MxirIQI/hqdefault.jpg",
-        "viewCount": 35261,
-        "likeCount": 778
+        "viewCount": 35485,
+        "likeCount": 787
       },
       {
         "id": "IAN_eltoz64",
@@ -42,7 +42,7 @@
         "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud Bekijk aanbod ...",
         "publishedAt": "2026-04-22T14:51:44Z",
         "thumbnail": "https://i.ytimg.com/vi/IAN_eltoz64/hqdefault.jpg",
-        "viewCount": 50611,
+        "viewCount": 50622,
         "likeCount": 1134
       },
       {
@@ -52,7 +52,7 @@
         "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud ...",
         "publishedAt": "2026-04-19T11:40:38Z",
         "thumbnail": "https://i.ytimg.com/vi/p1uZ6qQfh7Y/hqdefault.jpg",
-        "viewCount": 42723,
+        "viewCount": 42749,
         "likeCount": 944
       },
       {
@@ -72,7 +72,7 @@
         "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud editor + cameraman ...",
         "publishedAt": "2026-04-12T09:25:40Z",
         "thumbnail": "https://i.ytimg.com/vi/3WWRInWPjU4/hqdefault.jpg",
-        "viewCount": 63723,
+        "viewCount": 63730,
         "likeCount": 1256
       }
     ],
@@ -84,7 +84,7 @@
         "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud Bekijk aanbod ...",
         "publishedAt": "2026-03-09T17:26:22Z",
         "thumbnail": "https://i.ytimg.com/vi/9vBJKYhhptM/hqdefault.jpg",
-        "viewCount": 143000,
+        "viewCount": 143021,
         "likeCount": 3527
       },
       {
@@ -94,7 +94,7 @@
         "description": "Abonneer voor meer backstage content @ Daan Willems Automotive Emblemen Oeteldonk ...",
         "publishedAt": "2025-12-07T08:00:35Z",
         "thumbnail": "https://i.ytimg.com/vi/N2Mr3ddlArc/hqdefault.jpg",
-        "viewCount": 142610,
+        "viewCount": 142611,
         "likeCount": 3932
       },
       {
@@ -104,7 +104,7 @@
         "description": "Abonneer voor meer backstage content @ Daan Willems Automotive In deze video: Van De Pol Bouw- en Timmerwerken ...",
         "publishedAt": "2025-12-20T09:30:24Z",
         "thumbnail": "https://i.ytimg.com/vi/h3Yjlt1tr4A/hqdefault.jpg",
-        "viewCount": 106451,
+        "viewCount": 106462,
         "likeCount": 1668
       },
       {
@@ -124,7 +124,7 @@
         "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud CAMERAMAN + ...",
         "publishedAt": "2026-03-29T09:20:30Z",
         "thumbnail": "https://i.ytimg.com/vi/AB2L1OJD_PA/hqdefault.jpg",
-        "viewCount": 102222,
+        "viewCount": 102226,
         "likeCount": 1758
       },
       {
@@ -134,14 +134,14 @@
         "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud Editor+filmer, jongen ...",
         "publishedAt": "2026-02-01T11:39:59Z",
         "thumbnail": "https://i.ytimg.com/vi/WnrWtWy-fVk/hqdefault.jpg",
-        "viewCount": 100493,
+        "viewCount": 100506,
         "likeCount": 1902
       }
     ]
   },
   "tiktok": {
     "status": "ok",
-    "lastFetchedAt": "2026-04-29T16:01:05.524Z",
+    "lastFetchedAt": "2026-04-29T17:31:05.176Z",
     "handle": "daanwillemsautomotive",
     "profile": {
       "uniqueId": "daanwillemsautomotive",
@@ -269,6 +269,6 @@
       }
     ],
     "lastError": "Instagram: incomplete pagination — sampled 0/89 posts (0%)",
-    "lastErrorAt": "2026-04-29T16:01:05.525Z"
+    "lastErrorAt": "2026-04-29T17:31:05.177Z"
   }
 }

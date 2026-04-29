@@ -186,11 +186,10 @@ async function fetchTikTok(handle) {
 
 const UA_IG_ANDROID = 'Instagram 219.0.0.12.117 Android'
 
-async function fetchInstagram(handle) {
-  if (!handle) throw new Error('IG_HANDLE missing')
-  // Step 1: web_profile_info — for profile + stats + user_id.
-  // Retry up to 3x with backoff — IG occasionally 401s datacenter IPs and recovers shortly.
-  let profileJson = null
+async function fetchInstagramProfile(handle) {
+  // web_profile_info — full profile + counts + user_id. Often 401s on datacenter IPs.
+  // Fail fast: rate-limit windows are minutes-to-hours, so retrying for 30+ seconds
+  // rarely helps. Better to mark stale and let the next cron try again.
   let lastStatus = null
   for (let attempt = 0; attempt < 3; attempt++) {
     const profileRes = await fetch(`https://i.instagram.com/api/v1/users/web_profile_info/?username=${handle}`, {
@@ -207,17 +206,55 @@ async function fetchInstagram(handle) {
       },
     })
     lastStatus = profileRes.status
-    if (profileRes.ok) {
-      profileJson = await profileRes.json()
-      break
-    }
+    if (profileRes.ok) return await profileRes.json()
     if (attempt < 2) await new Promise(r => setTimeout(r, 1500 * (attempt + 1)))
   }
-  if (!profileJson) throw new Error(`Instagram profile HTTP ${lastStatus}`)
-  const u = profileJson?.data?.user
-  if (!u) throw new Error('Instagram: user payload missing (login wall or rate-limited)')
+  const err = new Error(`Instagram profile HTTP ${lastStatus}`)
+  err.status = lastStatus
+  throw err
+}
+
+async function fetchInstagram(handle, prevState) {
+  if (!handle) throw new Error('IG_HANDLE missing')
+
+  // Try the gated profile endpoint. If it fails and we have a cached user_id
+  // from a previous run, fall back to "profile from prev + fresh feed-only refresh".
+  let u = null
+  let profileSourcedFromPrev = false
+  try {
+    const profileJson = await fetchInstagramProfile(handle)
+    u = profileJson?.data?.user
+    if (!u) throw new Error('Instagram: user payload missing (login wall or rate-limited)')
+    if (!u.edge_followed_by?.count) throw new Error('Instagram: followerCount missing or zero')
+  } catch (err) {
+    const prevUserId = prevState?.profile?.userId
+    const prevFollowerCount = prevState?.stats?.followerCount
+    if (!prevUserId || !prevFollowerCount) throw err
+    profileSourcedFromPrev = true
+    console.warn(`  ! IG profile endpoint failed (${err.message}); reusing cached profile (userId=${prevUserId}) and updating feed-only`)
+    // Synthesize a minimal `u` shape using prior data so the rest of the
+    // function can continue. Counts/profile fields come from prevState.
+    u = {
+      id: prevUserId,
+      username: prevState.profile.username,
+      full_name: prevState.profile.fullName,
+      biography: prevState.profile.bio,
+      bio_links: (prevState.profile.bioLinks || []).map(l => ({ title: l.title, url: l.url })),
+      external_url: prevState.profile.externalUrl,
+      profile_pic_url_hd: prevState.profile.avatar,
+      profile_pic_url: prevState.profile.avatar,
+      is_business_account: prevState.profile.isBusiness,
+      category_name: prevState.profile.category,
+      is_verified: prevState.profile.verified,
+      edge_followed_by: { count: prevFollowerCount },
+      edge_follow: { count: prevState.stats.followingCount ?? null },
+      edge_owner_to_timeline_media: {
+        count: prevState.stats.mediaCount ?? null,
+        edges: [],
+      },
+    }
+  }
   const followerCount = u.edge_followed_by?.count
-  if (!followerCount) throw new Error('Instagram: followerCount missing or zero')
 
   // Step 2: mobile feed/user endpoint — paginated. Returns accurate play_count.
   // We fetch all posts (capped at MAX_PAGES) so we can compute totals across the full feed.
@@ -287,32 +324,60 @@ async function fetchInstagram(handle) {
   const totalLikes = allItems.reduce((s, it) => s + (it.like_count || 0), 0)
   const totalComments = allItems.reduce((s, it) => s + (it.comment_count || 0), 0)
 
-  // Coverage guard — if we sampled noticeably fewer posts than the profile claims
-  // to have, the totals will be undercounted. Throw so mergeWithLastGood keeps
-  // the prior values.
+  // Coverage check — feed call was incomplete (rate-limited mid-pagination, etc).
+  // Don't throw: if we have prev posts/totals and a fresh profile, we still want
+  // to commit the fresh follower count etc. Use prev's posts data when feed fell short.
   const mediaCount = u.edge_owner_to_timeline_media?.count ?? 0
-  if (mediaCount > 0 && allItems.length < mediaCount * 0.95) {
-    throw new Error(`Instagram: incomplete pagination — sampled ${allItems.length}/${mediaCount} posts (${Math.round(allItems.length / mediaCount * 100)}%)`)
+  const feedCoverage = mediaCount > 0 ? allItems.length / mediaCount : 1
+  const feedHealthy = feedCoverage >= 0.95
+
+  if (!posts.length || !feedHealthy) {
+    // Use web_profile_info edges if available, else fall back to prev posts
+    const wpiEdges = u.edge_owner_to_timeline_media?.edges || []
+    if (wpiEdges.length) {
+      posts = wpiEdges.slice(0, 6).map(({ node: n }) => ({
+        id: n.id,
+        shortcode: n.shortcode,
+        url: `https://www.instagram.com/p/${n.shortcode}/`,
+        type: n.is_video ? (n.product_type === 'clips' ? 'reel' : 'video') : 'image',
+        publishedAt: n.taken_at_timestamp ? new Date(n.taken_at_timestamp * 1000).toISOString() : null,
+        thumbnail: n.thumbnail_src || n.display_url,
+        caption: n.edge_media_to_caption?.edges?.[0]?.node?.text || null,
+        likeCount: n.edge_liked_by?.count ?? n.edge_media_preview_like?.count ?? null,
+        commentCount: n.edge_media_to_comment?.count ?? null,
+        viewCount: n.video_view_count ?? null,
+      }))
+    } else if (prevState?.posts?.length) {
+      posts = prevState.posts
+    }
   }
-  // Fallback to web_profile_info posts if feed call failed
-  if (!posts.length) {
-    posts = (u.edge_owner_to_timeline_media?.edges || []).slice(0, 6).map(({ node: n }) => ({
-      id: n.id,
-      shortcode: n.shortcode,
-      url: `https://www.instagram.com/p/${n.shortcode}/`,
-      type: n.is_video ? (n.product_type === 'clips' ? 'reel' : 'video') : 'image',
-      publishedAt: n.taken_at_timestamp ? new Date(n.taken_at_timestamp * 1000).toISOString() : null,
-      thumbnail: n.thumbnail_src || n.display_url,
-      caption: n.edge_media_to_caption?.edges?.[0]?.node?.text || null,
-      likeCount: n.edge_liked_by?.count ?? n.edge_media_preview_like?.count ?? null,
-      commentCount: n.edge_media_to_comment?.count ?? null,
-      viewCount: n.video_view_count ?? null,
-    }))
+
+  // If feed call was unhealthy AND profile came fresh, hold prior totals so the
+  // sanity floor doesn't trip on a half-sample. We keep fresh follower/profile data.
+  let outTotalPlays = totalPlays
+  let outTotalLikes = totalLikes
+  let outTotalComments = totalComments
+  let outSampledPostCount = allItems.length
+  let outFeedSourcedFromPrev = false
+  if (!feedHealthy && prevState?.stats) {
+    outTotalPlays = prevState.stats.totalPlays ?? totalPlays
+    outTotalLikes = prevState.stats.totalLikes ?? totalLikes
+    outTotalComments = prevState.stats.totalComments ?? totalComments
+    outSampledPostCount = prevState.stats.sampledPostCount ?? allItems.length
+    outFeedSourcedFromPrev = true
+    console.warn(`  ! IG feed unhealthy (sampled ${allItems.length}/${mediaCount}); reusing prev totals`)
+  }
+
+  // If BOTH profile and feed are sourced from prev (and we got nothing fresh),
+  // throw so mergeWithLastGood marks the platform stale.
+  if (profileSourcedFromPrev && outFeedSourcedFromPrev) {
+    throw new Error('Instagram: profile + feed both unavailable, no fresh data')
   }
 
   return {
     handle: u.username,
     profile: {
+      userId: String(u.id),
       username: u.username,
       fullName: u.full_name,
       bio: u.biography || null,
@@ -328,10 +393,12 @@ async function fetchInstagram(handle) {
       followerCount,
       followingCount: u.edge_follow?.count ?? null,
       mediaCount: u.edge_owner_to_timeline_media?.count ?? null,
-      totalPlays,
-      totalLikes,
-      totalComments,
-      sampledPostCount: allItems.length,
+      totalPlays: outTotalPlays,
+      totalLikes: outTotalLikes,
+      totalComments: outTotalComments,
+      sampledPostCount: outSampledPostCount,
+      profileSourcedFromPrev,
+      feedSourcedFromPrev: outFeedSourcedFromPrev,
     },
     posts,
   }
@@ -471,10 +538,13 @@ async function cachePlatformImages(yt, tt, ig) {
 }
 
 async function main() {
+  // Read prev state up front so platforms can fall back to cached values
+  const prev = await readExisting()
+
   const [yt, tt, ig] = await Promise.all([
     tryFetch('YouTube', fetchYouTube),
     tryFetch('TikTok', () => fetchTikTok(process.env.TIKTOK_HANDLE)),
-    tryFetch('Instagram', () => fetchInstagram(process.env.IG_HANDLE)),
+    tryFetch('Instagram', () => fetchInstagram(process.env.IG_HANDLE, prev?.instagram)),
   ])
 
   // Cache remote images locally so they don't 401/expire on the deployed site
@@ -487,7 +557,6 @@ async function main() {
     instagram: ig,
   }
 
-  const prev = await readExisting()
   const { merged, suspects } = mergeWithLastGood(prev, next)
 
   const prevHash = prev ? JSON.stringify({ ...prev, generatedAt: undefined }) : null
