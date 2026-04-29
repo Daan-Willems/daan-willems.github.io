@@ -79,6 +79,24 @@
 
   "collabs": [
     {
+      "brand": "Oetelstore",
+      "year": 2026,
+      "kind": { "nl": "Emblemen drop", "en": "Emblem drop" },
+      "summary": {
+        "nl": "Oeteldonk-emblemen in meerdere stijlen, ontworpen samen met Daan.",
+        "en": "Oeteldonk emblems in multiple styles, designed together with Daan."
+      },
+      "description": {
+        "nl": "Oeteldonk-emblemen in een aantal stijlen, samen met Daan ontworpen en via Oetelstore aangeboden. De aandacht rond de drop trok flink wat extra verkoop op de rest van het merchandise-assortiment in de webshop.",
+        "en": "Oeteldonk emblems in a handful of styles, co-designed with Daan and released through Oetelstore. The buzz around the drop also drove a notable lift in sales across the rest of the store's merch range."
+      },
+      "business": {
+        "what": { "nl": "Oeteldonk merchandise webshop", "en": "Oeteldonk merchandise webshop" },
+        "website": "https://oetelstore.nl"
+      },
+      "href": "https://oetelstore.nl"
+    },
+    {
       "brand": "Jorcustom",
       "year": 2026,
       "kind": { "nl": "T-shirt drop", "en": "T-shirt drop" },

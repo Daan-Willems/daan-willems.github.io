@@ -459,9 +459,9 @@ useHead({
             <span class="platform-card__icon" aria-hidden="true">▶</span>
             <span class="platform-card__body">
               <span class="platform-card__handle">YouTube</span>
-              <span class="platform-card__sub">{{ ytChannel.customUrl }}</span>
+              <span class="platform-card__sub">{{ locale === 'en' ? 'lifetime views' : 'totaal views' }}</span>
             </span>
-            <span class="platform-card__count">{{ formatCompact(ytChannel.subscriberCount) }}</span>
+            <span class="platform-card__count">{{ formatCompact(ytChannel.viewCount) }}</span>
           </a>
           <a
             v-if="ttData?.profile"
@@ -475,9 +475,9 @@ useHead({
             <span class="platform-card__icon" aria-hidden="true">♪</span>
             <span class="platform-card__body">
               <span class="platform-card__handle">TikTok</span>
-              <span class="platform-card__sub">@{{ ttData.profile.uniqueId }}</span>
+              <span class="platform-card__sub">{{ locale === 'en' ? 'total likes' : 'totaal likes' }}</span>
             </span>
-            <span class="platform-card__count">{{ formatCompact(ttData.stats?.followerCount) }}</span>
+            <span class="platform-card__count">{{ formatCompact(ttData.stats?.heartCount) }}</span>
           </a>
           <a
             v-if="igData?.profile"
@@ -491,9 +491,9 @@ useHead({
             <span class="platform-card__icon" aria-hidden="true">◉</span>
             <span class="platform-card__body">
               <span class="platform-card__handle">Instagram</span>
-              <span class="platform-card__sub">@{{ igData.profile.username }}</span>
+              <span class="platform-card__sub">{{ locale === 'en' ? 'total plays' : 'totaal plays' }}</span>
             </span>
-            <span class="platform-card__count">{{ formatCompact(igData.stats?.followerCount) }}</span>
+            <span class="platform-card__count">{{ formatCompact(igData.stats?.totalPlays) }}</span>
           </a>
         </div>
 

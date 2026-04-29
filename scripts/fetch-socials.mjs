@@ -257,16 +257,21 @@ async function fetchInstagram(handle, prevState) {
   const followerCount = u.edge_followed_by?.count
 
   // Step 2: mobile feed/user endpoint — paginated. Returns accurate play_count.
-  // We fetch all posts (capped at MAX_PAGES) so we can compute totals across the full feed.
-  // Each page is retried up to RETRIES times on transient failure to avoid
-  // truncating the sample due to one flaky request.
+  //
+  // Pacing matters more than retrying. IG accepts the first request reliably and
+  // then 401s the next few if they come in immediately afterward — classic
+  // burst-detector. We pause between pages and use longer per-attempt backoffs.
   let posts = []
   let allItems = []
   try {
     const MAX_PAGES = 10
     const RETRIES = 3
+    const PAGE_DELAY_MS = 2500          // gap between successive page fetches
+    const RETRY_BACKOFF_MS = [3000, 6000] // cumulative wait before retry attempts
     let maxId = ''
     for (let page = 0; page < MAX_PAGES; page++) {
+      // Pause before any non-first page — gives the rate counter time to drain.
+      if (page > 0) await new Promise(r => setTimeout(r, PAGE_DELAY_MS))
       const url = new URL(`https://i.instagram.com/api/v1/feed/user/${u.id}/`)
       url.searchParams.set('count', '50')
       if (maxId) url.searchParams.set('max_id', maxId)
@@ -285,7 +290,7 @@ async function fetchInstagram(handle, prevState) {
           })
           if (!feedRes.ok) {
             if (attempt < RETRIES - 1) {
-              await new Promise(r => setTimeout(r, 500 * (attempt + 1)))
+              await new Promise(r => setTimeout(r, RETRY_BACKOFF_MS[attempt]))
               continue
             }
             throw new Error(`HTTP ${feedRes.status}`)
@@ -294,7 +299,7 @@ async function fetchInstagram(handle, prevState) {
           break
         } catch (err) {
           if (attempt === RETRIES - 1) throw err
-          await new Promise(r => setTimeout(r, 500 * (attempt + 1)))
+          await new Promise(r => setTimeout(r, RETRY_BACKOFF_MS[attempt]))
         }
       }
       if (!feedJson) break
