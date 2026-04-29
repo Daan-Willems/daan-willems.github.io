@@ -81,14 +81,14 @@
     {
       "brand": "Jorcustom",
       "year": 2026,
-      "kind": { "nl": "Capsule collectie", "en": "Capsule collection" },
+      "kind": { "nl": "T-shirt drop", "en": "T-shirt drop" },
       "summary": {
         "nl": "Capsule t-shirt collectie voor Koningsdag. Uitverkocht binnen 72 uur.",
         "en": "Capsule t-shirt collection for King's Day. Sold out in 72 hours."
       },
       "description": {
-        "nl": "Limited edition t-shirts in samenwerking met Jorcustom, gelanceerd in aanloop naar Koningsdag. Daan deed het launch-content op zijn socials. De drop verkocht binnen 72 uur uit en stond een week lang in de Top-3 van Jorcustom's bestsellers.",
-        "en": "Limited edition t-shirts in partnership with Jorcustom, launched ahead of King's Day. Daan handled the launch content on his socials. The drop sold out within 72 hours and stayed in Jorcustom's top-3 bestsellers for a week."
+        "nl": "Limited edition t-shirts in samenwerking met Jorcustom, gelanceerd in aanloop naar Koningsdag. Daan deed het launch-content op zijn socials. De drop verkocht binnen 72 uur uit en bleef daarna nog wekenlang in de top-3 van Jorcustom's bestsellers.",
+        "en": "Limited edition t-shirts in partnership with Jorcustom, launched ahead of King's Day. Daan handled the launch content on his socials. The drop sold out within 72 hours and stayed in Jorcustom's top-3 bestsellers for weeks afterward."
       },
       "business": {
         "what": { "nl": "Custom kledingmerk uit Nederland", "en": "Dutch custom apparel brand" },
@@ -196,6 +196,22 @@
       }
     },
     {
+      "brand": "Bereschoon",
+      "year": 2026,
+      "kind": { "nl": "Collab-video's", "en": "Collab videos" },
+      "summary": {
+        "nl": "Reeks collab-video's en interviews — natuurlijke klik, gastvrije setting.",
+        "en": "A series of collab videos and interviews — natural fit, hospitable setting."
+      },
+      "description": {
+        "nl": "Bereschoon ontving Daan voor een serie collab-video's en interviews op locatie. De directe communicatie en warme ontvangst maakten het schieten makkelijk — terug te zien in de natuurlijke gespreks-toon van de afleveringen.",
+        "en": "Bereschoon hosted Daan for a series of collab videos and interviews on location. Direct comms and a warm welcome made shoots easy — visible in the unforced conversational tone of the episodes."
+      },
+      "business": {
+        "what": { "nl": "Onderneming uit Nederland", "en": "Dutch business" }
+      }
+    },
+    {
       "brand": "Raúl Groenen",
       "year": 2026,
       "kind": { "nl": "Collab-video's", "en": "Collab videos" },
@@ -283,36 +299,39 @@
     },
     {
       "quote": {
-        "nl": "Daan is geen acteur. Wat hij zegt is wat hij doet — en dat zie je in de cijfers.",
-        "en": "Daan isn't acting. What he says is what he does — and the numbers reflect that."
+        "nl": "Werken met Daan is gewoon soepel. Communicatie loopt, afspraken kloppen, en de dagen samen zijn vette dagen — daar kom je voor terug.",
+        "en": "Working with Daan is just smooth. Comms flow, agreements hold, and the days together are genuinely good days — that's why you keep coming back."
       },
-      "author": "Voorbeeld Merk",
+      "author": "Danny Hendrikx",
       "role": {
-        "nl": "Marketing Lead",
-        "en": "Marketing Lead"
-      }
+        "nl": "House of Cars",
+        "en": "House of Cars"
+      },
+      "topic": "collab"
     },
     {
       "quote": {
-        "nl": "Onze drop was binnen drie dagen uitverkocht. Eén video, geen poespas.",
-        "en": "Our drop sold out in three days. One video, no fluff."
+        "nl": "Wat me bijbleef was de gastvrijheid en hoe natuurlijk het klikte. Geen scripted poespas — de collab-video's spraken voor zich.",
+        "en": "What stood out was the hospitality and how naturally it clicked. No scripted noise — the collab videos spoke for themselves."
       },
-      "author": "Jorcustom",
+      "author": "Barend Seijkens",
       "role": {
-        "nl": "Founder",
-        "en": "Founder"
-      }
+        "nl": "Bereschoon",
+        "en": "Bereschoon"
+      },
+      "topic": "collab"
     },
     {
       "quote": {
-        "nl": "Hij komt niet voorbereid met cue cards. Dat is precies waarom het werkt.",
-        "en": "He doesn't show up with cue cards. That's exactly why it works."
+        "nl": "De drops met Daan presteerden boven verwachting. Eén video, binnen 72 uur uitverkocht — en daarna nog wekenlang in onze top-bestsellers.",
+        "en": "The drops with Daan outperformed our expectations. One video, sold out within 72 hours — and back in our top bestsellers for weeks after."
       },
-      "author": "Voorbeeld Event",
+      "author": "Jordey",
       "role": {
-        "nl": "Programmeur",
-        "en": "Programmer"
-      }
+        "nl": "Owner · Jorcustom",
+        "en": "Owner · Jorcustom"
+      },
+      "topic": "drop"
     }
   ],
 
