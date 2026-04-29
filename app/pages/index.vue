@@ -205,7 +205,7 @@ const contactChannels = computed(() => (contactRuntime.value?.channels || []).ma
   waMessage: c.waMessage?.[locale.value] || c.waMessage?.nl || '',
 })))
 
-const SITE_URL = 'https://daan-willems.github.io'
+const SITE_URL = 'https://daanwillems.com'
 const ogImage = `${SITE_URL}/images/og.jpg`
 
 const seoTitle = computed(() => `Daan Willems — ${(heroCopy.value as any).tagline || ''}`.trim())
