@@ -27,6 +27,8 @@ jobs:
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
           YOUTUBE_CHANNEL_ID: ${{ vars.YOUTUBE_CHANNEL_ID || 'UC0ubM_L6ISEgqr5SJfI8XTA' }}
+          TIKTOK_HANDLE: ${{ vars.TIKTOK_HANDLE || 'daanwillemsautomotive' }}
+          IG_HANDLE: ${{ vars.IG_HANDLE || 'daanwillemsautomotive' }}
         run: node scripts/fetch-socials.mjs
 
       - name: Commit if changed
