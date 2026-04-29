@@ -188,22 +188,32 @@ const UA_IG_ANDROID = 'Instagram 219.0.0.12.117 Android'
 
 async function fetchInstagram(handle) {
   if (!handle) throw new Error('IG_HANDLE missing')
-  // Step 1: web_profile_info — for profile + stats + user_id
-  const profileRes = await fetch(`https://i.instagram.com/api/v1/users/web_profile_info/?username=${handle}`, {
-    headers: {
-      'User-Agent': UA_IPHONE,
-      'x-ig-app-id': '936619743392459',
-      'Accept-Language': 'en-US,en;q=0.9',
-      'Accept': '*/*',
-      'sec-fetch-site': 'same-origin',
-      'sec-fetch-mode': 'cors',
-      'sec-fetch-dest': 'empty',
-      'X-Requested-With': 'XMLHttpRequest',
-      'Referer': 'https://www.instagram.com/',
-    },
-  })
-  if (!profileRes.ok) throw new Error(`Instagram profile HTTP ${profileRes.status}`)
-  const profileJson = await profileRes.json()
+  // Step 1: web_profile_info — for profile + stats + user_id.
+  // Retry up to 3x with backoff — IG occasionally 401s datacenter IPs and recovers shortly.
+  let profileJson = null
+  let lastStatus = null
+  for (let attempt = 0; attempt < 3; attempt++) {
+    const profileRes = await fetch(`https://i.instagram.com/api/v1/users/web_profile_info/?username=${handle}`, {
+      headers: {
+        'User-Agent': UA_IPHONE,
+        'x-ig-app-id': '936619743392459',
+        'Accept-Language': 'en-US,en;q=0.9',
+        'Accept': '*/*',
+        'sec-fetch-site': 'same-origin',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-dest': 'empty',
+        'X-Requested-With': 'XMLHttpRequest',
+        'Referer': 'https://www.instagram.com/',
+      },
+    })
+    lastStatus = profileRes.status
+    if (profileRes.ok) {
+      profileJson = await profileRes.json()
+      break
+    }
+    if (attempt < 2) await new Promise(r => setTimeout(r, 1500 * (attempt + 1)))
+  }
+  if (!profileJson) throw new Error(`Instagram profile HTTP ${lastStatus}`)
   const u = profileJson?.data?.user
   if (!u) throw new Error('Instagram: user payload missing (login wall or rate-limited)')
   const followerCount = u.edge_followed_by?.count

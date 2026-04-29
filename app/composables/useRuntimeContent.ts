@@ -40,6 +40,8 @@ interface RuntimeContent {
     channels?: Array<{
       id: string
       icon?: string
+      phone?: string
+      whatsapp?: string
       email?: string
       title: Record<string, string>
       intro?: Record<string, string>

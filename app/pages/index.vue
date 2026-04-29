@@ -197,6 +197,8 @@ const waHref = computed(() => contactRuntime.value?.whatsapp)
 const contactChannels = computed(() => (contactRuntime.value?.channels || []).map(c => ({
   id: c.id,
   icon: c.icon,
+  phone: c.phone || contactRuntime.value?.phone || '',
+  whatsapp: c.whatsapp || contactRuntime.value?.whatsapp || '',
   email: c.email || contactRuntime.value?.email || '',
   title: c.title?.[locale.value] || c.title?.nl || '',
   intro: c.intro?.[locale.value] || c.intro?.nl || '',
@@ -641,9 +643,9 @@ useHead({
             <div class="contact-channel__tiles">
               <RevealOnScroll :delay="i * 60">
                 <ContactTile
-                  v-if="phoneHref"
+                  v-if="ch.phone"
                   kind="tel"
-                  :value="phoneHref"
+                  :value="ch.phone"
                   icon="📞"
                   :label="(contactCopy as any).phoneLabel"
                   :hint="(contactCopy as any).phoneHint"
@@ -651,9 +653,9 @@ useHead({
               </RevealOnScroll>
               <RevealOnScroll :delay="i * 60 + 60">
                 <ContactTile
-                  v-if="waHref"
+                  v-if="ch.whatsapp"
                   kind="whatsapp"
-                  :value="waHref"
+                  :value="ch.whatsapp"
                   :body="ch.waMessage"
                   icon="💬"
                   :label="(contactCopy as any).whatsappLabel"
