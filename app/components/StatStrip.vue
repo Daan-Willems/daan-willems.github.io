@@ -1,6 +1,6 @@
 <script setup lang="ts">
 defineProps<{
-  items: Array<{ value: number; label?: string; prefix?: string; suffix?: string; decimals?: number }>
+  items: Array<{ value: number; label?: string; prefix?: string; suffix?: string; decimals?: number; detail?: string }>
 }>()
 </script>
 
@@ -14,6 +14,7 @@ defineProps<{
       :prefix="item.prefix"
       :suffix="item.suffix"
       :decimals="item.decimals"
+      :detail="item.detail"
     />
   </div>
 </template>

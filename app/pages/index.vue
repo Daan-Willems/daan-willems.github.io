@@ -13,6 +13,13 @@ const navCopy = useCopy('nav')
 const footerCopy = useCopy('footer')
 const marqueeCopy = useCopy('marquee')
 const testimonialsCopy = useCopy('testimonials')
+const performancesCopy = useCopy('performances')
+
+// Spotlight media — drop a file at one of these paths to swap from poster to video.
+// Vertical phone-style: /videos/performance-portrait.mp4 (preferred for spotlight).
+// Horizontal/landscape:  /videos/performance.mp4
+const spotlightVideo = ref<string | null>(null)
+const spotlightPoster = '/images/hero.webp'
 
 const { content, load } = useRuntimeContent()
 const { socials: socialsData, load: loadSocials } = useSocialsData()
@@ -21,12 +28,50 @@ onMounted(() => {
   loadSocials()
 })
 
-const stats = computed(() => (content.value?.stats || []).map(s => ({
-  value: s.value,
-  prefix: s.prefix,
-  suffix: s.suffix,
-  label: s.label?.[locale.value] || s.label?.nl || '',
-})))
+const stats = computed(() => {
+  const t = (en: string, nl: string) => locale.value === 'en' ? en : nl
+  const ytCh = socialsData.value?.youtube?.channel
+  const tt = socialsData.value?.tiktok
+  const ig = socialsData.value?.instagram
+  const ytViews = ytCh?.viewCount ?? 0
+  const ytSubs = ytCh?.subscriberCount ?? 0
+  const ttLikes = tt?.stats?.heartCount ?? 0
+  const ttFollowers = tt?.stats?.followerCount ?? 0
+  const igFollowers = ig?.stats?.followerCount ?? 0
+  const igPlays = ig?.stats?.totalPlays ?? 0
+  const totalFollowers = ytSubs + ttFollowers + igFollowers
+  const totalReach = ytViews + igPlays
+  const collabsCount = content.value?.collabs?.length ?? 0
+  return [
+    {
+      value: totalReach,
+      label: t('Total reach', 'Totaal bekeken'),
+      suffix: '+',
+      detail: t(
+        `${formatCompact(igPlays)} IG plays · ${formatCompact(ytViews)} YT views`,
+        `${formatCompact(igPlays)} IG plays · ${formatCompact(ytViews)} YT views`,
+      ),
+    },
+    {
+      value: totalFollowers,
+      label: t('Total followers', 'Volgers totaal'),
+      suffix: '+',
+      detail: `${formatCompact(ytSubs)} YT · ${formatCompact(ttFollowers)} TT · ${formatCompact(igFollowers)} IG`,
+    },
+    {
+      value: ttLikes,
+      label: t('TikTok likes', 'TikTok likes'),
+      detail: tt?.stats
+        ? `${tt.stats.videoCount ?? 0} ${t('videos', "video's")} · ${formatCompact(ttFollowers)} ${t('followers', 'volgers')}`
+        : '',
+    },
+    {
+      value: collabsCount,
+      label: t('Collaborations', 'Samenwerkingen'),
+      detail: t('From brand drops to live appearances', 'Van merk drops tot live optredens'),
+    },
+  ]
+})
 
 const services = computed(() => (content.value?.services || []).map(s => ({
   ...s,
@@ -42,10 +87,32 @@ function formatPrice(n?: number) {
   return n ? n.toLocaleString('nl-NL') : ''
 }
 
+function formatCompact(n?: number | null) {
+  if (!n) return '0'
+  return n.toLocaleString('en-US', {
+    notation: 'compact',
+    maximumFractionDigits: 1,
+    // @ts-ignore — supported in modern Node/browsers
+    roundingMode: 'ceil',
+  }).replace(/\.0/, '')
+}
+
 const collabs = computed(() => (content.value?.collabs || []).map(c => ({
   ...c,
+  kind: c.kind?.[locale.value] || c.kind?.nl || '',
   summary: c.summary?.[locale.value] || c.summary?.nl || '',
+  description: c.description?.[locale.value] || c.description?.nl || '',
+  businessWhat: c.business?.what?.[locale.value] || c.business?.what?.nl || '',
+  businessLocation: c.business?.location || '',
+  businessWebsite: c.business?.website || '',
 })))
+
+const openCollab = ref<typeof collabs.value[number] | null>(null)
+const isCollabOpen = computed({
+  get: () => openCollab.value !== null,
+  set: (v) => { if (!v) openCollab.value = null },
+})
+function closeCollab() { openCollab.value = null }
 
 const testimonials = computed(() => (content.value?.testimonials || []).map(t => ({
   ...t,
@@ -53,9 +120,53 @@ const testimonials = computed(() => (content.value?.testimonials || []).map(t =>
   role: t.role?.[locale.value] || t.role?.nl || '',
 })))
 
+// Aggregate bio links from across platforms (deduplicated by normalized URL)
+const bioLinks = computed(() => {
+  const seen = new Map<string, { url: string; label: string }>()
+  const add = (u?: string | null, title?: string) => {
+    if (!u) return
+    const key = normalizeUrl(u)
+    if (seen.has(key)) return
+    seen.set(key, { url: u, label: title || prettifyUrl(u) })
+  }
+  add(socialsData.value?.tiktok?.profile?.bioLink)
+  for (const link of socialsData.value?.instagram?.profile?.bioLinks || []) {
+    add(link.url, link.title)
+  }
+  add(socialsData.value?.instagram?.profile?.externalUrl)
+  return Array.from(seen.values())
+})
+
+function normalizeUrl(u: string) {
+  try {
+    const url = new URL(u)
+    return (url.hostname.replace(/^www\./, '') + url.pathname.replace(/\/$/, '')).toLowerCase()
+  } catch {
+    return u.toLowerCase()
+  }
+}
+
+function prettifyUrl(u: string) {
+  try {
+    const url = new URL(u)
+    return (url.hostname + url.pathname).replace(/^www\./, '').replace(/\/$/, '')
+  } catch {
+    return u
+  }
+}
+
 // Socials videos: prefer the Action-fed JSON; fall back to curated URLs in content.json
 const youtubeUrls = computed(() => content.value?.socials?.youtube?.curatedUrls || [])
 const ytLatest = computed(() => socialsData.value?.youtube?.latest || [])
+const ytTop = computed(() => socialsData.value?.youtube?.top || [])
+const ytChannel = computed(() => socialsData.value?.youtube?.channel || null)
+const ttData = computed(() => socialsData.value?.tiktok || null)
+const igData = computed(() => socialsData.value?.instagram || null)
+const igPosts = computed(() => igData.value?.posts || [])
+
+const platform = ref<'youtube' | 'tiktok' | 'instagram'>('youtube')
+const socialsView = ref<'top' | 'latest'>('top')
+const ytVisible = computed(() => socialsView.value === 'top' ? ytTop.value : ytLatest.value)
 
 const navItems = computed(() => (navCopy.value as any).items || [])
 const footerLinks = computed(() => (footerCopy.value as any).links || [])
@@ -65,6 +176,7 @@ const progressSections = computed(() => [
   { id: 'top', label: locale.value === 'en' ? 'Hero' : 'Start' },
   { id: 'about', label: (aboutCopy.value as any).eyebrow || (locale.value === 'en' ? 'Story' : 'Verhaal') },
   { id: 'services', label: (servicesCopy.value as any).eyebrow || (locale.value === 'en' ? 'Services' : 'Diensten') },
+  { id: 'performances', label: locale.value === 'en' ? 'Live' : 'Live' },
   { id: 'socials', label: (socialsCopy.value as any).eyebrow || 'Socials' },
   { id: 'collabs', label: (collabsCopy.value as any).eyebrow || (locale.value === 'en' ? 'Work' : 'Werk') },
   { id: 'contact', label: (contactCopy.value as any).eyebrow || 'Contact' },
@@ -81,11 +193,11 @@ const isServiceOpen = computed({
 const contactRuntime = computed(() => content.value?.contact)
 const phoneHref = computed(() => contactRuntime.value?.phone)
 const waHref = computed(() => contactRuntime.value?.whatsapp)
-const mailHref = computed(() => contactRuntime.value?.email)
 
 const contactChannels = computed(() => (contactRuntime.value?.channels || []).map(c => ({
   id: c.id,
   icon: c.icon,
+  email: c.email || contactRuntime.value?.email || '',
   title: c.title?.[locale.value] || c.title?.nl || '',
   intro: c.intro?.[locale.value] || c.intro?.nl || '',
   mailSubject: c.mailSubject?.[locale.value] || c.mailSubject?.nl || '',
@@ -93,9 +205,69 @@ const contactChannels = computed(() => (contactRuntime.value?.channels || []).ma
   waMessage: c.waMessage?.[locale.value] || c.waMessage?.nl || '',
 })))
 
+const SITE_URL = 'https://daan-willems.github.io'
+const ogImage = `${SITE_URL}/images/og.jpg`
+
+const seoTitle = computed(() => `Daan Willems — ${(heroCopy.value as any).tagline || ''}`.trim())
+const seoDescription = computed(() => {
+  const intro = (heroCopy.value as any).intro || ''
+  return intro
+    ? intro.replace(/\n/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 200)
+    : 'Daan Willems — autohandelaar met een breed publiek. Samenwerken op socials, in placement, of live op het podium.'
+})
+
+const jsonLd = computed(() => ({
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Daan Willems',
+  url: SITE_URL,
+  image: ogImage,
+  jobTitle: locale.value === 'en' ? 'Car salesman & content creator' : 'Autoverkoper & content maker',
+  description: seoDescription.value,
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Daan Willems Automotive',
+    url: 'https://www.daanwillemsautomotiveshop.nl',
+  },
+  sameAs: [
+    socialsData.value?.youtube?.channel?.customUrl ? `https://www.youtube.com/${socialsData.value.youtube.channel.customUrl}` : 'https://www.youtube.com/@daanwillemsautomotive',
+    socialsData.value?.tiktok?.profile?.url || 'https://www.tiktok.com/@daanwillemsautomotive',
+    socialsData.value?.instagram?.profile?.url || 'https://www.instagram.com/daanwillemsautomotive/',
+  ].filter(Boolean),
+}))
+
 useHead({
   htmlAttrs: { lang: locale },
-  title: () => `Daan Willems — ${(heroCopy.value as any).tagline || ''}`,
+  title: () => seoTitle.value,
+  meta: [
+    { name: 'description', content: () => seoDescription.value },
+    // OpenGraph
+    { property: 'og:type', content: 'website' },
+    { property: 'og:site_name', content: 'Daan Willems' },
+    { property: 'og:title', content: () => seoTitle.value },
+    { property: 'og:description', content: () => seoDescription.value },
+    { property: 'og:url', content: SITE_URL },
+    { property: 'og:image', content: ogImage },
+    { property: 'og:image:width', content: '1200' },
+    { property: 'og:image:height', content: '630' },
+    { property: 'og:image:alt', content: 'Daan Willems — Eerlijk in beeld, breed in bereik.' },
+    { property: 'og:locale', content: () => locale.value === 'en' ? 'en_US' : 'nl_NL' },
+    { property: 'og:locale:alternate', content: () => locale.value === 'en' ? 'nl_NL' : 'en_US' },
+    // Twitter Card
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: () => seoTitle.value },
+    { name: 'twitter:description', content: () => seoDescription.value },
+    { name: 'twitter:image', content: ogImage },
+  ],
+  link: [
+    { rel: 'canonical', href: SITE_URL },
+  ],
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: () => JSON.stringify(jsonLd.value),
+    },
+  ],
 })
 </script>
 
@@ -186,7 +358,11 @@ useHead({
             </div>
           </RevealOnScroll>
           <RevealOnScroll :delay="80">
-            <div class="svc-channel">
+            <div class="svc-channel svc-channel--live">
+              <span class="svc-channel__badge" aria-hidden="true">
+                <span class="svc-channel__badge-dot" />
+                Live
+              </span>
               <div class="svc-channel__head">
                 <span class="svc-channel__icon" aria-hidden="true">🎤</span>
                 <h3 class="svc-channel__title">{{ (servicesCopy as any).stageTitle }}</h3>
@@ -213,24 +389,191 @@ useHead({
         </div>
       </SectionBlock>
 
+      <section id="performances" class="spotlight" data-progress-id="performances" aria-labelledby="performances-title">
+        <video
+          v-if="spotlightVideo"
+          :key="spotlightVideo"
+          class="spotlight__bg"
+          :src="spotlightVideo"
+          :poster="spotlightPoster"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          aria-hidden="true"
+        />
+        <img
+          v-else
+          class="spotlight__bg"
+          :src="spotlightPoster"
+          alt=""
+          aria-hidden="true"
+        />
+        <div class="spotlight__veil" aria-hidden="true" />
+        <div class="spotlight__grain" aria-hidden="true" />
+        <div class="spotlight__inner container">
+          <RevealOnScroll>
+            <div class="spotlight__head">
+              <span class="spotlight__live" aria-hidden="true">
+                <span class="spotlight__live-dot" />
+                {{ (performancesCopy as any).eyebrow || 'Live' }}
+              </span>
+              <h2 id="performances-title" class="spotlight__title">{{ (performancesCopy as any).title }}</h2>
+              <p class="spotlight__intro">{{ (performancesCopy as any).intro }}</p>
+            </div>
+          </RevealOnScroll>
+          <RevealOnScroll :delay="120">
+            <div class="spotlight__action">
+              <div class="spotlight__price">
+                <span class="eyebrow">{{ (performancesCopy as any).priceLabel || 'Vanaf' }}</span>
+                <span class="spotlight__price-value">€2.495</span>
+              </div>
+              <CtaButton variant="gold" size="lg" href="#contact">
+                {{ (performancesCopy as any).ctaLabel || 'Boek een optreden' }}
+              </CtaButton>
+              <p v-if="(performancesCopy as any).ctaHint" class="spotlight__hint">{{ (performancesCopy as any).ctaHint }}</p>
+            </div>
+          </RevealOnScroll>
+        </div>
+      </section>
+
       <SectionBlock
         id="socials"
         :eyebrow="(socialsCopy as any).eyebrow"
         :title="(socialsCopy as any).title"
         :intro="(socialsCopy as any).intro"
       >
+        <div class="platforms">
+          <a
+            v-if="ytChannel"
+            class="platform-card"
+            :class="{ 'is-active': platform === 'youtube' }"
+            :href="`https://www.youtube.com/${ytChannel.customUrl}`"
+            target="_blank"
+            rel="noopener"
+            @click.prevent="platform = 'youtube'"
+          >
+            <span class="platform-card__icon" aria-hidden="true">▶</span>
+            <span class="platform-card__body">
+              <span class="platform-card__handle">YouTube</span>
+              <span class="platform-card__sub">{{ ytChannel.customUrl }}</span>
+            </span>
+            <span class="platform-card__count">{{ formatCompact(ytChannel.subscriberCount) }}</span>
+          </a>
+          <a
+            v-if="ttData?.profile"
+            class="platform-card"
+            :class="{ 'is-active': platform === 'tiktok' }"
+            :href="ttData.profile.url"
+            target="_blank"
+            rel="noopener"
+            @click.prevent="platform = 'tiktok'"
+          >
+            <span class="platform-card__icon" aria-hidden="true">♪</span>
+            <span class="platform-card__body">
+              <span class="platform-card__handle">TikTok</span>
+              <span class="platform-card__sub">@{{ ttData.profile.uniqueId }}</span>
+            </span>
+            <span class="platform-card__count">{{ formatCompact(ttData.stats?.followerCount) }}</span>
+          </a>
+          <a
+            v-if="igData?.profile"
+            class="platform-card"
+            :class="{ 'is-active': platform === 'instagram' }"
+            :href="igData.profile.url"
+            target="_blank"
+            rel="noopener"
+            @click.prevent="platform = 'instagram'"
+          >
+            <span class="platform-card__icon" aria-hidden="true">◉</span>
+            <span class="platform-card__body">
+              <span class="platform-card__handle">Instagram</span>
+              <span class="platform-card__sub">@{{ igData.profile.username }}</span>
+            </span>
+            <span class="platform-card__count">{{ formatCompact(igData.stats?.followerCount) }}</span>
+          </a>
+        </div>
+
+        <div v-if="platform === 'youtube' && ytVisible.length" class="socials-toggle" role="tablist">
+          <button
+            type="button"
+            class="socials-toggle__btn"
+            :class="{ 'is-active': socialsView === 'top' }"
+            @click="socialsView = 'top'"
+          >{{ locale === 'en' ? 'Top videos' : 'Top video\'s' }}</button>
+          <button
+            type="button"
+            class="socials-toggle__btn"
+            :class="{ 'is-active': socialsView === 'latest' }"
+            @click="socialsView = 'latest'"
+          >{{ locale === 'en' ? 'Recent' : 'Recent' }}</button>
+        </div>
+
         <RevealOnScroll>
+          <!-- YouTube grid -->
           <MediaGrid
-            v-if="ytLatest.length"
-            :items="ytLatest.map(v => ({ url: v.url, title: v.title, thumb: v.thumbnail || undefined }))"
+            v-if="platform === 'youtube' && ytVisible.length"
+            :items="ytVisible.map(v => ({ url: v.url, title: v.title, thumb: v.thumbnail || undefined }))"
             :columns="3"
           />
           <MediaGrid
-            v-else-if="youtubeUrls.length"
+            v-else-if="platform === 'youtube' && youtubeUrls.length"
             :items="youtubeUrls.map(url => ({ url }))"
             :columns="3"
           />
-          <p v-else class="empty">Geen video's geconfigureerd. Voeg URLs toe in <code>public/data/content.json</code>.</p>
+
+          <!-- Instagram grid: thumbnails linking to instagram.com/p/<shortcode>/ -->
+          <div v-else-if="platform === 'instagram' && igPosts.length" class="ig-grid">
+            <a
+              v-for="post in igPosts"
+              :key="post.id"
+              :href="post.url"
+              target="_blank"
+              rel="noopener"
+              class="ig-post"
+            >
+              <img :src="post.thumbnail || ''" :alt="post.caption?.slice(0, 80) || 'Instagram post'" loading="lazy" />
+              <div class="ig-post__overlay">
+                <span v-if="post.viewCount" class="ig-post__stat">▶ {{ formatCompact(post.viewCount) }}</span>
+                <span v-if="post.likeCount" class="ig-post__stat">♥ {{ formatCompact(post.likeCount) }}</span>
+                <span v-if="post.commentCount" class="ig-post__stat">💬 {{ formatCompact(post.commentCount) }}</span>
+                <span v-if="post.type === 'reel'" class="ig-post__badge">Reel</span>
+              </div>
+            </a>
+          </div>
+
+          <!-- TikTok: profile card with stats + CTA, no video grid (loads via JS, not in scrape) -->
+          <div v-else-if="platform === 'tiktok' && ttData?.profile" class="tiktok-panel">
+            <div class="tiktok-panel__head">
+              <img v-if="ttData.profile.avatar" :src="ttData.profile.avatar" :alt="ttData.profile.nickname" />
+              <div class="tiktok-panel__body">
+                <h3 class="tiktok-panel__name">{{ ttData.profile.nickname }}</h3>
+                <p v-if="ttData.profile.bio" class="tiktok-panel__bio">{{ ttData.profile.bio }}</p>
+              </div>
+            </div>
+            <ul class="tiktok-panel__stats">
+              <li>
+                <span class="tiktok-panel__num">{{ formatCompact(ttData.stats?.followerCount) }}</span>
+                <span class="tiktok-panel__label">{{ locale === 'en' ? 'followers' : 'volgers' }}</span>
+              </li>
+              <li>
+                <span class="tiktok-panel__num">{{ formatCompact(ttData.stats?.heartCount) }}</span>
+                <span class="tiktok-panel__label">{{ locale === 'en' ? 'likes' : 'likes' }}</span>
+              </li>
+              <li>
+                <span class="tiktok-panel__num">{{ ttData.stats?.videoCount ?? 0 }}</span>
+                <span class="tiktok-panel__label">{{ locale === 'en' ? 'videos' : "video's" }}</span>
+              </li>
+            </ul>
+            <a :href="ttData.profile.url" target="_blank" rel="noopener" class="tiktok-panel__cta">
+              {{ locale === 'en' ? 'View on TikTok' : 'Bekijk op TikTok' }} →
+            </a>
+          </div>
+
+          <p v-else class="empty">
+            {{ locale === 'en' ? 'No content available yet.' : "Nog geen content beschikbaar." }}
+          </p>
         </RevealOnScroll>
       </SectionBlock>
 
@@ -243,18 +586,18 @@ useHead({
       >
         <div class="collab-grid">
           <RevealOnScroll v-for="(c, i) in collabs" :key="i" :delay="i * 60">
-            <Card variant="default">
-              <div class="collab">
-                <div class="collab__head">
-                  <h3 class="collab__brand">{{ c.brand }}</h3>
-                  <span v-if="c.year" class="collab__year">{{ c.year }}</span>
-                </div>
-                <p v-if="c.summary" class="collab__summary">{{ c.summary }}</p>
-                <a v-if="c.href" :href="c.href" target="_blank" rel="noopener" class="collab__link">
-                  Bekijk →
-                </a>
+            <button type="button" class="collab" @click="openCollab = c">
+              <div class="collab__head">
+                <h3 class="collab__brand">{{ c.brand }}</h3>
+                <span v-if="c.year" class="collab__year">{{ c.year }}</span>
               </div>
-            </Card>
+              <p v-if="c.kind" class="collab__kind">{{ c.kind }}</p>
+              <p v-if="c.summary" class="collab__summary">{{ c.summary }}</p>
+              <span class="collab__more">
+                {{ locale === 'en' ? 'Read more' : 'Meer weten' }}
+                <span aria-hidden="true">→</span>
+              </span>
+            </button>
           </RevealOnScroll>
         </div>
       </SectionBlock>
@@ -319,9 +662,9 @@ useHead({
               </RevealOnScroll>
               <RevealOnScroll :delay="i * 60 + 120">
                 <ContactTile
-                  v-if="mailHref"
+                  v-if="ch.email"
                   kind="mailto"
-                  :value="mailHref"
+                  :value="ch.email"
                   :subject="ch.mailSubject"
                   :body="ch.mailBody"
                   icon="✉"
@@ -332,20 +675,64 @@ useHead({
             </div>
           </div>
         </div>
+
+        <div v-if="bioLinks.length" class="bio-links">
+          <p class="bio-links__label">{{ locale === 'en' ? 'Also find Daan at' : 'Vind Daan ook op' }}</p>
+          <ul class="bio-links__list">
+            <li v-for="link in bioLinks" :key="link.url">
+              <a :href="link.url" target="_blank" rel="noopener">
+                <span aria-hidden="true">↗</span>
+                <span>{{ link.label }}</span>
+              </a>
+            </li>
+          </ul>
+        </div>
       </SectionBlock>
     </main>
 
-    <AppFooter :copyright="(footerCopy as any).copyright">
+    <AppFooter
+      :copyright="(footerCopy as any).copyright"
+      :tagline="(heroCopy as any).tagline"
+    >
       <template #brand>
         <BrandLogo variant="full" />
       </template>
-      <a
-        v-for="(l, i) in footerLinks"
-        :key="i"
-        :href="l.href"
-        :target="l.external ? '_blank' : undefined"
-        :rel="l.external ? 'noopener' : undefined"
-      >{{ l.label?.[locale] || l.label?.nl }}</a>
+
+      <template #navHeading>{{ locale === 'en' ? 'Navigate' : 'Navigeer' }}</template>
+      <template #nav>
+        <li v-for="item in navItems" :key="item.href">
+          <a :href="item.href">{{ item.label }}</a>
+        </li>
+      </template>
+
+      <template #socialsHeading>Socials</template>
+      <template #socials>
+        <li v-if="ytChannel">
+          <a :href="`https://www.youtube.com/${ytChannel.customUrl}`" target="_blank" rel="noopener">
+            YouTube — {{ formatCompact(ytChannel.subscriberCount) }}
+          </a>
+        </li>
+        <li v-if="ttData?.profile">
+          <a :href="ttData.profile.url" target="_blank" rel="noopener">
+            TikTok — {{ formatCompact(ttData.stats?.followerCount) }}
+          </a>
+        </li>
+        <li v-if="igData?.profile">
+          <a :href="igData.profile.url" target="_blank" rel="noopener">
+            Instagram — {{ formatCompact(igData.stats?.followerCount) }}
+          </a>
+        </li>
+      </template>
+
+      <template #legal>
+        <a
+          v-for="(l, i) in footerLinks"
+          :key="i"
+          :href="l.href"
+          :target="l.external ? '_blank' : undefined"
+          :rel="l.external ? 'noopener' : undefined"
+        >{{ l.label?.[locale] || l.label?.nl }}</a>
+      </template>
     </AppFooter>
 
     <Lightbox v-model:open="isServiceOpen" :title="openService?.title">
@@ -364,6 +751,39 @@ useHead({
         <CtaButton variant="gold" size="lg" href="#contact" @click="closeService">
           {{ (servicesCopy as any).ctaLabel }}
         </CtaButton>
+      </div>
+    </Lightbox>
+
+    <Lightbox v-model:open="isCollabOpen" :title="openCollab?.brand">
+      <div v-if="openCollab" class="collab-detail">
+        <div class="collab-detail__head">
+          <span v-if="openCollab.kind" class="collab-detail__kind">{{ openCollab.kind }}</span>
+          <span v-if="openCollab.year" class="collab-detail__year">{{ openCollab.year }}</span>
+        </div>
+        <p class="collab-detail__description">{{ openCollab.description || openCollab.summary }}</p>
+        <dl v-if="openCollab.businessWhat || openCollab.businessLocation || openCollab.businessWebsite" class="collab-detail__business">
+          <template v-if="openCollab.businessWhat">
+            <dt>{{ locale === 'en' ? 'What they do' : 'Wat ze doen' }}</dt>
+            <dd>{{ openCollab.businessWhat }}</dd>
+          </template>
+          <template v-if="openCollab.businessLocation">
+            <dt>{{ locale === 'en' ? 'Location' : 'Locatie' }}</dt>
+            <dd>{{ openCollab.businessLocation }}</dd>
+          </template>
+          <template v-if="openCollab.businessWebsite">
+            <dt>{{ locale === 'en' ? 'Website' : 'Website' }}</dt>
+            <dd><a :href="openCollab.businessWebsite" target="_blank" rel="noopener">{{ openCollab.businessWebsite.replace(/^https?:\/\//, '').replace(/\/$/, '') }}</a></dd>
+          </template>
+        </dl>
+        <a
+          v-if="openCollab.href"
+          :href="openCollab.href"
+          target="_blank"
+          rel="noopener"
+          class="collab-detail__cta"
+        >
+          {{ locale === 'en' ? 'Visit ' : 'Bezoek ' }}{{ openCollab.brand }} →
+        </a>
       </div>
     </Lightbox>
   </div>
@@ -411,6 +831,168 @@ useHead({
 .stats {
   padding-block: var(--s-7);
   background: var(--c-bg);
+}
+
+/* Performances spotlight — full-bleed band with video/image bg */
+.spotlight {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  padding-block: var(--s-9);
+  background: var(--c-bg);
+}
+.spotlight__bg {
+  position: absolute;
+  inset: -4% -2%;
+  width: 104%;
+  height: 108%;
+  object-fit: cover;
+  z-index: -2;
+  filter: saturate(0.85) brightness(0.55);
+}
+.spotlight__veil {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(180deg, rgba(10, 9, 8, 0.75) 0%, rgba(10, 9, 8, 0.55) 40%, rgba(10, 9, 8, 0.92) 100%),
+    radial-gradient(60% 50% at 30% 50%, rgba(212, 175, 55, 0.08), transparent 70%);
+}
+.spotlight__grain {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.1;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  background-size: 220px 220px;
+}
+.spotlight__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s-7);
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+@media (min-width: 900px) {
+  .spotlight__inner { grid-template-columns: 1.4fr 1fr; }
+}
+.spotlight__head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+  max-width: 36rem;
+}
+.spotlight__live {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  align-self: flex-start;
+  padding: 0.4em 1em;
+  font-size: var(--fs-300);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--c-fg);
+  background: rgba(10, 9, 8, 0.55);
+  border: 1px solid rgba(245, 241, 232, 0.25);
+  border-radius: var(--radius-pill);
+  backdrop-filter: blur(8px);
+}
+.spotlight__live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--c-gold);
+  box-shadow: 0 0 12px var(--c-gold);
+  animation: live-pulse 1.6s ease-in-out infinite;
+}
+@keyframes live-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.45; transform: scale(0.7); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .spotlight__live-dot { animation: none; }
+}
+.spotlight__title {
+  font-family: var(--ff-display);
+  font-weight: 800;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 0.95;
+  letter-spacing: var(--tracking-tight);
+  margin: 0;
+}
+.spotlight__intro {
+  font-size: var(--fs-500);
+  color: var(--c-fg-soft);
+  line-height: var(--lh-body);
+  white-space: pre-line;
+  margin: 0;
+}
+.spotlight__action {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--s-4);
+  padding: var(--s-6);
+  background: rgba(10, 9, 8, 0.6);
+  border: 1px solid rgba(245, 241, 232, 0.15);
+  border-radius: var(--radius-md);
+  backdrop-filter: blur(12px);
+}
+@media (min-width: 900px) {
+  .spotlight__action { justify-self: end; min-width: 22rem; }
+}
+.spotlight__price {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-1);
+}
+.spotlight__price-value {
+  font-family: var(--ff-display);
+  font-weight: 800;
+  font-size: var(--fs-900);
+  line-height: 1;
+  color: var(--c-fg);
+}
+.spotlight__hint {
+  font-size: var(--fs-300);
+  color: var(--c-fg-muted);
+  letter-spacing: var(--tracking-wide);
+  margin: 0;
+}
+
+/* Live badge on the Op het podium svc-channel card */
+.svc-channel--live { position: relative; }
+.svc-channel__badge {
+  position: absolute;
+  top: var(--s-3);
+  right: var(--s-3);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.3em 0.8em;
+  font-size: var(--fs-300);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--c-fg);
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: var(--radius-pill);
+}
+.svc-channel__badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--c-gold);
+  box-shadow: 0 0 8px var(--c-gold);
+  animation: live-pulse 1.6s ease-in-out infinite;
 }
 
 /* atmospheric backdrops — narrow vertical washes, hue shifts only at edges */
@@ -661,6 +1243,21 @@ useHead({
   flex-direction: column;
   gap: var(--s-3);
   height: 100%;
+  width: 100%;
+  padding: var(--s-5);
+  background: var(--c-bg-elev-1);
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius-md);
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+  color: inherit;
+  transition: border-color var(--transition-fast), background var(--transition-fast), transform var(--transition-fast);
+}
+.collab:hover {
+  border-color: var(--c-gold-deep);
+  background: var(--c-bg-elev-2);
+  transform: translateY(-2px);
 }
 .collab__head {
   display: flex;
@@ -672,30 +1269,384 @@ useHead({
   font-family: var(--ff-display);
   font-weight: 600;
   font-size: var(--fs-600);
+  margin: 0;
 }
 .collab__year {
   color: var(--c-fg-dim);
   font-size: var(--fs-300);
   letter-spacing: var(--tracking-wide);
 }
-.collab__summary {
-  color: var(--c-fg-muted);
-  font-size: var(--fs-400);
-  flex: 1;
-}
-.collab__link {
+.collab__kind {
   font-size: var(--fs-300);
   text-transform: uppercase;
   letter-spacing: var(--tracking-wide);
+  color: var(--c-fg-soft);
+  margin: 0;
+}
+.collab__summary {
+  color: var(--c-fg-muted);
+  font-size: var(--fs-400);
+  line-height: var(--lh-snug);
+  flex: 1;
+  margin: 0;
+}
+.collab__more {
+  font-size: var(--fs-300);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  color: var(--c-fg-dim);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  transition: color var(--transition-fast);
+}
+.collab:hover .collab__more {
+  color: var(--c-gold);
+}
+
+/* Collab lightbox */
+.collab-detail {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-5);
+}
+.collab-detail__head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+  align-items: baseline;
+}
+.collab-detail__kind {
+  font-size: var(--fs-300);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  color: var(--c-fg-soft);
+  padding: 0.3em 0.8em;
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius-pill);
+}
+.collab-detail__year {
+  font-family: var(--ff-display);
+  font-weight: 600;
+  font-size: var(--fs-500);
+  color: var(--c-fg-muted);
+}
+.collab-detail__description {
+  font-size: var(--fs-500);
+  color: var(--c-fg-muted);
+  line-height: var(--lh-body);
+  margin: 0;
+}
+.collab-detail__business {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: var(--s-2) var(--s-5);
+  padding: var(--s-4);
+  background: var(--c-bg-elev-2);
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius-md);
+  margin: 0;
+}
+.collab-detail__business dt {
+  font-size: var(--fs-300);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  color: var(--c-fg-dim);
+  font-weight: 500;
+}
+.collab-detail__business dd {
+  margin: 0;
+  font-size: var(--fs-400);
   color: var(--c-fg);
-  align-self: flex-start;
+}
+.collab-detail__business a {
+  color: var(--c-fg);
   border-bottom: 1px solid var(--c-line-strong);
   padding-bottom: 2px;
   transition: color var(--transition-fast), border-color var(--transition-fast);
 }
-.collab__link:hover {
+.collab-detail__business a:hover {
   color: var(--c-gold);
-  border-bottom-color: var(--c-gold);
+  border-color: var(--c-gold);
+}
+.collab-detail__cta {
+  align-self: flex-start;
+  padding: 0.85em 1.4em;
+  font-size: var(--fs-400);
+  font-weight: 600;
+  background: var(--c-fg);
+  color: var(--c-bg);
+  border-radius: var(--radius-pill);
+  transition: background var(--transition-fast);
+}
+.collab-detail__cta:hover { background: var(--c-gold); }
+
+.platforms {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s-3);
+  margin-bottom: var(--s-6);
+}
+@media (min-width: 720px) {
+  .platforms { grid-template-columns: repeat(3, 1fr); }
+}
+.platform-card {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--s-4);
+  padding: var(--s-4) var(--s-5);
+  background: var(--c-bg-elev-1);
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius-md);
+  transition: border-color var(--transition-fast), background var(--transition-fast), transform var(--transition-fast);
+  text-decoration: none;
+  color: inherit;
+}
+.platform-card:hover {
+  border-color: var(--c-gold-deep);
+  background: var(--c-bg-elev-2);
+  transform: translateY(-1px);
+}
+.platform-card.is-active {
+  border-color: var(--c-fg-soft);
+  background: var(--c-bg-elev-2);
+}
+.platform-card__icon {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: rgba(245, 241, 232, 0.06);
+  border-radius: 50%;
+  color: var(--c-fg);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+.platform-card.is-active .platform-card__icon {
+  background: rgba(212, 175, 55, 0.15);
+  color: var(--c-gold);
+}
+.platform-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.platform-card__handle {
+  font-family: var(--ff-display);
+  font-weight: 600;
+  font-size: var(--fs-500);
+  color: var(--c-fg);
+}
+.platform-card__sub {
+  font-size: var(--fs-300);
+  color: var(--c-fg-muted);
+  letter-spacing: var(--tracking-wide);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.platform-card__count {
+  font-family: var(--ff-display);
+  font-weight: 700;
+  font-size: var(--fs-600);
+  color: var(--c-fg);
+  white-space: nowrap;
+}
+
+/* Instagram grid */
+.ig-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--s-3);
+}
+@media (min-width: 720px) {
+  .ig-grid { grid-template-columns: repeat(3, 1fr); }
+}
+.ig-post {
+  position: relative;
+  display: block;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--c-line);
+  background: var(--c-bg-elev-1);
+}
+.ig-post img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-base);
+}
+.ig-post:hover img { transform: scale(1.05); }
+.ig-post__overlay {
+  position: absolute;
+  inset: auto 0 0 0;
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  padding: var(--s-3) var(--s-4);
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.75));
+  color: var(--c-fg);
+  font-size: var(--fs-300);
+  letter-spacing: 0.04em;
+}
+.ig-post__stat { display: inline-flex; gap: 0.3em; align-items: center; }
+.ig-post__badge {
+  margin-left: auto;
+  padding: 2px 0.5em;
+  background: rgba(245, 241, 232, 0.15);
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-300);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+}
+
+/* TikTok panel — profile-style since video list isn't in scrape */
+.tiktok-panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-5);
+  padding: var(--s-6) var(--s-5);
+  background: var(--c-bg-elev-1);
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius-md);
+  text-align: center;
+  align-items: center;
+}
+.tiktok-panel__head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s-3);
+}
+.tiktok-panel__head img {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  border: 2px solid var(--c-line-strong);
+}
+.tiktok-panel__name {
+  font-family: var(--ff-display);
+  font-weight: 600;
+  font-size: var(--fs-600);
+  margin: 0;
+}
+.tiktok-panel__bio {
+  font-size: var(--fs-400);
+  color: var(--c-fg-muted);
+  line-height: var(--lh-snug);
+  white-space: pre-line;
+  max-width: 32rem;
+  margin: 0;
+}
+.tiktok-panel__stats {
+  display: flex;
+  gap: var(--s-7);
+  padding: var(--s-4) 0;
+  border-block: 1px solid var(--c-line);
+  width: 100%;
+  justify-content: center;
+}
+.tiktok-panel__stats li {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: center;
+}
+.tiktok-panel__num {
+  font-family: var(--ff-display);
+  font-weight: 700;
+  font-size: var(--fs-700);
+  color: var(--c-fg);
+}
+.tiktok-panel__label {
+  font-size: var(--fs-300);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--c-fg-muted);
+}
+.tiktok-panel__cta {
+  font-size: var(--fs-300);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--c-fg);
+  border-bottom: 1px solid var(--c-fg-muted);
+  padding-bottom: 2px;
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+.tiktok-panel__cta:hover {
+  color: var(--c-gold);
+  border-color: var(--c-gold);
+}
+
+.bio-links {
+  margin-top: var(--s-7);
+  text-align: center;
+}
+.bio-links__label {
+  font-family: var(--ff-body);
+  font-size: var(--fs-300);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  color: var(--c-fg-soft);
+  margin: 0 0 var(--s-4) 0;
+}
+.bio-links__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--s-3);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.bio-links__list a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.6em 1.2em;
+  background: var(--c-bg-elev-1);
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-300);
+  letter-spacing: 0.04em;
+  color: var(--c-fg);
+  transition: border-color var(--transition-fast), background var(--transition-fast), color var(--transition-fast);
+}
+.bio-links__list a:hover {
+  border-color: var(--c-gold-deep);
+  background: var(--c-bg-elev-2);
+  color: var(--c-gold);
+}
+
+.socials-toggle {
+  display: inline-flex;
+  gap: 2px;
+  padding: 4px;
+  margin-bottom: var(--s-5);
+  background: var(--c-bg-elev-1);
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius-pill);
+}
+.socials-toggle__btn {
+  padding: 0.5em 1.25em;
+  font-size: var(--fs-300);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--c-fg-muted);
+  background: transparent;
+  border: 0;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: color var(--transition-fast), background var(--transition-fast);
+}
+.socials-toggle__btn:hover { color: var(--c-fg); }
+.socials-toggle__btn.is-active {
+  background: var(--c-bg-elev-2);
+  color: var(--c-fg);
 }
 
 .testimonial-grid {

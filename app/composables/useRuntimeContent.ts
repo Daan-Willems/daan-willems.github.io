@@ -12,7 +12,14 @@ interface RuntimeContent {
   collabs?: Array<{
     brand: string
     year?: number
+    kind?: Record<string, string>
     summary?: Record<string, string>
+    description?: Record<string, string>
+    business?: {
+      what?: Record<string, string>
+      location?: string
+      website?: string
+    }
     image?: string
     href?: string
   }>
@@ -33,6 +40,7 @@ interface RuntimeContent {
     channels?: Array<{
       id: string
       icon?: string
+      email?: string
       title: Record<string, string>
       intro?: Record<string, string>
       mailSubject?: Record<string, string>

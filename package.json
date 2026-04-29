@@ -9,7 +9,7 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "typecheck": "nuxt typecheck",
-    "fetch:socials": "node scripts/fetch-socials.mjs"
+    "fetch:socials": "node --env-file=.env scripts/fetch-socials.mjs"
   },
   "dependencies": {
     "@nuxt/content": "^3.13.0",

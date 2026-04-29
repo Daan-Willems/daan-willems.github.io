@@ -1,27 +1,4 @@
 {
-  "stats": [
-    {
-      "value": 250000,
-      "suffix": "+",
-      "label": { "nl": "Volgers totaal", "en": "Total followers" }
-    },
-    {
-      "value": 18,
-      "suffix": "M+",
-      "label": { "nl": "Views per maand", "en": "Views per month" },
-      "decimals": 0
-    },
-    {
-      "value": 92,
-      "suffix": "%",
-      "label": { "nl": "Engagement rate", "en": "Engagement rate" }
-    },
-    {
-      "value": 12,
-      "label": { "nl": "Eerdere collabs", "en": "Past collabs" }
-    }
-  ],
-
   "services": [
     {
       "id": "social-reel",
@@ -104,27 +81,166 @@
     {
       "brand": "Jorcustom",
       "year": 2026,
+      "kind": { "nl": "Capsule collectie", "en": "Capsule collection" },
       "summary": {
         "nl": "Capsule t-shirt collectie voor Koningsdag. Uitverkocht binnen 72 uur.",
         "en": "Capsule t-shirt collection for King's Day. Sold out in 72 hours."
+      },
+      "description": {
+        "nl": "Limited edition t-shirts in samenwerking met Jorcustom, gelanceerd in aanloop naar Koningsdag. Daan deed het launch-content op zijn socials. De drop verkocht binnen 72 uur uit en stond een week lang in de Top-3 van Jorcustom's bestsellers.",
+        "en": "Limited edition t-shirts in partnership with Jorcustom, launched ahead of King's Day. Daan handled the launch content on his socials. The drop sold out within 72 hours and stayed in Jorcustom's top-3 bestsellers for a week."
+      },
+      "business": {
+        "what": { "nl": "Custom kledingmerk uit Nederland", "en": "Dutch custom apparel brand" },
+        "website": "https://jorcustom.com"
       },
       "href": "https://jorcustom.com"
     },
     {
       "brand": "MaleLions",
-      "year": 2025,
+      "year": 2026,
+      "kind": { "nl": "Product placement", "en": "Product placement" },
       "summary": {
-        "nl": "Product placement in vlogs. Items naadloos in zijn dagelijkse showroom-routine.",
+        "nl": "Product placement in vlogs. Items naadloos in z'n dagelijkse showroom-routine.",
         "en": "Product placement throughout the vlogs. Items woven naturally into his daily showroom routine."
+      },
+      "description": {
+        "nl": "Daan draagt MaleLions in z'n vlogs — geen scripted promo, gewoon onderdeel van z'n garderobe. Resultaat: organische merkimpressies op zijn vaste publiek van honderdduizenden views per video.",
+        "en": "Daan wears MaleLions throughout his vlogs — no scripted promo, just part of his wardrobe. Result: organic brand impressions on his regular audience of hundreds of thousands of views per video."
+      },
+      "business": {
+        "what": { "nl": "Premium streetwear merk", "en": "Premium streetwear brand" },
+        "website": "https://malelions.com"
       },
       "href": "https://malelions.com"
     },
     {
-      "brand": "Keukenconcurrent",
-      "year": 2025,
+      "brand": "KeukenSale Den Bosch",
+      "year": 2026,
+      "kind": { "nl": "Product placement", "en": "Product placement" },
       "summary": {
-        "nl": "Samenwerking met keukenleverancier — placement in Daan's eigen verbouwing.",
-        "en": "Partnership with kitchen supplier — placement in Daan's own renovation."
+        "nl": "Keukenleverancier voor Daan's eigen verbouwing. Placement in de bouwvlogs.",
+        "en": "Kitchen supplier for Daan's own renovation. Placement in the build vlogs."
+      },
+      "description": {
+        "nl": "KeukenSale leverde de keuken voor Daan's eigen huisverbouwing. Het complete traject — van showroom-bezoek tot oplevering — werd vastgelegd in een vlogserie met flinke kijktijd en doorklikbereik.",
+        "en": "KeukenSale supplied the kitchen for Daan's own home renovation. The full journey — from showroom visit to final install — was captured in a vlog series with substantial watch time and click-through reach."
+      },
+      "business": {
+        "what": { "nl": "Keukenshowroom in Den Bosch", "en": "Kitchen showroom in Den Bosch" },
+        "location": "Den Bosch, NL"
+      }
+    },
+    {
+      "brand": "Van Leuken",
+      "year": 2026,
+      "kind": { "nl": "Auto-prijs", "en": "Car giveaway" },
+      "summary": {
+        "nl": "Auto gekocht door Van Leuken om als prijs weg te geven aan een klant.",
+        "en": "Car purchased by Van Leuken to give away as a prize to a customer."
+      },
+      "description": {
+        "nl": "Van Leuken kocht een auto bij Daan met als doel deze weg te geven aan een eigen klant. De aankoop, overhandiging en winnaar-onthulling werden vastgelegd in content op beide socials.",
+        "en": "Van Leuken bought a car from Daan to give away as a prize to one of their own customers. The purchase, handover, and winner reveal were captured in content across both socials."
+      },
+      "business": {
+        "what": { "nl": "Klantgeschenk-actie", "en": "Customer giveaway campaign" }
+      }
+    },
+    {
+      "brand": "Verbeek Reclame",
+      "year": 2026,
+      "kind": { "nl": "Lichtreclame", "en": "Commercial signage" },
+      "summary": {
+        "nl": "Lichtreclame en logo's op de showroom-muren. Onderdeel van de bouw-content.",
+        "en": "Commercial lighting and wall logos for the showroom. Part of the build content."
+      },
+      "description": {
+        "nl": "Verbeek Reclame leverde de lichtreclame en logo-installaties voor de Daan Willems Automotive showroom. Het maakwerk en de installatie werden gefilmd als onderdeel van de bouw-vlogs.",
+        "en": "Verbeek Reclame produced and installed the commercial lighting and wall logos for the Daan Willems Automotive showroom. The fabrication and install were filmed as part of the build vlogs."
+      },
+      "business": {
+        "what": { "nl": "Reclame en signing specialist", "en": "Signage and lighting specialist" }
+      }
+    },
+    {
+      "brand": "Van de Pol Timmerwerken",
+      "year": 2026,
+      "kind": { "nl": "Bouw & timmerwerk", "en": "Construction & carpentry" },
+      "summary": {
+        "nl": "Bouwde het kantoor in de showroom. Vastgelegd in de bouw-vlogserie.",
+        "en": "Built the office inside the showroom. Captured in the build vlog series."
+      },
+      "description": {
+        "nl": "Van de Pol Timmerwerken bouwde het kantoor en de interieurelementen voor de Daan Willems Automotive showroom. Een meerdaags project dat in een doorlopende vlogserie werd vastgelegd — van eerste schets tot oplevering.",
+        "en": "Van de Pol Timmerwerken built the office and interior elements for the Daan Willems Automotive showroom. A multi-day project captured in an ongoing vlog series — from first sketch to final hand-off."
+      },
+      "business": {
+        "what": { "nl": "Bouw- en timmerwerken", "en": "Construction and carpentry" }
+      }
+    },
+    {
+      "brand": "House of Cars",
+      "year": 2026,
+      "kind": { "nl": "Collab-video's", "en": "Collab videos" },
+      "summary": {
+        "nl": "Cross-vlogs met House of Cars — taxaties, deals en showroom-bezoeken.",
+        "en": "Cross-vlogs with House of Cars — appraisals, deals, and showroom visits."
+      },
+      "description": {
+        "nl": "Reeks samenwerkings-vlogs met Danny van House of Cars: gezamenlijke taxaties, deals over en weer, en een aantal van de bestbekeken video's op het kanaal — meerdere afleveringen ruim boven de 100K views.",
+        "en": "A series of collab vlogs with Danny from House of Cars: joint appraisals, deals back and forth, and several of the channel's most-watched videos — multiple episodes well over 100K views."
+      },
+      "business": {
+        "what": { "nl": "Auto-handel & content", "en": "Car dealership & content" }
+      }
+    },
+    {
+      "brand": "Raúl Groenen",
+      "year": 2026,
+      "kind": { "nl": "Collab-video's", "en": "Collab videos" },
+      "summary": {
+        "nl": "Cross-vlogs met Raúl Groenen — dagen samen op pad, hoog viewbereik.",
+        "en": "Cross-vlogs with Raúl Groenen — days out together, high view reach."
+      },
+      "description": {
+        "nl": "Meerdaagse vlog-collabs met Raúl Groenen, inclusief de Eindhoven-vlog die het meest bekeken op het kanaal werd (140K+ views). Gemeenschappelijk publiek van twee Nederlandse content-makers.",
+        "en": "Multi-day vlog collabs with Raúl Groenen, including the Eindhoven vlog that became the most-viewed video on the channel (140K+ views). Shared audience between two Dutch content creators."
+      },
+      "business": {
+        "what": { "nl": "Nederlands content-maker", "en": "Dutch content creator" }
+      }
+    },
+    {
+      "brand": "Lotgenoten",
+      "year": 2026,
+      "kind": { "nl": "Podcast", "en": "Podcast" },
+      "summary": {
+        "nl": "Podcast-aflevering met Daan over zijn verhaal: van showroom naar viraal.",
+        "en": "Podcast episode with Daan about his journey — from showroom to viral."
+      },
+      "description": {
+        "nl": "Daan was te gast bij de Lotgenoten-podcast voor een lange-vorm gesprek over de overgang van auto verkoper naar viral content-maker — verleden, valkuilen, en wat het sociaal-mediasucces écht heeft veranderd.",
+        "en": "Daan appeared on the Lotgenoten podcast for a long-form conversation about the transition from car salesman to viral content creator — past, pitfalls, and what social media success actually changed."
+      },
+      "business": {
+        "what": { "nl": "Podcastserie", "en": "Podcast series" }
+      }
+    },
+    {
+      "brand": "Over de Vloer Bij",
+      "year": 2026,
+      "kind": { "nl": "Interview", "en": "Interview" },
+      "summary": {
+        "nl": "Interview-aflevering bij Daan thuis — kijkje achter de schermen.",
+        "en": "Interview episode at Daan's place — behind-the-scenes access."
+      },
+      "description": {
+        "nl": "Aflevering van 'Over de Vloer Bij' opgenomen bij Daan thuis. Een persoonlijker gesprek dan de showroom-content: privé-leven, ondernemerschap, en hoe hij zichzelf staande houdt onder de toegenomen aandacht.",
+        "en": "Episode of 'Over de Vloer Bij' recorded at Daan's place. A more personal conversation than the showroom content: private life, entrepreneurship, and how he keeps grounded under the increased attention."
+      },
+      "business": {
+        "what": { "nl": "Interview-formaat", "en": "Interview format" }
       }
     }
   ],
@@ -153,6 +269,18 @@
   },
 
   "testimonials": [
+    {
+      "quote": {
+        "nl": "Daan op het podium is precies dezelfde gast als in z'n vlogs. Geen masker, geen scripted praatje — gewoon Daan. Het publiek pikte 'm direct op.",
+        "en": "Daan on stage is the same guy you see in his vlogs. No mask, no scripted bit — just Daan. The crowd locked in instantly."
+      },
+      "author": "Kruzo",
+      "role": {
+        "nl": "Live booking",
+        "en": "Live booking"
+      },
+      "topic": "stage"
+    },
     {
       "quote": {
         "nl": "Daan is geen acteur. Wat hij zegt is wat hij doet — en dat zie je in de cijfers.",
@@ -189,13 +317,13 @@
   ],
 
   "contact": {
-    "phone": "+31 6 00 00 00 00",
-    "whatsapp": "+31 6 00 00 00 00",
-    "email": "info@daanwillems.nl",
+    "phone": "+31623182351",
+    "whatsapp": "+31623182351",
     "channels": [
       {
         "id": "collab",
         "icon": "🤝",
+        "email": "samenwerken@daanwillems.com",
         "title": {
           "nl": "Merken & product placement",
           "en": "Brands & product placement"
@@ -220,6 +348,7 @@
       {
         "id": "performances",
         "icon": "🎤",
+        "email": "evenementen@daanwillems.com",
         "title": {
           "nl": "Optredens & live boekingen",
           "en": "Performances & live bookings"

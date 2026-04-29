@@ -6,6 +6,7 @@ const props = withDefaults(defineProps<{
   suffix?: string
   duration?: number
   decimals?: number
+  detail?: string
 }>(), {
   duration: 1600,
   decimals: 0,
@@ -22,6 +23,8 @@ function format(n: number) {
     return n.toLocaleString('en-US', {
       notation: 'compact',
       maximumFractionDigits: 1,
+      // @ts-ignore — supported in modern Node/browsers, types may lag
+      roundingMode: 'ceil',
     }).replace(/\.0/, '')
   }
   return n.toLocaleString('nl-NL', { minimumFractionDigits: props.decimals, maximumFractionDigits: props.decimals })
@@ -67,6 +70,7 @@ onMounted(() => {
       <span v-if="suffix" class="stat__affix">{{ suffix }}</span>
     </div>
     <div v-if="label" class="stat__label">{{ label }}</div>
+    <div v-if="detail" class="stat__detail">{{ detail }}</div>
   </div>
 </template>
 
@@ -121,5 +125,11 @@ onMounted(() => {
   text-transform: uppercase;
   color: var(--c-fg-muted);
   font-weight: 500;
+}
+.stat__detail {
+  font-size: var(--fs-300);
+  color: var(--c-fg-dim);
+  line-height: var(--lh-snug);
+  margin-top: var(--s-1);
 }
 </style>

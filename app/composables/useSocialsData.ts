@@ -21,13 +21,92 @@ interface YouTubeChannel {
   bannerUrl?: string | null
 }
 
+interface PlatformStatus {
+  status?: 'ok' | 'failed' | 'stale'
+  lastFetchedAt?: string
+  error?: string
+  lastError?: string
+  lastErrorAt?: string
+}
+
+interface TikTokData extends PlatformStatus {
+  handle?: string
+  profile?: {
+    uniqueId: string
+    nickname: string
+    bio?: string | null
+    bioLink?: string | null
+    avatar?: string | null
+    verified?: boolean
+    url: string
+  }
+  stats?: {
+    followerCount?: number
+    followingCount?: number | null
+    heartCount?: number | null
+    videoCount?: number | null
+  }
+  videos?: Array<{
+    id: string
+    url: string
+    description?: string
+    publishedAt?: string | null
+    thumbnail?: string | null
+    duration?: number | null
+    viewCount?: number | null
+    likeCount?: number | null
+    commentCount?: number | null
+  }>
+}
+
+interface InstagramData extends PlatformStatus {
+  handle?: string
+  profile?: {
+    username: string
+    fullName: string
+    bio?: string | null
+    bioLinks?: Array<{ title: string; url: string }>
+    externalUrl?: string | null
+    avatar?: string
+    isBusiness?: boolean
+    category?: string | null
+    verified?: boolean
+    url: string
+  }
+  stats?: {
+    followerCount?: number
+    followingCount?: number | null
+    mediaCount?: number | null
+    totalPlays?: number | null
+    totalLikes?: number | null
+    totalComments?: number | null
+    sampledPostCount?: number | null
+  }
+  posts?: Array<{
+    id: string
+    shortcode: string
+    url: string
+    type: 'reel' | 'video' | 'image'
+    publishedAt?: string | null
+    thumbnail?: string | null
+    caption?: string | null
+    likeCount?: number | null
+    commentCount?: number | null
+    viewCount?: number | null
+  }>
+}
+
+interface YouTubeData extends PlatformStatus {
+  channel?: YouTubeChannel | null
+  latest?: YouTubeVideo[]
+  top?: YouTubeVideo[]
+}
+
 interface SocialsData {
   generatedAt?: string | null
-  youtube?: {
-    channel?: YouTubeChannel | null
-    latest?: YouTubeVideo[]
-    top?: YouTubeVideo[]
-  }
+  youtube?: YouTubeData
+  tiktok?: TikTokData
+  instagram?: InstagramData
 }
 
 const STATE_KEY = 'socialsData'

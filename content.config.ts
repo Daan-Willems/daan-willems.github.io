@@ -28,6 +28,8 @@ export default defineContentConfig({
         phoneHint: localeString.optional(),
         whatsappHint: localeString.optional(),
         emailHint: localeString.optional(),
+        priceLabel: localeString.optional(),
+        ctaHint: localeString.optional(),
         copyright: localeString.optional(),
         items: z.array(z.any()).optional(),
         links: z.array(z.any()).optional(),
