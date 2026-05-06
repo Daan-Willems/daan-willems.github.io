@@ -1,16 +1,15 @@
-name: Refresh socials data
+name: Refresh socials — YouTube
 
 on:
   schedule:
-    # Every 6 hours, on the hour
-    - cron: '0 */6 * * *'
+    - cron: '15 */6 * * *'
   workflow_dispatch:
 
 permissions:
   contents: write
 
 concurrency:
-  group: socials
+  group: socials-commit
   cancel-in-progress: false
 
 jobs:
@@ -23,22 +22,22 @@ jobs:
         with:
           node-version: 20
 
-      - name: Fetch socials data
+      - name: Fetch YouTube
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
           YOUTUBE_CHANNEL_ID: ${{ vars.YOUTUBE_CHANNEL_ID || 'UC0ubM_L6ISEgqr5SJfI8XTA' }}
-          TIKTOK_HANDLE: ${{ vars.TIKTOK_HANDLE || 'daanwillemsautomotive' }}
-          IG_HANDLE: ${{ vars.IG_HANDLE || 'daanwillemsautomotive' }}
-        run: node scripts/fetch-socials.mjs
+          YT_STALE_HOURS: '24'
+        run: node scripts/fetch-socials.mjs --platform youtube
 
       - name: Commit if changed
         run: |
-          if git diff --quiet -- public/data/socials.json; then
+          if git diff --quiet -- public/data/socials.json public/images/socials; then
             echo "no changes"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add public/data/socials.json
-          git commit -m "chore(socials): refresh youtube data"
+          git pull --rebase
+          git add public/data/socials.json public/images/socials
+          git commit -m "chore(socials): refresh youtube"
           git push

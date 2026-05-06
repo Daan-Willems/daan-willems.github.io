@@ -218,25 +218,17 @@ async function igFetch(url, label) {
 }
 
 async function fetchInstagramProfile(handle) {
-  // web_profile_info — full profile + counts + user_id.
-  let lastStatus = null
-  let lastRetryAfter = null
-  for (let attempt = 0; attempt < 3; attempt++) {
-    const { res, retryAfter } = await igFetch(
-      `https://i.instagram.com/api/v1/users/web_profile_info/?username=${handle}`,
-      `profile attempt=${attempt}`,
-    )
-    lastStatus = res.status
-    lastRetryAfter = retryAfter
-    if (res.ok) return await res.json()
-    if (attempt < 2) {
-      const wait = retryAfter ? retryAfter * 1000 : 1500 * (attempt + 1)
-      console.warn(`  [ig] profile failed (${res.status}); waiting ${wait}ms before retry`)
-      await new Promise(r => setTimeout(r, wait))
-    }
-  }
-  const err = new Error(`Instagram profile HTTP ${lastStatus}${lastRetryAfter ? ` retry-after=${lastRetryAfter}s` : ''}`)
-  err.status = lastStatus
+  // web_profile_info — full profile + counts + user_id. CI runners typically
+  // get an instant 429 on this endpoint; retries don't help (penalty box
+  // doesn't drain in seconds). Single attempt; orchestrator falls back to
+  // cached profile from prevState.
+  const { res, retryAfter } = await igFetch(
+    `https://i.instagram.com/api/v1/users/web_profile_info/?username=${handle}`,
+    `profile`,
+  )
+  if (res.ok) return await res.json()
+  const err = new Error(`Instagram profile HTTP ${res.status}${retryAfter ? ` retry-after=${retryAfter}s` : ''}`)
+  err.status = res.status
   throw err
 }
 
@@ -282,126 +274,136 @@ async function fetchInstagram(handle, prevState) {
   }
   const followerCount = u.edge_followed_by?.count
 
-  // Step 2: mobile feed/user endpoint — paginated. Returns accurate play_count.
+  // Step 2: paginated feed iterator (cross-run state machine).
   //
-  // Pacing matters more than retrying. IG accepts the first request reliably and
-  // then 401s the next few if they come in immediately afterward — classic
-  // burst-detector. We pause between pages and use longer per-attempt backoffs.
-  let posts = []
-  let allItems = []
-  try {
-    const MAX_PAGES = 10
-    const RETRIES = 3
-    const PAGE_DELAY_BASE_MS = 18000      // CI runs hit a count budget around 4 pages at 5s spacing
-    const PAGE_DELAY_JITTER_MS = 4000     // randomize cadence to avoid looking like a bot
-    const RETRY_BACKOFF_MS = [10000, 20000]
-    let maxId = ''
-    for (let page = 0; page < MAX_PAGES; page++) {
+  // CI runners get a per-IP budget of ~4 successful feed calls per session
+  // before IG starts 401-ing — pacing the calls doesn't help, the cap is by
+  // count, not time. To fetch all ~91 items, we persist the pagination
+  // cursor + accumulated items in socials.json and resume across cron runs.
+  // After the cycle completes, we reuse cached items for CYCLE_VALID hours
+  // before starting a new pass.
+  const PAGES_PER_RUN = Number(process.env.IG_PAGES_PER_RUN || 4)
+  const CYCLE_VALID_MS = Number(process.env.IG_CYCLE_VALID_HOURS || 36) * 60 * 60 * 1000
+  const RETRIES = 3
+  const PAGE_DELAY_BASE_MS = 18000
+  const PAGE_DELAY_JITTER_MS = 4000
+  const RETRY_BACKOFF_MS = [10000, 20000]
+
+  const prevCycle = prevState?.iterator || null
+  const cycleAge = prevCycle?.completedAt ? Date.now() - Date.parse(prevCycle.completedAt) : Infinity
+  const cycleStillFresh = !!prevCycle?.completedAt && cycleAge < CYCLE_VALID_MS
+
+  let cycle
+  if (cycleStillFresh) {
+    cycle = { ...prevCycle, items: { ...prevCycle.items } }
+    console.log(`  [ig] cycle complete + ${(cycleAge / 3600000).toFixed(1)}h old < ${(CYCLE_VALID_MS / 3600000).toFixed(0)}h validity; skipping pagination`)
+  } else if (prevCycle && !prevCycle.completedAt && prevCycle.cursor) {
+    cycle = { ...prevCycle, items: { ...prevCycle.items } }
+    console.log(`  [ig] resuming cycle from cursor=${cycle.cursor}, items so far: ${Object.keys(cycle.items).length}`)
+  } else {
+    cycle = { startedAt: new Date().toISOString(), cursor: null, completedAt: null, items: {} }
+    console.log(`  [ig] starting new iterator cycle`)
+  }
+
+  let cycleJustCompleted = false
+  if (!cycleStillFresh) {
+    let maxId = cycle.cursor || ''
+    let exhausted = false
+    for (let page = 0; page < PAGES_PER_RUN; page++) {
       const delay = PAGE_DELAY_BASE_MS + Math.floor(Math.random() * PAGE_DELAY_JITTER_MS)
       console.log(`  [ig] feed page=${page} sleeping ${delay}ms before fetch`)
       await new Promise(r => setTimeout(r, delay))
+
       const url = new URL(`https://i.instagram.com/api/v1/feed/user/${u.id}/`)
       url.searchParams.set('count', '50')
       if (maxId) url.searchParams.set('max_id', maxId)
+
       let feedJson = null
-      let lastStatus = null
       for (let attempt = 0; attempt < RETRIES; attempt++) {
-        const { res: feedRes, retryAfter } = await igFetch(url, `feed page=${page} attempt=${attempt}`)
-        lastStatus = feedRes.status
-        if (feedRes.ok) {
-          feedJson = await feedRes.json()
-          break
-        }
+        const { res, retryAfter } = await igFetch(url, `feed page=${page} attempt=${attempt}`)
+        if (res.ok) { feedJson = await res.json(); break }
         if (attempt < RETRIES - 1) {
-          const wait = (feedRes.status === 429 && retryAfter)
-            ? retryAfter * 1000
-            : RETRY_BACKOFF_MS[attempt]
-          console.warn(`  [ig] feed page=${page} ${feedRes.status} — waiting ${wait}ms before retry`)
+          const wait = (res.status === 429 && retryAfter) ? retryAfter * 1000 : RETRY_BACKOFF_MS[attempt]
+          console.warn(`  [ig] feed page=${page} ${res.status} — waiting ${wait}ms before retry`)
           await new Promise(r => setTimeout(r, wait))
         }
       }
+
       if (!feedJson) {
-        throw new Error(`feed page ${page} failed (last status ${lastStatus})`)
+        console.warn(`  [ig] feed page=${page} failed after retries — saving partial progress, will resume next run`)
+        break
       }
+
       const items = feedJson.items || []
-      allItems.push(...items)
-      console.log(`  [ig] feed page=${page} got=${items.length} cumulative=${allItems.length} more=${!!feedJson.more_available}`)
-      if (!feedJson.more_available || !feedJson.next_max_id) break
+      for (const it of items) {
+        const pk = String(it.pk)
+        cycle.items[pk] = {
+          pk,
+          code: it.code,
+          takenAt: it.taken_at,
+          mediaType: it.media_type ?? null,
+          productType: it.product_type ?? null,
+          likeCount: it.like_count ?? null,
+          commentCount: it.comment_count ?? null,
+          playCount: it.play_count ?? it.ig_play_count ?? it.view_count ?? null,
+          thumbnail: it.image_versions2?.candidates?.[0]?.url || null,
+          caption: it.caption?.text || null,
+        }
+      }
+      console.log(`  [ig] feed page=${page} got=${items.length} cycleItems=${Object.keys(cycle.items).length} more=${!!feedJson.more_available}`)
+
+      if (!feedJson.more_available || !feedJson.next_max_id) { exhausted = true; break }
       maxId = feedJson.next_max_id
     }
-    if (allItems.length) {
-      posts = allItems.slice(0, 6).map(item => ({
-        id: item.code || item.pk,
-        shortcode: item.code,
-        url: `https://www.instagram.com/p/${item.code}/`,
-        type: item.product_type === 'clips' ? 'reel' : (item.media_type === 2 ? 'video' : 'image'),
-        publishedAt: item.taken_at ? new Date(item.taken_at * 1000).toISOString() : null,
-        thumbnail: item.image_versions2?.candidates?.[0]?.url || null,
-        caption: item.caption?.text || null,
-        likeCount: item.like_count ?? null,
-        commentCount: item.comment_count ?? null,
-        viewCount: item.play_count ?? item.ig_play_count ?? item.view_count ?? null,
-      }))
-    }
-  } catch (err) {
-    console.warn(`  ! IG feed fallback: ${err.message}`)
-  }
-  const totalPlays = allItems.reduce((s, it) => s + (it.play_count || it.ig_play_count || 0), 0)
-  const totalLikes = allItems.reduce((s, it) => s + (it.like_count || 0), 0)
-  const totalComments = allItems.reduce((s, it) => s + (it.comment_count || 0), 0)
 
-  // Coverage check — feed call was incomplete (rate-limited mid-pagination, etc).
-  // Don't throw: if we have prev posts/totals and a fresh profile, we still want
-  // to commit the fresh follower count etc. Use prev's posts data when feed fell short.
-  const mediaCount = u.edge_owner_to_timeline_media?.count ?? 0
-  const feedCoverage = mediaCount > 0 ? allItems.length / mediaCount : 1
-  const feedHealthy = feedCoverage >= 0.95
-
-  if (!posts.length || !feedHealthy) {
-    // Use web_profile_info edges if available, else fall back to prev posts
-    const wpiEdges = u.edge_owner_to_timeline_media?.edges || []
-    if (wpiEdges.length) {
-      posts = wpiEdges.slice(0, 6).map(({ node: n }) => ({
-        id: n.id,
-        shortcode: n.shortcode,
-        url: `https://www.instagram.com/p/${n.shortcode}/`,
-        type: n.is_video ? (n.product_type === 'clips' ? 'reel' : 'video') : 'image',
-        publishedAt: n.taken_at_timestamp ? new Date(n.taken_at_timestamp * 1000).toISOString() : null,
-        thumbnail: n.thumbnail_src || n.display_url,
-        caption: n.edge_media_to_caption?.edges?.[0]?.node?.text || null,
-        likeCount: n.edge_liked_by?.count ?? n.edge_media_preview_like?.count ?? null,
-        commentCount: n.edge_media_to_comment?.count ?? null,
-        viewCount: n.video_view_count ?? null,
-      }))
-    } else if (prevState?.posts?.length) {
-      posts = prevState.posts
+    cycle.cursor = exhausted ? null : (maxId || null)
+    cycle.lastFetchedAt = new Date().toISOString()
+    if (exhausted) {
+      cycle.completedAt = new Date().toISOString()
+      cycleJustCompleted = true
+      console.log(`  [ig] cycle complete — ${Object.keys(cycle.items).length} items`)
     }
   }
 
-  // If feed call was unhealthy AND profile came fresh, hold prior totals so the
-  // sanity floor doesn't trip on a half-sample. We keep fresh follower/profile data.
+  const itemValues = Object.values(cycle.items)
+  const expectedCount = u.edge_owner_to_timeline_media?.count ?? 0
+  const itemsHealthy = !!cycle.completedAt || (expectedCount > 0 && itemValues.length >= expectedCount * 0.95)
+
+  const totalPlays = itemValues.reduce((s, it) => s + (it.playCount || 0), 0)
+  const totalLikes = itemValues.reduce((s, it) => s + (it.likeCount || 0), 0)
+  const totalComments = itemValues.reduce((s, it) => s + (it.commentCount || 0), 0)
+
+  const sortedItems = itemValues.slice().sort((a, b) => (b.takenAt || 0) - (a.takenAt || 0))
+  let posts = sortedItems.slice(0, 6).map(item => ({
+    id: item.code || item.pk,
+    shortcode: item.code,
+    url: `https://www.instagram.com/p/${item.code}/`,
+    type: item.productType === 'clips' ? 'reel' : (item.mediaType === 2 ? 'video' : 'image'),
+    publishedAt: item.takenAt ? new Date(item.takenAt * 1000).toISOString() : null,
+    thumbnail: item.thumbnail,
+    caption: item.caption,
+    likeCount: item.likeCount,
+    commentCount: item.commentCount,
+    viewCount: item.playCount,
+  }))
+
+  if (!posts.length && prevState?.posts?.length) posts = prevState.posts
+
   let outTotalPlays = totalPlays
   let outTotalLikes = totalLikes
   let outTotalComments = totalComments
-  let outSampledPostCount = allItems.length
   let outFeedSourcedFromPrev = false
-  if (!feedHealthy && prevState?.stats) {
+  if (!itemsHealthy && prevState?.stats) {
     outTotalPlays = prevState.stats.totalPlays ?? totalPlays
     outTotalLikes = prevState.stats.totalLikes ?? totalLikes
     outTotalComments = prevState.stats.totalComments ?? totalComments
-    outSampledPostCount = prevState.stats.sampledPostCount ?? allItems.length
     outFeedSourcedFromPrev = true
-    console.warn(`  ! IG feed unhealthy (sampled ${allItems.length}/${mediaCount}); reusing prev totals`)
-  }
-
-  // If BOTH profile and feed are sourced from prev (and we got nothing fresh),
-  // throw so mergeWithLastGood marks the platform stale.
-  if (profileSourcedFromPrev && outFeedSourcedFromPrev) {
-    throw new Error('Instagram: profile + feed both unavailable, no fresh data')
+    console.log(`  [ig] cycle in progress (${itemValues.length}/${expectedCount} items); reusing prev totals`)
   }
 
   return {
     handle: u.username,
+    lastSuccessAt: cycleJustCompleted ? cycle.completedAt : (prevState?.lastSuccessAt || null),
     profile: {
       userId: String(u.id),
       username: u.username,
@@ -422,11 +424,19 @@ async function fetchInstagram(handle, prevState) {
       totalPlays: outTotalPlays,
       totalLikes: outTotalLikes,
       totalComments: outTotalComments,
-      sampledPostCount: outSampledPostCount,
+      sampledPostCount: itemValues.length,
       profileSourcedFromPrev,
       feedSourcedFromPrev: outFeedSourcedFromPrev,
+      iteratorCycleComplete: !!cycle.completedAt,
     },
     posts,
+    iterator: {
+      startedAt: cycle.startedAt,
+      lastFetchedAt: cycle.lastFetchedAt || cycle.startedAt,
+      completedAt: cycle.completedAt || null,
+      cursor: cycle.cursor || null,
+      items: cycle.items,
+    },
   }
 }
 
@@ -434,19 +444,57 @@ async function fetchInstagram(handle, prevState) {
 // Orchestrator — fail-soft per platform, exit non-zero if any fail
 // ---------------------------------------------------------------------------
 
-async function tryFetch(label, fn) {
+async function tryFetch(label, fn, prev) {
   const startedAt = new Date().toISOString()
   try {
     const data = await fn()
-    return { status: 'ok', lastFetchedAt: startedAt, ...data }
+    const out = { status: 'ok', lastFetchedAt: startedAt, ...data }
+    // Default lastSuccessAt = now for platforms that don't set it explicitly
+    // (YT/TT). IG sets it explicitly: only when an iterator cycle completes
+    // this run, otherwise inherits prev.
+    if (out.lastSuccessAt == null) out.lastSuccessAt = startedAt
+    return out
   } catch (err) {
     console.error(`✗ ${label}:`, err.message)
-    return { status: 'failed', lastFetchedAt: startedAt, error: err.message }
+    return {
+      status: 'failed',
+      lastFetchedAt: startedAt,
+      lastSuccessAt: prev?.lastSuccessAt || null,
+      error: err.message,
+    }
   }
 }
 
 async function readExisting() {
-  try { return JSON.parse(await readFile(OUT_PATH, 'utf8')) } catch { return null }
+  try {
+    const data = JSON.parse(await readFile(OUT_PATH, 'utf8'))
+    // Migration: backfill lastSuccessAt from lastFetchedAt for platforms that
+    // were ok before this field existed, so we don't trip the staleness alert
+    // on the first run after deploy.
+    for (const k of ['youtube', 'tiktok', 'instagram']) {
+      const v = data[k]
+      if (v && !v.lastSuccessAt && v.status === 'ok' && v.lastFetchedAt) {
+        v.lastSuccessAt = v.lastFetchedAt
+      }
+    }
+    return data
+  } catch { return null }
+}
+
+function parsePlatforms() {
+  const args = process.argv.slice(2)
+  const all = ['youtube', 'tiktok', 'instagram']
+  const idx = args.indexOf('--platform')
+  if (idx === -1) return all
+  const list = (args[idx + 1] || '').split(',').map(s => s.trim()).filter(Boolean)
+  for (const p of list) if (!all.includes(p)) throw new Error(`unknown platform: ${p}`)
+  return list.length ? list : all
+}
+
+const STALE_THRESHOLD_MS = {
+  youtube: Number(process.env.YT_STALE_HOURS || 24) * 3600 * 1000,
+  tiktok: Number(process.env.TT_STALE_HOURS || 24) * 3600 * 1000,
+  instagram: Number(process.env.IG_STALE_HOURS || 36) * 3600 * 1000,
 }
 
 // Per-metric sanity floors. Cumulative metrics (lifetime views, total plays/likes)
@@ -564,16 +612,28 @@ async function cachePlatformImages(yt, tt, ig) {
 }
 
 async function main() {
-  // Read prev state up front so platforms can fall back to cached values
+  const platforms = parsePlatforms()
+  console.log(`platforms this run: ${platforms.join(', ')}`)
+
   const prev = await readExisting()
 
-  const [yt, tt, ig] = await Promise.all([
-    tryFetch('YouTube', fetchYouTube),
-    tryFetch('TikTok', () => fetchTikTok(process.env.TIKTOK_HANDLE)),
-    tryFetch('Instagram', () => fetchInstagram(process.env.IG_HANDLE, prev?.instagram)),
-  ])
+  const fetchers = {
+    youtube: () => tryFetch('YouTube', fetchYouTube, prev?.youtube),
+    tiktok: () => tryFetch('TikTok', () => fetchTikTok(process.env.TIKTOK_HANDLE), prev?.tiktok),
+    instagram: () => tryFetch('Instagram', () => fetchInstagram(process.env.IG_HANDLE, prev?.instagram), prev?.instagram),
+  }
 
-  // Cache remote images locally so they don't 401/expire on the deployed site
+  const results = await Promise.all(platforms.map(p => fetchers[p]()))
+  const fetched = Object.fromEntries(platforms.map((p, i) => [p, results[i]]))
+
+  // Carry forward unfetched platforms from prev so the merged file stays whole
+  const yt = fetched.youtube || prev?.youtube || { status: 'failed', error: 'never fetched', lastSuccessAt: null }
+  const tt = fetched.tiktok || prev?.tiktok || { status: 'failed', error: 'never fetched', lastSuccessAt: null }
+  const ig = fetched.instagram || prev?.instagram || { status: 'failed', error: 'never fetched', lastSuccessAt: null }
+
+  // Cache remote images locally so they don't 401/expire on the deployed
+  // site. cacheImage is a no-op for URLs that are already local paths, so
+  // calling this on prev-carried platforms is cheap.
   await cachePlatformImages(yt, tt, ig)
 
   const next = {
@@ -583,7 +643,7 @@ async function main() {
     instagram: ig,
   }
 
-  const { merged, suspects } = mergeWithLastGood(prev, next)
+  const { merged } = mergeWithLastGood(prev, next)
 
   const prevHash = prev ? JSON.stringify({ ...prev, generatedAt: undefined }) : null
   const nextHash = JSON.stringify({ ...merged, generatedAt: undefined })
@@ -594,23 +654,37 @@ async function main() {
     console.log(`wrote ${OUT_PATH}`)
   }
 
-  // Summary — show what landed in the merged file (post-sanity)
+  // Per-platform freshness summary + staleness check
+  const stale = []
+  const now = Date.now()
   for (const k of ['youtube', 'tiktok', 'instagram']) {
     const v = merged[k]
     const f = v?.channel?.subscriberCount ?? v?.stats?.followerCount
-    if (v?.status === 'ok') {
-      console.log(`  ✓ ${k}: ${f?.toLocaleString() ?? '?'} followers`)
-    } else if (v?.status === 'stale') {
-      console.log(`  ~ ${k}: ${f?.toLocaleString() ?? '?'} followers (stale — last error: ${v.lastError})`)
-    } else {
-      console.log(`  ✗ ${k}: ${v?.error || 'unknown'}`)
+    const successAt = v?.lastSuccessAt
+    const ageMs = successAt ? now - Date.parse(successAt) : Infinity
+    const ageHrs = Number.isFinite(ageMs) ? (ageMs / 3600000).toFixed(1) : '?'
+    const thresholdHrs = (STALE_THRESHOLD_MS[k] / 3600000).toFixed(0)
+    const isStale = ageMs > STALE_THRESHOLD_MS[k]
+    const sigil = isStale ? '✗' : (v?.status === 'ok' ? '✓' : '~')
+    const note = []
+    if (k === 'instagram' && v?.iterator && !v.iterator.completedAt) {
+      const itemCount = Object.keys(v.iterator.items || {}).length
+      const expected = v.stats?.mediaCount
+      note.push(`cycle in progress (${itemCount}${expected ? '/' + expected : ''})`)
     }
+    if (v?.status === 'stale') note.push(`fetch failed: ${v.lastError}`)
+    if (isStale) note.push(`PAST STALENESS THRESHOLD`)
+    console.log(`  ${sigil} ${k}: ${f?.toLocaleString() ?? '?'} followers — last fresh ${ageHrs}h ago (threshold ${thresholdHrs}h)${note.length ? ' — ' + note.join('; ') : ''}`)
+    if (isStale) stale.push(k)
   }
 
-  // Fail the runner if anything went wrong — caller will see GH workflow red.
-  // Page keeps showing last-good values regardless.
-  const failed = [yt, tt, ig].filter(p => p.status === 'failed')
-  if (failed.length || suspects.length) process.exit(1)
+  // Exit non-zero ONLY when a platform's data has gone past its staleness
+  // threshold. Routine partial progress (IG cycle mid-flight, IG profile
+  // falling back to prev, transient YT/TT failures) keeps exit 0.
+  if (stale.length) {
+    console.error(`stale platforms past threshold: ${stale.join(', ')}`)
+    process.exit(1)
+  }
 }
 
 main().catch(err => { console.error(err); process.exit(1) })

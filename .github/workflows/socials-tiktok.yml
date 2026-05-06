@@ -1,0 +1,42 @@
+name: Refresh socials — TikTok
+
+on:
+  schedule:
+    - cron: '30 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: socials-commit
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Fetch TikTok
+        env:
+          TIKTOK_HANDLE: ${{ vars.TIKTOK_HANDLE || 'daanwillemsautomotive' }}
+          TT_STALE_HOURS: '24'
+        run: node scripts/fetch-socials.mjs --platform tiktok
+
+      - name: Commit if changed
+        run: |
+          if git diff --quiet -- public/data/socials.json public/images/socials; then
+            echo "no changes"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase
+          git add public/data/socials.json public/images/socials
+          git commit -m "chore(socials): refresh tiktok"
+          git push

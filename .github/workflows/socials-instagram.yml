@@ -1,0 +1,45 @@
+name: Refresh socials — Instagram
+
+on:
+  schedule:
+    # Every hour on the :05 to avoid the bigger top-of-hour cron herd
+    - cron: '5 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: socials-commit
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Fetch Instagram
+        env:
+          IG_HANDLE: ${{ vars.IG_HANDLE || 'daanwillemsautomotive' }}
+          IG_PAGES_PER_RUN: '3'
+          IG_CYCLE_VALID_HOURS: '24'
+          IG_STALE_HOURS: '36'
+        run: node scripts/fetch-socials.mjs --platform instagram
+
+      - name: Commit if changed
+        run: |
+          if git diff --quiet -- public/data/socials.json public/images/socials; then
+            echo "no changes"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase
+          git add public/data/socials.json public/images/socials
+          git commit -m "chore(socials): refresh instagram"
+          git push
