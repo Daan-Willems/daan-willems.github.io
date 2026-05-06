@@ -266,12 +266,13 @@ async function fetchInstagram(handle, prevState) {
   try {
     const MAX_PAGES = 10
     const RETRIES = 3
-    const PAGE_DELAY_MS = 2500          // gap between successive page fetches
-    const RETRY_BACKOFF_MS = [3000, 6000] // cumulative wait before retry attempts
+    const PAGE_DELAY_MS = 5000          // gap before each feed page, including the first
+    const RETRY_BACKOFF_MS = [5000, 10000] // cumulative wait before retry attempts
     let maxId = ''
     for (let page = 0; page < MAX_PAGES; page++) {
-      // Pause before any non-first page — gives the rate counter time to drain.
-      if (page > 0) await new Promise(r => setTimeout(r, PAGE_DELAY_MS))
+      // Pause before every page — including page 0, so we don't fire the first
+      // feed call back-to-back with the profile call (datacenter IPs get flagged).
+      await new Promise(r => setTimeout(r, PAGE_DELAY_MS))
       const url = new URL(`https://i.instagram.com/api/v1/feed/user/${u.id}/`)
       url.searchParams.set('count', '50')
       if (maxId) url.searchParams.set('max_id', maxId)
