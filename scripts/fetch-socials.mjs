@@ -645,9 +645,25 @@ async function main() {
 
   const { merged } = mergeWithLastGood(prev, next)
 
-  const prevHash = prev ? JSON.stringify({ ...prev, generatedAt: undefined }) : null
-  const nextHash = JSON.stringify({ ...merged, generatedAt: undefined })
-  if (prevHash === nextHash) {
+  // Hash-compare to skip writes when nothing meaningful changed. Strip
+  // lastFetchedAt timestamps so a no-progress run (e.g. IG hit a 401 and
+  // didn't advance the cursor) doesn't generate an empty git commit.
+  const meaningful = (obj) => {
+    if (!obj) return null
+    const { generatedAt, ...rest } = obj
+    const out = { ...rest }
+    for (const k of ['youtube', 'tiktok', 'instagram']) {
+      if (!out[k]) continue
+      const { lastFetchedAt, ...platformRest } = out[k]
+      out[k] = platformRest
+      if (out[k].iterator) {
+        const { lastFetchedAt: _, ...iterRest } = out[k].iterator
+        out[k].iterator = iterRest
+      }
+    }
+    return JSON.stringify(out)
+  }
+  if (meaningful(prev) === meaningful(merged)) {
     console.log('socials.json unchanged — skipping write')
   } else {
     await writeFile(OUT_PATH, JSON.stringify(merged, null, 2) + '\n')
