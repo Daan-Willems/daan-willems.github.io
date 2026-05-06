@@ -11,6 +11,7 @@ const CACHE_PUBLIC = '/images/socials'
 
 async function cacheImage(url, subdir, filename, headers = {}) {
   if (!url) return null
+  if (url.startsWith('/')) return url
   try {
     const dir = resolve(CACHE_DIR, subdir)
     await mkdir(dir, { recursive: true })
@@ -184,32 +185,57 @@ async function fetchTikTok(handle) {
 // Instagram (public web profile API, no auth)
 // ---------------------------------------------------------------------------
 
-const UA_IG_ANDROID = 'Instagram 219.0.0.12.117 Android'
+// Both profile and feed/user calls present as the *same* iPhone-Safari client
+// on instagram.com. Mixing fingerprints between calls (web → Android-app)
+// from one IP within seconds was the burst pattern triggering 401/429.
+const IG_HEADERS = {
+  'User-Agent': UA_IPHONE,
+  'x-ig-app-id': '936619743392459',
+  'Accept': '*/*',
+  'Accept-Language': 'en-US,en;q=0.9',
+  'sec-fetch-site': 'same-origin',
+  'sec-fetch-mode': 'cors',
+  'sec-fetch-dest': 'empty',
+  'X-Requested-With': 'XMLHttpRequest',
+  'Referer': 'https://www.instagram.com/',
+}
+
+async function igFetch(url, label) {
+  const t0 = Date.now()
+  const res = await fetch(url, { headers: IG_HEADERS })
+  const dt = Date.now() - t0
+  const retryAfter = res.headers.get('retry-after')
+  const xrlRemaining = res.headers.get('x-ratelimit-remaining')
+  const xrlReset = res.headers.get('x-ratelimit-reset')
+  const tag = `[ig] ${label}`
+  const ext = [
+    retryAfter && `retry-after=${retryAfter}`,
+    xrlRemaining && `rl-rem=${xrlRemaining}`,
+    xrlReset && `rl-reset=${xrlReset}`,
+  ].filter(Boolean).join(' ')
+  console.log(`  ${tag}: ${res.status} (${dt}ms)${ext ? ' ' + ext : ''}`)
+  return { res, retryAfter: retryAfter ? Number(retryAfter) : null }
+}
 
 async function fetchInstagramProfile(handle) {
-  // web_profile_info — full profile + counts + user_id. Often 401s on datacenter IPs.
-  // Fail fast: rate-limit windows are minutes-to-hours, so retrying for 30+ seconds
-  // rarely helps. Better to mark stale and let the next cron try again.
+  // web_profile_info — full profile + counts + user_id.
   let lastStatus = null
+  let lastRetryAfter = null
   for (let attempt = 0; attempt < 3; attempt++) {
-    const profileRes = await fetch(`https://i.instagram.com/api/v1/users/web_profile_info/?username=${handle}`, {
-      headers: {
-        'User-Agent': UA_IPHONE,
-        'x-ig-app-id': '936619743392459',
-        'Accept-Language': 'en-US,en;q=0.9',
-        'Accept': '*/*',
-        'sec-fetch-site': 'same-origin',
-        'sec-fetch-mode': 'cors',
-        'sec-fetch-dest': 'empty',
-        'X-Requested-With': 'XMLHttpRequest',
-        'Referer': 'https://www.instagram.com/',
-      },
-    })
-    lastStatus = profileRes.status
-    if (profileRes.ok) return await profileRes.json()
-    if (attempt < 2) await new Promise(r => setTimeout(r, 1500 * (attempt + 1)))
+    const { res, retryAfter } = await igFetch(
+      `https://i.instagram.com/api/v1/users/web_profile_info/?username=${handle}`,
+      `profile attempt=${attempt}`,
+    )
+    lastStatus = res.status
+    lastRetryAfter = retryAfter
+    if (res.ok) return await res.json()
+    if (attempt < 2) {
+      const wait = retryAfter ? retryAfter * 1000 : 1500 * (attempt + 1)
+      console.warn(`  [ig] profile failed (${res.status}); waiting ${wait}ms before retry`)
+      await new Promise(r => setTimeout(r, wait))
+    }
   }
-  const err = new Error(`Instagram profile HTTP ${lastStatus}`)
+  const err = new Error(`Instagram profile HTTP ${lastStatus}${lastRetryAfter ? ` retry-after=${lastRetryAfter}s` : ''}`)
   err.status = lastStatus
   throw err
 }
@@ -266,46 +292,39 @@ async function fetchInstagram(handle, prevState) {
   try {
     const MAX_PAGES = 10
     const RETRIES = 3
-    const PAGE_DELAY_MS = 5000          // gap before each feed page, including the first
-    const RETRY_BACKOFF_MS = [5000, 10000] // cumulative wait before retry attempts
+    const PAGE_DELAY_MS = 5000
+    const RETRY_BACKOFF_MS = [5000, 10000]
     let maxId = ''
     for (let page = 0; page < MAX_PAGES; page++) {
-      // Pause before every page — including page 0, so we don't fire the first
-      // feed call back-to-back with the profile call (datacenter IPs get flagged).
+      // Pause before every page (incl. page 0) — back-to-back calls with the
+      // profile request are the burst pattern IG flags.
       await new Promise(r => setTimeout(r, PAGE_DELAY_MS))
       const url = new URL(`https://i.instagram.com/api/v1/feed/user/${u.id}/`)
       url.searchParams.set('count', '50')
       if (maxId) url.searchParams.set('max_id', maxId)
       let feedJson = null
+      let lastStatus = null
       for (let attempt = 0; attempt < RETRIES; attempt++) {
-        try {
-          const feedRes = await fetch(url, {
-            headers: {
-              'User-Agent': UA_IG_ANDROID,
-              'x-ig-app-id': '567067343352427',
-              'Accept': '*/*',
-              'sec-fetch-site': 'same-origin',
-              'sec-fetch-mode': 'cors',
-              'sec-fetch-dest': 'empty',
-            },
-          })
-          if (!feedRes.ok) {
-            if (attempt < RETRIES - 1) {
-              await new Promise(r => setTimeout(r, RETRY_BACKOFF_MS[attempt]))
-              continue
-            }
-            throw new Error(`HTTP ${feedRes.status}`)
-          }
+        const { res: feedRes, retryAfter } = await igFetch(url, `feed page=${page} attempt=${attempt}`)
+        lastStatus = feedRes.status
+        if (feedRes.ok) {
           feedJson = await feedRes.json()
           break
-        } catch (err) {
-          if (attempt === RETRIES - 1) throw err
-          await new Promise(r => setTimeout(r, RETRY_BACKOFF_MS[attempt]))
+        }
+        if (attempt < RETRIES - 1) {
+          const wait = (feedRes.status === 429 && retryAfter)
+            ? retryAfter * 1000
+            : RETRY_BACKOFF_MS[attempt]
+          console.warn(`  [ig] feed page=${page} ${feedRes.status} — waiting ${wait}ms before retry`)
+          await new Promise(r => setTimeout(r, wait))
         }
       }
-      if (!feedJson) break
+      if (!feedJson) {
+        throw new Error(`feed page ${page} failed (last status ${lastStatus})`)
+      }
       const items = feedJson.items || []
       allItems.push(...items)
+      console.log(`  [ig] feed page=${page} got=${items.length} cumulative=${allItems.length} more=${!!feedJson.more_available}`)
       if (!feedJson.more_available || !feedJson.next_max_id) break
       maxId = feedJson.next_max_id
     }
