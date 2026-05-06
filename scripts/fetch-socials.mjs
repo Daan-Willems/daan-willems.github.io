@@ -292,13 +292,14 @@ async function fetchInstagram(handle, prevState) {
   try {
     const MAX_PAGES = 10
     const RETRIES = 3
-    const PAGE_DELAY_MS = 5000
-    const RETRY_BACKOFF_MS = [5000, 10000]
+    const PAGE_DELAY_BASE_MS = 18000      // CI runs hit a count budget around 4 pages at 5s spacing
+    const PAGE_DELAY_JITTER_MS = 4000     // randomize cadence to avoid looking like a bot
+    const RETRY_BACKOFF_MS = [10000, 20000]
     let maxId = ''
     for (let page = 0; page < MAX_PAGES; page++) {
-      // Pause before every page (incl. page 0) — back-to-back calls with the
-      // profile request are the burst pattern IG flags.
-      await new Promise(r => setTimeout(r, PAGE_DELAY_MS))
+      const delay = PAGE_DELAY_BASE_MS + Math.floor(Math.random() * PAGE_DELAY_JITTER_MS)
+      console.log(`  [ig] feed page=${page} sleeping ${delay}ms before fetch`)
+      await new Promise(r => setTimeout(r, delay))
       const url = new URL(`https://i.instagram.com/api/v1/feed/user/${u.id}/`)
       url.searchParams.set('count', '50')
       if (maxId) url.searchParams.set('max_id', maxId)
