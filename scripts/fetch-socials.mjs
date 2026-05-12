@@ -235,24 +235,16 @@ async function fetchInstagramProfile(handle) {
 async function fetchInstagram(handle, prevState) {
   if (!handle) throw new Error('IG_HANDLE missing')
 
-  // Try the gated profile endpoint. If it fails and we have a cached user_id
-  // from a previous run, fall back to "profile from prev + fresh feed-only refresh".
-  let u = null
-  let profileSourcedFromPrev = false
-  try {
-    const profileJson = await fetchInstagramProfile(handle)
-    u = profileJson?.data?.user
-    if (!u) throw new Error('Instagram: user payload missing (login wall or rate-limited)')
-    if (!u.edge_followed_by?.count) throw new Error('Instagram: followerCount missing or zero')
-  } catch (err) {
+  // The profile endpoint (web_profile_info) almost always 429s on CI runners
+  // and retries don't drain the penalty box. Throttle attempts to once per
+  // IG_PROFILE_CACHE_HOURS (default 12) using prev.lastProfileFetchAt — the
+  // cached profile shape is fine for the feed path either way, only counts
+  // (followers, mediaCount, avatar) go slightly stale, and they move slowly.
+  const synthesizeUserFromPrev = () => {
     const prevUserId = prevState?.profile?.userId
     const prevFollowerCount = prevState?.stats?.followerCount
-    if (!prevUserId || !prevFollowerCount) throw err
-    profileSourcedFromPrev = true
-    console.warn(`  ! IG profile endpoint failed (${err.message}); reusing cached profile (userId=${prevUserId}) and updating feed-only`)
-    // Synthesize a minimal `u` shape using prior data so the rest of the
-    // function can continue. Counts/profile fields come from prevState.
-    u = {
+    if (!prevUserId || !prevFollowerCount) return null
+    return {
       id: prevUserId,
       username: prevState.profile.username,
       full_name: prevState.profile.fullName,
@@ -272,6 +264,46 @@ async function fetchInstagram(handle, prevState) {
       },
     }
   }
+
+  const PROFILE_CACHE_HOURS = Number(process.env.IG_PROFILE_CACHE_HOURS || 12)
+  const prevProfileAttemptAge = prevState?.lastProfileFetchAt
+    ? Date.now() - Date.parse(prevState.lastProfileFetchAt)
+    : Infinity
+  const skipProfile =
+    prevProfileAttemptAge < PROFILE_CACHE_HOURS * 3600 * 1000 &&
+    !!prevState?.profile?.userId
+
+  let u = null
+  let profileSourcedFromPrev = false
+  let lastProfileFetchAt = prevState?.lastProfileFetchAt || null
+
+  if (skipProfile) {
+    const cached = synthesizeUserFromPrev()
+    if (cached) {
+      u = cached
+      profileSourcedFromPrev = true
+      console.log(`  [ig] skipping profile call — last attempted ${(prevProfileAttemptAge / 3600000).toFixed(1)}h ago (throttle ${PROFILE_CACHE_HOURS}h)`)
+    }
+  }
+
+  if (!u) {
+    // Set the timestamp before the call so even a 429 counts as an attempt and
+    // the throttle holds — otherwise we'd keep retrying every run.
+    lastProfileFetchAt = new Date().toISOString()
+    try {
+      const profileJson = await fetchInstagramProfile(handle)
+      u = profileJson?.data?.user
+      if (!u) throw new Error('Instagram: user payload missing (login wall or rate-limited)')
+      if (!u.edge_followed_by?.count) throw new Error('Instagram: followerCount missing or zero')
+    } catch (err) {
+      const cached = synthesizeUserFromPrev()
+      if (!cached) throw err
+      profileSourcedFromPrev = true
+      console.warn(`  ! IG profile endpoint failed (${err.message}); reusing cached profile (userId=${cached.id}) and updating feed-only`)
+      u = cached
+    }
+  }
+
   const followerCount = u.edge_followed_by?.count
 
   // Step 2: paginated feed iterator (cross-run state machine).
@@ -431,6 +463,7 @@ async function fetchInstagram(handle, prevState) {
   return {
     handle: u.username,
     lastSuccessAt: successTimestamp,
+    lastProfileFetchAt,
     profile: {
       userId: String(u.id),
       username: u.username,
@@ -581,9 +614,20 @@ function mergeWithLastGood(prev, next) {
     }
     const sanityFail = sanityCheck(p, n, key)
     if (sanityFail) {
-      console.warn(`  ! ${key}: sanity-rejected (${sanityFail}) — keeping last good`)
+      // Preserve prev.stats so the displayed numbers never drop due to
+      // sampling noise (an incomplete iterator cycle samples different items
+      // run-to-run, totals jitter). Everything else from this run wins:
+      // iterator progress, posts list, profile, lastSuccessAt — so we don't
+      // lose paginated work and the staleness signal reflects reality.
+      console.warn(`  ! ${key}: sanity-rejected (${sanityFail}) — preserving prev stats, advancing iterator + lastSuccessAt`)
       suspects.push({ key, reason: sanityFail })
-      out[key] = { ...p, status: 'stale', lastError: `Sanity drop: ${sanityFail}`, lastErrorAt: n.lastFetchedAt }
+      out[key] = {
+        ...n,
+        status: 'stale',
+        lastError: `Sanity drop: ${sanityFail}`,
+        lastErrorAt: n.lastFetchedAt,
+        stats: p.stats || n.stats,
+      }
     }
   }
   return { merged: out, suspects }
