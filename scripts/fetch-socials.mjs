@@ -305,6 +305,7 @@ async function fetchInstagram(handle, prevState) {
     console.log(`  [ig] starting new iterator cycle`)
   }
 
+  const itemsBefore = Object.keys(cycle.items).length
   let cycleJustCompleted = false
   if (!cycleStillFresh) {
     let maxId = cycle.cursor || ''
@@ -352,6 +353,14 @@ async function fetchInstagram(handle, prevState) {
       }
       console.log(`  [ig] feed page=${page} got=${items.length} cycleItems=${Object.keys(cycle.items).length} more=${!!feedJson.more_available}`)
 
+      if (items.length === 0) {
+        // IG sometimes returns 200 with more_available:true but an empty items
+        // list once we've paged past the indexable tail. Treat as exhaustion
+        // so we stop burning per-IP feed-call budget on a dead cursor.
+        console.log(`  [ig] feed page=${page} returned 0 items — treating as exhausted`)
+        exhausted = true
+        break
+      }
       if (!feedJson.more_available || !feedJson.next_max_id) { exhausted = true; break }
       maxId = feedJson.next_max_id
     }
@@ -367,7 +376,11 @@ async function fetchInstagram(handle, prevState) {
 
   const itemValues = Object.values(cycle.items)
   const expectedCount = u.edge_owner_to_timeline_media?.count ?? 0
-  const itemsHealthy = !!cycle.completedAt || (expectedCount > 0 && itemValues.length >= expectedCount * 0.95)
+  // 0.85 (not 0.95) because IG's user-feed endpoint tops out below media_count
+  // — old reels, archived items, and pagination drop-off mean we observe ~92%
+  // of media_count as the natural ceiling. 85% gives headroom without letting
+  // an actually-broken partial parse through.
+  const itemsHealthy = !!cycle.completedAt || (expectedCount > 0 && itemValues.length >= expectedCount * 0.85)
 
   const totalPlays = itemValues.reduce((s, it) => s + (it.playCount || 0), 0)
   const totalLikes = itemValues.reduce((s, it) => s + (it.likeCount || 0), 0)
@@ -401,9 +414,23 @@ async function fetchInstagram(handle, prevState) {
     console.log(`  [ig] cycle in progress (${itemValues.length}/${expectedCount} items); reusing prev totals`)
   }
 
+  // lastSuccessAt advances on any sign of forward progress this run — not just
+  // cycle completion. The cycle iterator can stay open for days when IG's
+  // rate-limit/cursor-validity gods are against us; if we still made *some*
+  // progress (got new items, or got a fresh profile call through), the data
+  // is fresh enough to count as success for staleness purposes.
+  const itemsGrewThisRun = itemValues.length > itemsBefore
+  const profileFreshThisRun = !profileSourcedFromPrev
+  const madeForwardProgress = cycleJustCompleted || profileFreshThisRun || itemsGrewThisRun
+  const successTimestamp = cycleJustCompleted
+    ? cycle.completedAt
+    : madeForwardProgress
+      ? new Date().toISOString()
+      : (prevState?.lastSuccessAt || null)
+
   return {
     handle: u.username,
-    lastSuccessAt: cycleJustCompleted ? cycle.completedAt : (prevState?.lastSuccessAt || null),
+    lastSuccessAt: successTimestamp,
     profile: {
       userId: String(u.id),
       username: u.username,
@@ -691,12 +718,13 @@ async function main() {
     if (v?.status === 'stale') note.push(`fetch failed: ${v.lastError}`)
     if (isStale) note.push(`PAST STALENESS THRESHOLD`)
     console.log(`  ${sigil} ${k}: ${f?.toLocaleString() ?? '?'} followers — last fresh ${ageHrs}h ago (threshold ${thresholdHrs}h)${note.length ? ' — ' + note.join('; ') : ''}`)
-    if (isStale) stale.push(k)
+    if (isStale && platforms.includes(k)) stale.push(k)
   }
 
-  // Exit non-zero ONLY when a platform's data has gone past its staleness
-  // threshold. Routine partial progress (IG cycle mid-flight, IG profile
-  // falling back to prev, transient YT/TT failures) keeps exit 0.
+  // Exit non-zero ONLY when a platform processed in *this* run is past its
+  // staleness threshold. Other platforms' staleness is logged for visibility
+  // but doesn't fail this workflow — each platform has its own cron job that
+  // owns its freshness.
   if (stale.length) {
     console.error(`stale platforms past threshold: ${stale.join(', ')}`)
     process.exit(1)
