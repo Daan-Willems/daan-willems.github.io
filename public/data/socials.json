@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-19T04:22:01.792Z",
+  "generatedAt": "2026-05-19T04:41:35.398Z",
   "youtube": {
     "status": "ok",
     "lastFetchedAt": "2026-05-19T04:22:01.172Z",
@@ -142,7 +142,7 @@
   },
   "tiktok": {
     "status": "ok",
-    "lastFetchedAt": "2026-05-18T20:11:58.503Z",
+    "lastFetchedAt": "2026-05-19T04:41:34.854Z",
     "handle": "daanwillemsautomotive",
     "profile": {
       "uniqueId": "daanwillemsautomotive",
@@ -160,7 +160,7 @@
       "videoCount": 83
     },
     "videos": [],
-    "lastSuccessAt": "2026-05-18T20:11:58.503Z"
+    "lastSuccessAt": "2026-05-19T04:41:34.854Z"
   },
   "instagram": {
     "status": "ok",
