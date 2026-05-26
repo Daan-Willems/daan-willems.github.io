@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-26T16:23:23.872Z",
+  "generatedAt": "2026-05-26T16:48:46.570Z",
   "youtube": {
     "status": "ok",
     "lastFetchedAt": "2026-05-26T16:06:14.921Z",
@@ -164,10 +164,10 @@
   },
   "instagram": {
     "status": "ok",
-    "lastFetchedAt": "2026-05-25T23:13:30.745Z",
+    "lastFetchedAt": "2026-05-26T16:48:45.057Z",
     "handle": "daanwillemsautomotive",
     "lastSuccessAt": "2026-05-25T19:52:22.212Z",
-    "lastProfileFetchAt": "2026-05-25T23:13:30.745Z",
+    "lastProfileFetchAt": "2026-05-26T16:48:45.057Z",
     "profile": {
       "userId": "53052746898",
       "username": "daanwillemsautomotive",
