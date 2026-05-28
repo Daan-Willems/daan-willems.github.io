@@ -63,6 +63,13 @@ function pickThumb(t) {
   return t?.maxres?.url || t?.standard?.url || t?.high?.url || t?.medium?.url || t?.default?.url || null
 }
 
+function parseISO8601Duration(d) {
+  if (!d) return null
+  const m = d.match(/^PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?$/)
+  if (!m) return null
+  return Number(m[1] || 0) * 3600 + Number(m[2] || 0) * 60 + Number(m[3] || 0)
+}
+
 function shapeYTVideo(item, statsById) {
   const id = item.id?.videoId || item.contentDetails?.videoId || item.id
   const s = item.snippet || {}
@@ -76,6 +83,7 @@ function shapeYTVideo(item, statsById) {
     thumbnail: pickThumb(s.thumbnails),
     viewCount: stats.viewCount ? Number(stats.viewCount) : null,
     likeCount: stats.likeCount ? Number(stats.likeCount) : null,
+    durationSec: stats.durationSec ?? null,
   }
 }
 
@@ -83,15 +91,26 @@ async function ytVideoStats(ids) {
   if (!ids.length) return {}
   const res = await ytApi('videos', { part: 'statistics,contentDetails', id: ids.join(','), maxResults: ids.length })
   const out = {}
-  for (const v of res.items || []) out[v.id] = v.statistics || {}
+  for (const v of res.items || []) {
+    out[v.id] = {
+      ...(v.statistics || {}),
+      durationSec: parseISO8601Duration(v.contentDetails?.duration),
+    }
+  }
   return out
 }
 
 async function ytSearch(order, max) {
-  const res = await ytApi('search', { part: 'snippet', channelId: YT_CHANNEL_ID, order, type: 'video', maxResults: max })
+  // Over-fetch so we can drop Shorts (≤60s duration) and still return `max`
+  // long-form videos. search costs 100 quota units regardless of maxResults
+  // up to the 50 hard cap, so widening this is effectively free.
+  const fetchCount = Math.min(max * 4, 50)
+  const res = await ytApi('search', { part: 'snippet', channelId: YT_CHANNEL_ID, order, type: 'video', maxResults: fetchCount })
   const ids = (res.items || []).map(i => i.id.videoId).filter(Boolean)
   const stats = await ytVideoStats(ids)
-  return (res.items || []).map(i => shapeYTVideo(i, stats))
+  const all = (res.items || []).map(i => shapeYTVideo(i, stats))
+  const longform = all.filter(v => (v.durationSec ?? Infinity) > 60)
+  return longform.slice(0, max)
 }
 
 async function fetchYouTube() {
