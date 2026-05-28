@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-05-28T10:37:42.220Z",
+  "generatedAt": "2026-05-28T11:46:51.940Z",
   "youtube": {
     "status": "ok",
-    "lastFetchedAt": "2026-05-28T10:23:09.640Z",
+    "lastFetchedAt": "2026-05-28T11:46:51.333Z",
     "channel": {
       "id": "UC0ubM_L6ISEgqr5SJfI8XTA",
       "title": "Daan Willems Automotive",
@@ -16,34 +16,15 @@
     },
     "latest": [
       {
-        "id": "Ss_5R2-PkYQ",
-        "url": "https://www.youtube.com/watch?v=Ss_5R2-PkYQ",
-        "title": "Volledige video nu te zien op ons YouTube-kanaal! 👀🎥 #daanwillemsautomotive #auto #automotive",
-        "description": "Welkom op het officiele Youtube-kanaal van Daan Willems! Krijg een unieke kijk in het werk en privéleven van Daan Willems.",
-        "publishedAt": "2026-05-27T13:37:57Z",
-        "thumbnail": "https://i.ytimg.com/vi/Ss_5R2-PkYQ/hqdefault.jpg",
-        "viewCount": 8478,
-        "likeCount": 102
-      },
-      {
-        "id": "vNojLoKiTho",
-        "url": "https://www.youtube.com/watch?v=vNojLoKiTho",
-        "title": "Volledige video nu te zien op ons YouTube kanaal!👀🎥 #daanwillemsautomotive #auto #automotive",
-        "description": "Welkom op het officiele Youtube-kanaal van Daan Willems! Krijg een unieke kijk in het werk en privéleven van Daan Willems.",
-        "publishedAt": "2026-05-25T15:01:07Z",
-        "thumbnail": "https://i.ytimg.com/vi/vNojLoKiTho/hqdefault.jpg",
-        "viewCount": 11981,
-        "likeCount": 115
-      },
-      {
         "id": "ghNYgBLRtEQ",
         "url": "https://www.youtube.com/watch?v=ghNYgBLRtEQ",
         "title": "WORDT DIT DE GEKSTE ZOMER OOIT!? + AUTO SLOPEN!! VLOG #34",
         "description": "Welkom op het officiele Youtube-kanaal van Daan Willems! Krijg een unieke kijk in het werk en privéleven van Daan Willems.",
         "publishedAt": "2026-05-24T09:00:06Z",
         "thumbnail": "https://i.ytimg.com/vi/ghNYgBLRtEQ/hqdefault.jpg",
-        "viewCount": 48064,
-        "likeCount": 899
+        "viewCount": 48188,
+        "likeCount": 901,
+        "durationSec": 916
       },
       {
         "id": "aGHKZA8XKZk",
@@ -53,7 +34,8 @@
         "publishedAt": "2026-05-17T08:42:44Z",
         "thumbnail": "https://i.ytimg.com/vi/aGHKZA8XKZk/hqdefault.jpg",
         "viewCount": 75313,
-        "likeCount": 2573
+        "likeCount": 2573,
+        "durationSec": 1282
       },
       {
         "id": "YZpn2Awy3pY",
@@ -62,8 +44,9 @@
         "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud CAMERA MAN PLUS ...",
         "publishedAt": "2026-05-13T15:38:57Z",
         "thumbnail": "https://i.ytimg.com/vi/YZpn2Awy3pY/hqdefault.jpg",
-        "viewCount": 96719,
-        "likeCount": 2043
+        "viewCount": 96753,
+        "likeCount": 2044,
+        "durationSec": 1125
       },
       {
         "id": "trhUPk1nm7s",
@@ -73,7 +56,30 @@
         "publishedAt": "2026-05-06T15:01:48Z",
         "thumbnail": "https://i.ytimg.com/vi/trhUPk1nm7s/hqdefault.jpg",
         "viewCount": 52938,
-        "likeCount": 1148
+        "likeCount": 1148,
+        "durationSec": 913
+      },
+      {
+        "id": "9jrDcE2YXOk",
+        "url": "https://www.youtube.com/watch?v=9jrDcE2YXOk",
+        "title": "DIT HAD IK NIET VERWACHT... AUTO TAXEREN + MOTORRIJDEN!! VLOG #30",
+        "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud CAMERAMAN: ...",
+        "publishedAt": "2026-05-03T09:00:24Z",
+        "thumbnail": "https://i.ytimg.com/vi/9jrDcE2YXOk/hqdefault.jpg",
+        "viewCount": 48214,
+        "likeCount": 950,
+        "durationSec": 1241
+      },
+      {
+        "id": "5zRc2eCIlS0",
+        "url": "https://www.youtube.com/watch?v=5zRc2eCIlS0",
+        "title": "DAAN WILLEMS DRAAIT DOOR!! (STUNTPILOOT) + €500 BESTELLING WEGBRENGEN!! VLOG #29",
+        "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud cameraman+editor ...",
+        "publishedAt": "2026-04-29T15:00:09Z",
+        "thumbnail": "https://i.ytimg.com/vi/5zRc2eCIlS0/hqdefault.jpg",
+        "viewCount": 62926,
+        "likeCount": 1109,
+        "durationSec": 1129
       }
     ],
     "top": [
@@ -85,7 +91,8 @@
         "publishedAt": "2026-03-09T17:26:22Z",
         "thumbnail": "https://i.ytimg.com/vi/9vBJKYhhptM/hqdefault.jpg",
         "viewCount": 171634,
-        "likeCount": 4117
+        "likeCount": 4117,
+        "durationSec": 713
       },
       {
         "id": "N2Mr3ddlArc",
@@ -95,7 +102,8 @@
         "publishedAt": "2025-12-07T08:00:35Z",
         "thumbnail": "https://i.ytimg.com/vi/N2Mr3ddlArc/hqdefault.jpg",
         "viewCount": 147890,
-        "likeCount": 4004
+        "likeCount": 4004,
+        "durationSec": 858
       },
       {
         "id": "AB2L1OJD_PA",
@@ -105,7 +113,8 @@
         "publishedAt": "2026-03-29T09:20:30Z",
         "thumbnail": "https://i.ytimg.com/vi/AB2L1OJD_PA/hqdefault.jpg",
         "viewCount": 124098,
-        "likeCount": 2001
+        "likeCount": 2001,
+        "durationSec": 1201
       },
       {
         "id": "KTJRmjAvIPg",
@@ -115,7 +124,8 @@
         "publishedAt": "2026-02-25T16:05:56Z",
         "thumbnail": "https://i.ytimg.com/vi/KTJRmjAvIPg/hqdefault.jpg",
         "viewCount": 119375,
-        "likeCount": 1814
+        "likeCount": 1814,
+        "durationSec": 834
       },
       {
         "id": "wm0R5AMYmig",
@@ -125,7 +135,8 @@
         "publishedAt": "2026-04-05T06:45:03Z",
         "thumbnail": "https://i.ytimg.com/vi/wm0R5AMYmig/hqdefault.jpg",
         "viewCount": 111658,
-        "likeCount": 2670
+        "likeCount": 2670,
+        "durationSec": 1626
       },
       {
         "id": "h3Yjlt1tr4A",
@@ -135,10 +146,11 @@
         "publishedAt": "2025-12-20T09:30:24Z",
         "thumbnail": "https://i.ytimg.com/vi/h3Yjlt1tr4A/hqdefault.jpg",
         "viewCount": 111559,
-        "likeCount": 1726
+        "likeCount": 1726,
+        "durationSec": 694
       }
     ],
-    "lastSuccessAt": "2026-05-28T10:23:09.640Z"
+    "lastSuccessAt": "2026-05-28T11:46:51.333Z"
   },
   "tiktok": {
     "status": "ok",
