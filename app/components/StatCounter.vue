@@ -17,6 +17,7 @@ const useCompact = computed(() => props.value >= 10000)
 const root = ref<HTMLElement | null>(null)
 const display = ref(0)
 const revealed = ref(false)
+let rafId: number | null = null
 
 function format(n: number) {
   if (useCompact.value) {
@@ -30,6 +31,19 @@ function format(n: number) {
   return n.toLocaleString('nl-NL', { minimumFractionDigits: props.decimals, maximumFractionDigits: props.decimals })
 }
 
+function animate(from: number, to: number) {
+  if (rafId !== null) cancelAnimationFrame(rafId)
+  const start = performance.now()
+  function tick(now: number) {
+    const t = Math.min((now - start) / props.duration, 1)
+    const eased = 1 - Math.pow(1 - t, 3)
+    display.value = from + (to - from) * eased
+    if (t < 1) rafId = requestAnimationFrame(tick)
+    else { display.value = to; rafId = null }
+  }
+  rafId = requestAnimationFrame(tick)
+}
+
 onMounted(() => {
   if (!root.value || typeof IntersectionObserver === 'undefined') {
     display.value = props.value
@@ -39,26 +53,19 @@ onMounted(() => {
     for (const e of entries) {
       if (e.isIntersecting) {
         revealed.value = true
-        animate()
+        animate(0, props.value)
         obs.disconnect()
       }
     }
   }, { threshold: 0.4 })
   obs.observe(root.value)
+})
 
-  function animate() {
-    const start = performance.now()
-    const from = 0
-    const to = props.value
-    function tick(now: number) {
-      const t = Math.min((now - start) / props.duration, 1)
-      const eased = 1 - Math.pow(1 - t, 3)
-      display.value = from + (to - from) * eased
-      if (t < 1) requestAnimationFrame(tick)
-      else display.value = to
-    }
-    requestAnimationFrame(tick)
-  }
+// Re-animate when props.value changes after reveal — async data load
+// (socials.json) often arrives after the stat section has scrolled into
+// view with value=0, and without this the counter stays stuck at 0.
+watch(() => props.value, (next) => {
+  if (revealed.value) animate(display.value, next)
 })
 </script>
 
