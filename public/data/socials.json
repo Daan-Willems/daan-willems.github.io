@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-06-07T09:28:59.482Z",
+  "generatedAt": "2026-06-07T09:32:54.376Z",
   "youtube": {
     "status": "ok",
-    "lastFetchedAt": "2026-06-07T04:53:48.986Z",
+    "lastFetchedAt": "2026-06-07T09:32:53.893Z",
     "channel": {
       "id": "UC0ubM_L6ISEgqr5SJfI8XTA",
       "title": "Daan Willems Automotive",
@@ -10,11 +10,22 @@
       "customUrl": "@daanwillemsautomotive",
       "thumbnail": "/images/socials/avatars/youtube.jpg",
       "subscriberCount": 33500,
-      "videoCount": 47,
+      "videoCount": 48,
       "viewCount": 3679168,
       "bannerUrl": "https://yt3.googleusercontent.com/n2yJgGUAPlCi5Zv5tB6NflWMNyuRXIEj7dM30IeQ6BDW0nnUjOXbABuj4qIPUmtBr8InSej5"
     },
     "latest": [
+      {
+        "id": "N2CljmKRecY",
+        "url": "https://www.youtube.com/watch?v=N2CljmKRecY",
+        "title": "DE KEUKEN IN MET CHEFKELUC!! VLOG #36",
+        "description": "Welkom op het officiele Youtube-kanaal van Daan Willems! Krijg een unieke kijk in het werk en privéleven van Daan Willems.",
+        "publishedAt": "2026-06-07T09:00:54Z",
+        "thumbnail": "https://i.ytimg.com/vi/N2CljmKRecY/hqdefault.jpg",
+        "viewCount": 876,
+        "likeCount": 43,
+        "durationSec": 1609
+      },
       {
         "id": "Z7HhSggOxJI",
         "url": "https://www.youtube.com/watch?v=Z7HhSggOxJI",
@@ -22,8 +33,8 @@
         "description": "Welkom op het officiele Youtube-kanaal van Daan Willems! Krijg een unieke kijk in het werk en privéleven van Daan Willems.",
         "publishedAt": "2026-06-03T09:14:18Z",
         "thumbnail": "https://i.ytimg.com/vi/Z7HhSggOxJI/hqdefault.jpg",
-        "viewCount": 8438,
-        "likeCount": 126,
+        "viewCount": 8515,
+        "likeCount": 128,
         "durationSec": 68
       },
       {
@@ -33,8 +44,8 @@
         "description": "Welkom op het officiele Youtube-kanaal van Daan Willems! Krijg een unieke kijk in het werk en privéleven van Daan Willems.",
         "publishedAt": "2026-05-31T09:00:28Z",
         "thumbnail": "https://i.ytimg.com/vi/WIo5PMGoSxU/hqdefault.jpg",
-        "viewCount": 37358,
-        "likeCount": 771,
+        "viewCount": 37402,
+        "likeCount": 773,
         "durationSec": 816
       },
       {
@@ -44,7 +55,7 @@
         "description": "Welkom op het officiele Youtube-kanaal van Daan Willems! Krijg een unieke kijk in het werk en privéleven van Daan Willems.",
         "publishedAt": "2026-05-24T09:00:06Z",
         "thumbnail": "https://i.ytimg.com/vi/ghNYgBLRtEQ/hqdefault.jpg",
-        "viewCount": 58053,
+        "viewCount": 58072,
         "likeCount": 991,
         "durationSec": 916
       },
@@ -55,7 +66,7 @@
         "description": "Welkom op het officiele Youtube-kanaal van Daan Willems! Krijg een unieke kijk in het werk en privéleven van Daan Willems.",
         "publishedAt": "2026-05-17T08:42:44Z",
         "thumbnail": "https://i.ytimg.com/vi/aGHKZA8XKZk/hqdefault.jpg",
-        "viewCount": 79092,
+        "viewCount": 79093,
         "likeCount": 2626,
         "durationSec": 1282
       },
@@ -66,20 +77,9 @@
         "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud CAMERA MAN PLUS ...",
         "publishedAt": "2026-05-13T15:38:57Z",
         "thumbnail": "https://i.ytimg.com/vi/YZpn2Awy3pY/hqdefault.jpg",
-        "viewCount": 100749,
+        "viewCount": 100781,
         "likeCount": 2092,
         "durationSec": 1125
-      },
-      {
-        "id": "trhUPk1nm7s",
-        "url": "https://www.youtube.com/watch?v=trhUPk1nm7s",
-        "title": "ONVOORBEREID HET PODIUM OP?! DAAN WILLEMS ALS DJI!! VLOG #31",
-        "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud CAMERAMAN + ...",
-        "publishedAt": "2026-05-06T15:01:48Z",
-        "thumbnail": "https://i.ytimg.com/vi/trhUPk1nm7s/hqdefault.jpg",
-        "viewCount": 54464,
-        "likeCount": 1160,
-        "durationSec": 913
       }
     ],
     "top": [
@@ -90,7 +90,7 @@
         "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud Bekijk aanbod ...",
         "publishedAt": "2026-03-09T17:26:22Z",
         "thumbnail": "https://i.ytimg.com/vi/9vBJKYhhptM/hqdefault.jpg",
-        "viewCount": 175926,
+        "viewCount": 175937,
         "likeCount": 4169,
         "durationSec": 713
       },
@@ -101,7 +101,7 @@
         "description": "Abonneer voor meer backstage content @ Daan Willems Automotive Emblemen Oeteldonk ...",
         "publishedAt": "2025-12-07T08:00:35Z",
         "thumbnail": "https://i.ytimg.com/vi/N2Mr3ddlArc/hqdefault.jpg",
-        "viewCount": 149521,
+        "viewCount": 149525,
         "likeCount": 4015,
         "durationSec": 858
       },
@@ -112,7 +112,7 @@
         "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud CAMERAMAN + ...",
         "publishedAt": "2026-03-29T09:20:30Z",
         "thumbnail": "https://i.ytimg.com/vi/AB2L1OJD_PA/hqdefault.jpg",
-        "viewCount": 127240,
+        "viewCount": 127249,
         "likeCount": 2027,
         "durationSec": 1201
       },
@@ -123,7 +123,7 @@
         "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud CAMERA MAN ...",
         "publishedAt": "2026-02-25T16:05:56Z",
         "thumbnail": "https://i.ytimg.com/vi/KTJRmjAvIPg/hqdefault.jpg",
-        "viewCount": 121653,
+        "viewCount": 121656,
         "likeCount": 1828,
         "durationSec": 834
       },
@@ -134,7 +134,7 @@
         "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud Cameraman ...",
         "publishedAt": "2026-04-05T06:45:03Z",
         "thumbnail": "https://i.ytimg.com/vi/wm0R5AMYmig/hqdefault.jpg",
-        "viewCount": 115315,
+        "viewCount": 115323,
         "likeCount": 2710,
         "durationSec": 1626
       },
@@ -150,7 +150,7 @@
         "durationSec": 694
       }
     ],
-    "lastSuccessAt": "2026-06-07T04:53:48.986Z"
+    "lastSuccessAt": "2026-06-07T09:32:53.893Z"
   },
   "tiktok": {
     "status": "ok",
