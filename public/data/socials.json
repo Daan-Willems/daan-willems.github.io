@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-15T05:36:16.634Z",
+  "generatedAt": "2026-06-15T06:32:43.160Z",
   "youtube": {
     "status": "ok",
     "lastFetchedAt": "2026-06-15T05:24:35.155Z",
@@ -176,10 +176,10 @@
   },
   "instagram": {
     "status": "ok",
-    "lastFetchedAt": "2026-06-15T00:19:34.162Z",
+    "lastFetchedAt": "2026-06-15T06:31:47.943Z",
     "handle": "daanwillemsautomotive",
     "lastSuccessAt": "2026-06-15T00:20:44.420Z",
-    "lastProfileFetchAt": "2026-06-14T14:23:55.254Z",
+    "lastProfileFetchAt": "2026-06-15T06:31:47.943Z",
     "profile": {
       "userId": "53052746898",
       "username": "daanwillemsautomotive",
@@ -290,7 +290,7 @@
     ],
     "iterator": {
       "startedAt": "2026-06-13T16:21:20.501Z",
-      "lastFetchedAt": "2026-06-15T00:20:44.420Z",
+      "lastFetchedAt": "2026-06-15T06:32:39.379Z",
       "completedAt": null,
       "cursor": "3789621386541837491_72496796654",
       "items": {
