@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-23T23:14:47.803Z",
+  "generatedAt": "2026-06-24T04:13:56.583Z",
   "youtube": {
     "status": "ok",
     "lastFetchedAt": "2026-06-23T20:20:39.466Z",
@@ -176,9 +176,9 @@
   },
   "instagram": {
     "status": "ok",
-    "lastFetchedAt": "2026-06-23T23:13:27.725Z",
+    "lastFetchedAt": "2026-06-24T04:13:29.052Z",
     "handle": "daanwillemsautomotive",
-    "lastSuccessAt": "2026-06-23T23:14:42.125Z",
+    "lastSuccessAt": "2026-06-24T04:13:50.372Z",
     "lastProfileFetchAt": "2026-06-23T21:06:24.951Z",
     "profile": {
       "userId": "53052746898",
@@ -206,13 +206,13 @@
       "followerCount": 133681,
       "followingCount": 36,
       "mediaCount": 91,
-      "totalPlays": 57739189,
-      "totalLikes": 1260506,
-      "totalComments": 14544,
-      "sampledPostCount": 108,
+      "totalPlays": 58602248,
+      "totalLikes": 1270541,
+      "totalComments": 14698,
+      "sampledPostCount": 109,
       "profileSourcedFromPrev": true,
       "feedSourcedFromPrev": false,
-      "iteratorCycleComplete": false
+      "iteratorCycleComplete": true
     },
     "posts": [
       {
@@ -290,9 +290,9 @@
     ],
     "iterator": {
       "startedAt": "2026-06-22T21:07:55.316Z",
-      "lastFetchedAt": "2026-06-23T23:14:42.124Z",
-      "completedAt": null,
-      "cursor": "3747455581989404498_53052746898",
+      "lastFetchedAt": "2026-06-24T04:13:50.372Z",
+      "completedAt": "2026-06-24T04:13:50.372Z",
+      "cursor": null,
       "items": {
         "3924327755858184668": {
           "pk": "3924327755858184668",
@@ -1589,6 +1589,18 @@
           "playCount": 896717,
           "thumbnail": "https://scontent-iad3-2.cdninstagram.com/v/t51.71878-15/566146884_1364170918700146_6948994062390426614_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=105&ig_cache_key=Mzc0NzQ1NTU4MTk4OTQwNDQ5OA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjY0MC5zZHIudmlkZW9fbmZyYW1lX2NvdmVyX2ZyYW1lLkMzIn0%3D&_nc_ohc=7DOv-ymbTekQ7kNvwG9zPjA&_nc_oc=Adq8LUZKZLyUyntcUGJvTgUvt9GpxA7bLZmmtK9h789CfkyeW56gSYks_d9c94mopkw&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-iad3-2.cdninstagram.com&_nc_gid=PyG8gsysES47qrur0Dp80Q&_nc_ss=7a120&oh=00_Af8dHOBmNYKBzQ4sPlhXs9JOAtEaeZAmneMoUoTfgZJE6w&oe=6A40CE9B",
           "caption": "Ford Ka • 85.000km • glazen dak\n\nInteresse? DM!\n\n#daanwillemsautomotive #occasion #jonggebruikteautos #autoverkoop #autodealer"
+        },
+        "3746010975082954982": {
+          "pk": "3746010975082954982",
+          "code": "DP8gSJ2iMDm",
+          "takenAt": 1760779444,
+          "mediaType": 2,
+          "productType": "clips",
+          "likeCount": 10035,
+          "commentCount": 154,
+          "playCount": 863059,
+          "thumbnail": "https://scontent-lhr6-1.cdninstagram.com/v/t51.71878-15/566533072_1980111186098163_3487502496181407844_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=108&ig_cache_key=Mzc0NjAxMDk3NTA4Mjk1NDk4Mg%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjY0MC5zZHIudmlkZW9fbmZyYW1lX2NvdmVyX2ZyYW1lLkMyIn0%3D&_nc_ohc=XR0dS92d34cQ7kNvwH4fLBN&_nc_oc=Ado86OvO6QSD3-K976LIIDvisRmDgpa4vEzvDThMyQ02E9BSP-JItcYcubdNVqyaZeU&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-lhr6-1.cdninstagram.com&_nc_gid=oXym3q2fR_XXWZ0naxvRAw&_nc_ss=7a120&oh=00_Af-W1YY1OPX2CoXAh6DDhc2L59YuPbVLwaAeAyRr-iXzDQ&oe=6A411FA8",
+          "caption": "Hyundai Tucson • youngtimer • 4x4\n\nInteresse? DM!\n\n#daanwillemsautomotive #jonggebruikteautos #occasion #autoverkoop #autodealer"
         }
       }
     }
