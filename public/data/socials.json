@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-06-28T09:23:30.288Z",
+  "generatedAt": "2026-06-28T09:30:17.316Z",
   "youtube": {
     "status": "ok",
-    "lastFetchedAt": "2026-06-28T04:46:48.776Z",
+    "lastFetchedAt": "2026-06-28T09:30:16.687Z",
     "channel": {
       "id": "UC0ubM_L6ISEgqr5SJfI8XTA",
       "title": "Daan Willems Automotive",
@@ -10,11 +10,22 @@
       "customUrl": "@daanwillemsautomotive",
       "thumbnail": "/images/socials/avatars/youtube.jpg",
       "subscriberCount": 34800,
-      "videoCount": 55,
+      "videoCount": 56,
       "viewCount": 4091990,
       "bannerUrl": "https://yt3.googleusercontent.com/n2yJgGUAPlCi5Zv5tB6NflWMNyuRXIEj7dM30IeQ6BDW0nnUjOXbABuj4qIPUmtBr8InSej5"
     },
     "latest": [
+      {
+        "id": "ilr-blYNh_o",
+        "url": "https://www.youtube.com/watch?v=ilr-blYNh_o",
+        "title": "DIT LIEP HELEMAAL MIS... VLOG #40",
+        "description": "Welkom op het officiele Youtube-kanaal van Daan Willems! Krijg een unieke kijk in het werk en privéleven van Daan Willems.",
+        "publishedAt": "2026-06-28T09:00:28Z",
+        "thumbnail": "https://i.ytimg.com/vi/ilr-blYNh_o/hqdefault.jpg",
+        "viewCount": 872,
+        "likeCount": 52,
+        "durationSec": 619
+      },
       {
         "id": "HMnAZH8PG4w",
         "url": "https://www.youtube.com/watch?v=HMnAZH8PG4w",
@@ -22,8 +33,8 @@
         "description": "Welkom op het officiele Youtube-kanaal van Daan Willems! Krijg een unieke kijk in het werk en privéleven van Daan Willems.",
         "publishedAt": "2026-06-24T15:00:19Z",
         "thumbnail": "https://i.ytimg.com/vi/HMnAZH8PG4w/hqdefault.jpg",
-        "viewCount": 47584,
-        "likeCount": 832,
+        "viewCount": 47939,
+        "likeCount": 837,
         "durationSec": 1150
       },
       {
@@ -33,8 +44,8 @@
         "description": "Welkom op het officiele Youtube-kanaal van Daan Willems! Krijg een unieke kijk in het werk en privéleven van Daan Willems.",
         "publishedAt": "2026-06-21T09:00:32Z",
         "thumbnail": "https://i.ytimg.com/vi/weS1CD2dhH4/hqdefault.jpg",
-        "viewCount": 60920,
-        "likeCount": 1453,
+        "viewCount": 60993,
+        "likeCount": 1457,
         "durationSec": 1130
       },
       {
@@ -44,8 +55,8 @@
         "description": "Interesse, DM via Instagram of TikTok❗️   Welkom op het officiele Youtube-kanaal van Daan Willems! Krijg een unieke kijk in ...",
         "publishedAt": "2026-06-14T18:49:06Z",
         "thumbnail": "https://i.ytimg.com/vi/orULTNBIpmU/hqdefault.jpg",
-        "viewCount": 39244,
-        "likeCount": 423,
+        "viewCount": 39337,
+        "likeCount": 424,
         "durationSec": 88
       },
       {
@@ -55,8 +66,8 @@
         "description": "Welkom op het officiele Youtube-kanaal van Daan Willems! Krijg een unieke kijk in het werk en privéleven van Daan Willems.",
         "publishedAt": "2026-06-14T09:00:21Z",
         "thumbnail": "https://i.ytimg.com/vi/eVcjU480dYg/hqdefault.jpg",
-        "viewCount": 33945,
-        "likeCount": 646,
+        "viewCount": 33958,
+        "likeCount": 647,
         "durationSec": 877
       },
       {
@@ -66,20 +77,9 @@
         "description": "Welkom op het officiele Youtube-kanaal van Daan Willems! Krijg een unieke kijk in het werk en privéleven van Daan Willems.",
         "publishedAt": "2026-06-10T13:59:24Z",
         "thumbnail": "https://i.ytimg.com/vi/WaN4QANg9SI/hqdefault.jpg",
-        "viewCount": 6359,
+        "viewCount": 6365,
         "likeCount": 50,
         "durationSec": 86
-      },
-      {
-        "id": "N2CljmKRecY",
-        "url": "https://www.youtube.com/watch?v=N2CljmKRecY",
-        "title": "KOKEN MET CHEFKELUC!! ALLEEN MAAR CHAOS!? VLOG #36",
-        "description": "Check Trade Republic voor 3% rente!!: https://trade.re/DaanWillems Welkom op het officiele Youtube-kanaal van Daan Willems!",
-        "publishedAt": "2026-06-07T09:00:54Z",
-        "thumbnail": "https://i.ytimg.com/vi/N2CljmKRecY/hqdefault.jpg",
-        "viewCount": 45978,
-        "likeCount": 1016,
-        "durationSec": 1609
       }
     ],
     "top": [
@@ -90,8 +90,8 @@
         "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud Bekijk aanbod ...",
         "publishedAt": "2026-03-09T17:26:22Z",
         "thumbnail": "https://i.ytimg.com/vi/9vBJKYhhptM/hqdefault.jpg",
-        "viewCount": 182093,
-        "likeCount": 4239,
+        "viewCount": 182100,
+        "likeCount": 4240,
         "durationSec": 713
       },
       {
@@ -112,8 +112,8 @@
         "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud CAMERAMAN + ...",
         "publishedAt": "2026-03-29T09:20:30Z",
         "thumbnail": "https://i.ytimg.com/vi/AB2L1OJD_PA/hqdefault.jpg",
-        "viewCount": 133735,
-        "likeCount": 2083,
+        "viewCount": 133765,
+        "likeCount": 2084,
         "durationSec": 1201
       },
       {
@@ -123,7 +123,7 @@
         "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud CAMERA MAN ...",
         "publishedAt": "2026-02-25T16:05:56Z",
         "thumbnail": "https://i.ytimg.com/vi/KTJRmjAvIPg/hqdefault.jpg",
-        "viewCount": 124876,
+        "viewCount": 124881,
         "likeCount": 1855,
         "durationSec": 834
       },
@@ -134,7 +134,7 @@
         "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud Cameraman ...",
         "publishedAt": "2026-04-05T06:45:03Z",
         "thumbnail": "https://i.ytimg.com/vi/wm0R5AMYmig/hqdefault.jpg",
-        "viewCount": 119581,
+        "viewCount": 119599,
         "likeCount": 2770,
         "durationSec": 1626
       },
@@ -145,12 +145,12 @@
         "description": "Abonneer voor meer backstage content @ Daan Willems Automotive In deze video: Van De Pol Bouw- en Timmerwerken ...",
         "publishedAt": "2025-12-20T09:30:24Z",
         "thumbnail": "https://i.ytimg.com/vi/h3Yjlt1tr4A/hqdefault.jpg",
-        "viewCount": 113856,
+        "viewCount": 113857,
         "likeCount": 1743,
         "durationSec": 694
       }
     ],
-    "lastSuccessAt": "2026-06-28T04:46:48.776Z"
+    "lastSuccessAt": "2026-06-28T09:30:16.687Z"
   },
   "tiktok": {
     "status": "ok",
