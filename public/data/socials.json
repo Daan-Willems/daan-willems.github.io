@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-12T21:57:49.182Z",
+  "generatedAt": "2026-07-13T03:54:54.699Z",
   "youtube": {
-    "status": "ok",
+    "status": "stale",
     "lastFetchedAt": "2026-07-12T19:21:05.290Z",
     "channel": {
       "id": "UC0ubM_L6ISEgqr5SJfI8XTA",
@@ -150,7 +150,9 @@
         "durationSec": 694
       }
     ],
-    "lastSuccessAt": "2026-07-12T19:21:05.290Z"
+    "lastSuccessAt": "2026-07-12T19:21:05.290Z",
+    "lastError": "fetch failed",
+    "lastErrorAt": "2026-07-13T03:54:54.620Z"
   },
   "tiktok": {
     "status": "ok",
