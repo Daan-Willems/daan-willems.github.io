@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-07-14T08:34:58.533Z",
+  "generatedAt": "2026-07-14T14:09:22.878Z",
   "youtube": {
     "status": "ok",
-    "lastFetchedAt": "2026-07-14T08:25:59.695Z",
+    "lastFetchedAt": "2026-07-14T14:09:22.216Z",
     "channel": {
       "id": "UC0ubM_L6ISEgqr5SJfI8XTA",
       "title": "Daan Willems Automotive",
@@ -10,11 +10,22 @@
       "customUrl": "@daanwillemsautomotive",
       "thumbnail": "/images/socials/avatars/youtube.jpg",
       "subscriberCount": 36300,
-      "videoCount": 64,
+      "videoCount": 65,
       "viewCount": 4594638,
       "bannerUrl": "https://yt3.googleusercontent.com/n2yJgGUAPlCi5Zv5tB6NflWMNyuRXIEj7dM30IeQ6BDW0nnUjOXbABuj4qIPUmtBr8InSej5"
     },
     "latest": [
+      {
+        "id": "nc_RP3pcZT0",
+        "url": "https://www.youtube.com/watch?v=nc_RP3pcZT0",
+        "title": "Fiat 500 1.4 • Climate control • Panoramadak • Lage kosten •  #daanwillemsautomotive #automotive",
+        "description": "Welkom op het officiele Youtube-kanaal van Daan Willems! Krijg een unieke kijk in het werk en privéleven van Daan Willems.",
+        "publishedAt": "2026-07-14T10:23:28Z",
+        "thumbnail": "https://i.ytimg.com/vi/nc_RP3pcZT0/hqdefault.jpg",
+        "viewCount": 3058,
+        "likeCount": 96,
+        "durationSec": 73
+      },
       {
         "id": "qaQmCZLf6F0",
         "url": "https://www.youtube.com/watch?v=qaQmCZLf6F0",
@@ -22,8 +33,8 @@
         "description": "Welkom op het officiele Youtube-kanaal van Daan Willems! Krijg een unieke kijk in het werk en privéleven van Daan Willems.",
         "publishedAt": "2026-07-12T09:00:22Z",
         "thumbnail": "https://i.ytimg.com/vi/qaQmCZLf6F0/hqdefault.jpg",
-        "viewCount": 39847,
-        "likeCount": 667,
+        "viewCount": 40927,
+        "likeCount": 685,
         "durationSec": 998
       },
       {
@@ -33,7 +44,7 @@
         "description": "Welkom op het officiele Youtube-kanaal van Daan Willems! Krijg een unieke kijk in het werk en privéleven van Daan Willems.",
         "publishedAt": "2026-07-09T10:26:06Z",
         "thumbnail": "https://i.ytimg.com/vi/cpT2eEHW2bA/hqdefault.jpg",
-        "viewCount": 11205,
+        "viewCount": 11376,
         "likeCount": 100,
         "durationSec": 84
       },
@@ -44,8 +55,8 @@
         "description": "Welkom op het officiele Youtube-kanaal van Daan Willems! Krijg een unieke kijk in het werk en privéleven van Daan Willems.",
         "publishedAt": "2026-07-08T17:41:02Z",
         "thumbnail": "https://i.ytimg.com/vi/Tmk_E_I1GPA/hqdefault.jpg",
-        "viewCount": 52257,
-        "likeCount": 887,
+        "viewCount": 52557,
+        "likeCount": 889,
         "durationSec": 1248
       },
       {
@@ -55,8 +66,8 @@
         "description": "Check Trade Republic voor 3% rente!!: https://trade.re/DaanWillems Welkom op het officiele Youtube-kanaal van Daan Willems!",
         "publishedAt": "2026-07-05T09:00:24Z",
         "thumbnail": "https://i.ytimg.com/vi/RlVLdtMrFI8/hqdefault.jpg",
-        "viewCount": 46211,
-        "likeCount": 795,
+        "viewCount": 46424,
+        "likeCount": 802,
         "durationSec": 1010
       },
       {
@@ -66,20 +77,9 @@
         "description": "Welkom op het officiele Youtube-kanaal van Daan Willems! Krijg een unieke kijk in het werk en privéleven van Daan Willems.",
         "publishedAt": "2026-07-01T15:03:46Z",
         "thumbnail": "https://i.ytimg.com/vi/iZFohfNAr8U/hqdefault.jpg",
-        "viewCount": 78312,
-        "likeCount": 1235,
+        "viewCount": 78606,
+        "likeCount": 1239,
         "durationSec": 1116
-      },
-      {
-        "id": "o-VzjBK7f3A",
-        "url": "https://www.youtube.com/watch?v=o-VzjBK7f3A",
-        "title": "Volledige video nu te zien op ons YouTube-kanaal!! 👀🔥 #daanwillemsautomotive #auto #automotive #",
-        "description": "Welkom op het officiele Youtube-kanaal van Daan Willems! Krijg een unieke kijk in het werk en privéleven van Daan Willems.",
-        "publishedAt": "2026-07-01T08:33:34Z",
-        "thumbnail": "https://i.ytimg.com/vi/o-VzjBK7f3A/hqdefault.jpg",
-        "viewCount": 8386,
-        "likeCount": 77,
-        "durationSec": 73
       }
     ],
     "top": [
@@ -90,8 +90,8 @@
         "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud Bekijk aanbod ...",
         "publishedAt": "2026-03-09T17:26:22Z",
         "thumbnail": "https://i.ytimg.com/vi/9vBJKYhhptM/hqdefault.jpg",
-        "viewCount": 188441,
-        "likeCount": 4290,
+        "viewCount": 188476,
+        "likeCount": 4293,
         "durationSec": 713
       },
       {
@@ -101,7 +101,7 @@
         "description": "Abonneer voor meer backstage content @ Daan Willems Automotive Emblemen Oeteldonk ...",
         "publishedAt": "2025-12-07T08:00:35Z",
         "thumbnail": "https://i.ytimg.com/vi/N2Mr3ddlArc/hqdefault.jpg",
-        "viewCount": 153461,
+        "viewCount": 153482,
         "likeCount": 4042,
         "durationSec": 858
       },
@@ -112,7 +112,7 @@
         "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud CAMERAMAN + ...",
         "publishedAt": "2026-03-29T09:20:30Z",
         "thumbnail": "https://i.ytimg.com/vi/AB2L1OJD_PA/hqdefault.jpg",
-        "viewCount": 139677,
+        "viewCount": 139748,
         "likeCount": 2110,
         "durationSec": 1201
       },
@@ -123,8 +123,8 @@
         "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud CAMERA MAN ...",
         "publishedAt": "2026-02-25T16:05:56Z",
         "thumbnail": "https://i.ytimg.com/vi/KTJRmjAvIPg/hqdefault.jpg",
-        "viewCount": 128086,
-        "likeCount": 1873,
+        "viewCount": 128127,
+        "likeCount": 1875,
         "durationSec": 834
       },
       {
@@ -134,7 +134,7 @@
         "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud Cameraman ...",
         "publishedAt": "2026-04-05T06:45:03Z",
         "thumbnail": "https://i.ytimg.com/vi/wm0R5AMYmig/hqdefault.jpg",
-        "viewCount": 123973,
+        "viewCount": 124002,
         "likeCount": 2830,
         "durationSec": 1626
       },
@@ -145,12 +145,12 @@
         "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud editor + camera man ...",
         "publishedAt": "2026-02-22T09:45:55Z",
         "thumbnail": "https://i.ytimg.com/vi/D1e3PYe0t4A/hqdefault.jpg",
-        "viewCount": 117551,
-        "likeCount": 2220,
+        "viewCount": 117626,
+        "likeCount": 2219,
         "durationSec": 711
       }
     ],
-    "lastSuccessAt": "2026-07-14T08:25:59.695Z"
+    "lastSuccessAt": "2026-07-14T14:09:22.216Z"
   },
   "tiktok": {
     "status": "ok",
