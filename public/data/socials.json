@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-15T19:34:11.062Z",
+  "generatedAt": "2026-07-15T19:44:37.904Z",
   "youtube": {
     "status": "ok",
     "lastFetchedAt": "2026-07-15T19:34:10.433Z",
@@ -154,13 +154,13 @@
   },
   "tiktok": {
     "status": "ok",
-    "lastFetchedAt": "2026-07-15T14:18:17.044Z",
+    "lastFetchedAt": "2026-07-15T19:44:37.342Z",
     "handle": "daanwillemsautomotive",
     "profile": {
       "uniqueId": "daanwillemsautomotive",
       "nickname": "Daan Willems",
       "bio": "𝐃𝐀𝐀𝐍 𝐖𝐈𝐋𝐋𝐄𝐌𝐒 𝐀𝐔𝐓𝐎𝐌𝐎𝐓𝐈𝐕𝐄\nIn- en verkoop occasions \nReparatie & onderhoud",
-      "bioLink": "https://linktr.ee/daanwillems_automotive",
+      "bioLink": null,
       "avatar": "/images/socials/avatars/tiktok.jpg",
       "verified": false,
       "url": "https://www.tiktok.com/@daanwillemsautomotive"
@@ -172,7 +172,7 @@
       "videoCount": 101
     },
     "videos": [],
-    "lastSuccessAt": "2026-07-15T14:18:17.044Z"
+    "lastSuccessAt": "2026-07-15T19:44:37.342Z"
   },
   "instagram": {
     "status": "stale",
