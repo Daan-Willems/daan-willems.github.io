@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-18T13:44:40.102Z",
+  "generatedAt": "2026-07-18T13:56:04.139Z",
   "youtube": {
     "status": "ok",
     "lastFetchedAt": "2026-07-18T13:44:39.495Z",
@@ -154,12 +154,12 @@
   },
   "tiktok": {
     "status": "ok",
-    "lastFetchedAt": "2026-07-18T08:18:06.656Z",
+    "lastFetchedAt": "2026-07-18T13:56:03.339Z",
     "handle": "daanwillemsautomotive",
     "profile": {
       "uniqueId": "daanwillemsautomotive",
       "nickname": "Daan Willems",
-      "bio": "𝐃𝐀𝐀𝐍 𝐖𝐈𝐋𝐋𝐄𝐌𝐒 𝐀𝐔𝐓𝐎𝐌𝐎𝐓𝐈𝐕𝐄\nIn- en verkoop occasions \nReparatie & onderhoud",
+      "bio": "𝐃𝐀𝐀𝐍 𝐖𝐈𝐋𝐋𝐄𝐌𝐒 𝐀𝐔𝐓𝐎𝐌𝐎𝐓𝐈𝐕𝐄\nIn- en verkoop occasions\nReparatie & onderhoud\n📩 management@nountheagency.com",
       "bioLink": null,
       "avatar": "/images/socials/avatars/tiktok.jpg",
       "verified": false,
@@ -172,7 +172,7 @@
       "videoCount": 102
     },
     "videos": [],
-    "lastSuccessAt": "2026-07-18T08:18:06.656Z"
+    "lastSuccessAt": "2026-07-18T13:56:03.339Z"
   },
   "instagram": {
     "status": "ok",
