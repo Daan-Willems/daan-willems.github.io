@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-23T17:39:40.102Z",
+  "generatedAt": "2026-07-23T19:37:11.380Z",
   "youtube": {
     "status": "ok",
     "lastFetchedAt": "2026-07-23T14:27:12.334Z",
@@ -176,7 +176,7 @@
   },
   "instagram": {
     "status": "stale",
-    "lastFetchedAt": "2026-07-23T17:38:28.184Z",
+    "lastFetchedAt": "2026-07-23T19:36:17.726Z",
     "handle": "daanwillemsautomotive",
     "lastSuccessAt": "2026-07-23T17:39:39.482Z",
     "lastProfileFetchAt": "2026-07-23T10:30:32.814Z",
@@ -290,7 +290,7 @@
     ],
     "iterator": {
       "startedAt": "2026-07-22T20:16:08.255Z",
-      "lastFetchedAt": "2026-07-23T17:39:39.482Z",
+      "lastFetchedAt": "2026-07-23T19:37:07.869Z",
       "completedAt": null,
       "cursor": "3769900076215331995_53052746898",
       "items": {
@@ -1593,6 +1593,6 @@
       }
     },
     "lastError": "Sanity drop: stats.totalPlays: 55,327,783 < 61737629 (was 63,647,040, floor 97%)",
-    "lastErrorAt": "2026-07-23T17:38:28.184Z"
+    "lastErrorAt": "2026-07-23T19:36:17.726Z"
   }
 }
