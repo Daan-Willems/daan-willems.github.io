@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-23T19:54:30.603Z",
+  "generatedAt": "2026-07-23T21:14:00.756Z",
   "youtube": {
     "status": "ok",
     "lastFetchedAt": "2026-07-23T19:41:32.009Z",
@@ -175,10 +175,10 @@
     "lastSuccessAt": "2026-07-23T19:54:29.993Z"
   },
   "instagram": {
-    "status": "stale",
-    "lastFetchedAt": "2026-07-23T19:36:17.726Z",
+    "status": "ok",
+    "lastFetchedAt": "2026-07-23T21:12:46.584Z",
     "handle": "daanwillemsautomotive",
-    "lastSuccessAt": "2026-07-23T17:39:39.482Z",
+    "lastSuccessAt": "2026-07-23T21:14:00.025Z",
     "lastProfileFetchAt": "2026-07-23T10:30:32.814Z",
     "profile": {
       "userId": "53052746898",
@@ -206,12 +206,12 @@
       "followerCount": 133681,
       "followingCount": 36,
       "mediaCount": 91,
-      "totalPlays": 63647040,
-      "totalLikes": 1378083,
-      "totalComments": 15840,
-      "sampledPostCount": 72,
+      "totalPlays": 62575665,
+      "totalLikes": 1369223,
+      "totalComments": 15739,
+      "sampledPostCount": 120,
       "profileSourcedFromPrev": true,
-      "feedSourcedFromPrev": true,
+      "feedSourcedFromPrev": false,
       "iteratorCycleComplete": false
     },
     "posts": [
@@ -290,9 +290,9 @@
     ],
     "iterator": {
       "startedAt": "2026-07-22T20:16:08.255Z",
-      "lastFetchedAt": "2026-07-23T19:37:07.869Z",
+      "lastFetchedAt": "2026-07-23T21:14:00.025Z",
       "completedAt": null,
-      "cursor": "3769900076215331995_53052746898",
+      "cursor": "3752538954613143037_53052746898",
       "items": {
         "3946068878557343592": {
           "pk": "3946068878557343592",
@@ -1589,10 +1589,152 @@
           "playCount": 930460,
           "thumbnail": "https://scontent-ord5-1.cdninstagram.com/v/t51.71878-15/584513776_2570173580013981_5072827096722597905_n.jpg?stp=dst-jpegr_e15_tt6&_nc_cat=110&ig_cache_key=Mzc2OTkwMDA3NjIxNTMzMTk5NQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjY0MC5oZHIudmlkZW9fbmZyYW1lX2NvdmVyX2ZyYW1lLkMzIn0%3D&_nc_ohc=EMpDLfI2VuEQ7kNvwHaWw92&_nc_oc=AdrCyquNALki-guk8vpxDVcQlvduidvbtyusxFku80tSXMNflkgWORET_YA9rDM0uBc&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&se=-1&_nc_ht=scontent-ord5-1.cdninstagram.com&_nc_gid=KiguPk3HUw1hFM7_ZZetMQ&_nc_ss=7a120&oh=00_AQDJc2q2zpBHZVyH9HNCZpt2Y61qOgNsl3v5jTXZ-iBsrQ&oe=6A682190",
           "caption": "Seat Leon • parkeercamera • airco\n\nInteresse? DM!\n\n#daanwillemsautomotive #autoverkoop #autodealer #occasion #denbosch"
+        },
+        "3768564142719133975": {
+          "pk": "3768564142719133975",
+          "code": "DRMoR8ADGkX",
+          "takenAt": 1763467875,
+          "mediaType": 1,
+          "productType": "feed",
+          "likeCount": 13762,
+          "commentCount": 170,
+          "playCount": null,
+          "thumbnail": "https://scontent-ord5-1.cdninstagram.com/v/t51.82787-15/582670917_18382771198197265_1981103371755112299_n.jpg?stp=dst-jpegr_e35_tt6&_nc_cat=106&ig_cache_key=Mzc2ODU2NDE0MjcxOTEzMzk3NQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTQ0MC5oZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=G3ZUySBmB8AQ7kNvwGjAF79&_nc_oc=Adpl3FSYR2nM-JFjv8bpXu1C7uB1I7XMhdELYmnfGDTiBXfS1TKjoTZfUqsrz4WW1Z8&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&se=7&_nc_ht=scontent-ord5-1.cdninstagram.com&_nc_gid=b0YXiKee1MG2SJMoI6sXfA&_nc_ss=7a120&oh=00_AQAf5VaZbFlPwQEjMjHjYZ4AiyFGFBUnoCgNTbE2yMTfTQ&oe=6A686064",
+          "caption": "Jongens, zijn jullie klaar voor mega vette content van deze 2?  Stay tuned! 🤩😜 @daanwillemsautomotive @houseofcars_eindhoven"
+        },
+        "3767050730109205589": {
+          "pk": "3767050730109205589",
+          "code": "DRHQK4rCPxV",
+          "takenAt": 1763287590,
+          "mediaType": 2,
+          "productType": "clips",
+          "likeCount": 10502,
+          "commentCount": 68,
+          "playCount": 662500,
+          "thumbnail": "https://scontent-ord5-1.cdninstagram.com/v/t51.71878-15/581059969_1587627622508756_8732089883874637435_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=108&ig_cache_key=Mzc2NzA1MDczMDEwOTIwNTU4OQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjY0MC5zZHIudmlkZW9fbmZyYW1lX2NvdmVyX2ZyYW1lLkMzIn0%3D&_nc_ohc=btPtjnV5FgIQ7kNvwFxyvqp&_nc_oc=AdrRXExuaOg3Tt1a9NokUXf0aJDFJaEpIivExqgV95PIvu_5Cbo4ldLsWPUnK9iUMQc&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-ord5-1.cdninstagram.com&_nc_gid=b0YXiKee1MG2SJMoI6sXfA&_nc_ss=7a120&oh=00_AQDufnxvgx8JpNH8gxOXEkOnYN050ELu6FHmliEd7UZEEw&oe=6A6845B4",
+          "caption": "Ford Focus • airco • ruim\n\nInteresse? DM!\n\n#daanwillemsautomotive #autoverkoop #autodealer #denbosch #ford"
+        },
+        "3765722706096965602": {
+          "pk": "3765722706096965602",
+          "code": "DRCiNl7iEfi",
+          "takenAt": 1763129223,
+          "mediaType": 2,
+          "productType": "clips",
+          "likeCount": 6245,
+          "commentCount": 79,
+          "playCount": 277024,
+          "thumbnail": "https://scontent-ord5-1.cdninstagram.com/v/t51.71878-15/581406530_1749916695684178_4301561258888822312_n.jpg?stp=dst-jpegr_e15_tt6&_nc_cat=110&ig_cache_key=Mzc2NTcyMjcwNjA5Njk2NTYwMg%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjY0MC5oZHIudmlkZW9fbmZyYW1lX2NvdmVyX2ZyYW1lLkMzIn0%3D&_nc_ohc=m2dkS6A5LtAQ7kNvwEIVe4L&_nc_oc=AdrNkaBxAWWl_uKbV_6r1L-QfVXlmtczKQ8fmUAdYN4MXeLI-Vbak0oTTjciGc0GiBo&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&se=-1&_nc_ht=scontent-ord5-1.cdninstagram.com&_nc_gid=b0YXiKee1MG2SJMoI6sXfA&_nc_ss=7a120&oh=00_AQBVKq2KZ5W2XjhBkwFHDHfNCDevyJ0qhh2RaB0R4KOmuQ&oe=6A6845E6",
+          "caption": "Dagvlog @ DWA #daanwillemsautomotive"
+        },
+        "3764114077568741850": {
+          "pk": "3764114077568741850",
+          "code": "DQ80c93iDHa",
+          "takenAt": 1762937461,
+          "mediaType": 2,
+          "productType": "clips",
+          "likeCount": 6447,
+          "commentCount": 83,
+          "playCount": 341259,
+          "thumbnail": "https://scontent-ord5-1.cdninstagram.com/v/t51.71878-15/579384176_1310323937565439_8244329953454084116_n.jpg?stp=dst-jpegr_e15_tt6&_nc_cat=110&ig_cache_key=Mzc2NDExNDA3NzU2ODc0MTg1MA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjY0MC5oZHIudmlkZW9fbmZyYW1lX2NvdmVyX2ZyYW1lLkMzIn0%3D&_nc_ohc=K_2dZ-VOA2cQ7kNvwHJ-2F2&_nc_oc=AdpOgqO7oTIMe-Djo9qA9Z0AbkN6FkjJpyylpMHWdhh2lHQg9NOJa-YfU4GIQa4qs9U&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&se=-1&_nc_ht=scontent-ord5-1.cdninstagram.com&_nc_gid=b0YXiKee1MG2SJMoI6sXfA&_nc_ss=7a120&oh=00_AQDSLCPPl35GhvHv4AQch2Hd5w2wYG22vUHYNr65wz5ReA&oe=6A6853E3",
+          "caption": "Subaru Legacy Outback • automaat • full option\n\nInteresse? DM!\n\n#daanwillemsautomotive #autoverkoop #autodealer #occasion #denbosch"
+        },
+        "3762697169527165455": {
+          "pk": "3762697169527165455",
+          "code": "DQ3ySPbCNIP",
+          "takenAt": 1762768512,
+          "mediaType": 2,
+          "productType": "clips",
+          "likeCount": 5413,
+          "commentCount": 72,
+          "playCount": 294249,
+          "thumbnail": "https://scontent-ord5-3.cdninstagram.com/v/t51.71878-15/580744826_1212157254073139_1009208938022209053_n.jpg?stp=dst-jpegr_e15_tt6&_nc_cat=107&ig_cache_key=Mzc2MjY5NzE2OTUyNzE2NTQ1NQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjY0MC5oZHIudmlkZW9fbmZyYW1lX2NvdmVyX2ZyYW1lLkMzIn0%3D&_nc_ohc=Rap986It4ocQ7kNvwGCPLpt&_nc_oc=AdoLRs19PXCzxSxm-qCPyVTKiVwFVusJkuV0ydgTf8EFHEIZlxiRpGhY6uHJSBBdUNo&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&se=-1&_nc_ht=scontent-ord5-3.cdninstagram.com&_nc_gid=b0YXiKee1MG2SJMoI6sXfA&_nc_ss=7a120&oh=00_AQDI4szAVaO_R5y_SA_hbuSmj3aZKWeRp81KViENmwEVMA&oe=6A6863D6",
+          "caption": "Fiat Panda • betrouwbaar • voordelig\n\nInteresse? DM!\n\n#daanwillemsautomotive #autoverkoop #autodealer #occasion #denbosch"
+        },
+        "3761249184041704985": {
+          "pk": "3761249184041704985",
+          "code": "DQypDR2iJ4Z",
+          "takenAt": 1762595904,
+          "mediaType": 2,
+          "productType": "clips",
+          "likeCount": 7075,
+          "commentCount": 96,
+          "playCount": 324186,
+          "thumbnail": "https://scontent-ord5-2.cdninstagram.com/v/t51.71878-15/575518935_825743093435449_6313550026844021492_n.jpg?stp=dst-jpegr_e15_tt6&_nc_cat=103&ig_cache_key=Mzc2MTI0OTE4NDA0MTcwNDk4NQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjY0MC5oZHIudmlkZW9fbmZyYW1lX2NvdmVyX2ZyYW1lLkMzIn0%3D&_nc_ohc=Wl8v7vrtZV4Q7kNvwEq4yDR&_nc_oc=Adr_zXXHDkb7eoryPJLNa5HHxE53sP9VBnEX9i6zCsUsHlTkjqC_c0OdWBPoebB1UDw&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&se=-1&_nc_ht=scontent-ord5-2.cdninstagram.com&_nc_gid=b0YXiKee1MG2SJMoI6sXfA&_nc_ss=7a120&oh=00_AQB5XMz4bAJFSkxpq1HRxBzOWv7d6M6V_Bp0HLEzGcF_Kw&oe=6A685002",
+          "caption": "Opel Mokka • full option • chique en luxe\n\nInteresse? DM!\n\n#daanwillemsautomotive #autoverkoop #autodealer #denbosch"
+        },
+        "3759836356604918697": {
+          "pk": "3759836356604918697",
+          "code": "DQtnz7xCPup",
+          "takenAt": 1762427499,
+          "mediaType": 2,
+          "productType": "clips",
+          "likeCount": 9421,
+          "commentCount": 95,
+          "playCount": 636564,
+          "thumbnail": "https://scontent-ord5-3.cdninstagram.com/v/t51.71878-15/573041234_2800235017002032_9181691973311275182_n.jpg?stp=dst-jpegr_e15_tt6&_nc_cat=107&ig_cache_key=Mzc1OTgzNjM1NjYwNDkxODY5Nw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjY0MC5oZHIudmlkZW9fbmZyYW1lX2NvdmVyX2ZyYW1lLkMzIn0%3D&_nc_ohc=16N5I0PJhA4Q7kNvwForTbB&_nc_oc=AdqIt6PS4GjcRWyZnBEoC5sJ_He-UHytnpsyq_VTMl2oNwoZgIK4qsFe9bynqIaPXek&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&se=-1&_nc_ht=scontent-ord5-3.cdninstagram.com&_nc_gid=b0YXiKee1MG2SJMoI6sXfA&_nc_ss=7a120&oh=00_AQDMfeY578knNz-sorFb3YRbMwKlymeeTPIYwJL9aLxM1w&oe=6A686D26",
+          "caption": "Volvo V50 • automaat • gezinsauto \n\nInteresse? DM! \n\n#daanwillemsautomotive #autoverkoop #autodealer #volvo #denbosch"
+        },
+        "3758357931427891162": {
+          "pk": "3758357931427891162",
+          "code": "DQoXqBBiAfa",
+          "takenAt": 1762251266,
+          "mediaType": 2,
+          "productType": "clips",
+          "likeCount": 13632,
+          "commentCount": 197,
+          "playCount": 832228,
+          "thumbnail": "https://scontent-ord5-2.cdninstagram.com/v/t51.71878-15/572710371_1124359346395638_3441532175131138803_n.jpg?stp=dst-jpegr_e15_tt6&_nc_cat=105&ig_cache_key=Mzc1ODM1NzkzMTQyNzg5MTE2Mg%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjY0MC5oZHIudmlkZW9fbmZyYW1lX2NvdmVyX2ZyYW1lLkMzIn0%3D&_nc_ohc=kMZ8rD1NjY0Q7kNvwE9tyfC&_nc_oc=AdrTHrQqe-uymq4Cqc1f6xAlQsJbliLdAdpoO9guWwAKuOjMfVTxBtGKOeWay0H-Og4&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&se=-1&_nc_ht=scontent-ord5-2.cdninstagram.com&_nc_gid=b0YXiKee1MG2SJMoI6sXfA&_nc_ss=7a120&oh=00_AQA3VGXQl6X-Zq4G9d0xKANeX20E_jNx-5iRB7CM9FdbmA&oe=6A6844D8",
+          "caption": "Suzuki Ignis • ijzersterk • leuke opties\n\nInteresse? DM!\n\n#daanwillemsautomotive #autoverkoop #occasion #denbosch #autodealer"
+        },
+        "3756886544972552883": {
+          "pk": "3756886544972552883",
+          "code": "DQjJGhmiJqz",
+          "takenAt": 1762075865,
+          "mediaType": 2,
+          "productType": "clips",
+          "likeCount": 21611,
+          "commentCount": 242,
+          "playCount": 1105519,
+          "thumbnail": "https://scontent-ord5-2.cdninstagram.com/v/t51.71878-15/573553280_840272702290875_8162532876396771148_n.jpg?stp=dst-jpegr_e15_tt6&_nc_cat=104&ig_cache_key=Mzc1Njg4NjU0NDk3MjU1Mjg4Mw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjY0MC5oZHIudmlkZW9fbmZyYW1lX2NvdmVyX2ZyYW1lLkMzIn0%3D&_nc_ohc=Ot4Le84VaygQ7kNvwEGl19n&_nc_oc=Adqg3rOZRTPpQcXAiWK-6EliWvjx5tJzlbAUS-af_Xk7DWS8UIyS7PAo76CuRlt7srY&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&se=-1&_nc_ht=scontent-ord5-2.cdninstagram.com&_nc_gid=b0YXiKee1MG2SJMoI6sXfA&_nc_ss=7a120&oh=00_AQCpgybjPiazcG7MdWTEuFl7MS8ezzSeVxXEDIrh9l6fsQ&oe=6A6846CF",
+          "caption": "Toyota Yaris • oerdegelijk • voordelig\n\nInteresse? DM!\n\n#daanwillemsautomotive #autoverkoop #occasion #denbosch #toyota"
+        },
+        "3755460609580742801": {
+          "pk": "3755460609580742801",
+          "code": "DQeE4byCDiR",
+          "takenAt": 1761905847,
+          "mediaType": 2,
+          "productType": "clips",
+          "likeCount": 13147,
+          "commentCount": 148,
+          "playCount": 943158,
+          "thumbnail": "https://scontent-ord5-1.cdninstagram.com/v/t51.71878-15/572289772_1156184385980459_7120026769058277410_n.jpg?stp=dst-jpegr_e15_tt6&_nc_cat=106&ig_cache_key=Mzc1NTQ2MDYwOTU4MDc0MjgwMQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjY0MC5oZHIudmlkZW9fbmZyYW1lX2NvdmVyX2ZyYW1lLkMzIn0%3D&_nc_ohc=gOiHH0rLpfsQ7kNvwHGxd_R&_nc_oc=Adq7hS7NXfoZ6B_VENelvm39CAO-tE1HLB3yWyGQE-JEngKfoO0-s8T1Y2-9pdzWXT0&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&se=-1&_nc_ht=scontent-ord5-1.cdninstagram.com&_nc_gid=b0YXiKee1MG2SJMoI6sXfA&_nc_ss=7a120&oh=00_AQBWmV6taLgkKW2x048hMwdTr7pKtLHGTzaKZ_wJEu2Zuw&oe=6A686F0C",
+          "caption": "#daanwillemsautomotive"
+        },
+        "3754082720268469560": {
+          "pk": "3754082720268469560",
+          "code": "DQZLlgXCMU4",
+          "takenAt": 1761741619,
+          "mediaType": 2,
+          "productType": "clips",
+          "likeCount": 5836,
+          "commentCount": 111,
+          "playCount": 400310,
+          "thumbnail": "https://scontent-ord5-2.cdninstagram.com/v/t51.71878-15/574214234_1991286111621358_664170494954844975_n.jpg?stp=dst-jpegr_e15_tt6&_nc_cat=103&ig_cache_key=Mzc1NDA4MjcyMDI2ODQ2OTU2MA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjY0MC5oZHIudmlkZW9fbmZyYW1lX2NvdmVyX2ZyYW1lLkMzIn0%3D&_nc_ohc=feLhtxJI2y8Q7kNvwFhFdzO&_nc_oc=AdqdfikkTl0gVRjs-xFxKcUCIuo-_ejtix5J0zfauBjFzd3RZTG4LexiWGBedvvxxxc&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&se=-1&_nc_ht=scontent-ord5-2.cdninstagram.com&_nc_gid=b0YXiKee1MG2SJMoI6sXfA&_nc_ss=7a120&oh=00_AQCHexP1V7oM7XlQF7ZftqifXQRaA68APVJy7k5oG6Q53g&oe=6A686B69",
+          "caption": "Mercedes R500 • full option • youngtimer\n\nInteresse? DM!\n\n#daanwillemsautomotive #autoverkoop #denbosch #autodealer #mercedes"
+        },
+        "3752538954613143037": {
+          "pk": "3752538954613143037",
+          "code": "DQTskwjiDX9",
+          "takenAt": 1761557611,
+          "mediaType": 2,
+          "productType": "clips",
+          "likeCount": 29591,
+          "commentCount": 492,
+          "playCount": 1430885,
+          "thumbnail": "https://scontent-ord5-2.cdninstagram.com/v/t51.71878-15/573370090_1447429799697306_802319893390535275_n.jpg?stp=dst-jpegr_e15_tt6&_nc_cat=103&ig_cache_key=Mzc1MjUzODk1NDYxMzE0MzAzNw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjY0MC5oZHIudmlkZW9fZGVmYXVsdF9jb3Zlcl9mcmFtZS5DMyJ9&_nc_ohc=iMuoWYSXHy4Q7kNvwHww3BJ&_nc_oc=Adqv-oHlSsPXHrjsvL2gcg16wOBlAq-NAgsD8OKswwzRzlqXQyE62P4MhQpheSZ9PUQ&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&se=-1&_nc_ht=scontent-ord5-2.cdninstagram.com&_nc_gid=b0YXiKee1MG2SJMoI6sXfA&_nc_ss=7a120&oh=00_AQBjluwDtKKYWL2lkzAnA7ot-1PkL4uPFjutyfbbVnY4ug&oe=6A683DA5",
+          "caption": "Suzuki Wagon R • airconditioning • knap lelijk \n\nInteresse? DM!\n\n#daanwillemsautomotive #occasion #suzuki #autoverkoop #denbosch"
         }
       }
-    },
-    "lastError": "Sanity drop: stats.totalPlays: 55,327,783 < 61737629 (was 63,647,040, floor 97%)",
-    "lastErrorAt": "2026-07-23T19:36:17.726Z"
+    }
   }
 }
