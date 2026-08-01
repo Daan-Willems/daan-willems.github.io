@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-01T15:07:54.628Z",
+  "generatedAt": "2026-08-01T17:09:10.333Z",
   "youtube": {
     "status": "ok",
     "lastFetchedAt": "2026-08-01T13:50:10.249Z",
@@ -176,9 +176,9 @@
   },
   "instagram": {
     "status": "ok",
-    "lastFetchedAt": "2026-08-01T15:06:38.098Z",
+    "lastFetchedAt": "2026-08-01T17:07:53.046Z",
     "handle": "daanwillemsautomotive",
-    "lastSuccessAt": "2026-08-01T15:07:50.718Z",
+    "lastSuccessAt": "2026-08-01T17:09:08.034Z",
     "lastProfileFetchAt": "2026-08-01T11:22:40.593Z",
     "profile": {
       "userId": "53052746898",
@@ -209,7 +209,7 @@
       "totalPlays": 67206787,
       "totalLikes": 1439230,
       "totalComments": 16516,
-      "sampledPostCount": 24,
+      "sampledPostCount": 36,
       "profileSourcedFromPrev": true,
       "feedSourcedFromPrev": true,
       "iteratorCycleComplete": false
@@ -290,9 +290,9 @@
     ],
     "iterator": {
       "startedAt": "2026-08-01T13:43:32.627Z",
-      "lastFetchedAt": "2026-08-01T15:07:50.717Z",
+      "lastFetchedAt": "2026-08-01T17:09:08.034Z",
       "completedAt": null,
-      "cursor": "3915672206086016409_53052746898",
+      "cursor": "3892446686729198828_53052746898",
       "items": {
         "3953314383201077918": {
           "pk": "3953314383201077918",
@@ -581,6 +581,150 @@
           "playCount": 417112,
           "thumbnail": "https://scontent-sjc3-1.cdninstagram.com/v/t51.71878-15/720049577_965503006254600_8493403835686740721_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=105&ig_cache_key=MzkxNTY3MjIwNjA4NjAxNjQwOQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjY0MC5zZHIudmlkZW9fbmZyYW1lX2NvdmVyX2ZyYW1lLkMzIn0%3D&_nc_ohc=iL5CdYZSHPIQ7kNvwHj7qCx&_nc_oc=AdpmD0_B2wK1u3GrvC2kdP3EY5w2bIES1fHkZYQb-x0nofmKo6y19S7mpGHkB0c8qJo&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-sjc3-1.cdninstagram.com&_nc_gid=MTzW3fmDJQ3R_m8oPHZWbg&_nc_ss=7a120&oh=00_AQE9p45FIJiKrK0IeEIRuT6UkDyCDUuyT3V6wBXlOyVOxw&oe=6A73CF4A",
           "caption": "Zo even lekker een weekje er tussen uit de groeten hooooooooi 👀❗️🌴\n\nOutfit @jorcustom \nKORTINGSCODE: Daan15\n\n#daanwillemsautomotive #automotive #auto #vakantie #genieten"
+        },
+        "3914154546961831966": {
+          "pk": "3914154546961831966",
+          "code": "DZR3tKHo9ge",
+          "takenAt": 1780823735,
+          "mediaType": 2,
+          "productType": "clips",
+          "likeCount": 3880,
+          "commentCount": 38,
+          "playCount": 254799,
+          "thumbnail": "https://scontent-iad6-1.cdninstagram.com/v/t51.71878-15/718151160_1657887592107465_3920681013633659873_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=109&ig_cache_key=MzkxNDE1NDU0Njk2MTgzMTk2Ng%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjY0MC5zZHIudmlkZW9fbmZyYW1lX2NvdmVyX2ZyYW1lLkMzIn0%3D&_nc_ohc=R3QUAS8FsU4Q7kNvwGvqS-g&_nc_oc=AdoxdH-w1_LUw8wSKIXmQo6qxAC21pZmaa2iqe3PhPPbY8Pvaeo8x9r4GX47dlkKeZg&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-iad6-1.cdninstagram.com&_nc_gid=M1PxpqFYHnV0aBjP-SM1nA&_nc_ss=7a120&oh=00_AQHB-2NHCgNVcoS04qNJ6pyZzQlmK-23lyvXuZKw1zRiEQ&oe=6A73F324",
+          "caption": "Dit wil je niet missen... 👀🔥\nDe volledige video staat nu op ons YouTube-kanaal!\nCheck de link in bio 🔗\n\nOutfit: @jorcustom \nKORTINGSCODE: Daan15\n\n#daanwillemsautomotive #automotive #linkinbio #auto"
+        },
+        "3912726362802272707": {
+          "pk": "3912726362802272707",
+          "code": "DZMy-V-IrnD",
+          "takenAt": 1780653491,
+          "mediaType": 2,
+          "productType": "clips",
+          "likeCount": 5993,
+          "commentCount": 44,
+          "playCount": 354146,
+          "thumbnail": "https://scontent-iad3-1.cdninstagram.com/v/t51.71878-15/717437151_2134839093960676_3148880762307186315_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=101&ig_cache_key=MzkxMjcyNjM2MjgwMjI3MjcwNw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjY0MC5zZHIudmlkZW9fbmZyYW1lX2NvdmVyX2ZyYW1lLkMzIn0%3D&_nc_ohc=T9oXOvxxUrwQ7kNvwGMI4TN&_nc_oc=Adqv6u0G4Wt84Ll79Is3yIagz_208ohV4jJ-ibpED2trPphuw6k7RJmSROhREcFQq7Q&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&_nc_gid=M1PxpqFYHnV0aBjP-SM1nA&_nc_ss=7a120&oh=00_AQGaoncpZfbQubIelg25T6PqrkzxexQfcBDKLRIob6urJA&oe=6A73EC81",
+          "caption": "Peugeot 108 • 5-deurs • airco • NL auto • lage KM\n\nInteresse DM❗️\n\nOutfit: @jorcustom \nKORTINGSCODE: Daan15\n\n#daanwillemsautomotive #autodealer #occasion #auto #automotive"
+        },
+        "3910554674111068364": {
+          "pk": "3910554674111068364",
+          "code": "DZFFMHRIjjM",
+          "takenAt": 1780394718,
+          "mediaType": 2,
+          "productType": "clips",
+          "likeCount": 4339,
+          "commentCount": 62,
+          "playCount": 257383,
+          "thumbnail": "https://scontent-iad3-2.cdninstagram.com/v/t51.82787-15/714542031_18428151058123344_7967413022850433629_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=111&ig_cache_key=MzkxMDU1NDY3NDExMTA2ODM2NDE4NDI4MTUxMDUyMTIzMzQ0.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjcyMC5zZHIudmlkZW9fZGVmYXVsdF9jb3Zlcl9mcmFtZS5DMyJ9&_nc_ohc=RtRW9SDFCxAQ7kNvwFA1e1h&_nc_oc=Adpn41Dff_pZxC9X3r3A7HoGZ24WgkIQ8VcfqnipTgF2sc31NBbem__Py40yQFU8iMg&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-iad3-2.cdninstagram.com&_nc_gid=M1PxpqFYHnV0aBjP-SM1nA&_nc_ss=7a120&oh=00_AQFsDAIdZZCTai6pfmYgetc_7xGGtvzzNtER9boH6zcNsw&oe=6A740316",
+          "caption": "Tonijn tostada’s maken met Brabantse gezelligheid 😂 @daanwillemsautomotive (recept is terug te vinden in mijn kookboek) 🫶"
+        },
+        "3907655103034818770": {
+          "pk": "3907655103034818770",
+          "code": "DY6x5zRIgDS",
+          "takenAt": 1780048921,
+          "mediaType": 2,
+          "productType": "clips",
+          "likeCount": 7857,
+          "commentCount": 135,
+          "playCount": 312100,
+          "thumbnail": "https://scontent-iad6-1.cdninstagram.com/v/t51.82787-15/707946369_18050148398770899_2348394615023492332_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=107&ig_cache_key=MzkwNzY1NTEwMzAzNDgxODc3MDE4MDUwMTQ4Mzk1NzcwODk5.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjcyMC5zZHIudmlkZW9fZGVmYXVsdF9jb3Zlcl9mcmFtZS5DMyJ9&_nc_ohc=OeCNXCrx2jMQ7kNvwHvdqcq&_nc_oc=Adq_eaSxyvzFgCuVn2TT7qTs_-YlTASBV3jbIRSaPTjhz6rt0WG1DDLmZduscd_-aRU&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-iad6-1.cdninstagram.com&_nc_gid=M1PxpqFYHnV0aBjP-SM1nA&_nc_ss=7a120&oh=00_AQGxa7XOMlD4LQ7hU98iLloserjczRAC6qGajfjLToOWqw&oe=6A74161F",
+          "caption": "Ford Ka • Origineel Nederlands • Airco • Lage kilometerstand •\n\nInteresse DM❗️\n\nOutfit: @jorcustom \nKORTINGSCODE: Daan15\n\n#daanwillemsautomotive #auto #occasion #autodealer"
+        },
+        "3907085462965781681": {
+          "pk": "3907085462965781681",
+          "code": "DY4wYcnKwSx",
+          "takenAt": 1779980961,
+          "mediaType": 2,
+          "productType": "clips",
+          "likeCount": 6175,
+          "commentCount": 40,
+          "playCount": 355559,
+          "thumbnail": "https://scontent-iad3-1.cdninstagram.com/v/t51.71878-15/708005546_1286369483660595_1168920900586593906_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=101&ig_cache_key=MzkwNzA4NTQ2Mjk2NTc4MTY4MQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjY0MC5zZHIudmlkZW9fbmZyYW1lX2NvdmVyX2ZyYW1lLkMzIn0%3D&_nc_ohc=HbR008Mvu3UQ7kNvwHS2Qrm&_nc_oc=AdpTVUIqLFGfvYBrBKBoT0oKNDGKhXHKDE6cQG5VbZj0AZJjm5jsZgAtbV0yvG9PUMg&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&_nc_gid=M1PxpqFYHnV0aBjP-SM1nA&_nc_ss=7a120&oh=00_AQEVVXx26jPdHuM8k7bd6uhSEi1qbUkYIRxDEuFirdoGjQ&oe=6A7409AF",
+          "caption": "Deze hadden jullie nog van ons tegoed #humor"
+        },
+        "3905485455291965808": {
+          "pk": "3905485455291965808",
+          "code": "DYzElRWIeFw",
+          "takenAt": 1779790247,
+          "mediaType": 2,
+          "productType": "clips",
+          "likeCount": 6482,
+          "commentCount": 49,
+          "playCount": 389298,
+          "thumbnail": "https://scontent-iad3-1.cdninstagram.com/v/t51.71878-15/706849839_1498460881957227_7845344164020509459_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=110&ig_cache_key=MzkwNTQ4NTQ1NTI5MTk2NTgwOA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjY0MC5zZHIudmlkZW9fbmZyYW1lX2NvdmVyX2ZyYW1lLkMzIn0%3D&_nc_ohc=u-ym7K1CNwQQ7kNvwF1Cgh3&_nc_oc=Adpv-LKPE8MkHBJLzRLEToHCvscmA_7jYLX17aVLqyOUimPdOgzi5S_67CuWsTp8asg&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&_nc_gid=M1PxpqFYHnV0aBjP-SM1nA&_nc_ss=7a120&oh=00_AQFKPFkjvkiWvzdl6S0vF6vL5kI5xImp9eOJRsgO4dfdIg&oe=6A7412E9",
+          "caption": "Dit wil je niet missen... 👀🔥\nDe volledige video staat nu op ons\nYouTube-kanaal!\n\nCheck de link in bio🔗\n\nOutfit: @jorcustom \nKORTINGSCODE: Daan15\n\n#daanwillemsautomotive #automotive\n#linkinbio #auto #humor"
+        },
+        "3903278205571770859": {
+          "pk": "3903278205571770859",
+          "code": "DYrOtj2oSnr",
+          "takenAt": 1779527113,
+          "mediaType": 2,
+          "productType": "clips",
+          "likeCount": 1492,
+          "commentCount": 17,
+          "playCount": 191291,
+          "thumbnail": "https://scontent-iad3-1.cdninstagram.com/v/t51.71878-15/705757843_1340140798254473_6176862483050917538_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=104&ig_cache_key=MzkwMzI3ODIwNTU3MTc3MDg1OQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjY0MC5zZHIudmlkZW9fbmZyYW1lX2NvdmVyX2ZyYW1lLkMzIn0%3D&_nc_ohc=J-yynCo3ALsQ7kNvwHNqr-k&_nc_oc=AdrBbkjSMkLJka6orwqGsOI_3zN1S3xJMj2rn9V0v-b1Crfoqe1wWnBfqGwoA22-RUY&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&_nc_gid=M1PxpqFYHnV0aBjP-SM1nA&_nc_ss=7a120&oh=00_AQFo0kcmL-yutdaHZntyKmCBsk7vJLqiv0n7ldRuODtmbw&oe=6A73E11A",
+          "caption": "Gebruik KORTINGSCODE “Daan15” voor 15% korting bij @jorcustom en maak kans op €1500 shoptegoed!!👀🔥\n\n#daanwillemsautomotive #auto #kleding #kortingscode  #autodealer"
+        },
+        "3902577460115607528": {
+          "pk": "3902577460115607528",
+          "code": "DYovYXyow_o",
+          "takenAt": 1779443580,
+          "mediaType": 2,
+          "productType": "clips",
+          "likeCount": 23769,
+          "commentCount": 446,
+          "playCount": 713303,
+          "thumbnail": "https://scontent-iad6-1.cdninstagram.com/v/t51.71878-15/703762778_1005843681872906_884986882806364445_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=102&ig_cache_key=MzkwMjU3NzQ2MDExNTYwNzUyOA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjY0MC5zZHIudmlkZW9fZGVmYXVsdF9jb3Zlcl9mcmFtZS5DMyJ9&_nc_ohc=37yopGu6L7UQ7kNvwGLzwps&_nc_oc=AdpFHacR8-opYZEzWEj9skidMv9_3FgBXaQk_vyQ12xKpNozF6BpVwD4p4Xl58m83II&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-iad6-1.cdninstagram.com&_nc_gid=M1PxpqFYHnV0aBjP-SM1nA&_nc_ss=7a120&oh=00_AQF7qg3lCHVhZ5bTKbkfeo0wR4mptBErIh7rbDs22ZGZfw&oe=6A7402AA",
+          "caption": "Cheerio 🎶 \n\nWerkelijk iets aparts❗️\n\n#foryou #cheerio #daanwillemsautomotive #auto #automotive"
+        },
+        "3900410431447200289": {
+          "pk": "3900410431447200289",
+          "code": "DYhCp9Eo3Ih",
+          "takenAt": 1779185575,
+          "mediaType": 2,
+          "productType": "clips",
+          "likeCount": 84274,
+          "commentCount": 678,
+          "playCount": 1426500,
+          "thumbnail": "https://scontent-iad6-1.cdninstagram.com/v/t51.71878-15/673815360_27445586585039559_5019819559310173801_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=100&ig_cache_key=MzkwMDQxMDQzMTQ0NzIwMDI4OQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjY0MC5zZHIudmlkZW9fbmZyYW1lX2NvdmVyX2ZyYW1lLkMzIn0%3D&_nc_ohc=TCD1E6RmLeUQ7kNvwEFNIvZ&_nc_oc=AdrA4-4P-v2BNisYgYgen_2hYs4n5e3JiP6BxRmZv1N7LZ_lzM3Qipd8j0MdLee4JnY&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-iad6-1.cdninstagram.com&_nc_gid=M1PxpqFYHnV0aBjP-SM1nA&_nc_ss=7a120&oh=00_AQFteaHXiR7a3gEz28Toszi7XdOIw26-5RKIlGWJafs5fg&oe=6A73E4A4",
+          "caption": "Dit wil je niet missen… 👀🔥\nDe volledige video staat nu op ons YouTube-kanaal! 🎥\n\nCheck de link in bio 🔗\n\nOutfit: @jorcustom KORTINGSCODE: Daan15 \n\n#daanwillemsautomotive #automotive #linkinbio #auto #humor"
+        },
+        "3895363154944939199": {
+          "pk": "3895363154944939199",
+          "code": "DYPHCaho1S_",
+          "takenAt": 1778583566,
+          "mediaType": 2,
+          "productType": "clips",
+          "likeCount": 7705,
+          "commentCount": 73,
+          "playCount": 432068,
+          "thumbnail": "https://scontent-iad6-1.cdninstagram.com/v/t51.71878-15/687382090_1481427423767359_6664189255473369608_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=100&ig_cache_key=Mzg5NTM2MzE1NDk0NDkzOTE5OQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjY0MC5zZHIudmlkZW9fbmZyYW1lX2NvdmVyX2ZyYW1lLkMzIn0%3D&_nc_ohc=ZSA9-0PhQ6EQ7kNvwGlETUB&_nc_oc=Adrecf80RTicEJLnibaMGSQiOZnBj-0NLVp42mHNDKfBxvxmGCgX7aWVIeZfsbOA9rA&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-iad6-1.cdninstagram.com&_nc_gid=M1PxpqFYHnV0aBjP-SM1nA&_nc_ss=7a120&oh=00_AQHccCCBeHMyrNgLA7-0yoYzPJrNgh3CGxsRPlxiirJM8g&oe=6A73F190",
+          "caption": "Dit wil je niet missen… 👀🔥\nDe volledige video staat nu op ons YouTube-kanaal! 🎥\n\nCheck de link in bio 🔗\n\n#daanwillemsautomotive #linkinbio #auto #automotive #autodealer"
+        },
+        "3893358846230111821": {
+          "pk": "3893358846230111821",
+          "code": "DYH_T4kq6ZN",
+          "takenAt": 1778344655,
+          "mediaType": 2,
+          "productType": "clips",
+          "likeCount": 1770,
+          "commentCount": 138,
+          "playCount": 260784,
+          "thumbnail": "https://scontent-iad6-1.cdninstagram.com/v/t51.71878-15/686536255_986686553754867_1287721811128683474_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=100&ig_cache_key=Mzg5MzM1ODg0NjIzMDExMTgyMQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjY0MC5zZHIudmlkZW9fbmZyYW1lX2NvdmVyX2ZyYW1lLkMzIn0%3D&_nc_ohc=zdmICxhhnF8Q7kNvwEoBa2j&_nc_oc=Adpv1UxPIRFssve1oqztU8dlwgsWRoOMgG9e5Zxm3aKtlsgCGw1kFJ_mCAkWoBnwkFc&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-iad6-1.cdninstagram.com&_nc_gid=M1PxpqFYHnV0aBjP-SM1nA&_nc_ss=7a120&oh=00_AQEdhXatdHnokWZYU6-rGZEDPIegGDrAxXhI6XX3eRKZKg&oe=6A73E988",
+          "caption": "Reageer met ‘Auto’ om de volledige podcast te ontvangen"
+        },
+        "3892446686729198828": {
+          "pk": "3892446686729198828",
+          "code": "DYEv6N1o9zs",
+          "takenAt": 1778235891,
+          "mediaType": 2,
+          "productType": "clips",
+          "likeCount": 7404,
+          "commentCount": 59,
+          "playCount": 372697,
+          "thumbnail": "https://scontent-iad6-1.cdninstagram.com/v/t51.71878-15/688065475_1002189139431848_4593210018179984199_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=106&ig_cache_key=Mzg5MjQ0NjY4NjcyOTE5ODgyOA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjY0MC5zZHIudmlkZW9fbmZyYW1lX2NvdmVyX2ZyYW1lLkMzIn0%3D&_nc_ohc=k5yTFJYPhioQ7kNvwEhIqDh&_nc_oc=AdqnQqG4vxp9y1e1bGQM_hDJD5Q_nnQfi0Q_ujO3Q-XEaEEpeUHgiSpa1jSVk1dscos&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-iad6-1.cdninstagram.com&_nc_gid=M1PxpqFYHnV0aBjP-SM1nA&_nc_ss=7a120&oh=00_AQH95LM3q5UxI3P1KKA0iz0efUdoD4nBfqD46a1XmNl-fA&oe=6A73EF05",
+          "caption": "Kia Picanto • Lage KM • NL auto • Helaas al verkocht! •\n\n#daanwillemsautomotive #auto #automotive #occasion #autodealer"
         }
       }
     }
