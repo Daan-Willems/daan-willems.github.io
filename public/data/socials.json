@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-01T03:46:08.116Z",
+  "generatedAt": "2026-08-01T03:59:30.064Z",
   "youtube": {
     "status": "ok",
     "lastFetchedAt": "2026-08-01T03:46:07.343Z",
@@ -154,7 +154,7 @@
   },
   "tiktok": {
     "status": "ok",
-    "lastFetchedAt": "2026-07-31T20:02:30.491Z",
+    "lastFetchedAt": "2026-08-01T03:59:29.427Z",
     "handle": "daanwillemsautomotive",
     "profile": {
       "uniqueId": "daanwillemsautomotive",
@@ -166,13 +166,13 @@
       "url": "https://www.tiktok.com/@daanwillemsautomotive"
     },
     "stats": {
-      "followerCount": 131200,
+      "followerCount": 131300,
       "followingCount": 11,
       "heartCount": 2400000,
       "videoCount": 108
     },
     "videos": [],
-    "lastSuccessAt": "2026-07-31T20:02:30.491Z"
+    "lastSuccessAt": "2026-08-01T03:59:29.427Z"
   },
   "instagram": {
     "status": "ok",
