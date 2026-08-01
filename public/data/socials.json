@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-01T22:04:09.883Z",
+  "generatedAt": "2026-08-01T23:03:52.234Z",
   "youtube": {
     "status": "ok",
     "lastFetchedAt": "2026-08-01T19:30:11.704Z",
@@ -175,10 +175,10 @@
     "lastSuccessAt": "2026-08-01T19:41:48.674Z"
   },
   "instagram": {
-    "status": "ok",
-    "lastFetchedAt": "2026-08-01T22:02:56.286Z",
+    "status": "stale",
+    "lastFetchedAt": "2026-08-01T23:02:39.283Z",
     "handle": "daanwillemsautomotive",
-    "lastSuccessAt": "2026-08-01T22:04:07.173Z",
+    "lastSuccessAt": "2026-08-01T23:03:48.724Z",
     "lastProfileFetchAt": "2026-08-01T11:22:40.593Z",
     "profile": {
       "userId": "53052746898",
@@ -290,9 +290,9 @@
     ],
     "iterator": {
       "startedAt": "2026-08-01T13:43:32.627Z",
-      "lastFetchedAt": "2026-08-01T22:04:07.172Z",
+      "lastFetchedAt": "2026-08-01T23:03:48.724Z",
       "completedAt": null,
-      "cursor": "3834506879041012068_53052746898",
+      "cursor": "3806260184679488084_53052746898",
       "items": {
         "3953314383201077918": {
           "pk": "3953314383201077918",
@@ -1157,8 +1157,154 @@
           "playCount": 855074,
           "thumbnail": "https://scontent-ord5-3.cdninstagram.com/v/t51.71878-15/629995562_1943655963244619_3533071505080915343_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=100&ig_cache_key=MzgzNDUwNjg3OTA0MTAxMjA2OA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjY0MC5zZHIudmlkZW9fZGVmYXVsdF9jb3Zlcl9mcmFtZS5DMyJ9&_nc_ohc=-H21ZIZoK1UQ7kNvwGts_uA&_nc_oc=AdqzQe6LDwkEJrsvwwWtROahrhh8r2C_dAGd6QZusATr8BJf5O62EG8_uOsiN7NV4Bw&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-ord5-3.cdninstagram.com&_nc_gid=_2vwngkmGiIZkDeViEv0gQ&_nc_ss=7a120&oh=00_AQEFjpL99Ftar_42ClyahMS8b5vMBNK4qFKOc0VX1CHKVw&oe=6A745110",
           "caption": "Hyundai Getz • 5-deurs • Airconditioning • Elektrische ramen en spiegels • Glazendakkie •\n\nInteresse DM❗️\n\n#daanwillemsautomotive #autoverkoop #autodealer #occasion #denbosch"
+        },
+        "3831651472870223849": {
+          "pk": "3831651472870223849",
+          "code": "DUswraviC_p",
+          "takenAt": 1770988844,
+          "mediaType": 2,
+          "productType": "clips",
+          "likeCount": 18490,
+          "commentCount": 411,
+          "playCount": 848327,
+          "thumbnail": "https://scontent-iad3-1.cdninstagram.com/v/t51.71878-15/633598069_1446051037172647_2899680071345820539_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=108&ig_cache_key=MzgzMTY1MTQ3Mjg3MDIyMzg0OQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjY0MC5zZHIudmlkZW9fZGVmYXVsdF9jb3Zlcl9mcmFtZS5DMyJ9&_nc_ohc=ZEP67hN6bU4Q7kNvwHNenp_&_nc_oc=Adq-mcsBvnCJffNmcVLQDQvjT4dYhZUZrct87vuDCLxDfahp4_9UxQUTMlI6r1o_2tw&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&_nc_gid=SBvX8x12nckdwVrYHoPZgA&_nc_ss=7a120&oh=00_AQF0M1Cb-cfHkQaBSshn758-l68zvUxDTfFTY7qZaUvllQ&oe=6A74637A",
+          "caption": "Mercedes AMG GT • Full option 🍒 • Full option 🍑 • \n\n🍆\n\n#daanwillemsautomotive #autoverkoop #autodealer #occasion"
+        },
+        "3831097305135076898": {
+          "pk": "3831097305135076898",
+          "code": "DUqyrN0iFYi",
+          "takenAt": 1770922454,
+          "mediaType": 2,
+          "productType": "clips",
+          "likeCount": 9336,
+          "commentCount": 160,
+          "playCount": 961657,
+          "thumbnail": "https://scontent-iad3-2.cdninstagram.com/v/t51.71878-15/629785606_2116910705731001_4962090724951418719_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=111&ig_cache_key=MzgzMTA5NzMwNTEzNTA3Njg5OA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjY0MC5zZHIudmlkZW9fbmZyYW1lX2NvdmVyX2ZyYW1lLkMzIn0%3D&_nc_ohc=hoCgYQwP2dcQ7kNvwFhHJto&_nc_oc=Adpmlwgsd1ImLVNTtNvu3qkfTq6pKwgi1KMdf8aIAJHJim6k_wpjDNLsATrXuMol8jc&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-iad3-2.cdninstagram.com&_nc_gid=SBvX8x12nckdwVrYHoPZgA&_nc_ss=7a120&oh=00_AQG9TFPdiLouw03w34G-VNw-knMdi23uHcEfi_w4MT_b9w&oe=6A74674B",
+          "caption": "Binnenkort online❗️👀"
+        },
+        "3829443341675194384": {
+          "pk": "3829443341675194384",
+          "code": "DUk6m4UCOgQ",
+          "takenAt": 1770725432,
+          "mediaType": 2,
+          "productType": "clips",
+          "likeCount": 26635,
+          "commentCount": 283,
+          "playCount": 1343990,
+          "thumbnail": "https://scontent-iad3-2.cdninstagram.com/v/t51.71878-15/626287758_796360039438653_8017367433172687480_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=111&ig_cache_key=MzgyOTQ0MzM0MTY3NTE5NDM4NA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjY0MC5zZHIudmlkZW9fbmZyYW1lX2NvdmVyX2ZyYW1lLkMzIn0%3D&_nc_ohc=eun25bPzAZgQ7kNvwEK-Ut3&_nc_oc=AdrGhelBYhcJjUw516BY7h3q19KDDAMqDIb8WQpgmXCVa8JIiVXaBmtM3e9Iq2JnUkI&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-iad3-2.cdninstagram.com&_nc_gid=SBvX8x12nckdwVrYHoPZgA&_nc_ss=7a120&oh=00_AQFX52tRYWkAZ15q66lbTnEucEgFFrniXqBtu91ChI16hg&oe=6A744BEB",
+          "caption": "Opel corsa sloper, | ontzettend lelijke frikandel |\n.\nInteresse DM‼️\n.\nEditor+cameraman @raptor_gen2 \n.\n#daanwillemsautomotive #autoverkoop #autodealer #occasion #werkelijkietsaparts"
+        },
+        "3826518114611791532": {
+          "pk": "3826518114611791532",
+          "code": "DUahfOUCIas",
+          "takenAt": 1770376641,
+          "mediaType": 2,
+          "productType": "clips",
+          "likeCount": 18678,
+          "commentCount": 156,
+          "playCount": 974202,
+          "thumbnail": "https://scontent-iad3-1.cdninstagram.com/v/t51.71878-15/626242969_770083495620203_4356536001214357537_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=104&ig_cache_key=MzgyNjUxODExNDYxMTc5MTUzMg%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjY0MC5zZHIudmlkZW9fZGVmYXVsdF9jb3Zlcl9mcmFtZS5DMyJ9&_nc_ohc=8ShcEP-jXToQ7kNvwFZGQVo&_nc_oc=Ados_heVH0GHVaGfqPSNFlQnIXtEm0-KlHO9KxTwJY_fmZMuFkBo4y7yxvSuigH6PUI&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&_nc_gid=SBvX8x12nckdwVrYHoPZgA&_nc_ss=7a120&oh=00_AQFhQeuFmsXWVmyUoOTkN9v8WMMr80KRmJILYG5S4UYB1g&oe=6A74613B",
+          "caption": "Peugeot 407 | Full option | NL auto | Rijd en schakelt super | \n\nInteresse DM❗️\n\n#daanwillemsautomotive #autoverkoop #autodealer #occasion #denbosch \n\nEditor @raptor_gen2"
+        },
+        "3824326598850009363": {
+          "pk": "3824326598850009363",
+          "code": "DUSvMeNiFkT",
+          "takenAt": 1770115484,
+          "mediaType": 2,
+          "productType": "clips",
+          "likeCount": 10235,
+          "commentCount": 132,
+          "playCount": 434045,
+          "thumbnail": "https://scontent-iad6-1.cdninstagram.com/v/t51.71878-15/625762538_2493049447795979_431562004371115310_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=106&ig_cache_key=MzgyNDMyNjU5ODg1MDAwOTM2Mw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjY0MC5zZHIudmlkZW9fbmZyYW1lX2NvdmVyX2ZyYW1lLkMzIn0%3D&_nc_ohc=MGSpouezM4QQ7kNvwE16ADW&_nc_oc=AdqTnRIC5CyHYwxwRtkIzUfC19CZuG49DnuZiVZyoiNKJBaBY65zMiJXMIrzpMtywmY&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-iad6-1.cdninstagram.com&_nc_gid=SBvX8x12nckdwVrYHoPZgA&_nc_ss=7a120&oh=00_AQHXYWAh-AFnMFtK-q2rBcQnXyi_qqJ7jsJXek4vzH3LNA&oe=6A744B39",
+          "caption": "Ford Mondeo | automaat full option station nl auto\n.\nInteresse dm‼️\n.\nEditor+ camera man @raptor_gen2 \n.\n#daanwillemsautomotive #autoverkoop #autodealer #occasion #werkelijkietsaparts"
+        },
+        "3823063417754279432": {
+          "pk": "3823063417754279432",
+          "code": "DUOP-xJCN4I",
+          "takenAt": 1769964803,
+          "mediaType": 2,
+          "productType": "clips",
+          "likeCount": 6122,
+          "commentCount": 26,
+          "playCount": 406497,
+          "thumbnail": "https://scontent-iad3-2.cdninstagram.com/v/t51.71878-15/627105107_933249512458803_1171254179734699664_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=103&ig_cache_key=MzgyMzA2MzQxNzc1NDI3OTQzMg%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjY0MC5zZHIudmlkZW9fZGVmYXVsdF9jb3Zlcl9mcmFtZS5DMyJ9&_nc_ohc=hyT_KX9UMfAQ7kNvwHYoGtx&_nc_oc=Adpf4VxVsVddoL4gpsoCP05EeoRQDI9ECxH5qfZXTrEhLoPPtBGLez607HNtnzK69LA&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-iad3-2.cdninstagram.com&_nc_gid=SBvX8x12nckdwVrYHoPZgA&_nc_ss=7a120&oh=00_AQF6xWrhLXrG-69j6iB7-L1HXDcSWfTJJScHGCBzLJUHOg&oe=6A743F7B",
+          "caption": "Een persoonlijk interview met de enige echte @daanwillemsautomotive 🙌🏼\n\nDat was werkelijk wat aparts. Check de video op het Youtube Kanaal van @over.de.vloer.bij 🎥"
+        },
+        "3821484175291634637": {
+          "pk": "3821484175291634637",
+          "code": "DUIo5w_CNPN",
+          "takenAt": 1769776531,
+          "mediaType": 2,
+          "productType": "clips",
+          "likeCount": 10422,
+          "commentCount": 223,
+          "playCount": 606595,
+          "thumbnail": "https://scontent-iad3-2.cdninstagram.com/v/t51.71878-15/622727167_1417684843230559_8067167783524815034_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=111&ig_cache_key=MzgyMTQ4NDE3NTI5MTYzNDYzNw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjY0MC5zZHIudmlkZW9fZGVmYXVsdF9jb3Zlcl9mcmFtZS5DMyJ9&_nc_ohc=zrNUTB1Mim4Q7kNvwHMNddW&_nc_oc=AdogmImb_jmx1S53g3eIXqKXOr_Hz5AdURGyaqecuUPeSAB9cmbkRk17Q0zNNGQJ9mI&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-iad3-2.cdninstagram.com&_nc_gid=SBvX8x12nckdwVrYHoPZgA&_nc_ss=7a120&oh=00_AQEoxOE8oJ5l4LSncUZmGLrVip5jhYYENeLO1IE9eM2X9w&oe=6A744E6A",
+          "caption": "Mazda 6 Sportbreak | Oerdegelijke kwaliteit | Airconditioning | NL auto | Veel ruimte |\n\nInteresse DM❗️\n\n#daanwillemsautomotive #autoverkoop #occasion #autodealer"
+        },
+        "3818753681743445276": {
+          "pk": "3818753681743445276",
+          "code": "DT-8D2tCH0c",
+          "takenAt": 1769451222,
+          "mediaType": 2,
+          "productType": "clips",
+          "likeCount": 23489,
+          "commentCount": 252,
+          "playCount": 1110599,
+          "thumbnail": "https://scontent-iad3-1.cdninstagram.com/v/t51.71878-15/620907231_1951445528916527_6509406592112912746_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=110&ig_cache_key=MzgxODc1MzY4MTc0MzQ0NTI3Ng%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjY0MC5zZHIudmlkZW9fbmZyYW1lX2NvdmVyX2ZyYW1lLkMzIn0%3D&_nc_ohc=Nki53wS37esQ7kNvwGTCb2P&_nc_oc=AdrlAYY3pFZxlE1zOGz6gYmtu5VDl5p0mV0V4EbMh7FUlOB7G7r_4xncQpHiZiGxjbY&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&_nc_gid=SBvX8x12nckdwVrYHoPZgA&_nc_ss=7a120&oh=00_AQEg7fhCE4yrVeykrJZHgbBwMTn0MlBknAELJyRxHIyLyQ&oe=6A743E01",
+          "caption": "Citroën c4 Grand Picasso . Full option . 7 persoons . Lage prijs. \n.\nInteresse DM‼️ \n.\nEditor+ camera man @raptor_gen2 \n.\n#daanwillemsautomotive #autoverkoop #occasion #autodealer"
+        },
+        "3817048974612250285": {
+          "pk": "3817048974612250285",
+          "code": "DT44dGeCD6t",
+          "takenAt": 1769247899,
+          "mediaType": 2,
+          "productType": "clips",
+          "likeCount": 16744,
+          "commentCount": 115,
+          "playCount": 807266,
+          "thumbnail": "https://scontent-iad6-1.cdninstagram.com/v/t51.71878-15/621402075_4132248320346634_144753080069432116_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=107&ig_cache_key=MzgxNzA0ODk3NDYxMjI1MDI4NQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjY0MC5zZHIudmlkZW9fZGVmYXVsdF9jb3Zlcl9mcmFtZS5DMyJ9&_nc_ohc=pwPQKbcu-RMQ7kNvwFfkaWT&_nc_oc=AdrwgFtSEXqXTXuuQDdzXoqf73hDmaeaw4vRGIDqSP_johSzntPZmq1fJFe1jizZ2B8&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-iad6-1.cdninstagram.com&_nc_gid=SBvX8x12nckdwVrYHoPZgA&_nc_ss=7a120&oh=00_AQENOaXfX_s9RtTTIyrgZmm8xyQNZlZckYnsy6TyW4tFDg&oe=6A744CC7",
+          "caption": "Fiat Panda • Panoramadak • Airconditioning • Lage kilometerstand •\n\nInteresse DM!\n\n#daanwillemsautomotive #autoverkoop #occasion #autodealer \n\nEditer @raptor_gen2"
+        },
+        "3814159365511342516": {
+          "pk": "3814159365511342516",
+          "code": "DTunbwSCGm0",
+          "takenAt": 1768903345,
+          "mediaType": 2,
+          "productType": "clips",
+          "likeCount": 10613,
+          "commentCount": 107,
+          "playCount": 654836,
+          "thumbnail": "https://scontent-iad3-1.cdninstagram.com/v/t51.71878-15/619739425_1409888290490885_2234895692636631464_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=101&ig_cache_key=MzgxNDE1OTM2NTUxMTM0MjUxNg%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjY0MC5zZHIudmlkZW9fbmZyYW1lX2NvdmVyX2ZyYW1lLkMzIn0%3D&_nc_ohc=izi7kvgBhm8Q7kNvwGG9e_w&_nc_oc=AdqdSh1yKNll2skeUO2g8YYyRGgb210xD6kcgoeoEsDR4dSNtzdNKQH-YAdLb8x9RnQ&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&_nc_gid=SBvX8x12nckdwVrYHoPZgA&_nc_ss=7a120&oh=00_AQGIfhDwEtKpeie4R4SD6j4g_F5lCUT3xWkFAWFIZZ3F_Q&oe=6A74632A",
+          "caption": "Seat Ibiza Cupra • Automaat • 179PK • Full option • Vliegensvlug •\n\nInteresse DM!\n\n#daanwillemsautomotive #autoverkoop #occasion #autodealer"
+        },
+        "3812061469064306250": {
+          "pk": "3812061469064306250",
+          "code": "DTnKbV9iB5K",
+          "takenAt": 1768653312,
+          "mediaType": 2,
+          "productType": "clips",
+          "likeCount": 8541,
+          "commentCount": 96,
+          "playCount": 525397,
+          "thumbnail": "https://scontent-iad3-2.cdninstagram.com/v/t51.71878-15/618228063_1908781670027501_9213457120704639450_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=105&ig_cache_key=MzgxMjA2MTQ2OTA2NDMwNjI1MA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjY0MC5zZHIudmlkZW9fZGVmYXVsdF9jb3Zlcl9mcmFtZS5DMyJ9&_nc_ohc=zbanlfQQyXMQ7kNvwH5IOJ3&_nc_oc=AdqP-YtdoxsAz3hlKrtzQEfRQt7YNEeR8MSZTbKx8Ca3tgaQTPXxM978vjd0AC8gx6M&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-iad3-2.cdninstagram.com&_nc_gid=SBvX8x12nckdwVrYHoPZgA&_nc_ss=7a120&oh=00_AQFghwi8g-qsFwVxPtAmbIxFRfuYHltMEEj0rl0OezR93g&oe=6A744F44",
+          "caption": "Nu direct te bestellen de enige echte merchandise van Daan Willems Automotive❗️Loop je er eindelijk een keer fatsoenlijk bij❗️\n\nTe bestellen via @dutschworkwear \n\nEdit door @raptor_gen2"
+        },
+        "3806260184679488084": {
+          "pk": "3806260184679488084",
+          "code": "DTSjXi2iJpU",
+          "takenAt": 1767961768,
+          "mediaType": 2,
+          "productType": "clips",
+          "likeCount": 4212,
+          "commentCount": 39,
+          "playCount": 361297,
+          "thumbnail": "https://scontent-iad6-1.cdninstagram.com/v/t51.71878-15/610800572_1224727776233656_3579755545423623388_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=106&ig_cache_key=MzgwNjI2MDE4NDY3OTQ4ODA4NA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjY0MC5zZHIudmlkZW9fbmZyYW1lX2NvdmVyX2ZyYW1lLkMzIn0%3D&_nc_ohc=ZEOoXDjABZsQ7kNvwGAuAU1&_nc_oc=AdoTKmPIGuwkF2L8ZrHAcAwyZnVzKG1EuQhB0lNef1CAp7nnJ_QVrIY-Uj_UEaeEj4g&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-iad6-1.cdninstagram.com&_nc_gid=SBvX8x12nckdwVrYHoPZgA&_nc_ss=7a120&oh=00_AQHeWa6xhulWnKXKhVFKfbV54GQtl7BSblCawrArAGOlkg&oe=6A744AF7",
+          "caption": "Nu direct uit voorraad leverbaar❗️De enige echte werkelijk iets aparts emblemen❗️\n\nBestel nu via @oetelstore.nl ❗️#linkinbio #werkelijkietsaparts\n\nEdit door @raptor_gen2"
         }
       }
-    }
+    },
+    "lastError": "Sanity drop: stats.totalPlays: 42,542,776 < 65190583 (was 67,206,787, floor 97%)",
+    "lastErrorAt": "2026-08-01T23:02:39.283Z"
   }
 }
