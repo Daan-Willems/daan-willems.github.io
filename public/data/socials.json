@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-08-09T07:31:00.163Z",
+  "generatedAt": "2026-08-09T13:12:35.893Z",
   "youtube": {
     "status": "ok",
-    "lastFetchedAt": "2026-08-09T07:12:24.480Z",
+    "lastFetchedAt": "2026-08-09T13:12:35.082Z",
     "channel": {
       "id": "UC0ubM_L6ISEgqr5SJfI8XTA",
       "title": "Daan Willems Automotive",
@@ -10,11 +10,22 @@
       "customUrl": "@daanwillemsautomotive",
       "thumbnail": "/images/socials/avatars/youtube.jpg",
       "subscriberCount": 41000,
-      "videoCount": 78,
+      "videoCount": 79,
       "viewCount": 5507347,
       "bannerUrl": "https://yt3.googleusercontent.com/n2yJgGUAPlCi5Zv5tB6NflWMNyuRXIEj7dM30IeQ6BDW0nnUjOXbABuj4qIPUmtBr8InSej5"
     },
     "latest": [
+      {
+        "id": "pVmv4skngZg",
+        "url": "https://www.youtube.com/watch?v=pVmv4skngZg",
+        "title": "KERMIS MET DAAN EN FERRY!! GAAT FOUT?! VLOG #52",
+        "description": "Welkom op het officiele Youtube-kanaal van Daan Willems! Krijg een unieke kijk in het werk en privéleven van Daan Willems.",
+        "publishedAt": "2026-08-09T09:00:35Z",
+        "thumbnail": "https://i.ytimg.com/vi/pVmv4skngZg/hqdefault.jpg",
+        "viewCount": 8518,
+        "likeCount": 271,
+        "durationSec": 805
+      },
       {
         "id": "W98qVLuOmMk",
         "url": "https://www.youtube.com/watch?v=W98qVLuOmMk",
@@ -22,8 +33,8 @@
         "description": "Welkom op het officiele Youtube-kanaal van Daan Willems! Krijg een unieke kijk in het werk en privéleven van Daan Willems.",
         "publishedAt": "2026-08-05T15:00:26Z",
         "thumbnail": "https://i.ytimg.com/vi/W98qVLuOmMk/hqdefault.jpg",
-        "viewCount": 42016,
-        "likeCount": 926,
+        "viewCount": 42607,
+        "likeCount": 935,
         "durationSec": 956
       },
       {
@@ -33,9 +44,20 @@
         "description": "Welkom op het officiele Youtube-kanaal van Daan Willems! Krijg een unieke kijk in het werk en privéleven van Daan Willems.",
         "publishedAt": "2026-08-02T09:00:04Z",
         "thumbnail": "https://i.ytimg.com/vi/YqPO25x1CPQ/hqdefault.jpg",
-        "viewCount": 46356,
-        "likeCount": 1240,
+        "viewCount": 46482,
+        "likeCount": 1242,
         "durationSec": 879
+      },
+      {
+        "id": "cyx-by1Q0Xo",
+        "url": "https://www.youtube.com/watch?v=cyx-by1Q0Xo",
+        "title": "Ford Ka • NL Auto • Airco • Lage KM • Interesse ❓📞 #daanwillemsautomotive #occasion  #automotive",
+        "description": "Welkom op het officiele Youtube-kanaal van Daan Willems! Krijg een unieke kijk in het werk en privéleven van Daan Willems.",
+        "publishedAt": "2026-07-31T10:09:21Z",
+        "thumbnail": "https://i.ytimg.com/vi/cyx-by1Q0Xo/hqdefault.jpg",
+        "viewCount": 47918,
+        "likeCount": 515,
+        "durationSec": 77
       },
       {
         "id": "Y-1dYb2VOsg",
@@ -44,8 +66,8 @@
         "description": "Welkom op het officiele Youtube-kanaal van Daan Willems! Krijg een unieke kijk in het werk en privéleven van Daan Willems.",
         "publishedAt": "2026-07-29T15:00:10Z",
         "thumbnail": "https://i.ytimg.com/vi/Y-1dYb2VOsg/hqdefault.jpg",
-        "viewCount": 48906,
-        "likeCount": 795,
+        "viewCount": 48936,
+        "likeCount": 797,
         "durationSec": 794
       },
       {
@@ -55,31 +77,9 @@
         "description": "Welkom op het officiele Youtube-kanaal van Daan Willems! Krijg een unieke kijk in het werk en privéleven van Daan Willems.",
         "publishedAt": "2026-07-26T09:00:37Z",
         "thumbnail": "https://i.ytimg.com/vi/XEHTHw7v264/hqdefault.jpg",
-        "viewCount": 73292,
-        "likeCount": 1459,
+        "viewCount": 73396,
+        "likeCount": 1462,
         "durationSec": 997
-      },
-      {
-        "id": "5zIXiiMAdrA",
-        "url": "https://www.youtube.com/watch?v=5zIXiiMAdrA",
-        "title": "DRAMA MET AUTO&#39;S!! STOPT DAAN ERMEE??.. VLOG #47",
-        "description": "Welkom op het officiele Youtube-kanaal van Daan Willems! Krijg een unieke kijk in het werk en privéleven van Daan Willems.",
-        "publishedAt": "2026-07-22T14:56:31Z",
-        "thumbnail": "https://i.ytimg.com/vi/5zIXiiMAdrA/hqdefault.jpg",
-        "viewCount": 61314,
-        "likeCount": 897,
-        "durationSec": 930
-      },
-      {
-        "id": "mXQ7f494HWQ",
-        "url": "https://www.youtube.com/watch?v=mXQ7f494HWQ",
-        "title": "LOSGAAN OP WiSH OUTDOOR!! // VLOG #46",
-        "description": "Welkom op het officiele Youtube-kanaal van Daan Willems! Krijg een unieke kijk in het werk en privéleven van Daan Willems.",
-        "publishedAt": "2026-07-19T09:00:18Z",
-        "thumbnail": "https://i.ytimg.com/vi/mXQ7f494HWQ/hqdefault.jpg",
-        "viewCount": 37329,
-        "likeCount": 536,
-        "durationSec": 1158
       }
     ],
     "top": [
@@ -90,7 +90,7 @@
         "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud Bekijk aanbod ...",
         "publishedAt": "2026-03-09T17:26:22Z",
         "thumbnail": "https://i.ytimg.com/vi/9vBJKYhhptM/hqdefault.jpg",
-        "viewCount": 203989,
+        "viewCount": 204020,
         "likeCount": 4452,
         "durationSec": 713
       },
@@ -101,7 +101,7 @@
         "description": "Abonneer voor meer backstage content @ Daan Willems Automotive Emblemen Oeteldonk ...",
         "publishedAt": "2025-12-07T08:00:35Z",
         "thumbnail": "https://i.ytimg.com/vi/N2Mr3ddlArc/hqdefault.jpg",
-        "viewCount": 156993,
+        "viewCount": 157017,
         "likeCount": 4066,
         "durationSec": 858
       },
@@ -112,7 +112,7 @@
         "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud CAMERAMAN + ...",
         "publishedAt": "2026-03-29T09:20:30Z",
         "thumbnail": "https://i.ytimg.com/vi/AB2L1OJD_PA/hqdefault.jpg",
-        "viewCount": 152788,
+        "viewCount": 152817,
         "likeCount": 2197,
         "durationSec": 1201
       },
@@ -123,20 +123,9 @@
         "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud CAMERA MAN ...",
         "publishedAt": "2026-02-25T16:05:56Z",
         "thumbnail": "https://i.ytimg.com/vi/KTJRmjAvIPg/hqdefault.jpg",
-        "viewCount": 133966,
-        "likeCount": 1913,
+        "viewCount": 134013,
+        "likeCount": 1914,
         "durationSec": 834
-      },
-      {
-        "id": "D1e3PYe0t4A",
-        "url": "https://www.youtube.com/watch?v=D1e3PYe0t4A",
-        "title": "LUXYDUTCH OP BEZOEK BIJ DAAN WILLEMS!!!! DIT IS WERKELIJK IETS APARTS! VLOG #12",
-        "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud editor + camera man ...",
-        "publishedAt": "2026-02-22T09:45:55Z",
-        "thumbnail": "https://i.ytimg.com/vi/D1e3PYe0t4A/hqdefault.jpg",
-        "viewCount": 132734,
-        "likeCount": 2339,
-        "durationSec": 711
       },
       {
         "id": "YZpn2Awy3pY",
@@ -145,12 +134,23 @@
         "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud CAMERA MAN PLUS ...",
         "publishedAt": "2026-05-13T15:38:57Z",
         "thumbnail": "https://i.ytimg.com/vi/YZpn2Awy3pY/hqdefault.jpg",
-        "viewCount": 132226,
+        "viewCount": 132298,
         "likeCount": 2321,
         "durationSec": 1125
+      },
+      {
+        "id": "wm0R5AMYmig",
+        "url": "https://www.youtube.com/watch?v=wm0R5AMYmig",
+        "title": "DAAN &amp; DANNY GAAN OFFROAD MET SUZUKI ALTO // GAAT FOUT!!!!! VLOG #22",
+        "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud Cameraman ...",
+        "publishedAt": "2026-04-05T06:45:03Z",
+        "thumbnail": "https://i.ytimg.com/vi/wm0R5AMYmig/hqdefault.jpg",
+        "viewCount": 131727,
+        "likeCount": 2917,
+        "durationSec": 1626
       }
     ],
-    "lastSuccessAt": "2026-08-09T07:12:24.480Z"
+    "lastSuccessAt": "2026-08-09T13:12:35.082Z"
   },
   "tiktok": {
     "status": "ok",
