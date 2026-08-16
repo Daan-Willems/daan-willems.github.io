@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-08-16T12:53:15.749Z",
+  "generatedAt": "2026-08-16T12:57:33.278Z",
   "youtube": {
     "status": "ok",
-    "lastFetchedAt": "2026-08-16T06:56:05.895Z",
+    "lastFetchedAt": "2026-08-16T12:57:32.310Z",
     "channel": {
       "id": "UC0ubM_L6ISEgqr5SJfI8XTA",
       "title": "Daan Willems Automotive",
@@ -10,11 +10,22 @@
       "customUrl": "@daanwillemsautomotive",
       "thumbnail": "/images/socials/avatars/youtube.jpg",
       "subscriberCount": 41600,
-      "videoCount": 79,
+      "videoCount": 80,
       "viewCount": 5664459,
       "bannerUrl": "https://yt3.googleusercontent.com/n2yJgGUAPlCi5Zv5tB6NflWMNyuRXIEj7dM30IeQ6BDW0nnUjOXbABuj4qIPUmtBr8InSej5"
     },
     "latest": [
+      {
+        "id": "NZLT2g7m2WA",
+        "url": "https://www.youtube.com/watch?v=NZLT2g7m2WA",
+        "title": "24 UUR OVERLEVEN ALS KAKKER!! VLOG #53",
+        "description": "Welkom op het officiele Youtube-kanaal van Daan Willems! Krijg een unieke kijk in het werk en privéleven van Daan Willems.",
+        "publishedAt": "2026-08-16T09:00:36Z",
+        "thumbnail": "https://i.ytimg.com/vi/NZLT2g7m2WA/hqdefault.jpg",
+        "viewCount": 6665,
+        "likeCount": 238,
+        "durationSec": 954
+      },
       {
         "id": "pVmv4skngZg",
         "url": "https://www.youtube.com/watch?v=pVmv4skngZg",
@@ -22,8 +33,8 @@
         "description": "Welkom op het officiele Youtube-kanaal van Daan Willems! Krijg een unieke kijk in het werk en privéleven van Daan Willems.",
         "publishedAt": "2026-08-09T09:00:35Z",
         "thumbnail": "https://i.ytimg.com/vi/pVmv4skngZg/hqdefault.jpg",
-        "viewCount": 48919,
-        "likeCount": 817,
+        "viewCount": 49155,
+        "likeCount": 821,
         "durationSec": 805
       },
       {
@@ -33,7 +44,7 @@
         "description": "Welkom op het officiele Youtube-kanaal van Daan Willems! Krijg een unieke kijk in het werk en privéleven van Daan Willems.",
         "publishedAt": "2026-08-05T15:00:26Z",
         "thumbnail": "https://i.ytimg.com/vi/W98qVLuOmMk/hqdefault.jpg",
-        "viewCount": 48094,
+        "viewCount": 48124,
         "likeCount": 1012,
         "durationSec": 956
       },
@@ -44,8 +55,8 @@
         "description": "Welkom op het officiele Youtube-kanaal van Daan Willems! Krijg een unieke kijk in het werk en privéleven van Daan Willems.",
         "publishedAt": "2026-08-02T09:00:04Z",
         "thumbnail": "https://i.ytimg.com/vi/YqPO25x1CPQ/hqdefault.jpg",
-        "viewCount": 48568,
-        "likeCount": 1280,
+        "viewCount": 48611,
+        "likeCount": 1281,
         "durationSec": 879
       },
       {
@@ -55,8 +66,8 @@
         "description": "Welkom op het officiele Youtube-kanaal van Daan Willems! Krijg een unieke kijk in het werk en privéleven van Daan Willems.",
         "publishedAt": "2026-07-31T10:09:21Z",
         "thumbnail": "https://i.ytimg.com/vi/cyx-by1Q0Xo/hqdefault.jpg",
-        "viewCount": 50452,
-        "likeCount": 530,
+        "viewCount": 50511,
+        "likeCount": 531,
         "durationSec": 77
       },
       {
@@ -66,20 +77,9 @@
         "description": "Welkom op het officiele Youtube-kanaal van Daan Willems! Krijg een unieke kijk in het werk en privéleven van Daan Willems.",
         "publishedAt": "2026-07-29T15:00:10Z",
         "thumbnail": "https://i.ytimg.com/vi/Y-1dYb2VOsg/hqdefault.jpg",
-        "viewCount": 50201,
+        "viewCount": 50211,
         "likeCount": 818,
         "durationSec": 794
-      },
-      {
-        "id": "XEHTHw7v264",
-        "url": "https://www.youtube.com/watch?v=XEHTHw7v264",
-        "title": "ZUIPEN OP DE VIERDAAGSEFEESTEN IN NIJMEGEN!! VLOG #48",
-        "description": "Welkom op het officiele Youtube-kanaal van Daan Willems! Krijg een unieke kijk in het werk en privéleven van Daan Willems.",
-        "publishedAt": "2026-07-26T09:00:37Z",
-        "thumbnail": "https://i.ytimg.com/vi/XEHTHw7v264/hqdefault.jpg",
-        "viewCount": 75901,
-        "likeCount": 1496,
-        "durationSec": 997
       }
     ],
     "top": [
@@ -90,7 +90,7 @@
         "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud Bekijk aanbod ...",
         "publishedAt": "2026-03-09T17:26:22Z",
         "thumbnail": "https://i.ytimg.com/vi/9vBJKYhhptM/hqdefault.jpg",
-        "viewCount": 206285,
+        "viewCount": 206337,
         "likeCount": 4477,
         "durationSec": 713
       },
@@ -101,7 +101,7 @@
         "description": "Abonneer voor meer backstage content @ Daan Willems Automotive Emblemen Oeteldonk ...",
         "publishedAt": "2025-12-07T08:00:35Z",
         "thumbnail": "https://i.ytimg.com/vi/N2Mr3ddlArc/hqdefault.jpg",
-        "viewCount": 158155,
+        "viewCount": 158175,
         "likeCount": 4082,
         "durationSec": 858
       },
@@ -112,8 +112,8 @@
         "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud CAMERA MAN PLUS ...",
         "publishedAt": "2026-05-13T15:38:57Z",
         "thumbnail": "https://i.ytimg.com/vi/YZpn2Awy3pY/hqdefault.jpg",
-        "viewCount": 135480,
-        "likeCount": 2349,
+        "viewCount": 135570,
+        "likeCount": 2351,
         "durationSec": 1125
       },
       {
@@ -123,7 +123,7 @@
         "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud CAMERA MAN ...",
         "publishedAt": "2026-02-25T16:05:56Z",
         "thumbnail": "https://i.ytimg.com/vi/KTJRmjAvIPg/hqdefault.jpg",
-        "viewCount": 134986,
+        "viewCount": 135003,
         "likeCount": 1924,
         "durationSec": 834
       },
@@ -134,7 +134,7 @@
         "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud CAMERA MAN + ...",
         "publishedAt": "2026-03-15T12:30:04Z",
         "thumbnail": "https://i.ytimg.com/vi/cv9-xQv4g4g/hqdefault.jpg",
-        "viewCount": 122641,
+        "viewCount": 122648,
         "likeCount": 1880,
         "durationSec": 1409
       },
@@ -145,12 +145,12 @@
         "description": "Abonneer voor meer backstage content @ Daan Willems Automotive In deze video: Van De Pol Bouw- en Timmerwerken ...",
         "publishedAt": "2025-12-20T09:30:24Z",
         "thumbnail": "https://i.ytimg.com/vi/h3Yjlt1tr4A/hqdefault.jpg",
-        "viewCount": 118005,
+        "viewCount": 118016,
         "likeCount": 1767,
         "durationSec": 694
       }
     ],
-    "lastSuccessAt": "2026-08-16T06:56:05.895Z"
+    "lastSuccessAt": "2026-08-16T12:57:32.310Z"
   },
   "tiktok": {
     "status": "ok",
