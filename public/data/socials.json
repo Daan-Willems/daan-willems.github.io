@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-19T13:24:17.073Z",
+  "generatedAt": "2026-08-19T13:49:48.569Z",
   "youtube": {
     "status": "ok",
     "lastFetchedAt": "2026-08-19T13:05:34.519Z",
@@ -175,10 +175,10 @@
     "lastSuccessAt": "2026-08-19T13:24:16.440Z"
   },
   "instagram": {
-    "status": "stale",
-    "lastFetchedAt": "2026-08-19T12:59:12.333Z",
+    "status": "ok",
+    "lastFetchedAt": "2026-08-19T13:49:28.654Z",
     "handle": "daanwillemsautomotive",
-    "lastSuccessAt": "2026-08-19T13:00:25.277Z",
+    "lastSuccessAt": "2026-08-19T13:49:48.154Z",
     "lastProfileFetchAt": "2026-08-19T03:53:53.133Z",
     "profile": {
       "userId": "53052746898",
@@ -206,13 +206,13 @@
       "followerCount": 133681,
       "followingCount": 36,
       "mediaCount": 91,
-      "totalPlays": 72641136,
-      "totalLikes": 1550654,
-      "totalComments": 17473,
-      "sampledPostCount": 72,
+      "totalPlays": 73316560,
+      "totalLikes": 1560889,
+      "totalComments": 17557,
+      "sampledPostCount": 137,
       "profileSourcedFromPrev": true,
-      "feedSourcedFromPrev": true,
-      "iteratorCycleComplete": false
+      "feedSourcedFromPrev": false,
+      "iteratorCycleComplete": true
     },
     "posts": [
       {
@@ -290,9 +290,9 @@
     ],
     "iterator": {
       "startedAt": "2026-08-19T01:42:41.097Z",
-      "lastFetchedAt": "2026-08-19T13:00:25.277Z",
-      "completedAt": null,
-      "cursor": "3755460609580742801_53052746898",
+      "lastFetchedAt": "2026-08-19T13:49:48.154Z",
+      "completedAt": "2026-08-19T13:49:48.154Z",
+      "cursor": null,
       "items": {
         "3966570077400620975": {
           "pk": "3966570077400620975",
@@ -1877,10 +1877,68 @@
           "playCount": 943863,
           "thumbnail": "https://scontent-iad6-1.cdninstagram.com/v/t51.71878-15/572289772_1156184385980459_7120026769058277410_n.jpg?stp=dst-jpegr_e15_tt6&_nc_cat=106&ig_cache_key=Mzc1NTQ2MDYwOTU4MDc0MjgwMTE1NjI2NTIwMTE1ODUwNjk%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjY0MC5oZHIudmlkZW9fbmZyYW1lX2NvdmVyX2ZyYW1lLkMzIn0%3D&_nc_ohc=sCMNUq2mPTEQ7kNvwFTTwSu&_nc_oc=Adp9kWLkszyVEfzQjZ6snZ-1ty45psoWQlAVA9SER7Q1DsT6p12GhglS8_AFy5PkePQ&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&se=-1&_nc_ht=scontent-iad6-1.cdninstagram.com&_nc_gid=Q0YsdY2NuibhrIGHluubxg&_nc_ss=7a120&oh=00_AQHptzXTxZR7BB92xctcot17wc8E1yi3W4cd_ptoraqyHQ&oe=6A8B970C",
           "caption": "#daanwillemsautomotive"
+        },
+        "3754082720268469560": {
+          "pk": "3754082720268469560",
+          "code": "DQZLlgXCMU4",
+          "takenAt": 1761741619,
+          "mediaType": 2,
+          "productType": "clips",
+          "likeCount": 5834,
+          "commentCount": 111,
+          "playCount": 401003,
+          "thumbnail": "https://scontent-iad3-2.cdninstagram.com/v/t51.71878-15/574214234_1991286111621358_664170494954844975_n.jpg?stp=dst-jpegr_e15_tt6&_nc_cat=103&ig_cache_key=Mzc1NDA4MjcyMDI2ODQ2OTU2MDI1MTc1NjU4Njg1NDAzMzAw.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjY0MC5oZHIudmlkZW9fbmZyYW1lX2NvdmVyX2ZyYW1lLkMzIn0%3D&_nc_ohc=Nnhwlu61AjEQ7kNvwG54rMh&_nc_oc=AdoBtYusT1oN-KWpTjgp5nAcspR5ryXgnUoiIP8f52rC4-X3zaWlqE0Ev5NhWTjlYvA&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&se=-1&_nc_ht=scontent-iad3-2.cdninstagram.com&_nc_gid=byO7DLHczzrdY5zwm9njBw&_nc_ss=7a120&oh=00_AQH4MrMOOBhqjj9w2oOzv-60pkICjczaso85zqmEB_bn9w&oe=6A8B9369",
+          "caption": "Mercedes R500 • full option • youngtimer\n\nInteresse? DM!\n\n#daanwillemsautomotive #autoverkoop #denbosch #autodealer #mercedes"
+        },
+        "3752538954613143037": {
+          "pk": "3752538954613143037",
+          "code": "DQTskwjiDX9",
+          "takenAt": 1761557611,
+          "mediaType": 2,
+          "productType": "clips",
+          "likeCount": 29585,
+          "commentCount": 491,
+          "playCount": 1432456,
+          "thumbnail": "https://scontent-iad3-2.cdninstagram.com/v/t51.71878-15/573370090_1447429799697306_802319893390535275_n.jpg?stp=dst-jpegr_e15_tt6&_nc_cat=103&ig_cache_key=Mzc1MjUzODk1NDYxMzE0MzAzNw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjY0MC5oZHIudmlkZW9fZGVmYXVsdF9jb3Zlcl9mcmFtZS5DMyJ9&_nc_ohc=MQ9HEdIzX10Q7kNvwGOzX-H&_nc_oc=AdqdLlyOLlsWK9_Iknk7qjZXVGBtOS3Dj_Iwn3oBrtNTuzGxzqvD7zCIiPh_A23SWSs&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&se=-1&_nc_ht=scontent-iad3-2.cdninstagram.com&_nc_gid=byO7DLHczzrdY5zwm9njBw&_nc_ss=7a120&oh=00_AQEbsOQ6I6LUyu2RZnsUrDtv9xWj-5HJ-D-mrTcBVTqFiA&oe=6A8B9DE5",
+          "caption": "Suzuki Wagon R • airconditioning • knap lelijk \n\nInteresse? DM!\n\n#daanwillemsautomotive #occasion #suzuki #autoverkoop #denbosch"
+        },
+        "3748897497956224214": {
+          "pk": "3748897497956224214",
+          "code": "DQGwmlxCAzW",
+          "takenAt": 1761123498,
+          "mediaType": 2,
+          "productType": "clips",
+          "likeCount": 11899,
+          "commentCount": 122,
+          "playCount": 777604,
+          "thumbnail": "https://scontent-iad3-2.cdninstagram.com/v/t51.71878-15/568932925_1470107630745806_5332598551691460854_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=103&ig_cache_key=Mzc0ODg5NzQ5Nzk1NjIyNDIxNDY5NzkxNDAyMzM2MDM2Mw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjY0MC5zZHIudmlkZW9fbmZyYW1lX2NvdmVyX2ZyYW1lLkMzIn0%3D&_nc_ohc=P60v0wr3FQYQ7kNvwEV5xGF&_nc_oc=AdooSQMS-C7KT-J_Z9MvgUkwmBkNqrNP7m47VgwAvI2WMdzIsxV1dlmmeR6aXcy_AwU&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-iad3-2.cdninstagram.com&_nc_gid=byO7DLHczzrdY5zwm9njBw&_nc_ss=7a120&oh=00_AQH0Gfkq6iEZnlhmteqQGA0K8Xqr2Wr9nuGzPrvfbHgsDw&oe=6A8B8052",
+          "caption": "Jeep Compass • automaat • full option\n\nInteresse? DM\n\n#daanwillemsautomotive #jonggebruikteautos #occasion #autodealer #autoverkoop"
+        },
+        "3747455581989404498": {
+          "pk": "3747455581989404498",
+          "code": "DQBov84CH9S",
+          "takenAt": 1760951602,
+          "mediaType": 2,
+          "productType": "clips",
+          "likeCount": 13135,
+          "commentCount": 147,
+          "playCount": 898980,
+          "thumbnail": "https://scontent-iad3-2.cdninstagram.com/v/t51.71878-15/566146884_1364170918700146_6948994062390426614_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=105&ig_cache_key=Mzc0NzQ1NTU4MTk4OTQwNDQ5ODc5MjE0MzY1MzczNzE2MQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjY0MC5zZHIudmlkZW9fbmZyYW1lX2NvdmVyX2ZyYW1lLkMzIn0%3D&_nc_ohc=5Q0gHu0h0BYQ7kNvwHzvaB6&_nc_oc=AdqE4jQObrZWV76ODbpCRFRC1WfIupLGCyYF2t1fhkbostcKDfxr_pmku38PrvDJP9g&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-iad3-2.cdninstagram.com&_nc_gid=byO7DLHczzrdY5zwm9njBw&_nc_ss=7a120&oh=00_AQGcBAaLUvmyBye-Yy9LqZA23jIpezYZSr2L7PBOw6GT4Q&oe=6A8B839B",
+          "caption": "Ford Ka • 85.000km • glazen dak\n\nInteresse? DM!\n\n#daanwillemsautomotive #occasion #jonggebruikteautos #autoverkoop #autodealer"
+        },
+        "3746010975082954982": {
+          "pk": "3746010975082954982",
+          "code": "DP8gSJ2iMDm",
+          "takenAt": 1760779444,
+          "mediaType": 2,
+          "productType": "clips",
+          "likeCount": 10026,
+          "commentCount": 154,
+          "playCount": 865480,
+          "thumbnail": "https://scontent-iad3-1.cdninstagram.com/v/t51.71878-15/566533072_1980111186098163_3487502496181407844_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=108&ig_cache_key=Mzc0NjAxMDk3NTA4Mjk1NDk4MjEzNDY1OTk2MTY4NTI4Njc%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjY0MC5zZHIudmlkZW9fbmZyYW1lX2NvdmVyX2ZyYW1lLkMzIn0%3D&_nc_ohc=wI1-hRqx3fsQ7kNvwH5PG50&_nc_oc=AdqpOceo_LRwuksXlbUlNudzw0WYB5y8wSmVE1pqB7SPCp86PGQkUYdvJdWEVKRmUl0&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&_nc_gid=byO7DLHczzrdY5zwm9njBw&_nc_ss=7a120&oh=00_AQFN2Ej90oPirrvsBj7LV1dA4Ukh_93to3STUP0OlgsOEw&oe=6A8B9C68",
+          "caption": "Hyundai Tucson • youngtimer • 4x4\n\nInteresse? DM!\n\n#daanwillemsautomotive #jonggebruikteautos #occasion #autoverkoop #autodealer"
         }
       }
-    },
-    "lastError": "Sanity drop: stats.totalPlays: 68,941,037 < 70461902 (was 72,641,136, floor 97%)",
-    "lastErrorAt": "2026-08-19T12:59:12.333Z"
+    }
   }
 }
