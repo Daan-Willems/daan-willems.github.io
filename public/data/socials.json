@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-09-03T11:30:18.059Z",
+  "generatedAt": "2026-09-03T16:21:59.577Z",
   "youtube": {
     "status": "ok",
-    "lastFetchedAt": "2026-09-03T11:08:13.405Z",
+    "lastFetchedAt": "2026-09-03T16:21:58.941Z",
     "channel": {
       "id": "UC0ubM_L6ISEgqr5SJfI8XTA",
       "title": "Daan Willems Automotive",
@@ -10,11 +10,22 @@
       "customUrl": "@daanwillemsautomotive",
       "thumbnail": "/images/socials/avatars/youtube.jpg",
       "subscriberCount": 43100,
-      "videoCount": 84,
+      "videoCount": 85,
       "viewCount": 6148983,
       "bannerUrl": "https://yt3.googleusercontent.com/n2yJgGUAPlCi5Zv5tB6NflWMNyuRXIEj7dM30IeQ6BDW0nnUjOXbABuj4qIPUmtBr8InSej5"
     },
     "latest": [
+      {
+        "id": "VCNqw_um7SY",
+        "url": "https://www.youtube.com/watch?v=VCNqw_um7SY",
+        "title": "DAAN EN OME FER GAAN SOLICITEREN?!",
+        "description": "Welkom op het officiele Youtube-kanaal van Daan Willems! Krijg een unieke kijk in het werk en privéleven van Daan Willems.",
+        "publishedAt": "2026-09-03T15:00:00Z",
+        "thumbnail": "https://i.ytimg.com/vi/VCNqw_um7SY/hqdefault.jpg",
+        "viewCount": 3118,
+        "likeCount": 142,
+        "durationSec": 1014
+      },
       {
         "id": "BxK5AcDBCUU",
         "url": "https://www.youtube.com/watch?v=BxK5AcDBCUU",
@@ -22,8 +33,8 @@
         "description": "Welkom op het officiele Youtube-kanaal van Daan Willems! Krijg een unieke kijk in het werk en privéleven van Daan Willems.",
         "publishedAt": "2026-08-30T09:00:04Z",
         "thumbnail": "https://i.ytimg.com/vi/BxK5AcDBCUU/hqdefault.jpg",
-        "viewCount": 63392,
-        "likeCount": 799,
+        "viewCount": 64124,
+        "likeCount": 803,
         "durationSec": 992
       },
       {
@@ -33,8 +44,8 @@
         "description": "Welkom op het officiele Youtube-kanaal van Daan Willems! Krijg een unieke kijk in het werk en privéleven van Daan Willems.",
         "publishedAt": "2026-08-26T15:33:48Z",
         "thumbnail": "https://i.ytimg.com/vi/iVZb_qNDYwg/hqdefault.jpg",
-        "viewCount": 52326,
-        "likeCount": 784,
+        "viewCount": 52554,
+        "likeCount": 785,
         "durationSec": 1225
       },
       {
@@ -44,7 +55,7 @@
         "description": "Welkom op het officiele Youtube-kanaal van Daan Willems! Krijg een unieke kijk in het werk en privéleven van Daan Willems.",
         "publishedAt": "2026-08-23T09:11:56Z",
         "thumbnail": "https://i.ytimg.com/vi/lbrxvGa0XWY/hqdefault.jpg",
-        "viewCount": 55221,
+        "viewCount": 55522,
         "likeCount": 906,
         "durationSec": 1015
       },
@@ -55,8 +66,8 @@
         "description": "Welkom op het officiele Youtube-kanaal van Daan Willems! Krijg een unieke kijk in het werk en privéleven van Daan Willems.",
         "publishedAt": "2026-08-19T17:25:01Z",
         "thumbnail": "https://i.ytimg.com/vi/FJs7qDlI-4w/hqdefault.jpg",
-        "viewCount": 64644,
-        "likeCount": 1061,
+        "viewCount": 64692,
+        "likeCount": 1062,
         "durationSec": 923
       },
       {
@@ -66,20 +77,9 @@
         "description": "Welkom op het officiele Youtube-kanaal van Daan Willems! Krijg een unieke kijk in het werk en privéleven van Daan Willems.",
         "publishedAt": "2026-08-16T09:00:36Z",
         "thumbnail": "https://i.ytimg.com/vi/NZLT2g7m2WA/hqdefault.jpg",
-        "viewCount": 52735,
+        "viewCount": 52893,
         "likeCount": 843,
         "durationSec": 954
-      },
-      {
-        "id": "pVmv4skngZg",
-        "url": "https://www.youtube.com/watch?v=pVmv4skngZg",
-        "title": "KERMIS MET DAAN EN FERRY!! GAAT FOUT?! VLOG #52",
-        "description": "Welkom op het officiele Youtube-kanaal van Daan Willems! Krijg een unieke kijk in het werk en privéleven van Daan Willems.",
-        "publishedAt": "2026-08-09T09:00:35Z",
-        "thumbnail": "https://i.ytimg.com/vi/pVmv4skngZg/hqdefault.jpg",
-        "viewCount": 54617,
-        "likeCount": 883,
-        "durationSec": 805
       }
     ],
     "top": [
@@ -90,7 +90,7 @@
         "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud Bekijk aanbod ...",
         "publishedAt": "2026-03-09T17:26:22Z",
         "thumbnail": "https://i.ytimg.com/vi/9vBJKYhhptM/hqdefault.jpg",
-        "viewCount": 211992,
+        "viewCount": 212072,
         "likeCount": 4526,
         "durationSec": 713
       },
@@ -101,7 +101,7 @@
         "description": "Abonneer voor meer backstage content @ Daan Willems Automotive Emblemen Oeteldonk ...",
         "publishedAt": "2025-12-07T08:00:35Z",
         "thumbnail": "https://i.ytimg.com/vi/N2Mr3ddlArc/hqdefault.jpg",
-        "viewCount": 161197,
+        "viewCount": 161231,
         "likeCount": 4103,
         "durationSec": 858
       },
@@ -112,7 +112,7 @@
         "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud CAMERA MAN PLUS ...",
         "publishedAt": "2026-05-13T15:38:57Z",
         "thumbnail": "https://i.ytimg.com/vi/YZpn2Awy3pY/hqdefault.jpg",
-        "viewCount": 141495,
+        "viewCount": 141520,
         "likeCount": 2398,
         "durationSec": 1125
       },
@@ -123,7 +123,7 @@
         "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud CAMERA MAN ...",
         "publishedAt": "2026-02-25T16:05:56Z",
         "thumbnail": "https://i.ytimg.com/vi/KTJRmjAvIPg/hqdefault.jpg",
-        "viewCount": 138462,
+        "viewCount": 138495,
         "likeCount": 1949,
         "durationSec": 834
       },
@@ -134,8 +134,8 @@
         "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud CAMERA MAN + ...",
         "publishedAt": "2026-03-15T12:30:04Z",
         "thumbnail": "https://i.ytimg.com/vi/cv9-xQv4g4g/hqdefault.jpg",
-        "viewCount": 130266,
-        "likeCount": 1925,
+        "viewCount": 130631,
+        "likeCount": 1926,
         "durationSec": 1409
       },
       {
@@ -145,12 +145,12 @@
         "description": "Abonneer voor meer backstage content @ Daan Willems Automotive In deze video: Van De Pol Bouw- en Timmerwerken ...",
         "publishedAt": "2025-12-20T09:30:24Z",
         "thumbnail": "https://i.ytimg.com/vi/h3Yjlt1tr4A/hqdefault.jpg",
-        "viewCount": 119606,
+        "viewCount": 119630,
         "likeCount": 1778,
         "durationSec": 694
       }
     ],
-    "lastSuccessAt": "2026-09-03T11:08:13.405Z"
+    "lastSuccessAt": "2026-09-03T16:21:58.941Z"
   },
   "tiktok": {
     "status": "ok",
