@@ -361,7 +361,12 @@ async function fetchInstagram(handle, prevState) {
   // before starting a new pass.
   const PAGES_PER_RUN = Number(process.env.IG_PAGES_PER_RUN || 4)
   const CYCLE_VALID_MS = Number(process.env.IG_CYCLE_VALID_HOURS || 36) * 60 * 60 * 1000
-  const RETRIES = 3
+  // One attempt per page, no immediate retry. Measured over 32 runs
+  // (2026-08-31..09-05): first attempts succeeded 7/40, retries 1/66 — and
+  // 0/52 since the 2026-09-01 wall went up, while accounting for two thirds of
+  // every request we made. IG's penalty state does not drain in the 10-20s a
+  // retry waits; the next scheduled run is the retry, at a sane interval.
+  const RETRIES = Number(process.env.IG_FEED_RETRIES || 1)
   const PAGE_DELAY_BASE_MS = 18000
   const PAGE_DELAY_JITTER_MS = 4000
   const RETRY_BACKOFF_MS = [10000, 20000]
