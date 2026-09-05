@@ -249,6 +249,13 @@ async function igFetch(url, label) {
   return { res, retryAfter: retryAfter ? Number(retryAfter) : null }
 }
 
+// IG signals throttling and the logged-out wall in the body, not the status
+// line: HTTP 200 carrying {"status":"fail","require_login":true,...}. Anything
+// that trusts res.ok alone will treat that as a valid, empty response.
+function igFailBody(body) {
+  return !body || body.status === 'fail' || body.require_login === true
+}
+
 async function fetchInstagramProfile(handle) {
   // web_profile_info — full profile + counts + user_id. CI runners typically
   // get an instant 429 on this endpoint; retries don't help (penalty box
@@ -258,7 +265,13 @@ async function fetchInstagramProfile(handle) {
     `https://i.instagram.com/api/v1/users/web_profile_info/?username=${handle}`,
     `profile`,
   )
-  if (res.ok) return await res.json()
+  if (res.ok) {
+    const body = await res.json().catch(() => null)
+    if (!igFailBody(body)) return body
+    const err = new Error(`Instagram profile 200 but ${body?.message || 'fail body'} (throttled)`)
+    err.status = 200
+    throw err
+  }
   const err = new Error(`Instagram profile HTTP ${res.status}${retryAfter ? ` retry-after=${retryAfter}s` : ''}`)
   err.status = res.status
   throw err
@@ -365,12 +378,25 @@ async function fetchInstagram(handle, prevState) {
     cycle = { ...prevCycle, items: { ...prevCycle.items } }
     console.log(`  [ig] resuming cycle from cursor=${cycle.cursor}, items so far: ${Object.keys(cycle.items).length}`)
   } else {
-    cycle = { startedAt: new Date().toISOString(), cursor: null, completedAt: null, items: {} }
-    console.log(`  [ig] starting new iterator cycle`)
+    // New pass over the feed — but keep everything already collected. Starting
+    // from empty costs ~12 successful pages, which was minutes of crawling when
+    // IG allowed 1-2 pages per run and is now weeks. Items are keyed by pk and
+    // overwritten in place as pages arrive, so a pass refreshes the store
+    // rather than rebuilding it, and totals never regress to a partial sum.
+    const retained = { ...(prevCycle?.items || {}) }
+    cycle = {
+      startedAt: new Date().toISOString(),
+      cursor: null,
+      completedAt: null,
+      items: retained,
+    }
+    const n = Object.keys(retained).length
+    console.log(`  [ig] starting new pass${n ? ` over ${n} retained items` : ''}`)
   }
 
   const itemsBefore = Object.keys(cycle.items).length
   let cycleJustCompleted = false
+  let pagesFetched = 0
   if (!cycleStillFresh) {
     let maxId = cycle.cursor || ''
     let exhausted = false
@@ -386,7 +412,14 @@ async function fetchInstagram(handle, prevState) {
       let feedJson = null
       for (let attempt = 0; attempt < RETRIES; attempt++) {
         const { res, retryAfter } = await igFetch(url, `feed page=${page} attempt=${attempt}`)
-        if (res.ok) { feedJson = await res.json(); break }
+        if (res.ok) {
+          const body = await res.json().catch(() => null)
+          if (!igFailBody(body)) { feedJson = body; break }
+          // A fail body yields zero items, which the exhaustion check below
+          // would read as "no more posts" and use to mark the pass complete
+          // on partial data. Treat it as the failure it is.
+          console.warn(`  [ig] feed page=${page} 200 but ${body?.message || 'unparseable body'} — treating as failure`)
+        }
         if (attempt < RETRIES - 1) {
           const wait = (res.status === 429 && retryAfter) ? retryAfter * 1000 : RETRY_BACKOFF_MS[attempt]
           console.warn(`  [ig] feed page=${page} ${res.status} — waiting ${wait}ms before retry`)
@@ -398,6 +431,7 @@ async function fetchInstagram(handle, prevState) {
         console.warn(`  [ig] feed page=${page} failed after retries — saving partial progress, will resume next run`)
         break
       }
+      pagesFetched++
 
       const items = feedJson.items || []
       for (const it of items) {
@@ -434,17 +468,28 @@ async function fetchInstagram(handle, prevState) {
     if (exhausted) {
       cycle.completedAt = new Date().toISOString()
       cycleJustCompleted = true
-      console.log(`  [ig] cycle complete — ${Object.keys(cycle.items).length} items`)
+      // Remember how big a full pass actually is. media_count understates it
+      // badly (91 reported vs ~140 reachable), and without this a later
+      // partial pass has nothing honest to measure its completeness against.
+      cycle.completedItemCount = Object.keys(cycle.items).length
+      console.log(`  [ig] pass complete — ${cycle.completedItemCount} items`)
     }
   }
 
   const itemValues = Object.values(cycle.items)
-  const expectedCount = u.edge_owner_to_timeline_media?.count ?? 0
-  // 0.85 (not 0.95) because IG's user-feed endpoint tops out below media_count
-  // — old reels, archived items, and pagination drop-off mean we observe ~92%
-  // of media_count as the natural ceiling. 85% gives headroom without letting
-  // an actually-broken partial parse through.
-  const itemsHealthy = !!cycle.completedAt || (expectedCount > 0 && itemValues.length >= expectedCount * 0.85)
+  const mediaCount = u.edge_owner_to_timeline_media?.count ?? 0
+  // Measure completeness against the largest store we've ever held, not
+  // media_count. The feed returns *more* than media_count — this account
+  // reports 91 media but the feed pages out to ~140 items (older reels and
+  // archived posts the grid count omits). Scoring 96 items against 91 read as
+  // 105% complete while the store was two thirds full, so partial totals were
+  // published and then correctly rejected by the sanity floor, freezing the
+  // displayed numbers. media_count is only a floor for a first-ever run.
+  // Items are retained across passes now, so the store never shrinks and
+  // "is it at its high-water mark" would always be true. Compare against the
+  // size recorded the last time a pass actually ran to exhaustion.
+  const knownFullCount = Math.max(prevCycle?.completedItemCount || 0, mediaCount)
+  const itemsHealthy = !!cycle.completedAt || (knownFullCount > 0 && itemValues.length >= knownFullCount * 0.85)
 
   const totalPlays = itemValues.reduce((s, it) => s + (it.playCount || 0), 0)
   const totalLikes = itemValues.reduce((s, it) => s + (it.likeCount || 0), 0)
@@ -475,7 +520,7 @@ async function fetchInstagram(handle, prevState) {
     outTotalLikes = prevState.stats.totalLikes ?? totalLikes
     outTotalComments = prevState.stats.totalComments ?? totalComments
     outFeedSourcedFromPrev = true
-    console.log(`  [ig] cycle in progress (${itemValues.length}/${expectedCount} items); reusing prev totals`)
+    console.log(`  [ig] pass incomplete (${itemValues.length}/${knownFullCount} items); reusing prev totals`)
   }
 
   // lastSuccessAt advances on any sign of forward progress this run — not just
@@ -483,9 +528,14 @@ async function fetchInstagram(handle, prevState) {
   // rate-limit/cursor-validity gods are against us; if we still made *some*
   // progress (got new items, or got a fresh profile call through), the data
   // is fresh enough to count as success for staleness purposes.
+  // A fetched page counts even when it adds no new pk: now that items persist
+  // across passes, re-reading the newest 12 refreshes their play/like counts,
+  // which is exactly the data we came for. Keying progress off store growth
+  // alone would mark every refresh pass as "no progress" and fire the
+  // staleness alarm while the crawler was working correctly.
   const itemsGrewThisRun = itemValues.length > itemsBefore
   const profileFreshThisRun = !profileSourcedFromPrev
-  const madeForwardProgress = cycleJustCompleted || profileFreshThisRun || itemsGrewThisRun
+  const madeForwardProgress = cycleJustCompleted || profileFreshThisRun || itemsGrewThisRun || pagesFetched > 0
   const successTimestamp = cycleJustCompleted
     ? cycle.completedAt
     : madeForwardProgress
@@ -526,6 +576,7 @@ async function fetchInstagram(handle, prevState) {
       startedAt: cycle.startedAt,
       lastFetchedAt: cycle.lastFetchedAt || cycle.startedAt,
       completedAt: cycle.completedAt || null,
+      completedItemCount: cycle.completedItemCount ?? prevCycle?.completedItemCount ?? null,
       cursor: cycle.cursor || null,
       items: cycle.items,
     },

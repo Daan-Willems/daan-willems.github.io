@@ -29,6 +29,11 @@ jobs:
         run: node scripts/fetch-socials.mjs --platform tiktok
 
       - name: Commit if changed
+        # !cancelled(): the fetch step exits non-zero when a platform is past its
+        # staleness threshold, and that alarm is wanted — but without this the
+        # commit is skipped and the pages it just fetched are thrown away, so
+        # the crawl can never accumulate its way back to fresh. Job still fails.
+        if: ${{ !cancelled() }}
         run: |
           FILES="public/data/socials.tiktok.json public/images/socials"
           git config user.name "github-actions[bot]"

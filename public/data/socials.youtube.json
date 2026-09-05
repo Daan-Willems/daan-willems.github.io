@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-05T21:18:07.853Z",
+  "generatedAt": "2026-09-05T21:37:07.461Z",
   "status": "ok",
-  "lastFetchedAt": "2026-09-05T21:18:07.323Z",
+  "lastFetchedAt": "2026-09-05T21:37:07.101Z",
   "channel": {
     "id": "UC0ubM_L6ISEgqr5SJfI8XTA",
     "title": "Daan Willems Automotive",
@@ -21,7 +21,7 @@
       "description": "Welkom op het officiele Youtube-kanaal van Daan Willems! Krijg een unieke kijk in het werk en privéleven van Daan Willems.",
       "publishedAt": "2026-09-03T15:00:00Z",
       "thumbnail": "https://i.ytimg.com/vi/VCNqw_um7SY/hqdefault.jpg",
-      "viewCount": 54971,
+      "viewCount": 55044,
       "likeCount": 624,
       "durationSec": 1014
     },
@@ -32,7 +32,7 @@
       "description": "Welkom op het officiele Youtube-kanaal van Daan Willems! Krijg een unieke kijk in het werk en privéleven van Daan Willems.",
       "publishedAt": "2026-08-30T09:00:04Z",
       "thumbnail": "https://i.ytimg.com/vi/BxK5AcDBCUU/hqdefault.jpg",
-      "viewCount": 67364,
+      "viewCount": 67382,
       "likeCount": 828,
       "durationSec": 992
     },
@@ -43,7 +43,7 @@
       "description": "Welkom op het officiele Youtube-kanaal van Daan Willems! Krijg een unieke kijk in het werk en privéleven van Daan Willems.",
       "publishedAt": "2026-08-26T15:33:48Z",
       "thumbnail": "https://i.ytimg.com/vi/iVZb_qNDYwg/hqdefault.jpg",
-      "viewCount": 53848,
+      "viewCount": 53856,
       "likeCount": 794,
       "durationSec": 1225
     },
@@ -149,5 +149,5 @@
       "durationSec": 694
     }
   ],
-  "lastSuccessAt": "2026-09-05T21:18:07.323Z"
+  "lastSuccessAt": "2026-09-05T21:37:07.101Z"
 }
