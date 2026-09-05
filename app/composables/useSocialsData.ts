@@ -111,6 +111,17 @@ interface SocialsData {
 
 const STATE_KEY = 'socialsData'
 
+// Each platform is served as its own file so the refresh cron jobs never write
+// the same path — concurrent runs can't conflict in git. A platform that fails
+// to load resolves to null instead of taking the whole section down with it.
+async function fetchPlatform<T>(name: string, v: number): Promise<T | null> {
+  try {
+    return await $fetch<T>(`/data/socials.${name}.json?v=${v}`)
+  } catch {
+    return null
+  }
+}
+
 export function useSocialsData() {
   const state = useState<SocialsData | null>(STATE_KEY, () => null)
   const error = useState<string | null>(`${STATE_KEY}:error`, () => null)
@@ -122,8 +133,24 @@ export function useSocialsData() {
     loading.value = true
     error.value = null
     try {
-      const url = `/data/socials.json?v=${Date.now()}`
-      const res = await $fetch<SocialsData>(url)
+      const v = Date.now()
+      const [youtube, tiktok, instagram] = await Promise.all([
+        fetchPlatform<YouTubeData>('youtube', v),
+        fetchPlatform<TikTokData>('tiktok', v),
+        fetchPlatform<InstagramData>('instagram', v),
+      ])
+      if (!youtube && !tiktok && !instagram) throw new Error('no socials data available')
+      const generatedAt = [youtube, tiktok, instagram]
+        .map(d => (d as { generatedAt?: string } | null)?.generatedAt)
+        .filter((d): d is string => !!d)
+        .sort()
+        .pop() ?? null
+      const res: SocialsData = {
+        generatedAt,
+        youtube: youtube ?? undefined,
+        tiktok: tiktok ?? undefined,
+        instagram: instagram ?? undefined,
+      }
       state.value = res
       return res
     } catch (e) {

@@ -33,13 +33,31 @@ jobs:
 
       - name: Commit if changed
         run: |
-          if git diff --quiet -- public/data/socials.json public/images/socials; then
+          FILES="public/data/socials.instagram.json data/instagram-store.json public/images/socials"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # Stage first, then test the index: `git diff` alone can't see a
+          # newly created file, so an untracked data file would read as
+          # "no changes" and never get committed.
+          for f in $FILES; do
+            if [ -e "$f" ]; then git add -A -- "$f"; fi
+          done
+          if git diff --cached --quiet; then
             echo "no changes"
             exit 0
           fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add public/data/socials.json public/images/socials
           git commit -m "chore(socials): refresh instagram"
-          git pull --rebase
-          git push
+          # Each platform stages a disjoint set of paths, so a concurrent run
+          # rebases cleanly rather than conflicting. Retry anyway: GitHub's git
+          # replicas lag a few seconds behind a push, so this job may have
+          # checked out a commit that was already stale.
+          for attempt in 1 2 3 4 5; do
+            if git pull --rebase && git push; then
+              echo "pushed on attempt $attempt"
+              exit 0
+            fi
+            git rebase --abort 2>/dev/null || true
+            sleep $(( (RANDOM % 5) + 3 ))
+          done
+          echo "could not push after 5 attempts" >&2
+          exit 1

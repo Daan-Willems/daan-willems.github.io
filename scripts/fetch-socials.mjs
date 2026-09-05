@@ -5,7 +5,20 @@ import { dirname, resolve } from 'node:path'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const ROOT = resolve(__dirname, '..')
-const OUT_PATH = resolve(ROOT, 'public/data/socials.json')
+// One served file per platform. Each cron job writes only its own file, so
+// concurrent runs can never produce a git conflict on a shared file.
+const PLATFORMS = ['youtube', 'tiktok', 'instagram']
+const OUT_PATHS = {
+  youtube: resolve(ROOT, 'public/data/socials.youtube.json'),
+  tiktok: resolve(ROOT, 'public/data/socials.tiktok.json'),
+  instagram: resolve(ROOT, 'public/data/socials.instagram.json'),
+}
+// Pre-split single file. Read once for migration, never written again.
+const LEGACY_PATH = resolve(ROOT, 'public/data/socials.json')
+// The IG crawl store is bookkeeping, not content: ~88% of the old payload was
+// iterator items the site never renders. Kept in the repo (so the runner still
+// resumes across jobs) but outside public/, so visitors don't download it.
+const STORE_PATH = resolve(ROOT, 'data/instagram-store.json')
 const CACHE_DIR = resolve(ROOT, 'public/images/socials')
 const CACHE_PUBLIC = '/images/socials'
 
@@ -544,20 +557,51 @@ async function tryFetch(label, fn, prev) {
   }
 }
 
+async function readJson(path) {
+  try { return JSON.parse(await readFile(path, 'utf8')) } catch { return null }
+}
+
 async function readExisting() {
-  try {
-    const data = JSON.parse(await readFile(OUT_PATH, 'utf8'))
-    // Migration: backfill lastSuccessAt from lastFetchedAt for platforms that
-    // were ok before this field existed, so we don't trip the staleness alert
-    // on the first run after deploy.
-    for (const k of ['youtube', 'tiktok', 'instagram']) {
-      const v = data[k]
-      if (v && !v.lastSuccessAt && v.status === 'ok' && v.lastFetchedAt) {
-        v.lastSuccessAt = v.lastFetchedAt
-      }
+  // Per-platform files are the source of truth.
+  const perPlatform = Object.fromEntries(
+    await Promise.all(PLATFORMS.map(async p => [p, await readJson(OUT_PATHS[p])])),
+  )
+  // Fall back per-platform, not all-or-nothing: the platforms migrate one at
+  // a time (each cron job writes only its own file), so a platform that
+  // hasn't run since the split must still find its state in the old file.
+  const legacy = await readJson(LEGACY_PATH)
+  if (PLATFORMS.every(p => !perPlatform[p]) && !legacy) return null
+
+  const data = { generatedAt: null }
+  for (const p of PLATFORMS) {
+    const { generatedAt, ...rest } = perPlatform[p] || {}
+    data[p] = perPlatform[p] ? rest : (legacy?.[p] ?? null)
+    if (!perPlatform[p] && legacy?.[p]) console.log(`  ${p}: migrating from socials.json`)
+    if (generatedAt && (!data.generatedAt || generatedAt > data.generatedAt)) {
+      data.generatedAt = generatedAt
     }
-    return data
-  } catch { return null }
+  }
+
+  // The IG crawl store lives outside the served file; re-attach it so the
+  // pagination logic sees the shape it always has. Prefer the store, then an
+  // iterator still embedded in a served file, then the legacy file — losing it
+  // silently would restart a crawl that currently takes weeks to complete.
+  const store = await readJson(STORE_PATH)
+  if (data.instagram) {
+    const iterator = store ?? data.instagram.iterator ?? legacy?.instagram?.iterator ?? null
+    if (iterator) data.instagram.iterator = iterator
+  }
+
+  // Migration: backfill lastSuccessAt from lastFetchedAt for platforms that
+  // were ok before this field existed, so we don't trip the staleness alert
+  // on the first run after deploy.
+  for (const k of PLATFORMS) {
+    const v = data[k]
+    if (v && !v.lastSuccessAt && v.status === 'ok' && v.lastFetchedAt) {
+      v.lastSuccessAt = v.lastFetchedAt
+    }
+  }
+  return data
 }
 
 function parsePlatforms() {
@@ -738,26 +782,34 @@ async function main() {
   // Hash-compare to skip writes when nothing meaningful changed. Strip
   // lastFetchedAt timestamps so a no-progress run (e.g. IG hit a 401 and
   // didn't advance the cursor) doesn't generate an empty git commit.
-  const meaningful = (obj) => {
-    if (!obj) return null
-    const { generatedAt, ...rest } = obj
-    const out = { ...rest }
-    for (const k of ['youtube', 'tiktok', 'instagram']) {
-      if (!out[k]) continue
-      const { lastFetchedAt, ...platformRest } = out[k]
-      out[k] = platformRest
-      if (out[k].iterator) {
-        const { lastFetchedAt: _, ...iterRest } = out[k].iterator
-        out[k].iterator = iterRest
-      }
+  const meaningful = (platform) => {
+    if (!platform) return null
+    const { generatedAt, lastFetchedAt, ...rest } = platform
+    if (rest.iterator) {
+      const { lastFetchedAt: _, ...iterRest } = rest.iterator
+      rest.iterator = iterRest
     }
-    return JSON.stringify(out)
+    return JSON.stringify(rest)
   }
-  if (meaningful(prev) === meaningful(merged)) {
-    console.log('socials.json unchanged — skipping write')
-  } else {
-    await writeFile(OUT_PATH, JSON.stringify(merged, null, 2) + '\n')
-    console.log(`wrote ${OUT_PATH}`)
+
+  // Write only the platforms this run handled. Each cron job then stages a
+  // disjoint set of paths, so two jobs racing can rebase past each other
+  // instead of conflicting on a shared file.
+  await mkdir(dirname(OUT_PATHS.youtube), { recursive: true })
+  for (const p of platforms) {
+    if (meaningful(prev?.[p]) === meaningful(merged[p])) {
+      console.log(`${p}: unchanged — skipping write`)
+      continue
+    }
+    const { iterator, ...served } = merged[p] || {}
+    const payload = { generatedAt: next.generatedAt, ...served }
+    await writeFile(OUT_PATHS[p], JSON.stringify(payload, null, 2) + '\n')
+    console.log(`wrote ${OUT_PATHS[p]}`)
+    if (p === 'instagram' && iterator) {
+      await mkdir(dirname(STORE_PATH), { recursive: true })
+      await writeFile(STORE_PATH, JSON.stringify(iterator, null, 2) + '\n')
+      console.log(`wrote ${STORE_PATH} (${Object.keys(iterator.items || {}).length} items)`)
+    }
   }
 
   // Per-platform freshness summary + staleness check
