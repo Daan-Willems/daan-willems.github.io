@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-09-06T21:11:17.818Z",
+  "generatedAt": "2026-09-06T23:42:52.695Z",
   "status": "stale",
-  "lastFetchedAt": "2026-09-06T21:10:57.879Z",
+  "lastFetchedAt": "2026-09-06T23:42:32.730Z",
   "handle": "daanwillemsautomotive",
   "lastSuccessAt": "2026-09-05T20:17:24.399Z",
-  "lastProfileFetchAt": "2026-09-06T10:43:41.626Z",
+  "lastProfileFetchAt": "2026-09-06T23:42:32.731Z",
   "profile": {
     "userId": "53052746898",
     "username": "daanwillemsautomotive",
@@ -114,5 +114,5 @@
     }
   ],
   "lastError": "Sanity drop: stats.totalPlays: 58,852,744 < 74921863 (was 77,239,034, floor 97%)",
-  "lastErrorAt": "2026-09-06T21:10:57.879Z"
+  "lastErrorAt": "2026-09-06T23:42:32.730Z"
 }
