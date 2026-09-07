@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-07T04:13:13.028Z",
+  "generatedAt": "2026-09-07T10:05:59.508Z",
   "status": "stale",
-  "lastFetchedAt": "2026-09-07T04:12:53.560Z",
+  "lastFetchedAt": "2026-09-07T10:05:37.410Z",
   "handle": "daanwillemsautomotive",
   "lastSuccessAt": "2026-09-05T20:17:24.399Z",
   "lastProfileFetchAt": "2026-09-06T23:42:32.731Z",
@@ -114,5 +114,5 @@
     }
   ],
   "lastError": "Sanity drop: stats.totalPlays: 58,852,744 < 74921863 (was 77,239,034, floor 97%)",
-  "lastErrorAt": "2026-09-07T04:12:53.560Z"
+  "lastErrorAt": "2026-09-07T10:05:37.410Z"
 }
