@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-13T12:11:25.416Z",
-  "status": "ok",
+  "generatedAt": "2026-09-13T16:32:27.695Z",
+  "status": "stale",
   "lastFetchedAt": "2026-09-13T12:11:24.528Z",
   "handle": "daanwillemsautomotive",
   "profile": {
@@ -19,5 +19,7 @@
     "videoCount": 125
   },
   "videos": [],
-  "lastSuccessAt": "2026-09-13T12:11:24.528Z"
+  "lastSuccessAt": "2026-09-13T12:11:24.528Z",
+  "lastError": "TikTok: data blob not found (format may have changed)",
+  "lastErrorAt": "2026-09-13T16:32:27.344Z"
 }
