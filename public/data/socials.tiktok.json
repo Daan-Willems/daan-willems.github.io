@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-13T16:32:27.695Z",
-  "status": "stale",
-  "lastFetchedAt": "2026-09-13T12:11:24.528Z",
+  "generatedAt": "2026-09-13T21:00:45.352Z",
+  "status": "ok",
+  "lastFetchedAt": "2026-09-13T21:00:44.403Z",
   "handle": "daanwillemsautomotive",
   "profile": {
     "uniqueId": "daanwillemsautomotive",
@@ -13,13 +13,11 @@
     "url": "https://www.tiktok.com/@daanwillemsautomotive"
   },
   "stats": {
-    "followerCount": 136600,
+    "followerCount": 136800,
     "followingCount": 11,
     "heartCount": 2600000,
-    "videoCount": 125
+    "videoCount": 126
   },
   "videos": [],
-  "lastSuccessAt": "2026-09-13T12:11:24.528Z",
-  "lastError": "TikTok: data blob not found (format may have changed)",
-  "lastErrorAt": "2026-09-13T16:32:27.344Z"
+  "lastSuccessAt": "2026-09-13T21:00:44.403Z"
 }
