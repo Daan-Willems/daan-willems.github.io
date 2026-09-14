@@ -15,10 +15,6 @@ const OUT_PATHS = {
 }
 // Pre-split single file. Read once for migration, never written again.
 const LEGACY_PATH = resolve(ROOT, 'public/data/socials.json')
-// The IG crawl store is bookkeeping, not content: ~88% of the old payload was
-// iterator items the site never renders. Kept in the repo (so the runner still
-// resumes across jobs) but outside public/, so visitors don't download it.
-const STORE_PATH = resolve(ROOT, 'data/instagram-store.json')
 const CACHE_DIR = resolve(ROOT, 'public/images/socials')
 const CACHE_PUBLIC = '/images/socials'
 
@@ -792,15 +788,13 @@ async function readExisting() {
     }
   }
 
-  // The IG crawl store lives outside the served file; re-attach it so the
-  // pagination logic sees the shape it always has. Prefer the store, then an
-  // iterator still embedded in a served file, then the legacy file — losing it
-  // silently would restart a crawl that currently takes weeks to complete.
-  const store = await readJson(STORE_PATH)
-  if (data.instagram) {
-    const iterator = store ?? data.instagram.iterator ?? legacy?.instagram?.iterator ?? null
-    if (iterator) data.instagram.iterator = iterator
-  }
+  // The scraper's crawl store is gone: the Graph API returns the whole account
+  // in one run, so there is no cursor to resume. Actively strip any iterator
+  // still embedded in a served or legacy file -- re-attaching one would make
+  // the writer below recreate data/instagram-store.json on every run and
+  // commit it back, which is exactly what happened the first run after the
+  // file was deleted.
+  if (data.instagram?.iterator) delete data.instagram.iterator
 
   // Migration: backfill lastSuccessAt from lastFetchedAt for platforms that
   // were ok before this field existed, so we don't trip the staleness alert
@@ -1038,11 +1032,6 @@ async function main() {
     const payload = { generatedAt: next.generatedAt, ...served }
     await writeFile(OUT_PATHS[p], JSON.stringify(payload, null, 2) + '\n')
     console.log(`wrote ${OUT_PATHS[p]}`)
-    if (p === 'instagram' && iterator) {
-      await mkdir(dirname(STORE_PATH), { recursive: true })
-      await writeFile(STORE_PATH, JSON.stringify(iterator, null, 2) + '\n')
-      console.log(`wrote ${STORE_PATH} (${Object.keys(iterator.items || {}).length} items)`)
-    }
   }
 
   // Per-platform freshness summary + staleness check
@@ -1058,10 +1047,8 @@ async function main() {
     const isStale = ageMs > STALE_THRESHOLD_MS[k]
     const sigil = isStale ? '✗' : (v?.status === 'ok' ? '✓' : '~')
     const note = []
-    if (k === 'instagram' && v?.iterator && !v.iterator.completedAt) {
-      const itemCount = Object.keys(v.iterator.items || {}).length
-      const expected = v.stats?.mediaCount
-      note.push(`cycle in progress (${itemCount}${expected ? '/' + expected : ''})`)
+    if (k === 'instagram' && v?.stats?.source === 'graph' && v.stats.sampleComplete === false) {
+      note.push(`media crawl truncated (${v.stats.sampledPostCount} items)`)
     }
     if (v?.status === 'stale') note.push(`fetch failed: ${v.lastError}`)
     if (isStale) note.push(`PAST STALENESS THRESHOLD`)
