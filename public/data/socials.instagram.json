@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-14T14:30:03.767Z",
-  "status": "ok",
+  "generatedAt": "2026-09-14T15:04:34.753Z",
+  "status": "stale",
   "lastFetchedAt": "2026-09-14T14:29:56.501Z",
   "handle": "daanwillemsautomotive",
   "lastSuccessAt": "2026-09-14T14:30:01.529Z",
@@ -101,5 +101,7 @@
       "commentCount": 93,
       "viewCount": 336476
     }
-  ]
+  ],
+  "lastError": "Instagram Graph HTTP 403 (4/-) (#4) Application request limit reached",
+  "lastErrorAt": "2026-09-14T15:04:32.730Z"
 }
