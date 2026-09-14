@@ -68,7 +68,7 @@ Components are **agnostic and reusable across other projects**. Daan-specific da
 - `useCopy(section)` — loads `content/sections/<section>.md`, returns reactive proxy where any locale-keyed property auto-resolves to the current locale. **The plumbing the rest of the app depends on.**
 - `useEmbed(url)` — auto-detects YouTube/TikTok/Instagram/Vimeo, returns embed URL + thumbnail.
 - `useRuntimeContent()` — fetches `public/data/content.json` **client-side only** (see Runtime JSON rule below).
-- `useYouTubeFeed(channelId, apiKey, opts)` — fetches latest + top-by-views from YouTube Data API v3, with sessionStorage cache (30 min TTL).
+- `useSocialsData()` — fetches the three `public/data/socials.<platform>.json` files **client-side only**. Those files are written by GitHub Actions, not by the app; nothing calls a social API from the browser.
 
 ### Theming
 
@@ -119,15 +119,53 @@ The page renders structural copy from Content during SSR, then hydrates and pull
 
 ---
 
-## Socials: the public ≠ accessible-from-browser reality
+## Socials: fetched in CI, never from the browser
 
-| Platform | Auto-fetch from static site | Approach |
-|---|---|---|
-| YouTube | ✅ Data API v3 with referrer-restricted key | Wired (`useYouTubeFeed`); fill `channelId` + `apiKey` in `content.json` |
-| TikTok | ❌ No tokenless endpoint | Curated URLs in `content.json`, rendered via official embeds |
-| Instagram | ❌ Requires OAuth + CORS-blocked | Curated URLs |
+Social data is fetched by **GitHub Actions**, committed into the repo as JSON, and
+read client-side from those static files. No social API is ever called from the
+browser, and no token is ever in the bundle. That decision was explicit.
 
-If the user later wants real-time TikTok/IG, the path is a tiny Cloudflare Worker (~30 lines) that holds tokens server-side and returns sanitized JSON. **Don't embed long-lived tokens in the static bundle.** That decision was explicit.
+`scripts/fetch-socials.mjs --platform <name>`, one workflow per platform:
+
+| Platform | Source | Workflow | Cadence |
+|---|---|---|---|
+| YouTube | Data API v3 (`secrets.YOUTUBE_API_KEY`) | `socials-youtube.yml` | 6h at :15 |
+| TikTok | public web JSON, no auth | `socials-tiktok.yml` | 6h at :30 |
+| Instagram | **Graph API `business_discovery`** (`secrets.IG_USER_ID` + `IG_TOKEN`) | `socials-instagram.yml` | 6h at :45 |
+
+### Media images must be downloaded, never hotlinked
+
+`scontent.cdninstagram.com` URLs are **signed and expire in ~32h** (`oe` is a hex
+Unix expiry; `oh` is an HMAC over it, so a longer TTL can't be forged). Storing a
+remote URL in the served JSON guarantees broken images within days — that is
+exactly how the grid ended up serving six 403s. `cacheImage()` downloads them and
+`pruneCacheDir()` must **fail closed**: when a refetch fails, keep the copy already
+on disk, because the post is still on the page. Dropping it from the keep-list
+deletes a good file *and* leaves a URL that then expires.
+
+### Instagram: don't try to scrape it again
+
+Instagram walled logged-out API access around **2026-09-01**; the old scraper
+recorded 0/52 successful feed pages after that. A **residential IP gets the same
+`401 require_login`**, so proxies, self-hosted runners and VPN egress do not help.
+Migrated on 2026-09-14 to the official `business_discovery` edge.
+
+- `IG_USER_ID` is **our own** IG Business account (the caller), not the target.
+- `IG_TOKEN` is a **Business-portfolio system user token — it does not expire.**
+  Nothing needs periodic re-auth. Don't replace it with a User token.
+- Reading a public professional account needs no access to that account.
+- `scripts/probe-ig-graph.mjs` re-verifies the setup gates.
+
+**Known limit:** `business_discovery` returns only media the account *owns*, so
+collab/branded posts are absent (121 of 151 at migration, ~11.2M views missing).
+Meta exposes these via `collaborative_media`, but **only to the account holder's
+own token** — recovering them requires Daan authorising the app. Completeness
+means the media cursor ran out, *not* matching `media_count`; `media_count` is
+grid-based and counts posts the edge never returns.
+
+**Metric honesty:** `view_count` counts views not unique people, includes paid,
+and since April 2026 combines IG+FB views for crossposted reels. Label it views,
+never "reach".
 
 ---
 
@@ -155,11 +193,16 @@ app/
 content/
   sections/*.md                 # one MD per section, locale-keyed frontmatter
 content.config.ts               # Nuxt Content collection schema
+scripts/
+  fetch-socials.mjs             # the CI fetcher, one --platform per workflow
+  probe-ig-graph.mjs            # one-off: verify the Instagram Graph setup
 public/
   data/content.json             # runtime-editable (stats, pricing, socials, contact)
-  images/                       # committed visual assets (currently empty)
+  data/socials.*.json           # written by CI, one per platform — do not hand-edit
+  images/socials/               # avatars + post thumbnails, downloaded by CI
 original_media/                 # raw user drops, GITIGNORED
 .github/workflows/deploy.yml    # GH Pages deploy on push to main
+.github/workflows/socials-*.yml # one refresh job per platform
 .claude/settings.json           # project-scoped permission allowlist
 nuxt.config.ts, tsconfig.json, package.json
 ```
@@ -213,12 +256,13 @@ Do **not** write these speculatively. Write them when we've felt the same patter
 These need real input from the user before this can ship:
 
 - [ ] **DW logo SVG** — extract from `daanwillemsautomotive.nl` automotive logo, drop in `public/images/` and replace the typographic monogram fallback in `NavBar` and `AppFooter`.
-- [ ] **Real stats** — current values in `public/data/content.json` are placeholders (250k followers, 18M views/month, etc.). User needs to provide real numbers per platform.
+- [x] **Real stats** — live from the platforms via CI since 2026-09-14. Instagram 163k followers / 70.1M views, TikTok ~137k, YouTube ~44k. Nothing to hand-maintain.
 - [ ] **Real pricing** — current `fromPrice` values are guesses. Replace with actual numbers when known.
 - [ ] **Real collabs** — only Jorcustom (Kingsday t-shirts, 2025) is a real collab. Others are `Voorbeeld Brand` placeholders.
 - [ ] **Real contact info** — phone, WhatsApp, email all placeholders (`+31 6 00 00 00 00`, `info@daanwillems.nl`).
-- [ ] **YouTube channel ID + API key** — once provided in `content.json`, latest/top videos auto-populate. API key must be HTTP-referrer-restricted to the GH Pages domain.
-- [ ] **TikTok / Instagram curated URLs** — list specific post URLs in `content.json` to embed.
+- [x] **YouTube channel ID + API key** — in Actions secrets, fetched in CI (not from the browser, so no referrer restriction needed).
+- [x] **TikTok / Instagram posts** — fetched automatically; curated URLs no longer needed. `content.json`'s `socials.instagram` / `socials.tiktok` keys are dead config with no consumer.
+- [ ] **Instagram collab/branded posts** — 30 posts (~11.2M views) that `business_discovery` can't return. Needs Daan to authorise the app so `collaborative_media` becomes callable. See the Instagram section above.
 - [ ] **Hero background** — currently a dark+gold radial gradient. Could be a hero video or photo when assets land in `original_media/`.
 - [ ] **Press/testimonials section** — not yet built; add if user wants it.
 - [ ] **Playwright UI pass** — once a fresh session is open, verify the full UI: hero parallax, scroll reveals, stat counters, service-card lightbox, locale swap, mailto/wa/tel hrefs, mobile breakpoints.

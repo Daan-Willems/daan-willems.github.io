@@ -45,11 +45,15 @@ const stats = computed(() => {
   return [
     {
       value: totalReach,
-      label: t('Total reach', 'Totaal bekeken'),
+      // "Views", not "reach": the Instagram figure is view_count, which counts
+      // views rather than unique people, includes paid, and since April 2026
+      // combines Instagram and Facebook views for crossposted reels. Calling
+      // it reach would overclaim to exactly the audience this page sells to.
+      label: t('Total views', 'Totaal bekeken'),
       suffix: '+',
       detail: t(
-        `${formatCompact(igPlays)} IG plays · ${formatCompact(ytViews)} YT views`,
-        `${formatCompact(igPlays)} IG plays · ${formatCompact(ytViews)} YT views`,
+        `${formatCompact(igPlays)} IG views · ${formatCompact(ytViews)} YT views`,
+        `${formatCompact(igPlays)} IG weergaven · ${formatCompact(ytViews)} YT weergaven`,
       ),
     },
     {
@@ -499,7 +503,7 @@ useHead({
             <span class="platform-card__icon" aria-hidden="true">◉</span>
             <span class="platform-card__body">
               <span class="platform-card__handle">Instagram</span>
-              <span class="platform-card__sub">{{ locale === 'en' ? 'total plays' : 'totaal plays' }}</span>
+              <span class="platform-card__sub">{{ locale === 'en' ? 'total views' : 'totaal weergaven' }}</span>
             </span>
             <span class="platform-card__count">{{ formatCompact(igData.stats?.totalPlays) }}</span>
           </a>

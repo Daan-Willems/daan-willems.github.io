@@ -330,6 +330,42 @@ async function fetchInstagramGraph(handle, igUserId, token, prevState) {
     .sort((a, b) => Date.parse(b.publishedAt || 0) - Date.parse(a.publishedAt || 0))
 
   const sum = key => items.reduce((s, m) => s + (m[key] || 0), 0)
+  const totalViews = sum('view_count')
+  const totalLikes = sum('like_count')
+  const totalComments = sum('comments_count')
+
+  // Derived selling points. All of this falls out of the crawl we already did,
+  // so it costs no extra calls -- and averages travel better in a pitch than
+  // lifetime totals, which invite "over what period?".
+  const times = items.map(m => Date.parse(m.timestamp)).filter(Boolean).sort((a, b) => a - b)
+  const spanDays = times.length > 1 ? (times[times.length - 1] - times[0]) / 86400000 : 0
+  const n = items.length || 1
+  const monthAgo = Date.now() - 30 * 86400000
+  const recent = items.filter(m => Date.parse(m.timestamp) >= monthAgo)
+  const top = items.reduce((a, m) => ((m.view_count || 0) > (a?.view_count || 0) ? m : a), null)
+  const followers = profile.followers_count || 0
+
+  const derived = {
+    avgViewsPerPost: Math.round(totalViews / n),
+    avgLikesPerPost: Math.round(totalLikes / n),
+    // Engagement against *followers* is the number brands benchmark against
+    // (1-3% is typical at this size); against views it reads much lower and
+    // means something different. Publish both so neither can be misread.
+    engagementPerFollower: followers ? +(((totalLikes + totalComments) / n / followers) * 100).toFixed(2) : null,
+    engagementPerView: totalViews ? +(((totalLikes + totalComments) / totalViews) * 100).toFixed(2) : null,
+    postsPerWeek: spanDays > 0 ? +((n / (spanDays / 7)).toFixed(1)) : null,
+    sampleSpanDays: Math.round(spanDays),
+    last30Days: {
+      posts: recent.length,
+      views: recent.reduce((s, m) => s + (m.view_count || 0), 0),
+    },
+    topPost: top ? {
+      url: top.permalink,
+      viewCount: top.view_count ?? null,
+      likeCount: top.like_count ?? null,
+      publishedAt: top.timestamp ? new Date(top.timestamp).toISOString() : null,
+    } : null,
+  }
 
   return {
     handle: profile.username || handle,
@@ -351,12 +387,13 @@ async function fetchInstagramGraph(handle, igUserId, token, prevState) {
       followerCount: profile.followers_count ?? null,
       followingCount: profile.follows_count ?? null,
       mediaCount: profile.media_count ?? null,
-      totalPlays: sum('view_count'),
-      totalLikes: sum('like_count'),
-      totalComments: sum('comments_count'),
+      totalPlays: totalViews,
+      totalLikes,
+      totalComments,
       sampledPostCount: items.length,
       sampleComplete: complete,
       source: 'graph',
+      ...derived,
     },
     posts: posts.slice(0, 6),
   }
