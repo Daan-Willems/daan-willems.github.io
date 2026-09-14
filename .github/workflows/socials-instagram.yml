@@ -2,8 +2,11 @@ name: Refresh socials — Instagram
 
 on:
   schedule:
-    # Every hour on the :05 to avoid the bigger top-of-hour cron herd
-    - cron: '5 * * * *'
+    # Every 6h at :45, offset from the YouTube (:15) and TikTok (:30) jobs.
+    # Was hourly only so the walled scraper could accumulate a few feed pages
+    # per run; the Graph API returns the whole account in ~3 calls, so there
+    # is nothing left to accumulate.
+    - cron: '45 */6 * * *'
   workflow_dispatch:
 
 permissions:
@@ -26,19 +29,18 @@ jobs:
       - name: Fetch Instagram
         env:
           IG_HANDLE: ${{ vars.IG_HANDLE || 'daanwillemsautomotive' }}
-          IG_PAGES_PER_RUN: '3'
-          # 168h (7d), not 24h: items now persist across passes, so re-walking
-          # all ~140 posts daily only rediscovered what we already held. That
-          # daily re-crawl is what pushed us from ~1/3 of runs making requests
-          # to every run paginating, right before IG's login wall landed.
-          IG_CYCLE_VALID_HOURS: '168'
-          # 168h (7d), not 36h. Since IG's login wall went up, a feed page gets
-          # through roughly every 4 days, so a 36h threshold fired on nearly
-          # every run while the crawler was working correctly — training us to
-          # ignore the one alert we rely on. 7d clears the expected gap while
-          # still surfacing a genuinely dead pipeline within a week.
-          # YouTube and TikTok keep their 24h defaults; they are not walled.
-          IG_STALE_HOURS: '168'
+          # Official Graph API business_discovery. IG_USER_ID is our own
+          # Instagram Business account (the caller), not the target; the token
+          # is a Business-portfolio system user token, which does not expire.
+          # Without both, the script falls back to the logged-out scraper,
+          # which Instagram walled on 2026-09-01 and which cannot succeed.
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+          # Back to 24h, matching YouTube and TikTok. The 168h threshold was
+          # cover for the walled scraper getting a page through every ~4 days;
+          # a working API run either succeeds or fails outright, so a day of
+          # silence is once again a real signal worth alarming on.
+          IG_STALE_HOURS: '24'
         run: node scripts/fetch-socials.mjs --platform instagram
 
       - name: Commit if changed
@@ -48,7 +50,7 @@ jobs:
         # the crawl can never accumulate its way back to fresh. Job still fails.
         if: ${{ !cancelled() }}
         run: |
-          FILES="public/data/socials.instagram.json data/instagram-store.json public/images/socials"
+          FILES="public/data/socials.instagram.json public/images/socials"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           # Stage first, then test the index: `git diff` alone can't see a

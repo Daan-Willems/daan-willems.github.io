@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { writeFile, readFile, mkdir, readdir, unlink } from 'node:fs/promises'
+import { writeFile, readFile, mkdir, readdir, unlink, access } from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
 import { dirname, resolve } from 'node:path'
 
@@ -36,6 +36,19 @@ async function cacheImage(url, subdir, filename, headers = {}) {
     return `${CACHE_PUBLIC}/${subdir}/${filename}`
   } catch (err) {
     console.warn(`  ! cache image failed (${url.slice(0, 60)}…): ${err.message}`)
+    return null
+  }
+}
+
+// A prior run's copy of this image, if we still have it. Refetching a CDN
+// thumbnail can fail long after the file itself is still perfectly good --
+// scontent URLs are signed and expire in ~105h, so a failed refetch is the
+// normal end state for any post older than that, not an error.
+async function existingCachePath(subdir, filename) {
+  try {
+    await access(resolve(CACHE_DIR, subdir, filename))
+    return `${CACHE_PUBLIC}/${subdir}/${filename}`
+  } catch {
     return null
   }
 }
@@ -214,7 +227,148 @@ async function fetchTikTok(handle) {
 }
 
 // ---------------------------------------------------------------------------
-// Instagram (public web profile API, no auth)
+// Instagram (official Graph API, business_discovery)
+// ---------------------------------------------------------------------------
+//
+// Replaces the logged-out scraper, which Instagram walled in Sept 2026 (0/52
+// feed pages succeeded after 2026-09-01). This route is sanctioned, needs no
+// access to the target account, and runs on a system-user token that does not
+// expire -- see scripts/probe-ig-graph.mjs for the setup gates.
+//
+// One call returns the whole profile plus a page of media, so none of the old
+// cursor-resume-across-cron-runs machinery is needed: 151 posts at 50/page is
+// three calls against a 200/hour budget.
+
+const GRAPH_VERSION = 'v26.0'
+const GRAPH_BASE = `https://graph.facebook.com/${GRAPH_VERSION}`
+
+const IG_MEDIA_FIELDS = [
+  'id', 'caption', 'like_count', 'comments_count', 'view_count',
+  'media_url', 'thumbnail_url', 'permalink', 'timestamp', 'media_type',
+].join(',')
+
+const IG_PROFILE_FIELDS = [
+  'username', 'name', 'biography', 'website',
+  'profile_picture_url', 'followers_count', 'follows_count', 'media_count',
+].join(',')
+
+// Shortcodes aren't returned as a field; the permalink is the only source.
+// Reels live under /reel/ and posts under /p/, and the frontend keys its
+// "Reel" badge off that distinction.
+function parsePermalink(permalink) {
+  const m = /instagram\.com\/(p|reel|tv)\/([^/?#]+)/.exec(permalink || '')
+  return m ? { kind: m[1], shortcode: m[2] } : { kind: null, shortcode: null }
+}
+
+async function igGraph(igUserId, token, handle, mediaAfter) {
+  const media = mediaAfter
+    ? `media.limit(50).after(${mediaAfter}){${IG_MEDIA_FIELDS}}`
+    : `media.limit(50){${IG_MEDIA_FIELDS}}`
+  const url = new URL(`${GRAPH_BASE}/${igUserId}`)
+  url.searchParams.set('fields', `business_discovery.username(${handle}){${IG_PROFILE_FIELDS},${media}}`)
+  url.searchParams.set('access_token', token)
+
+  const t0 = Date.now()
+  const res = await fetch(url)
+  const body = await res.json().catch(() => null)
+  console.log(`  [ig] graph ${mediaAfter ? 'media page' : 'profile+media'}: ${res.status} (${Date.now() - t0}ms)`)
+
+  if (!res.ok) {
+    const e = body?.error
+    const err = new Error(`Instagram Graph HTTP ${res.status}${e ? ` (${e.code}/${e.error_subcode ?? '-'}) ${e.message}` : ''}`)
+    err.status = res.status
+    err.code = e?.code
+    throw err
+  }
+  const bd = body?.business_discovery
+  if (!bd) throw new Error('Instagram Graph returned no business_discovery object (target not a professional account?)')
+  return bd
+}
+
+async function fetchInstagramGraph(handle, igUserId, token, prevState) {
+  if (!handle) throw new Error('IG_HANDLE missing')
+  if (!igUserId || !token) throw new Error('IG_USER_ID / IG_TOKEN missing')
+
+  const MAX_PAGES = Number(process.env.IG_MAX_PAGES || 8)
+
+  let profile = null
+  const items = []
+  let after = null
+  let exhausted = false
+
+  for (let page = 0; page < MAX_PAGES; page++) {
+    const bd = await igGraph(igUserId, token, handle, after)
+    if (!profile) profile = bd
+    const batch = bd.media?.data || []
+    items.push(...batch)
+    after = bd.media?.paging?.cursors?.after || null
+    console.log(`  [ig] page ${page}: +${batch.length} items (total ${items.length}/${profile.media_count ?? '?'})`)
+    if (!after || !batch.length) { exhausted = true; break }
+  }
+
+  // Completeness means "the media edge ran out", not "we matched media_count".
+  // media_count is the grid total and counts posts the edge never returns
+  // (121 returned against 151 reported here), so testing against it would
+  // permanently label a full crawl as partial. Only a run that hits MAX_PAGES
+  // with a cursor still pending is genuinely truncated.
+  const complete = exhausted
+
+  const posts = items
+    .map(m => {
+      const { kind, shortcode } = parsePermalink(m.permalink)
+      return {
+        id: shortcode || m.id,
+        shortcode,
+        url: m.permalink,
+        type: kind === 'reel' ? 'reel' : (m.media_type === 'VIDEO' ? 'video' : 'image'),
+        publishedAt: m.timestamp ? new Date(m.timestamp).toISOString() : null,
+        // media_url is the video file itself for VIDEO; thumbnail_url is the
+        // poster frame. Prefer the poster, fall back for stills.
+        thumbnail: m.thumbnail_url || m.media_url || null,
+        caption: m.caption || null,
+        likeCount: m.like_count ?? null,
+        commentCount: m.comments_count ?? null,
+        viewCount: m.view_count ?? null,
+      }
+    })
+    .sort((a, b) => Date.parse(b.publishedAt || 0) - Date.parse(a.publishedAt || 0))
+
+  const sum = key => items.reduce((s, m) => s + (m[key] || 0), 0)
+
+  return {
+    handle: profile.username || handle,
+    lastSuccessAt: new Date().toISOString(),
+    profile: {
+      userId: String(profile.id ?? ''),
+      username: profile.username || handle,
+      fullName: profile.name || null,
+      bio: profile.biography || null,
+      bioLinks: [],
+      externalUrl: profile.website || null,
+      avatar: profile.profile_picture_url || null,
+      isBusiness: true,
+      category: null,
+      verified: false,
+      url: `https://www.instagram.com/${profile.username || handle}/`,
+    },
+    stats: {
+      followerCount: profile.followers_count ?? null,
+      followingCount: profile.follows_count ?? null,
+      mediaCount: profile.media_count ?? null,
+      totalPlays: sum('view_count'),
+      totalLikes: sum('like_count'),
+      totalComments: sum('comments_count'),
+      sampledPostCount: items.length,
+      sampleComplete: complete,
+      source: 'graph',
+    },
+    posts: posts.slice(0, 6),
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Instagram (legacy logged-out scraper -- walled since 2026-09-01, kept only
+// as a fallback when Graph credentials are absent)
 // ---------------------------------------------------------------------------
 
 // Both profile and feed/user calls present as the *same* iPhone-Safari client
@@ -705,6 +859,18 @@ function getPath(obj, path) {
 
 function sanityCheck(prev, next, platform) {
   if (!prev || prev.status === 'failed' || !next || next.status !== 'ok') return null
+  // A change of measurement source makes cumulative totals incomparable: the
+  // scraper summed play_count over whatever it could reach, the Graph API sums
+  // view_count over what the media edge returns, and those count different
+  // posts under different definitions. Treat the first run on a new source as
+  // a baseline reset rather than a suspicious drop -- otherwise the old
+  // high-water mark blocks the new source forever.
+  const prevSource = prev.stats?.source ?? 'scrape'
+  const nextSource = next.stats?.source ?? 'scrape'
+  if (prevSource !== nextSource) {
+    console.warn(`  ! ${platform}: source changed ${prevSource} → ${nextSource} — skipping sanity floor once (totals not comparable)`)
+    return null
+  }
   for (const { path, floor } of KEY_METRICS[platform]) {
     const prevVal = getPath(prev, path)
     const nextVal = getPath(next, path)
@@ -776,7 +942,12 @@ async function cachePlatformImages(yt, tt, ig) {
     for (const post of ig.posts) {
       if (!post.thumbnail) continue
       const filename = `${post.shortcode}.jpg`
+      // Fall back to the copy we already hold. The post is still on the page,
+      // so its file has to survive the prune below whether or not this refetch
+      // worked -- otherwise one failed run deletes a good local image and
+      // leaves the post pointing at a remote URL that then expires.
       const local = await cacheImage(post.thumbnail, 'ig-posts', filename, igHeaders)
+        || await existingCachePath('ig-posts', filename)
       if (local) {
         post.thumbnail = local
         keep.push(filename)
@@ -792,6 +963,7 @@ async function cachePlatformImages(yt, tt, ig) {
       if (!v.thumbnail) continue
       const filename = `${v.id}.jpg`
       const local = await cacheImage(v.thumbnail, 'tt-videos', filename, ttHeaders)
+        || await existingCachePath('tt-videos', filename)
       if (local) {
         v.thumbnail = local
         keep.push(filename)
@@ -810,7 +982,12 @@ async function main() {
   const fetchers = {
     youtube: () => tryFetch('YouTube', fetchYouTube, prev?.youtube),
     tiktok: () => tryFetch('TikTok', () => fetchTikTok(process.env.TIKTOK_HANDLE), prev?.tiktok),
-    instagram: () => tryFetch('Instagram', () => fetchInstagram(process.env.IG_HANDLE, prev?.instagram), prev?.instagram),
+    instagram: () => tryFetch('Instagram', () => {
+      const { IG_HANDLE, IG_USER_ID, IG_TOKEN } = process.env
+      if (IG_USER_ID && IG_TOKEN) return fetchInstagramGraph(IG_HANDLE, IG_USER_ID, IG_TOKEN, prev?.instagram)
+      console.warn('  [ig] no IG_USER_ID/IG_TOKEN — falling back to the logged-out scraper (walled since 2026-09-01)')
+      return fetchInstagram(IG_HANDLE, prev?.instagram)
+    }, prev?.instagram),
   }
 
   const results = await Promise.all(platforms.map(p => fetchers[p]()))
