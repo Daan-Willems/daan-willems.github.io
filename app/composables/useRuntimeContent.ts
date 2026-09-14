@@ -33,6 +33,23 @@ interface RuntimeContent {
     tiktok?: { handle?: string; curatedUrls?: string[] }
     instagram?: { handle?: string; curatedUrls?: string[] }
   }
+  // Published industry figures we compare against. Runtime-editable because
+  // they get restated yearly, and every displayed multiple is computed from
+  // these against live stats -- so correcting a benchmark here corrects the
+  // claim on the page without a rebuild.
+  benchmarks?: {
+    instagram?: {
+      engagementRatePct?: number
+      avgReelViews?: number
+      followerBand?: string
+      postsPerWeek?: number
+      source?: string
+      sourceUrl?: string
+      sampleNote?: Record<string, string>
+      period?: Record<string, string>
+      note?: Record<string, string>
+    }
+  }
   contact?: {
     phone?: string
     whatsapp?: string

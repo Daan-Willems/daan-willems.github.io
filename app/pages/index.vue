@@ -173,6 +173,45 @@ const ttData = computed(() => socialsData.value?.tiktok || null)
 const igData = computed(() => socialsData.value?.instagram || null)
 const igPosts = computed(() => igData.value?.posts || [])
 
+// Live figures against a published benchmark. Every multiple is computed from
+// the two live numbers rather than hard-coded, so it can't drift away from
+// what the API actually returned -- and both sides use the same formula,
+// (likes + comments) / followers, which is the whole reason this comparison
+// is defensible. Renders nothing unless both halves are present.
+const igBenchmark = computed(() => {
+  const s = igData.value?.stats as Record<string, any> | undefined
+  const b = content.value?.benchmarks?.instagram
+  if (!s || !b) return null
+  const tr = (en: string, nl: string) => locale.value === 'en' ? en : nl
+  const rows = []
+  if (s.engagementPerFollower && b.engagementRatePct) {
+    rows.push({
+      key: 'engagement',
+      label: tr('Engagement per post', 'Engagement per post'),
+      mine: `${s.engagementPerFollower.toFixed(1)}%`,
+      theirs: `${b.engagementRatePct}%`,
+      // No band: 0.52% is the platform-wide Reels average, not a figure for
+      // this follower tier. No publisher breaks engagement down by tier using
+      // a followers denominator, so labelling it with a band would assert a
+      // comparison that doesn't exist.
+      band: null,
+      multiple: Math.round(s.engagementPerFollower / b.engagementRatePct),
+    })
+  }
+  if (s.avgViewsPerPost && b.avgReelViews) {
+    rows.push({
+      key: 'views',
+      label: tr('Average views per post', 'Gemiddeld bekeken per post'),
+      mine: formatCompact(s.avgViewsPerPost),
+      theirs: formatCompact(b.avgReelViews),
+      // This one *is* tier-specific, so naming the band is accurate here.
+      band: b.followerBand ?? null,
+      multiple: Math.round(s.avgViewsPerPost / b.avgReelViews),
+    })
+  }
+  return rows.length ? { rows, source: b } : null
+})
+
 const platform = ref<'youtube' | 'tiktok' | 'instagram'>('youtube')
 const socialsView = ref<'top' | 'latest'>('top')
 const ytVisible = computed(() => socialsView.value === 'top' ? ytTop.value : ytLatest.value)
@@ -508,6 +547,26 @@ useHead({
             <span class="platform-card__count">{{ formatCompact(igData.stats?.totalPlays) }}</span>
           </a>
         </div>
+
+        <RevealOnScroll v-if="platform === 'instagram' && igBenchmark">
+          <div class="bench">
+            <div v-for="row in igBenchmark.rows" :key="row.key" class="bench__row">
+              <span class="bench__label">{{ row.label }}</span>
+              <span class="bench__mine">{{ row.mine }}</span>
+              <span class="bench__multiple">{{ row.multiple }}&times;</span>
+              <span class="bench__theirs">
+                {{ locale === 'en' ? 'vs' : 't.o.v.' }} {{ row.theirs }}
+                <span v-if="row.band" class="bench__band">{{ row.band }}</span>
+              </span>
+            </div>
+            <p class="bench__source">
+              {{ (igBenchmark.source.note as any)?.[locale] }}
+              <a :href="igBenchmark.source.sourceUrl" target="_blank" rel="noopener">{{ igBenchmark.source.source }}</a>,
+              {{ (igBenchmark.source.sampleNote as any)?.[locale] }},
+              {{ (igBenchmark.source.period as any)?.[locale] }}.
+            </p>
+          </div>
+        </RevealOnScroll>
 
         <div v-if="platform === 'youtube' && ytVisible.length" class="socials-toggle" role="tablist">
           <button
@@ -1476,6 +1535,71 @@ useHead({
   font-size: var(--fs-600);
   color: var(--c-fg);
   white-space: nowrap;
+}
+
+/* Benchmark comparison */
+.bench {
+  margin: var(--s-5) 0 var(--s-6);
+  padding: var(--s-5);
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius-lg);
+  background: var(--c-bg-elev-1);
+}
+
+.bench__row {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: var(--s-2) var(--s-3);
+  padding: var(--s-3) 0;
+  border-bottom: 1px solid var(--c-line);
+}
+
+.bench__row:last-of-type {
+  border-bottom: 0;
+}
+
+.bench__label {
+  flex: 1 1 12rem;
+  color: var(--c-fg-muted);
+  font-size: var(--fs-300);
+}
+
+.bench__mine {
+  font-family: var(--ff-display);
+  font-weight: 700;
+  font-size: var(--fs-500);
+  color: var(--c-fg);
+}
+
+.bench__multiple {
+  font-family: var(--ff-display);
+  font-weight: 700;
+  font-size: var(--fs-500);
+  color: var(--c-gold);
+}
+
+.bench__theirs,
+.bench__band {
+  color: var(--c-fg-muted);
+  font-size: var(--fs-300);
+}
+
+.bench__band {
+  opacity: 0.7;
+}
+
+.bench__source {
+  margin: var(--s-3) 0 0;
+  color: var(--c-fg-muted);
+  font-size: var(--fs-300);
+  line-height: 1.5;
+  opacity: 0.8;
+}
+
+.bench__source a {
+  color: inherit;
+  text-decoration: underline;
 }
 
 /* Instagram grid */

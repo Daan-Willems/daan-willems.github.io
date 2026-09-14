@@ -345,6 +345,18 @@ async function fetchInstagramGraph(handle, igUserId, token, prevState) {
   const top = items.reduce((a, m) => ((m.view_count || 0) > (a?.view_count || 0) ? m : a), null)
   const followers = profile.followers_count || 0
 
+  // One sample per day, so the page can show a trend line. Deliberately NOT
+  // seeded from git history: the scraper's followerCount was frozen at 133,681
+  // from 2026-05-04 until the Graph migration, so backfilling it would draw a
+  // flat four-month line and then a fake 30k overnight jump. Start honest.
+  const history = Array.isArray(prevState?.history) ? [...prevState.history] : []
+  const today = new Date().toISOString().slice(0, 10)
+  const sample = { date: today, followers: profile.followers_count ?? null, views: totalViews }
+  const existing = history.findIndex(h => h.date === today)
+  if (existing >= 0) history[existing] = sample
+  else history.push(sample)
+  while (history.length > 760) history.shift()
+
   const derived = {
     avgViewsPerPost: Math.round(totalViews / n),
     avgLikesPerPost: Math.round(totalLikes / n),
@@ -395,6 +407,7 @@ async function fetchInstagramGraph(handle, igUserId, token, prevState) {
       source: 'graph',
       ...derived,
     },
+    history,
     posts: posts.slice(0, 6),
   }
 }
