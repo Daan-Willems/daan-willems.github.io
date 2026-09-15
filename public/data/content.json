@@ -380,40 +380,39 @@
         "en": "Cooking with Chefke Luc: tuna tostadas from his own cookbook."
       },
       "description": {
-        "nl": "Chefke Luc is afgestudeerd kok en maakt kookcontent voor ruim 300.000 volgers op TikTok en 150.000 op Instagram. Samen maakten we tonijn-tostada's uit zijn eigen kookboek, met de nodige Brabantse gezelligheid. Laat zien dat Daan ook buiten de auto's uit de voeten komt, bij een publiek dat hem niet per se van het autovak kent.",
-        "en": "Chefke Luc is a trained chef who makes cooking content for over 300,000 followers on TikTok and 150,000 on Instagram. Together we made tuna tostadas from his own cookbook, with plenty of Brabant good humour. Shows Daan works just as well outside the car context, in front of an audience that does not necessarily know him from the trade."
+        "nl": "Chefke Luc (Luc Gons) is afgestudeerd kok en voedingsvoorlichter uit Breda, en maakt kookcontent voor ruim 335.000 volgers op TikTok en 215.000 op Instagram. In maart 2026 kwam zijn kookboek uit bij Becht. Samen maakten we tonijn-tostada's uit dat boek, met de nodige Brabantse gezelligheid. Laat zien dat Daan ook buiten de auto's uit de voeten komt, bij een publiek dat hem niet van het autovak kent.",
+        "en": "Chefke Luc (Luc Gons) is a trained chef and nutrition educator from Breda who makes cooking content for over 335,000 followers on TikTok and 215,000 on Instagram. His cookbook came out through Becht in March 2026. Together we made tuna tostadas from it, with plenty of Brabant good humour. Shows Daan works just as well outside the car context, for an audience that does not know him from the trade."
       },
       "business": {
         "what": {
-          "nl": "Chef en contentmaker — 300k+ TikTok, 150k+ Instagram",
-          "en": "Chef and content creator — 300k+ TikTok, 150k+ Instagram"
+          "nl": "Chef en contentmaker — ruim 335k op TikTok, 215k op Instagram",
+          "en": "Chef and content creator — 335k+ on TikTok, 215k+ on Instagram"
         },
-        "website": "https://chefkeluc.nl",
+        "location": "Breda",
         "instagram": "chefkeluc"
-      },
-      "href": "https://chefkeluc.nl"
+      }
     },
     {
       "brand": "Kruzo",
       "year": 2025,
       "kind": {
-        "nl": "Samenwerking",
-        "en": "Collaboration"
+        "nl": "Muziekrelease en optreden",
+        "en": "Music release and live show"
       },
       "summary": {
-        "nl": "Content samen met DJ en MC Kruzo, net als Daan uit Brabant.",
-        "en": "Content together with DJ and MC Kruzo, from Brabant like Daan."
+        "nl": "Samen de track 'Werkelijk Iets Aparts' uitgebracht en live gespeeld op WiSH Outdoor.",
+        "en": "Released the track 'Werkelijk Iets Aparts' together and played it live at WiSH Outdoor."
       },
       "description": {
-        "nl": "Kruzo is DJ en MC uit Veghel, bekend van virale TikTok-remixes en mixtapes met meer dan 1,5 miljoen streams. Hij staat op podia door het hele land. Een samenwerking die dicht bij Daans eigen live-werk ligt: zelfde regio, zelfde publiek, en een act die een zaal net zo makkelijk meekrijgt.",
-        "en": "Kruzo is a DJ and MC from Veghel, known for viral TikTok remixes and mixtapes past 1.5 million streams, and plays stages across the country. A collaboration close to Daan's own live work: same region, same crowd, and an act that carries a room just as easily."
+        "nl": "Kruzo is DJ en MC uit Oirschot, bekend van virale remixes en mixtapes met ruim 1,5 miljoen plays. Samen brachten we in december 2025 de track 'Werkelijk Iets Aparts' uit — Daan staat mee als schrijver — te vinden op Spotify, Apple Music en Beatport. Op WiSH Outdoor stonden we er samen mee op het podium, in het reguliere programma op The Gallery. Van studio tot festivalpodium, met een nummer dat rechtstreeks uit Daans eigen catchphrase komt.",
+        "en": "Kruzo is a DJ and MC from Oirschot, known for viral remixes and mixtapes past 1.5 million plays. In December 2025 we released the track 'Werkelijk Iets Aparts' together — Daan is credited as a writer — available on Spotify, Apple Music and Beatport. We performed it together at WiSH Outdoor, on the regular programme at The Gallery stage. Studio to festival stage, off the back of Daan's own catchphrase."
       },
       "business": {
         "what": {
-          "nl": "DJ en MC — optredens, remixes en mixtapes",
-          "en": "DJ and MC — live shows, remixes and mixtapes"
+          "nl": "DJ en MC — festivals, remixes en mixtapes",
+          "en": "DJ and MC — festivals, remixes and mixtapes"
         },
-        "location": "Veghel",
+        "location": "Oirschot",
         "website": "https://kruzo.nl",
         "instagram": "officialkruzo"
       },
