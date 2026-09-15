@@ -376,20 +376,48 @@
         "en": "Cooking video"
       },
       "summary": {
-        "nl": "Samen tonijn-tostada's maken, uit zijn eigen kookboek.",
-        "en": "Making tuna tostadas together, from his own cookbook."
+        "nl": "Samen koken met Chefke Luc: tonijn-tostada's uit zijn eigen kookboek.",
+        "en": "Cooking with Chefke Luc: tuna tostadas from his own cookbook."
       },
       "description": {
-        "nl": "Een kookvideo bij de chef thuis: samen tonijn-tostada's maken uit zijn eigen kookboek, met de nodige Brabantse gezelligheid. Laat zien dat Daan ook buiten de auto's uit de voeten komt.",
-        "en": "A cooking video at the chef's place: making tuna tostadas from his own cookbook, with plenty of Brabant good humour. Shows Daan works well outside the car context too."
+        "nl": "Chefke Luc is afgestudeerd kok en maakt kookcontent voor ruim 300.000 volgers op TikTok en 150.000 op Instagram. Samen maakten we tonijn-tostada's uit zijn eigen kookboek, met de nodige Brabantse gezelligheid. Laat zien dat Daan ook buiten de auto's uit de voeten komt, bij een publiek dat hem niet per se van het autovak kent.",
+        "en": "Chefke Luc is a trained chef who makes cooking content for over 300,000 followers on TikTok and 150,000 on Instagram. Together we made tuna tostadas from his own cookbook, with plenty of Brabant good humour. Shows Daan works just as well outside the car context, in front of an audience that does not necessarily know him from the trade."
       },
       "business": {
         "what": {
-          "nl": "Chef en kookboekauteur",
-          "en": "Chef and cookbook author"
+          "nl": "Chef en contentmaker — 300k+ TikTok, 150k+ Instagram",
+          "en": "Chef and content creator — 300k+ TikTok, 150k+ Instagram"
         },
+        "website": "https://chefkeluc.nl",
         "instagram": "chefkeluc"
-      }
+      },
+      "href": "https://chefkeluc.nl"
+    },
+    {
+      "brand": "Kruzo",
+      "year": 2025,
+      "kind": {
+        "nl": "Samenwerking",
+        "en": "Collaboration"
+      },
+      "summary": {
+        "nl": "Content samen met DJ en MC Kruzo, net als Daan uit Brabant.",
+        "en": "Content together with DJ and MC Kruzo, from Brabant like Daan."
+      },
+      "description": {
+        "nl": "Kruzo is DJ en MC uit Veghel, bekend van virale TikTok-remixes en mixtapes met meer dan 1,5 miljoen streams. Hij staat op podia door het hele land. Een samenwerking die dicht bij Daans eigen live-werk ligt: zelfde regio, zelfde publiek, en een act die een zaal net zo makkelijk meekrijgt.",
+        "en": "Kruzo is a DJ and MC from Veghel, known for viral TikTok remixes and mixtapes past 1.5 million streams, and plays stages across the country. A collaboration close to Daan's own live work: same region, same crowd, and an act that carries a room just as easily."
+      },
+      "business": {
+        "what": {
+          "nl": "DJ en MC — optredens, remixes en mixtapes",
+          "en": "DJ and MC — live shows, remixes and mixtapes"
+        },
+        "location": "Veghel",
+        "website": "https://kruzo.nl",
+        "instagram": "officialkruzo"
+      },
+      "href": "https://kruzo.nl"
     }
   ],
   "socials": {
