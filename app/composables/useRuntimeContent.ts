@@ -19,6 +19,11 @@ interface RuntimeContent {
       what?: Record<string, string>
       location?: string
       website?: string
+      // Handle only, no URL — the template builds the link. Present only for
+      // accounts verified to exist; an unresolvable handle is left absent
+      // rather than guessed, since these render as links on a public page.
+      instagram?: string
+      youtube?: string
     }
     image?: string
     href?: string

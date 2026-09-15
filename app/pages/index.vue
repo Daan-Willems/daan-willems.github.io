@@ -114,6 +114,8 @@ const collabs = computed(() => (content.value?.collabs || []).map(c => ({
   businessWhat: c.business?.what?.[locale.value] || c.business?.what?.nl || '',
   businessLocation: c.business?.location || '',
   businessWebsite: c.business?.website || '',
+  businessInstagram: c.business?.instagram || '',
+  businessYoutube: c.business?.youtube || '',
 })))
 
 const openCollab = ref<typeof collabs.value[number] | null>(null)
@@ -834,7 +836,7 @@ useHead({
           <span v-if="openCollab.year" class="collab-detail__year">{{ openCollab.year }}</span>
         </div>
         <p class="collab-detail__description">{{ openCollab.description || openCollab.summary }}</p>
-        <dl v-if="openCollab.businessWhat || openCollab.businessLocation || openCollab.businessWebsite" class="collab-detail__business">
+        <dl v-if="openCollab.businessWhat || openCollab.businessLocation || openCollab.businessWebsite || openCollab.businessInstagram || openCollab.businessYoutube" class="collab-detail__business">
           <template v-if="openCollab.businessWhat">
             <dt>{{ locale === 'en' ? 'What they do' : 'Wat ze doen' }}</dt>
             <dd>{{ openCollab.businessWhat }}</dd>
@@ -846,6 +848,22 @@ useHead({
           <template v-if="openCollab.businessWebsite">
             <dt>{{ locale === 'en' ? 'Website' : 'Website' }}</dt>
             <dd><a :href="openCollab.businessWebsite" target="_blank" rel="noopener">{{ openCollab.businessWebsite.replace(/^https?:\/\//, '').replace(/\/$/, '') }}</a></dd>
+          </template>
+          <template v-if="openCollab.businessInstagram">
+            <dt>Instagram</dt>
+            <dd>
+              <a :href="`https://www.instagram.com/${openCollab.businessInstagram}/`" target="_blank" rel="noopener">
+                &#64;{{ openCollab.businessInstagram }}
+              </a>
+            </dd>
+          </template>
+          <template v-if="openCollab.businessYoutube">
+            <dt>YouTube</dt>
+            <dd>
+              <a :href="openCollab.businessYoutube" target="_blank" rel="noopener">
+                {{ openCollab.businessYoutube.replace(/^https?:\/\/(www\.)?youtube\.com\//, '').replace(/^channel\/.*/, locale === 'en' ? 'Channel' : 'Kanaal') }}
+              </a>
+            </dd>
           </template>
         </dl>
         <a

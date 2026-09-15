@@ -130,7 +130,8 @@
           "nl": "Custom kledingmerk uit Nederland",
           "en": "Dutch custom apparel brand"
         },
-        "website": "https://jorcustom.com"
+        "website": "https://jorcustom.com",
+        "instagram": "jorcustom"
       },
       "href": "https://jorcustom.com"
     },
@@ -154,7 +155,8 @@
           "nl": "Premium streetwear merk",
           "en": "Premium streetwear brand"
         },
-        "website": "https://malelions.com"
+        "website": "https://malelions.com",
+        "instagram": "malelions"
       },
       "href": "https://malelions.com"
     },
@@ -244,7 +246,8 @@
         "what": {
           "nl": "Bouw- en timmerwerken",
           "en": "Construction and carpentry"
-        }
+        },
+        "instagram": "vandepol.timmerwerk"
       }
     },
     {
@@ -266,7 +269,9 @@
         "what": {
           "nl": "Auto-handel & content",
           "en": "Car dealership & content"
-        }
+        },
+        "instagram": "houseofcars_eindhoven",
+        "youtube": "https://www.youtube.com/channel/UCC5Z0EHirJ0C3PEMB0vtsZg"
       }
     },
     {
@@ -288,7 +293,8 @@
         "what": {
           "nl": "Onderneming uit Nederland",
           "en": "Dutch business"
-        }
+        },
+        "instagram": "bereschoon"
       }
     },
     {
@@ -310,7 +316,9 @@
         "what": {
           "nl": "Nederlands content-maker",
           "en": "Dutch content creator"
-        }
+        },
+        "instagram": "raulgroenen_",
+        "youtube": "https://www.youtube.com/@raulgroenenyoutube"
       }
     },
     {
@@ -332,7 +340,9 @@
         "what": {
           "nl": "Podcastserie",
           "en": "Podcast series"
-        }
+        },
+        "instagram": "lotgenoten",
+        "youtube": "https://www.youtube.com/channel/UCfu0fcqdYItWegA7EDf9Gog"
       }
     },
     {
@@ -354,7 +364,31 @@
         "what": {
           "nl": "Interview-formaat",
           "en": "Interview format"
-        }
+        },
+        "instagram": "over.de.vloer.bij"
+      }
+    },
+    {
+      "brand": "Chef Keluc",
+      "year": 2026,
+      "kind": {
+        "nl": "Kookvideo",
+        "en": "Cooking video"
+      },
+      "summary": {
+        "nl": "Samen tonijn-tostada's maken, uit zijn eigen kookboek.",
+        "en": "Making tuna tostadas together, from his own cookbook."
+      },
+      "description": {
+        "nl": "Een kookvideo bij de chef thuis: samen tonijn-tostada's maken uit zijn eigen kookboek, met de nodige Brabantse gezelligheid. Laat zien dat Daan ook buiten de auto's uit de voeten komt.",
+        "en": "A cooking video at the chef's place: making tuna tostadas from his own cookbook, with plenty of Brabant good humour. Shows Daan works well outside the car context too."
+      },
+      "business": {
+        "what": {
+          "nl": "Chef en kookboekauteur",
+          "en": "Chef and cookbook author"
+        },
+        "instagram": "chefkeluc"
       }
     }
   ],
