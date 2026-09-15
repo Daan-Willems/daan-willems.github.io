@@ -281,6 +281,126 @@ async function igGraph(igUserId, token, handle, mediaAfter) {
   return bd
 }
 
+// ---------------------------------------------------------------------------
+// Collab posts (owned by a partner, co-authored by us)
+// ---------------------------------------------------------------------------
+//
+// business_discovery returns only media the account OWNS, so collab posts are
+// absent from the main crawl -- 30 of 152 here. The partner owns them, so
+// business_discovery on the PARTNER does return them.
+//
+// Two things the API will not give us, both established by testing:
+//   - co_authors is null on both sides, so a collab is not detectable from
+//     either feed. The shortcode -> partner mapping has to come from a human
+//     looking at the post. Captions mention us in only 3 of 5 cases, so
+//     caption matching is a hint for review, never detection.
+//   - there is no get-media-by-shortcode endpoint, so the only way to read a
+//     known post's numbers is to page the owner's feed until it turns up.
+//
+// Hence the shape: partners and their known shortcodes are declared in
+// content.json, and we page each partner only as far as needed to re-read the
+// ones we already know about. Partners post at very different rates
+// (raulgroenen_ ~0.37/day, so 50 posts covers 4.5 months and catches every
+// collab in one call; lotgenoten ~2.1/day covers 24 days), so the stop
+// condition is "found them all, or paged past the oldest one we want" rather
+// than a fixed page count.
+const COLLAB_STORE_PATH = resolve(ROOT, 'data/instagram-collabs.json')
+
+async function fetchCollabs(igUserId, token, partners, prevStore, selfHandle) {
+  const store = { ...(prevStore?.posts || {}) }
+  const MAX_PAGES = Number(process.env.IG_COLLAB_MAX_PAGES || 4)
+  const FIELDS = [
+    'id', 'permalink', 'timestamp', 'caption', 'media_type',
+    'view_count', 'like_count', 'comments_count', 'thumbnail_url', 'media_url',
+  ].join(',')
+  const shortcodeOf = url => /instagram\.com\/(?:p|reel|tv)\/([^/?#]+)/.exec(url || '')?.[1] || null
+  const candidates = []
+  let refreshed = 0
+
+  for (const partner of partners) {
+    const handle = typeof partner === 'string' ? partner : partner.handle
+    const wanted = new Set(
+      (typeof partner === 'string' ? [] : partner.shortcodes || [])
+        .concat(Object.values(store).filter(p => p.partner === handle).map(p => p.shortcode)),
+    )
+    if (!handle) continue
+
+    // Oldest post we care about for this partner; once the feed goes past it
+    // there is nothing left to find and paging on is pure waste.
+    const oldestWanted = Object.values(store)
+      .filter(p => p.partner === handle && p.timestamp)
+      .reduce((min, p) => (!min || p.timestamp < min ? p.timestamp : min), null)
+
+    let after = null
+    let found = 0
+    for (let page = 0; page < MAX_PAGES; page++) {
+      const media = after
+        ? `media.limit(50).after(${after}){${FIELDS}}`
+        : `media.limit(50){${FIELDS}}`
+      const url = new URL(`${GRAPH_BASE}/${igUserId}`)
+      url.searchParams.set('fields', `business_discovery.username(${handle}){username,${media}}`)
+      url.searchParams.set('access_token', token)
+
+      const res = await fetch(url)
+      const body = await res.json().catch(() => null)
+      if (!res.ok) {
+        console.warn(`  [ig] collab @${handle} page ${page}: ${res.status} ${(body?.error?.message || '').slice(0, 70)}`)
+        break
+      }
+      const batch = body?.business_discovery?.media?.data || []
+      if (!batch.length) break
+
+      for (const m of batch) {
+        const shortcode = shortcodeOf(m.permalink)
+        if (!shortcode) continue
+        if (wanted.has(shortcode) || store[shortcode]) {
+          store[shortcode] = {
+            shortcode,
+            partner: handle,
+            permalink: m.permalink,
+            timestamp: m.timestamp ? new Date(m.timestamp).toISOString() : store[shortcode]?.timestamp ?? null,
+            type: /\/reel\//.test(m.permalink) ? 'reel' : (m.media_type === 'VIDEO' ? 'video' : 'image'),
+            viewCount: m.view_count ?? store[shortcode]?.viewCount ?? null,
+            likeCount: m.like_count ?? store[shortcode]?.likeCount ?? null,
+            commentCount: m.comments_count ?? store[shortcode]?.commentCount ?? null,
+            caption: m.caption ?? store[shortcode]?.caption ?? null,
+            source: 'graph-partner',
+            lastSeenAt: new Date().toISOString(),
+          }
+          found++
+          refreshed++
+        } else if (selfHandle && new RegExp(selfHandle, 'i').test(m.caption || '')) {
+          // Mentions us but isn't in the mapping -- possibly a collab nobody
+          // has recorded yet. Surfaced for review, never auto-counted, because
+          // a mention is not proof of co-authorship.
+          candidates.push({ shortcode, partner: handle, permalink: m.permalink, timestamp: m.timestamp })
+        }
+      }
+
+      const oldestInBatch = batch[batch.length - 1]?.timestamp
+      after = body?.business_discovery?.media?.paging?.cursors?.after || null
+      if (found >= wanted.size) break
+      if (!after) break
+      if (oldestWanted && oldestInBatch && oldestInBatch < oldestWanted) break
+      await new Promise(r => setTimeout(r, 1500))
+    }
+    console.log(`  [ig] collab @${handle}: ${found}/${wanted.size} refreshed`)
+  }
+
+  const values = Object.values(store)
+  return {
+    store: { updatedAt: new Date().toISOString(), posts: store },
+    candidates,
+    refreshed,
+    totals: {
+      posts: values.length,
+      views: values.reduce((s, p) => s + (p.viewCount || 0), 0),
+      likes: values.reduce((s, p) => s + (p.likeCount || 0), 0),
+      comments: values.reduce((s, p) => s + (p.commentCount || 0), 0),
+    },
+  }
+}
+
 async function fetchInstagramGraph(handle, igUserId, token, prevState) {
   if (!handle) throw new Error('IG_HANDLE missing')
   if (!igUserId || !token) throw new Error('IG_USER_ID / IG_TOKEN missing')
@@ -330,16 +450,46 @@ async function fetchInstagramGraph(handle, igUserId, token, prevState) {
     .sort((a, b) => Date.parse(b.publishedAt || 0) - Date.parse(a.publishedAt || 0))
 
   const sum = key => items.reduce((s, m) => s + (m[key] || 0), 0)
-  const totalViews = sum('view_count')
-  const totalLikes = sum('like_count')
-  const totalComments = sum('comments_count')
+  const ownedViews = sum('view_count')
+  const ownedLikes = sum('like_count')
+  const ownedComments = sum('comments_count')
+
+  // Collab posts live on partner accounts and are invisible to the crawl
+  // above, so they are fetched separately and folded into the totals. Kept
+  // separable in the output (ownedPostCount vs collabPostCount) because the
+  // two are gathered differently and a reader should be able to tell them
+  // apart. Failure here must not fail the platform: the owned crawl is the
+  // bulk of the number and is already in hand.
+  const runtime = await readJson(resolve(ROOT, 'public/data/content.json'))
+  const partners = runtime?.socials?.instagram?.collabPartners || []
+  let collab = null
+  if (partners.length) {
+    try {
+      collab = await fetchCollabs(igUserId, token, partners, await readJson(COLLAB_STORE_PATH), handle)
+      await mkdir(dirname(COLLAB_STORE_PATH), { recursive: true })
+      await writeFile(COLLAB_STORE_PATH, JSON.stringify(collab.store, null, 2) + '\n')
+      console.log(`  [ig] collabs: ${collab.totals.posts} posts, ${collab.totals.views.toLocaleString('en')} views (${collab.refreshed} refreshed this run)`)
+      if (collab.candidates.length) {
+        console.log(`  [ig] ${collab.candidates.length} partner post(s) mention us but aren't mapped — review:`)
+        for (const c of collab.candidates.slice(0, 10)) console.log(`        ${c.timestamp?.slice(0, 10)} ${c.permalink}`)
+      }
+    } catch (err) {
+      console.warn(`  ! collab fetch failed (${err.message}); using owned media only`)
+    }
+  }
+
+  const totalViews = ownedViews + (collab?.totals.views || 0)
+  const totalLikes = ownedLikes + (collab?.totals.likes || 0)
+  const totalComments = ownedComments + (collab?.totals.comments || 0)
 
   // Derived selling points. All of this falls out of the crawl we already did,
   // so it costs no extra calls -- and averages travel better in a pitch than
   // lifetime totals, which invite "over what period?".
   const times = items.map(m => Date.parse(m.timestamp)).filter(Boolean).sort((a, b) => a - b)
   const spanDays = times.length > 1 ? (times[times.length - 1] - times[0]) / 86400000 : 0
-  const n = items.length || 1
+  // Averages divide by every post we counted, collabs included -- dividing
+  // combined totals by the owned count alone would inflate them.
+  const n = (items.length + (collab?.totals.posts || 0)) || 1
   const monthAgo = Date.now() - 30 * 86400000
   const recent = items.filter(m => Date.parse(m.timestamp) >= monthAgo)
   const top = items.reduce((a, m) => ((m.view_count || 0) > (a?.view_count || 0) ? m : a), null)
@@ -402,7 +552,10 @@ async function fetchInstagramGraph(handle, igUserId, token, prevState) {
       totalPlays: totalViews,
       totalLikes,
       totalComments,
-      sampledPostCount: items.length,
+      sampledPostCount: items.length + (collab?.totals.posts || 0),
+      ownedPostCount: items.length,
+      collabPostCount: collab?.totals.posts || 0,
+      collabViews: collab?.totals.views || 0,
       sampleComplete: complete,
       source: 'graph',
       ...derived,

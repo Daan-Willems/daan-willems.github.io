@@ -50,7 +50,7 @@ jobs:
         # the crawl can never accumulate its way back to fresh. Job still fails.
         if: ${{ !cancelled() }}
         run: |
-          FILES="public/data/socials.instagram.json public/images/socials"
+          FILES="public/data/socials.instagram.json data/instagram-collabs.json public/images/socials"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           # Stage first, then test the index: `git diff` alone can't see a

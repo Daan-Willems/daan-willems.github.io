@@ -376,8 +376,19 @@
       "curatedUrls": []
     },
     "instagram": {
-      "handle": "@daanwillems",
-      "curatedUrls": []
+      "handle": "daanwillemsautomotive",
+      "collabPartners": [
+        {
+          "handle": "raulgroenen_",
+          "shortcodes": [
+            "DcMFng4KF-v",
+            "Db56siDqCoA",
+            "DbBavmzKYNV",
+            "DY4wYcnKwSx",
+            "DX7Ern5CzSX"
+          ]
+        }
+      ]
     }
   },
   "testimonials": [
