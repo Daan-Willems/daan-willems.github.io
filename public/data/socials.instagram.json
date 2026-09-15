@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-15T17:17:47.151Z",
-  "status": "ok",
+  "generatedAt": "2026-09-15T20:24:00.258Z",
+  "status": "stale",
   "lastFetchedAt": "2026-09-15T17:17:38.160Z",
   "handle": "daanwillemsautomotive",
   "lastSuccessAt": "2026-09-15T17:17:43.695Z",
@@ -129,5 +129,7 @@
       "commentCount": 150,
       "viewCount": 814171
     }
-  ]
+  ],
+  "lastError": "Instagram Graph HTTP 400 (200/-) API access blocked.",
+  "lastErrorAt": "2026-09-15T20:23:59.763Z"
 }
