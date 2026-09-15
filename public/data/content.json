@@ -361,7 +361,6 @@
   "socials": {
     "youtube": {
       "channelId": "UC0ubM_L6ISEgqr5SJfI8XTA",
-      "apiKey": "",
       "curatedUrls": [
         "https://www.youtube.com/watch?v=mG14MxirIQI",
         "https://www.youtube.com/watch?v=IAN_eltoz64",
@@ -369,6 +368,20 @@
         "https://www.youtube.com/watch?v=kQzi74Yr7F4",
         "https://www.youtube.com/watch?v=3WWRInWPjU4",
         "https://www.youtube.com/watch?v=6TifWuJDmnw"
+      ],
+      "collabChannels": [
+        {
+          "channelId": "UCY-Y7XIFmDi4SVXyaIfp08g",
+          "name": "Raúl Groenen"
+        },
+        {
+          "channelId": "UCfu0fcqdYItWegA7EDf9Gog",
+          "name": "Lotgenoten Podcast"
+        },
+        {
+          "channelId": "UCC5Z0EHirJ0C3PEMB0vtsZg",
+          "name": "House of Cars"
+        }
       ]
     },
     "tiktok": {

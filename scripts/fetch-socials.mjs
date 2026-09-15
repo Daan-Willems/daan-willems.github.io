@@ -135,6 +135,102 @@ async function ytSearch(order, max) {
   return longform.slice(0, max)
 }
 
+// Collab videos hosted on partner channels. Unlike Instagram, YouTube returns
+// full statistics for any public video by id, so once a video is known its
+// numbers stay current for free -- no ownership wall, no manual metric entry.
+//
+// Quota shape drives the design: `search` costs 100 units, `playlistItems` and
+// `videos` cost 1 each (the latter for up to 50 ids at once). So the routine
+// path never searches. It re-reads known ids in one batched call and scans only
+// the newest page of each partner's uploads for anything new -- about 4 units a
+// run. Deep back-scans and `search`-based discovery of unknown partners are
+// one-off jobs, not cron work.
+const YT_COLLAB_STORE_PATH = resolve(ROOT, 'data/youtube-collabs.json')
+const YT_COLLAB_RE = /daan\s*willems|daanwillems/i
+
+async function fetchYouTubeCollabs(channels, prevStore) {
+  const store = { ...(prevStore?.videos || {}) }
+  const PAGES = Number(process.env.YT_COLLAB_PAGES || 1)
+  const found = []
+
+  for (const ch of channels) {
+    const channelId = typeof ch === 'string' ? ch : ch.channelId
+    const name = (typeof ch === 'string' ? null : ch.name) || channelId
+    if (!channelId) continue
+    try {
+      const meta = await ytApi('channels', { part: 'contentDetails', id: channelId })
+      const uploads = meta.items?.[0]?.contentDetails?.relatedPlaylists?.uploads
+      if (!uploads) { console.warn(`  [yt] collab ${name}: no uploads playlist`); continue }
+      let token = null, seen = 0, newHere = 0
+      for (let page = 0; page < PAGES; page++) {
+        const pl = await ytApi('playlistItems', {
+          part: 'snippet', playlistId: uploads, maxResults: 50, ...(token ? { pageToken: token } : {}),
+        })
+        for (const it of pl.items || []) {
+          seen++
+          const s = it.snippet
+          const id = s.resourceId?.videoId
+          if (!id) continue
+          if (!YT_COLLAB_RE.test(s.title || '') && !YT_COLLAB_RE.test(s.description || '')) continue
+          if (!store[id]) newHere++
+          store[id] = {
+            ...store[id],
+            id,
+            url: `https://www.youtube.com/watch?v=${id}`,
+            title: s.title,
+            channelId,
+            channel: name,
+            publishedAt: s.publishedAt,
+            thumbnail: pickThumb(s.thumbnails),
+            // Matched on a name in the title or description, which is evidence
+            // of involvement, not proof of a collaboration. Left reviewable so
+            // a passing mention can be excluded by hand.
+            matchedOn: YT_COLLAB_RE.test(s.title || '') ? 'title' : 'description',
+            excluded: store[id]?.excluded ?? false,
+          }
+          found.push(id)
+        }
+        token = pl.nextPageToken
+        if (!token) break
+      }
+      console.log(`  [yt] collab ${name}: scanned ${seen}, ${newHere} new`)
+    } catch (err) {
+      console.warn(`  [yt] collab ${name} failed: ${err.message}`)
+    }
+  }
+
+  // Refresh every known id, not just the ones seen this run -- old videos keep
+  // accruing views and this costs one unit per 50.
+  const ids = Object.keys(store)
+  for (let i = 0; i < ids.length; i += 50) {
+    const batch = ids.slice(i, i + 50)
+    try {
+      const stats = await ytVideoStats(batch)
+      for (const id of batch) {
+        const s = stats[id]
+        if (!s) continue
+        store[id].viewCount = s.viewCount ? Number(s.viewCount) : store[id].viewCount ?? null
+        store[id].likeCount = s.likeCount ? Number(s.likeCount) : store[id].likeCount ?? null
+        store[id].commentCount = s.commentCount ? Number(s.commentCount) : store[id].commentCount ?? null
+        store[id].durationSec = s.durationSec ?? store[id].durationSec ?? null
+        store[id].lastSeenAt = new Date().toISOString()
+      }
+    } catch (err) {
+      console.warn(`  [yt] collab stats batch failed: ${err.message}`)
+    }
+  }
+
+  const counted = Object.values(store).filter(v => !v.excluded)
+  return {
+    store: { updatedAt: new Date().toISOString(), videos: store },
+    totals: {
+      videos: counted.length,
+      views: counted.reduce((s, v) => s + (v.viewCount || 0), 0),
+      likes: counted.reduce((s, v) => s + (v.likeCount || 0), 0),
+    },
+  }
+}
+
 async function fetchYouTube() {
   if (!YT_API_KEY) throw new Error('skipped (YOUTUBE_API_KEY not set)')
   const [channelRes, latest, top] = await Promise.all([
@@ -146,7 +242,30 @@ async function fetchYouTube() {
   if (!c) throw new Error('YouTube channel not found')
   const followerCount = c.statistics?.subscriberCount ? Number(c.statistics.subscriberCount) : null
   if (!followerCount) throw new Error('YouTube subscriberCount missing')
+
+  // Partner-hosted collabs, folded in the same way as Instagram's. Kept
+  // separable from channel.viewCount, which is the channel's own lifetime
+  // total and must not be conflated with views earned on someone else's.
+  const runtime = await readJson(resolve(ROOT, 'public/data/content.json'))
+  const collabChannels = runtime?.socials?.youtube?.collabChannels || []
+  let collab = null
+  if (collabChannels.length) {
+    try {
+      collab = await fetchYouTubeCollabs(collabChannels, await readJson(YT_COLLAB_STORE_PATH))
+      await mkdir(dirname(YT_COLLAB_STORE_PATH), { recursive: true })
+      await writeFile(YT_COLLAB_STORE_PATH, JSON.stringify(collab.store, null, 2) + '\n')
+      console.log(`  [yt] collabs: ${collab.totals.videos} videos, ${collab.totals.views.toLocaleString('en')} views`)
+    } catch (err) {
+      console.warn(`  ! YouTube collab fetch failed (${err.message}); own channel only`)
+    }
+  }
+
   return {
+    collabs: collab ? {
+      videoCount: collab.totals.videos,
+      viewCount: collab.totals.views,
+      likeCount: collab.totals.likes,
+    } : null,
     channel: {
       id: c.id,
       title: c.snippet?.title,
