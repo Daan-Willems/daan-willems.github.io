@@ -193,6 +193,7 @@ function seriesFrom(key: 'youtubeViews' | 'tiktokFollowers' | 'instagramFollower
 }
 const growthPoints = computed(() => seriesFrom('youtubeViews'))
 const tiktokPoints = computed(() => seriesFrom('tiktokFollowers'))
+const instagramPoints = computed(() => seriesFrom('instagramFollowers'))
 
 // Instagram only started being measured properly at the Graph migration, so it
 // has too few points to plot. Say so rather than leaving a hole the reader has
@@ -565,6 +566,15 @@ useHead({
                 v-if="tiktokPoints"
                 :points="tiktokPoints"
                 :label="locale === 'en' ? 'Followers on TikTok' : 'Volgers op TikTok'"
+                :caption="growthSpan"
+                :locale="locale"
+                :table-label="locale === 'en' ? 'Show data' : 'Toon data'"
+                :hint-label="locale === 'en' ? 'Hover for a date' : 'Beweeg voor een datum'"
+              />
+              <GrowthChart
+                v-if="instagramPoints"
+                :points="instagramPoints"
+                :label="locale === 'en' ? 'Followers on Instagram' : 'Volgers op Instagram'"
                 :caption="growthSpan"
                 :locale="locale"
                 :table-label="locale === 'en' ? 'Show data' : 'Toon data'"
@@ -1656,9 +1666,11 @@ useHead({
   gap: var(--s-6);
 }
 
-@media (min-width: 60rem) {
+@media (min-width: 52rem) {
   .growth-block__charts {
-    grid-template-columns: 1fr 1fr;
+    /* auto-fit rather than a fixed count: three charts now, and a fourth
+       platform should not need a media-query edit to lay out. */
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
   }
 }
 

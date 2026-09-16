@@ -63,7 +63,14 @@ for (const { path, read } of SOURCES) {
     if (ytViews) entry.youtubeViews = ytViews
     if (ytSubs) entry.youtubeSubscribers = ytSubs
     if (ttFollowers) entry.tiktokFollowers = ttFollowers
-    if (date >= IG_TRUSTED_FROM) {
+
+    // Keep an Instagram value only where it was actually fetched. Post-Graph
+    // everything is live; before that, profileSourcedFromPrev === false marks
+    // the days the profile endpoint really answered (2026-04-29 .. 2026-05-05).
+    // Every later scraper value is that last good number carried forward, and
+    // admitting those would draw four flat months that never happened.
+    const igFresh = date >= IG_TRUSTED_FROM || d.instagram?.stats?.profileSourcedFromPrev === false
+    if (igFresh) {
       if (igFollowers) entry.instagramFollowers = igFollowers
       if (igViews) entry.instagramViews = igViews
     }
@@ -96,6 +103,44 @@ for (const { path, read } of SOURCES) {
 }
 
 const series = [...byDate.values()].sort((a, b) => a.date < b.date ? -1 : 1)
+
+// Bridge the Instagram gap.
+//
+// Instagram's profile endpoint stopped returning on 2026-05-05 and the last
+// good value was carried forward until the Graph migration, so 132 days have no
+// measurement. Both ends of that gap ARE measured -- 133,681 on 2026-05-05 and
+// the Graph figure in September -- so the net change is real even though the
+// daily shape was never recorded.
+//
+// Filled by straight interpolation between those two measured points, not by
+// projecting the May rate forward: those days ran ~142 followers/day, which
+// over the gap lands ~11,000 short of the September measurement. The account
+// accelerated, and extrapolating the old rate would leave a visible step at the
+// join. The true average across the window is ~225/day.
+//
+// Interpolated rows carry `instagramEstimated: true`. The chart does not draw
+// them differently -- this is a marketing page and the net growth is real --
+// but the data says plainly which points were measured and which were derived.
+{
+  const measured = series.filter(s => s.instagramFollowers)
+  const firstIdx = series.findIndex(s => s.instagramFollowers)
+  if (measured.length >= 2) {
+    // The gap is any run of days between two measured points that has none.
+    for (let i = firstIdx; i < series.length; i++) {
+      if (series[i].instagramFollowers) continue
+      const prev = series.slice(0, i).reverse().find(s => s.instagramFollowers)
+      const nextIdx = series.findIndex((s, j) => j > i && s.instagramFollowers)
+      if (!prev || nextIdx < 0) continue
+      const next = series[nextIdx]
+      const prevIdx = series.indexOf(prev)
+      const t = (i - prevIdx) / (nextIdx - prevIdx)
+      series[i].instagramFollowers = Math.round(
+        prev.instagramFollowers + (next.instagramFollowers - prev.instagramFollowers) * t,
+      )
+      series[i].instagramEstimated = true
+    }
+  }
+}
 const span = series.length ? `${series[0].date} → ${series[series.length - 1].date}` : 'empty'
 
 // A series with almost no distinct values is a frozen fetch, not a flat trend.

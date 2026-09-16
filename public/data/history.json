@@ -1,840 +1,1118 @@
 {
-  "backfilledAt": "2026-09-16T00:23:06.847Z",
+  "backfilledAt": "2026-09-16T00:43:46.271Z",
   "note": "Daily series reconstructed from git history. Instagram starts 2026-09-15 -- earlier values are a stalled fetch, not a flat trend.",
   "series": [
     {
       "date": "2026-04-29",
       "youtubeViews": 2843747,
       "youtubeSubscribers": 27600,
-      "tiktokFollowers": 113200
+      "tiktokFollowers": 113200,
+      "instagramFollowers": 132830,
+      "instagramViews": 38152292
     },
     {
       "date": "2026-04-30",
       "youtubeViews": 2879547,
       "youtubeSubscribers": 27600,
-      "tiktokFollowers": 113200
+      "tiktokFollowers": 113200,
+      "instagramFollowers": 132980,
+      "instagramViews": 38152292
     },
     {
       "date": "2026-05-01",
       "youtubeViews": 2897653,
       "youtubeSubscribers": 27700,
-      "tiktokFollowers": 113200
+      "tiktokFollowers": 113200,
+      "instagramFollowers": 133047,
+      "instagramViews": 38152292
     },
     {
       "date": "2026-05-02",
       "youtubeViews": 2907903,
       "youtubeSubscribers": 27700,
-      "tiktokFollowers": 113600
+      "tiktokFollowers": 113600,
+      "instagramFollowers": 133324,
+      "instagramViews": 38152292
     },
     {
       "date": "2026-05-03",
       "youtubeViews": 2917001,
       "youtubeSubscribers": 27800,
-      "tiktokFollowers": 113700
+      "tiktokFollowers": 113700,
+      "instagramFollowers": 133420,
+      "instagramViews": 38152292
     },
     {
       "date": "2026-05-04",
       "youtubeViews": 2950465,
       "youtubeSubscribers": 27900,
-      "tiktokFollowers": 113700
+      "tiktokFollowers": 113700,
+      "instagramFollowers": 133565,
+      "instagramViews": 38152292
     },
     {
       "date": "2026-05-05",
       "youtubeViews": 2950465,
       "youtubeSubscribers": 27900,
-      "tiktokFollowers": 113800
+      "tiktokFollowers": 113800,
+      "instagramFollowers": 133681,
+      "instagramViews": 48951316
     },
     {
       "date": "2026-05-06",
       "youtubeViews": 2950465,
       "youtubeSubscribers": 28300,
-      "tiktokFollowers": 114500
+      "tiktokFollowers": 114500,
+      "instagramFollowers": 133905,
+      "instagramEstimated": true
     },
     {
       "date": "2026-05-07",
       "youtubeViews": 2985807,
       "youtubeSubscribers": 28400,
-      "tiktokFollowers": 114800
+      "tiktokFollowers": 114800,
+      "instagramFollowers": 134129,
+      "instagramEstimated": true
     },
     {
       "date": "2026-05-08",
       "youtubeViews": 3021532,
       "youtubeSubscribers": 28500,
-      "tiktokFollowers": 115000
+      "tiktokFollowers": 115000,
+      "instagramFollowers": 134353,
+      "instagramEstimated": true
     },
     {
       "date": "2026-05-09",
       "youtubeViews": 3040986,
       "youtubeSubscribers": 28600,
-      "tiktokFollowers": 115100
+      "tiktokFollowers": 115100,
+      "instagramFollowers": 134577,
+      "instagramEstimated": true
     },
     {
       "date": "2026-05-10",
       "youtubeViews": 3051217,
       "youtubeSubscribers": 28800,
-      "tiktokFollowers": 115400
+      "tiktokFollowers": 115400,
+      "instagramFollowers": 134801,
+      "instagramEstimated": true
     },
     {
       "date": "2026-05-11",
       "youtubeViews": 3067140,
       "youtubeSubscribers": 28900,
-      "tiktokFollowers": 115600
+      "tiktokFollowers": 115600,
+      "instagramFollowers": 135025,
+      "instagramEstimated": true
     },
     {
       "date": "2026-05-12",
       "youtubeViews": 3078689,
       "youtubeSubscribers": 29000,
-      "tiktokFollowers": 115800
+      "tiktokFollowers": 115800,
+      "instagramFollowers": 135249,
+      "instagramEstimated": true
     },
     {
       "date": "2026-05-13",
       "youtubeViews": 3090634,
       "youtubeSubscribers": 29300,
-      "tiktokFollowers": 115900
+      "tiktokFollowers": 115900,
+      "instagramFollowers": 135473,
+      "instagramEstimated": true
     },
     {
       "date": "2026-05-14",
       "youtubeViews": 3097463,
       "youtubeSubscribers": 29700,
-      "tiktokFollowers": 116000
+      "tiktokFollowers": 116000,
+      "instagramFollowers": 135697,
+      "instagramEstimated": true
     },
     {
       "date": "2026-05-15",
       "youtubeViews": 3165205,
       "youtubeSubscribers": 30000,
-      "tiktokFollowers": 116400
+      "tiktokFollowers": 116400,
+      "instagramFollowers": 135921,
+      "instagramEstimated": true
     },
     {
       "date": "2026-05-16",
       "youtubeViews": 3205943,
       "youtubeSubscribers": 30200,
-      "tiktokFollowers": 116700
+      "tiktokFollowers": 116700,
+      "instagramFollowers": 136145,
+      "instagramEstimated": true
     },
     {
       "date": "2026-05-17",
       "youtubeViews": 3222871,
       "youtubeSubscribers": 30500,
-      "tiktokFollowers": 116800
+      "tiktokFollowers": 116800,
+      "instagramFollowers": 136369,
+      "instagramEstimated": true
     },
     {
       "date": "2026-05-18",
       "youtubeViews": 3288197,
       "youtubeSubscribers": 30700,
-      "tiktokFollowers": 117000
+      "tiktokFollowers": 117000,
+      "instagramFollowers": 136593,
+      "instagramEstimated": true
     },
     {
       "date": "2026-05-19",
       "youtubeViews": 3315287,
       "youtubeSubscribers": 31400,
-      "tiktokFollowers": 118300
+      "tiktokFollowers": 118300,
+      "instagramFollowers": 136817,
+      "instagramEstimated": true
     },
     {
       "date": "2026-05-20",
       "youtubeViews": 3315287,
       "youtubeSubscribers": 31800,
-      "tiktokFollowers": 119200
+      "tiktokFollowers": 119200,
+      "instagramFollowers": 137041,
+      "instagramEstimated": true
     },
     {
       "date": "2026-05-21",
       "youtubeViews": 3362851,
       "youtubeSubscribers": 32000,
-      "tiktokFollowers": 119600
+      "tiktokFollowers": 119600,
+      "instagramFollowers": 137265,
+      "instagramEstimated": true
     },
     {
       "date": "2026-05-22",
       "youtubeViews": 3394120,
       "youtubeSubscribers": 32200,
-      "tiktokFollowers": 120700
+      "tiktokFollowers": 120700,
+      "instagramFollowers": 137489,
+      "instagramEstimated": true
     },
     {
       "date": "2026-05-23",
       "youtubeViews": 3410499,
       "youtubeSubscribers": 32300,
-      "tiktokFollowers": 121300
+      "tiktokFollowers": 121300,
+      "instagramFollowers": 137713,
+      "instagramEstimated": true
     },
     {
       "date": "2026-05-24",
       "youtubeViews": 3423485,
       "youtubeSubscribers": 32400,
-      "tiktokFollowers": 121700
+      "tiktokFollowers": 121700,
+      "instagramFollowers": 137937,
+      "instagramEstimated": true
     },
     {
       "date": "2026-05-25",
       "youtubeViews": 3460335,
       "youtubeSubscribers": 32600,
-      "tiktokFollowers": 122000
+      "tiktokFollowers": 122000,
+      "instagramFollowers": 138161,
+      "instagramEstimated": true
     },
     {
       "date": "2026-05-26",
       "youtubeViews": 3490203,
       "youtubeSubscribers": 32800,
-      "tiktokFollowers": 122200
+      "tiktokFollowers": 122200,
+      "instagramFollowers": 138385,
+      "instagramEstimated": true
     },
     {
       "date": "2026-05-27",
       "youtubeViews": 3514168,
       "youtubeSubscribers": 32900,
-      "tiktokFollowers": 122300
+      "tiktokFollowers": 122300,
+      "instagramFollowers": 138609,
+      "instagramEstimated": true
     },
     {
       "date": "2026-05-28",
       "youtubeViews": 3538739,
       "youtubeSubscribers": 33000,
-      "tiktokFollowers": 122500
+      "tiktokFollowers": 122500,
+      "instagramFollowers": 138833,
+      "instagramEstimated": true
     },
     {
       "date": "2026-05-29",
       "youtubeViews": 3557020,
       "youtubeSubscribers": 33100,
-      "tiktokFollowers": 123000
+      "tiktokFollowers": 123000,
+      "instagramFollowers": 139057,
+      "instagramEstimated": true
     },
     {
       "date": "2026-05-30",
       "youtubeViews": 3570437,
       "youtubeSubscribers": 33100,
-      "tiktokFollowers": 123200
+      "tiktokFollowers": 123200,
+      "instagramFollowers": 139281,
+      "instagramEstimated": true
     },
     {
       "date": "2026-05-31",
       "youtubeViews": 3581314,
       "youtubeSubscribers": 33200,
-      "tiktokFollowers": 123400
+      "tiktokFollowers": 123400,
+      "instagramFollowers": 139505,
+      "instagramEstimated": true
     },
     {
       "date": "2026-06-01",
       "youtubeViews": 3615868,
       "youtubeSubscribers": 33300,
-      "tiktokFollowers": 123400
+      "tiktokFollowers": 123400,
+      "instagramFollowers": 139729,
+      "instagramEstimated": true
     },
     {
       "date": "2026-06-02",
       "youtubeViews": 3630024,
       "youtubeSubscribers": 33400,
-      "tiktokFollowers": 123600
+      "tiktokFollowers": 123600,
+      "instagramFollowers": 139953,
+      "instagramEstimated": true
     },
     {
       "date": "2026-06-03",
       "youtubeViews": 3641807,
       "youtubeSubscribers": 33400,
-      "tiktokFollowers": 123600
+      "tiktokFollowers": 123600,
+      "instagramFollowers": 140177,
+      "instagramEstimated": true
     },
     {
       "date": "2026-06-04",
       "youtubeViews": 3656140,
       "youtubeSubscribers": 33400,
-      "tiktokFollowers": 123700
+      "tiktokFollowers": 123700,
+      "instagramFollowers": 140401,
+      "instagramEstimated": true
     },
     {
       "date": "2026-06-05",
       "youtubeViews": 3666186,
       "youtubeSubscribers": 33500,
-      "tiktokFollowers": 123900
+      "tiktokFollowers": 123900,
+      "instagramFollowers": 140625,
+      "instagramEstimated": true
     },
     {
       "date": "2026-06-06",
       "youtubeViews": 3675517,
       "youtubeSubscribers": 33500,
-      "tiktokFollowers": 124000
+      "tiktokFollowers": 124000,
+      "instagramFollowers": 140849,
+      "instagramEstimated": true
     },
     {
       "date": "2026-06-07",
       "youtubeViews": 3681716,
       "youtubeSubscribers": 33600,
-      "tiktokFollowers": 124100
+      "tiktokFollowers": 124100,
+      "instagramFollowers": 141073,
+      "instagramEstimated": true
     },
     {
       "date": "2026-06-08",
       "youtubeViews": 3709201,
       "youtubeSubscribers": 33700,
-      "tiktokFollowers": 124100
+      "tiktokFollowers": 124100,
+      "instagramFollowers": 141297,
+      "instagramEstimated": true
     },
     {
       "date": "2026-06-09",
       "youtubeViews": 3722722,
       "youtubeSubscribers": 33700,
-      "tiktokFollowers": 124200
+      "tiktokFollowers": 124200,
+      "instagramFollowers": 141521,
+      "instagramEstimated": true
     },
     {
       "date": "2026-06-10",
       "youtubeViews": 3732890,
       "youtubeSubscribers": 33800,
-      "tiktokFollowers": 124400
+      "tiktokFollowers": 124400,
+      "instagramFollowers": 141745,
+      "instagramEstimated": true
     },
     {
       "date": "2026-06-11",
       "youtubeViews": 3741853,
       "youtubeSubscribers": 33800,
-      "tiktokFollowers": 124400
+      "tiktokFollowers": 124400,
+      "instagramFollowers": 141969,
+      "instagramEstimated": true
     },
     {
       "date": "2026-06-12",
       "youtubeViews": 3750354,
       "youtubeSubscribers": 33900,
-      "tiktokFollowers": 124700
+      "tiktokFollowers": 124700,
+      "instagramFollowers": 142193,
+      "instagramEstimated": true
     },
     {
       "date": "2026-06-13",
       "youtubeViews": 3758148,
       "youtubeSubscribers": 33900,
-      "tiktokFollowers": 124800
+      "tiktokFollowers": 124800,
+      "instagramFollowers": 142417,
+      "instagramEstimated": true
     },
     {
       "date": "2026-06-14",
       "youtubeViews": 3765213,
       "youtubeSubscribers": 33900,
-      "tiktokFollowers": 124900
+      "tiktokFollowers": 124900,
+      "instagramFollowers": 142641,
+      "instagramEstimated": true
     },
     {
       "date": "2026-06-15",
       "youtubeViews": 3793433,
       "youtubeSubscribers": 34000,
-      "tiktokFollowers": 124900
+      "tiktokFollowers": 124900,
+      "instagramFollowers": 142865,
+      "instagramEstimated": true
     },
     {
       "date": "2026-06-16",
       "youtubeViews": 3820233,
       "youtubeSubscribers": 34000,
-      "tiktokFollowers": 125000
+      "tiktokFollowers": 125000,
+      "instagramFollowers": 143089,
+      "instagramEstimated": true
     },
     {
       "date": "2026-06-17",
       "youtubeViews": 3834083,
       "youtubeSubscribers": 34000,
-      "tiktokFollowers": 125100
+      "tiktokFollowers": 125100,
+      "instagramFollowers": 143313,
+      "instagramEstimated": true
     },
     {
       "date": "2026-06-18",
       "youtubeViews": 3856830,
       "youtubeSubscribers": 34100,
-      "tiktokFollowers": 125200
+      "tiktokFollowers": 125200,
+      "instagramFollowers": 143537,
+      "instagramEstimated": true
     },
     {
       "date": "2026-06-19",
       "youtubeViews": 3865277,
       "youtubeSubscribers": 34100,
-      "tiktokFollowers": 125400
+      "tiktokFollowers": 125400,
+      "instagramFollowers": 143761,
+      "instagramEstimated": true
     },
     {
       "date": "2026-06-20",
       "youtubeViews": 3882834,
       "youtubeSubscribers": 34100,
-      "tiktokFollowers": 125400
+      "tiktokFollowers": 125400,
+      "instagramFollowers": 143985,
+      "instagramEstimated": true
     },
     {
       "date": "2026-06-21",
       "youtubeViews": 3888441,
       "youtubeSubscribers": 34300,
-      "tiktokFollowers": 125500
+      "tiktokFollowers": 125500,
+      "instagramFollowers": 144209,
+      "instagramEstimated": true
     },
     {
       "date": "2026-06-22",
       "youtubeViews": 3916672,
       "youtubeSubscribers": 34400,
-      "tiktokFollowers": 125600
+      "tiktokFollowers": 125600,
+      "instagramFollowers": 144433,
+      "instagramEstimated": true
     },
     {
       "date": "2026-06-23",
       "youtubeViews": 3916672,
       "youtubeSubscribers": 34500,
-      "tiktokFollowers": 125700
+      "tiktokFollowers": 125700,
+      "instagramFollowers": 144657,
+      "instagramEstimated": true
     },
     {
       "date": "2026-06-24",
       "youtubeViews": 3963084,
       "youtubeSubscribers": 34500,
-      "tiktokFollowers": 125800
+      "tiktokFollowers": 125800,
+      "instagramFollowers": 144881,
+      "instagramEstimated": true
     },
     {
       "date": "2026-06-25",
       "youtubeViews": 4014896,
       "youtubeSubscribers": 34600,
-      "tiktokFollowers": 125800
+      "tiktokFollowers": 125800,
+      "instagramFollowers": 145105,
+      "instagramEstimated": true
     },
     {
       "date": "2026-06-26",
       "youtubeViews": 4057113,
       "youtubeSubscribers": 34700,
-      "tiktokFollowers": 125900
+      "tiktokFollowers": 125900,
+      "instagramFollowers": 145329,
+      "instagramEstimated": true
     },
     {
       "date": "2026-06-27",
       "youtubeViews": 4078050,
       "youtubeSubscribers": 34800,
-      "tiktokFollowers": 126000
+      "tiktokFollowers": 126000,
+      "instagramFollowers": 145553,
+      "instagramEstimated": true
     },
     {
       "date": "2026-06-28",
       "youtubeViews": 4097779,
       "youtubeSubscribers": 34900,
-      "tiktokFollowers": 126100
+      "tiktokFollowers": 126100,
+      "instagramFollowers": 145777,
+      "instagramEstimated": true
     },
     {
       "date": "2026-06-29",
       "youtubeViews": 4119608,
       "youtubeSubscribers": 35000,
-      "tiktokFollowers": 126100
+      "tiktokFollowers": 126100,
+      "instagramFollowers": 146001,
+      "instagramEstimated": true
     },
     {
       "date": "2026-06-30",
       "youtubeViews": 4153009,
       "youtubeSubscribers": 35100,
-      "tiktokFollowers": 126200
+      "tiktokFollowers": 126200,
+      "instagramFollowers": 146225,
+      "instagramEstimated": true
     },
     {
       "date": "2026-07-01",
       "youtubeViews": 4158443,
       "youtubeSubscribers": 35200,
-      "tiktokFollowers": 126300
+      "tiktokFollowers": 126300,
+      "instagramFollowers": 146449,
+      "instagramEstimated": true
     },
     {
       "date": "2026-07-02",
       "youtubeViews": 4214063,
       "youtubeSubscribers": 35300,
-      "tiktokFollowers": 126300
+      "tiktokFollowers": 126300,
+      "instagramFollowers": 146673,
+      "instagramEstimated": true
     },
     {
       "date": "2026-07-03",
       "youtubeViews": 4298799,
       "youtubeSubscribers": 35400,
-      "tiktokFollowers": 126500
+      "tiktokFollowers": 126500,
+      "instagramFollowers": 146897,
+      "instagramEstimated": true
     },
     {
       "date": "2026-07-04",
       "youtubeViews": 4320345,
       "youtubeSubscribers": 35500,
-      "tiktokFollowers": 126600
+      "tiktokFollowers": 126600,
+      "instagramFollowers": 147121,
+      "instagramEstimated": true
     },
     {
       "date": "2026-07-05",
       "youtubeViews": 4340574,
       "youtubeSubscribers": 35600,
-      "tiktokFollowers": 126600
+      "tiktokFollowers": 126600,
+      "instagramFollowers": 147345,
+      "instagramEstimated": true
     },
     {
       "date": "2026-07-06",
       "youtubeViews": 4373507,
       "youtubeSubscribers": 35700,
-      "tiktokFollowers": 126700
+      "tiktokFollowers": 126700,
+      "instagramFollowers": 147569,
+      "instagramEstimated": true
     },
     {
       "date": "2026-07-07",
       "youtubeViews": 4410470,
       "youtubeSubscribers": 35700,
-      "tiktokFollowers": 126900
+      "tiktokFollowers": 126900,
+      "instagramFollowers": 147793,
+      "instagramEstimated": true
     },
     {
       "date": "2026-07-08",
       "youtubeViews": 4427345,
       "youtubeSubscribers": 35800,
-      "tiktokFollowers": 127000
+      "tiktokFollowers": 127000,
+      "instagramFollowers": 148017,
+      "instagramEstimated": true
     },
     {
       "date": "2026-07-09",
       "youtubeViews": 4462371,
       "youtubeSubscribers": 35900,
-      "tiktokFollowers": 127100
+      "tiktokFollowers": 127100,
+      "instagramFollowers": 148241,
+      "instagramEstimated": true
     },
     {
       "date": "2026-07-10",
       "youtubeViews": 4498215,
       "youtubeSubscribers": 36000,
-      "tiktokFollowers": 127400
+      "tiktokFollowers": 127400,
+      "instagramFollowers": 148465,
+      "instagramEstimated": true
     },
     {
       "date": "2026-07-11",
       "youtubeViews": 4517417,
       "youtubeSubscribers": 36100,
-      "tiktokFollowers": 127600
+      "tiktokFollowers": 127600,
+      "instagramFollowers": 148689,
+      "instagramEstimated": true
     },
     {
       "date": "2026-07-12",
       "youtubeViews": 4534996,
       "youtubeSubscribers": 36200,
-      "tiktokFollowers": 127700
+      "tiktokFollowers": 127700,
+      "instagramFollowers": 148913,
+      "instagramEstimated": true
     },
     {
       "date": "2026-07-13",
       "youtubeViews": 4583498,
       "youtubeSubscribers": 36300,
-      "tiktokFollowers": 127800
+      "tiktokFollowers": 127800,
+      "instagramFollowers": 149137,
+      "instagramEstimated": true
     },
     {
       "date": "2026-07-14",
       "youtubeViews": 4606824,
       "youtubeSubscribers": 36400,
-      "tiktokFollowers": 128000
+      "tiktokFollowers": 128000,
+      "instagramFollowers": 149361,
+      "instagramEstimated": true
     },
     {
       "date": "2026-07-15",
       "youtubeViews": 4642239,
       "youtubeSubscribers": 36500,
-      "tiktokFollowers": 128100
+      "tiktokFollowers": 128100,
+      "instagramFollowers": 149585,
+      "instagramEstimated": true
     },
     {
       "date": "2026-07-16",
       "youtubeViews": 4690786,
       "youtubeSubscribers": 36600,
-      "tiktokFollowers": 128200
+      "tiktokFollowers": 128200,
+      "instagramFollowers": 149809,
+      "instagramEstimated": true
     },
     {
       "date": "2026-07-17",
       "youtubeViews": 4730315,
       "youtubeSubscribers": 36700,
-      "tiktokFollowers": 128400
+      "tiktokFollowers": 128400,
+      "instagramFollowers": 150033,
+      "instagramEstimated": true
     },
     {
       "date": "2026-07-18",
       "youtubeViews": 4752790,
       "youtubeSubscribers": 36700,
-      "tiktokFollowers": 128500
+      "tiktokFollowers": 128500,
+      "instagramFollowers": 150257,
+      "instagramEstimated": true
     },
     {
       "date": "2026-07-19",
       "youtubeViews": 4770361,
       "youtubeSubscribers": 36800,
-      "tiktokFollowers": 128600
+      "tiktokFollowers": 128600,
+      "instagramFollowers": 150481,
+      "instagramEstimated": true
     },
     {
       "date": "2026-07-20",
       "youtubeViews": 4808826,
       "youtubeSubscribers": 36800,
-      "tiktokFollowers": 128600
+      "tiktokFollowers": 128600,
+      "instagramFollowers": 150705,
+      "instagramEstimated": true
     },
     {
       "date": "2026-07-21",
       "youtubeViews": 4833473,
       "youtubeSubscribers": 37000,
-      "tiktokFollowers": 128800
+      "tiktokFollowers": 128800,
+      "instagramFollowers": 150929,
+      "instagramEstimated": true
     },
     {
       "date": "2026-07-22",
       "youtubeViews": 4851555,
       "youtubeSubscribers": 37200,
-      "tiktokFollowers": 129000
+      "tiktokFollowers": 129000,
+      "instagramFollowers": 151153,
+      "instagramEstimated": true
     },
     {
       "date": "2026-07-23",
       "youtubeViews": 4897222,
       "youtubeSubscribers": 37400,
-      "tiktokFollowers": 129400
+      "tiktokFollowers": 129400,
+      "instagramFollowers": 151377,
+      "instagramEstimated": true
     },
     {
       "date": "2026-07-24",
       "youtubeViews": 4933235,
       "youtubeSubscribers": 37600,
-      "tiktokFollowers": 129900
+      "tiktokFollowers": 129900,
+      "instagramFollowers": 151601,
+      "instagramEstimated": true
     },
     {
       "date": "2026-07-25",
       "youtubeViews": 4957420,
       "youtubeSubscribers": 37700,
-      "tiktokFollowers": 130000
+      "tiktokFollowers": 130000,
+      "instagramFollowers": 151825,
+      "instagramEstimated": true
     },
     {
       "date": "2026-07-26",
       "youtubeViews": 4977267,
       "youtubeSubscribers": 38000,
-      "tiktokFollowers": 130200
+      "tiktokFollowers": 130200,
+      "instagramFollowers": 152049,
+      "instagramEstimated": true
     },
     {
       "date": "2026-07-27",
       "youtubeViews": 5035711,
       "youtubeSubscribers": 38300,
-      "tiktokFollowers": 130300
+      "tiktokFollowers": 130300,
+      "instagramFollowers": 152273,
+      "instagramEstimated": true
     },
     {
       "date": "2026-07-28",
       "youtubeViews": 5060186,
       "youtubeSubscribers": 38400,
-      "tiktokFollowers": 130400
+      "tiktokFollowers": 130400,
+      "instagramFollowers": 152497,
+      "instagramEstimated": true
     },
     {
       "date": "2026-07-29",
       "youtubeViews": 5092921,
       "youtubeSubscribers": 38600,
-      "tiktokFollowers": 130500
+      "tiktokFollowers": 130500,
+      "instagramFollowers": 152721,
+      "instagramEstimated": true
     },
     {
       "date": "2026-07-30",
       "youtubeViews": 5135548,
       "youtubeSubscribers": 38700,
-      "tiktokFollowers": 130600
+      "tiktokFollowers": 130600,
+      "instagramFollowers": 152945,
+      "instagramEstimated": true
     },
     {
       "date": "2026-07-31",
       "youtubeViews": 5165345,
       "youtubeSubscribers": 38800,
-      "tiktokFollowers": 131200
+      "tiktokFollowers": 131200,
+      "instagramFollowers": 153169,
+      "instagramEstimated": true
     },
     {
       "date": "2026-08-01",
       "youtubeViews": 5165345,
       "youtubeSubscribers": 38900,
-      "tiktokFollowers": 131500
+      "tiktokFollowers": 131500,
+      "instagramFollowers": 153393,
+      "instagramEstimated": true
     },
     {
       "date": "2026-08-02",
       "youtubeViews": 5165345,
       "youtubeSubscribers": 39600,
-      "tiktokFollowers": 131800
+      "tiktokFollowers": 131800,
+      "instagramFollowers": 153617,
+      "instagramEstimated": true
     },
     {
       "date": "2026-08-03",
       "youtubeViews": 5299835,
       "youtubeSubscribers": 40100,
-      "tiktokFollowers": 132400
+      "tiktokFollowers": 132400,
+      "instagramFollowers": 153841,
+      "instagramEstimated": true
     },
     {
       "date": "2026-08-04",
       "youtubeViews": 5331578,
       "youtubeSubscribers": 40400,
-      "tiktokFollowers": 132700
+      "tiktokFollowers": 132700,
+      "instagramFollowers": 154065,
+      "instagramEstimated": true
     },
     {
       "date": "2026-08-05",
       "youtubeViews": 5354058,
       "youtubeSubscribers": 40500,
-      "tiktokFollowers": 133000
+      "tiktokFollowers": 133000,
+      "instagramFollowers": 154289,
+      "instagramEstimated": true
     },
     {
       "date": "2026-08-06",
       "youtubeViews": 5364544,
       "youtubeSubscribers": 40700,
-      "tiktokFollowers": 133200
+      "tiktokFollowers": 133200,
+      "instagramFollowers": 154513,
+      "instagramEstimated": true
     },
     {
       "date": "2026-08-07",
       "youtubeViews": 5447352,
       "youtubeSubscribers": 40800,
-      "tiktokFollowers": 133400
+      "tiktokFollowers": 133400,
+      "instagramFollowers": 154737,
+      "instagramEstimated": true
     },
     {
       "date": "2026-08-08",
       "youtubeViews": 5480957,
       "youtubeSubscribers": 40900,
-      "tiktokFollowers": 133500
+      "tiktokFollowers": 133500,
+      "instagramFollowers": 154960,
+      "instagramEstimated": true
     },
     {
       "date": "2026-08-09",
       "youtubeViews": 5518724,
       "youtubeSubscribers": 41000,
-      "tiktokFollowers": 133600
+      "tiktokFollowers": 133600,
+      "instagramFollowers": 155184,
+      "instagramEstimated": true
     },
     {
       "date": "2026-08-10",
       "youtubeViews": 5571432,
       "youtubeSubscribers": 41100,
-      "tiktokFollowers": 133700
+      "tiktokFollowers": 133700,
+      "instagramFollowers": 155407,
+      "instagramEstimated": true
     },
     {
       "date": "2026-08-11",
       "youtubeViews": 5598994,
       "youtubeSubscribers": 41200,
-      "tiktokFollowers": 133800
+      "tiktokFollowers": 133800,
+      "instagramFollowers": 155631,
+      "instagramEstimated": true
     },
     {
       "date": "2026-08-12",
       "youtubeViews": 5616781,
       "youtubeSubscribers": 41400,
-      "tiktokFollowers": 133800
+      "tiktokFollowers": 133800,
+      "instagramFollowers": 155854,
+      "instagramEstimated": true
     },
     {
       "date": "2026-08-13",
       "youtubeViews": 5631584,
       "youtubeSubscribers": 41400,
-      "tiktokFollowers": 134000
+      "tiktokFollowers": 134000,
+      "instagramFollowers": 156078,
+      "instagramEstimated": true
     },
     {
       "date": "2026-08-14",
       "youtubeViews": 5639047,
       "youtubeSubscribers": 41500,
-      "tiktokFollowers": 134200
+      "tiktokFollowers": 134200,
+      "instagramFollowers": 156301,
+      "instagramEstimated": true
     },
     {
       "date": "2026-08-15",
       "youtubeViews": 5658682,
       "youtubeSubscribers": 41600,
-      "tiktokFollowers": 134300
+      "tiktokFollowers": 134300,
+      "instagramFollowers": 156525,
+      "instagramEstimated": true
     },
     {
       "date": "2026-08-16",
       "youtubeViews": 5669319,
       "youtubeSubscribers": 41600,
-      "tiktokFollowers": 134400
+      "tiktokFollowers": 134400,
+      "instagramFollowers": 156748,
+      "instagramEstimated": true
     },
     {
       "date": "2026-08-17",
       "youtubeViews": 5706454,
       "youtubeSubscribers": 41700,
-      "tiktokFollowers": 134500
+      "tiktokFollowers": 134500,
+      "instagramFollowers": 156972,
+      "instagramEstimated": true
     },
     {
       "date": "2026-08-18",
       "youtubeViews": 5725160,
       "youtubeSubscribers": 41900,
-      "tiktokFollowers": 134600
+      "tiktokFollowers": 134600,
+      "instagramFollowers": 157195,
+      "instagramEstimated": true
     },
     {
       "date": "2026-08-19",
       "youtubeViews": 5739755,
       "youtubeSubscribers": 42000,
-      "tiktokFollowers": 134700
+      "tiktokFollowers": 134700,
+      "instagramFollowers": 157419,
+      "instagramEstimated": true
     },
     {
       "date": "2026-08-20",
       "youtubeViews": 5776612,
       "youtubeSubscribers": 42200,
-      "tiktokFollowers": 134800
+      "tiktokFollowers": 134800,
+      "instagramFollowers": 157642,
+      "instagramEstimated": true
     },
     {
       "date": "2026-08-21",
       "youtubeViews": 5807401,
       "youtubeSubscribers": 42300,
-      "tiktokFollowers": 134900
+      "tiktokFollowers": 134900,
+      "instagramFollowers": 157866,
+      "instagramEstimated": true
     },
     {
       "date": "2026-08-22",
       "youtubeViews": 5825402,
       "youtubeSubscribers": 42400,
-      "tiktokFollowers": 135100
+      "tiktokFollowers": 135100,
+      "instagramFollowers": 158089,
+      "instagramEstimated": true
     },
     {
       "date": "2026-08-23",
       "youtubeViews": 5839776,
       "youtubeSubscribers": 42400,
-      "tiktokFollowers": 135300
+      "tiktokFollowers": 135300,
+      "instagramFollowers": 158313,
+      "instagramEstimated": true
     },
     {
       "date": "2026-08-24",
       "youtubeViews": 5863204,
       "youtubeSubscribers": 42500,
-      "tiktokFollowers": 135600
+      "tiktokFollowers": 135600,
+      "instagramFollowers": 158536,
+      "instagramEstimated": true
     },
     {
       "date": "2026-08-25",
       "youtubeViews": 5899948,
       "youtubeSubscribers": 42600,
-      "tiktokFollowers": 135700
+      "tiktokFollowers": 135700,
+      "instagramFollowers": 158760,
+      "instagramEstimated": true
     },
     {
       "date": "2026-08-26",
       "youtubeViews": 5915534,
       "youtubeSubscribers": 42700,
-      "tiktokFollowers": 135900
+      "tiktokFollowers": 135900,
+      "instagramFollowers": 158983,
+      "instagramEstimated": true
     },
     {
       "date": "2026-08-27",
       "youtubeViews": 5946563,
       "youtubeSubscribers": 42700,
-      "tiktokFollowers": 136000
+      "tiktokFollowers": 136000,
+      "instagramFollowers": 159207,
+      "instagramEstimated": true
     },
     {
       "date": "2026-08-28",
       "youtubeViews": 5962858,
       "youtubeSubscribers": 42800,
-      "tiktokFollowers": 136100
+      "tiktokFollowers": 136100,
+      "instagramFollowers": 159430,
+      "instagramEstimated": true
     },
     {
       "date": "2026-08-29",
       "youtubeViews": 6005896,
       "youtubeSubscribers": 42800,
-      "tiktokFollowers": 136200
+      "tiktokFollowers": 136200,
+      "instagramFollowers": 159654,
+      "instagramEstimated": true
     },
     {
       "date": "2026-08-30",
       "youtubeViews": 6026535,
       "youtubeSubscribers": 42900,
-      "tiktokFollowers": 136300
+      "tiktokFollowers": 136300,
+      "instagramFollowers": 159877,
+      "instagramEstimated": true
     },
     {
       "date": "2026-08-31",
       "youtubeViews": 6084829,
       "youtubeSubscribers": 43000,
-      "tiktokFollowers": 136300
+      "tiktokFollowers": 136300,
+      "instagramFollowers": 160101,
+      "instagramEstimated": true
     },
     {
       "date": "2026-09-01",
       "youtubeViews": 6106739,
       "youtubeSubscribers": 43100,
-      "tiktokFollowers": 136400
+      "tiktokFollowers": 136400,
+      "instagramFollowers": 160324,
+      "instagramEstimated": true
     },
     {
       "date": "2026-09-02",
       "youtubeViews": 6137596,
       "youtubeSubscribers": 43100,
-      "tiktokFollowers": 136400
+      "tiktokFollowers": 136400,
+      "instagramFollowers": 160548,
+      "instagramEstimated": true
     },
     {
       "date": "2026-09-03",
       "youtubeViews": 6148983,
       "youtubeSubscribers": 43200,
-      "tiktokFollowers": 136400
+      "tiktokFollowers": 136400,
+      "instagramFollowers": 160771,
+      "instagramEstimated": true
     },
     {
       "date": "2026-09-04",
       "youtubeViews": 6148983,
       "youtubeSubscribers": 43200,
-      "tiktokFollowers": 136400
+      "tiktokFollowers": 136400,
+      "instagramFollowers": 160995,
+      "instagramEstimated": true
     },
     {
       "date": "2026-09-05",
       "youtubeViews": 6185757,
       "youtubeSubscribers": 43300,
-      "tiktokFollowers": 136600
+      "tiktokFollowers": 136600,
+      "instagramFollowers": 161218,
+      "instagramEstimated": true
     },
     {
       "date": "2026-09-06",
       "youtubeViews": 6197936,
       "youtubeSubscribers": 43300,
-      "tiktokFollowers": 136400
+      "tiktokFollowers": 136400,
+      "instagramFollowers": 161442,
+      "instagramEstimated": true
     },
     {
       "date": "2026-09-07",
       "youtubeViews": 6209183,
       "youtubeSubscribers": 43400,
-      "tiktokFollowers": 136400
+      "tiktokFollowers": 136400,
+      "instagramFollowers": 161665,
+      "instagramEstimated": true
     },
     {
       "date": "2026-09-08",
       "youtubeViews": 6219067,
       "youtubeSubscribers": 43400,
-      "tiktokFollowers": 136500
+      "tiktokFollowers": 136500,
+      "instagramFollowers": 161889,
+      "instagramEstimated": true
     },
     {
       "date": "2026-09-09",
       "youtubeViews": 6219067,
       "youtubeSubscribers": 43500,
-      "tiktokFollowers": 136600
+      "tiktokFollowers": 136600,
+      "instagramFollowers": 162112,
+      "instagramEstimated": true
     },
     {
       "date": "2026-09-10",
       "youtubeViews": 6360909,
       "youtubeSubscribers": 43500,
-      "tiktokFollowers": 136600
+      "tiktokFollowers": 136600,
+      "instagramFollowers": 162336,
+      "instagramEstimated": true
     },
     {
       "date": "2026-09-11",
       "youtubeViews": 6431891,
       "youtubeSubscribers": 43600,
-      "tiktokFollowers": 136600
+      "tiktokFollowers": 136600,
+      "instagramFollowers": 162559,
+      "instagramEstimated": true
     },
     {
       "date": "2026-09-12",
       "youtubeViews": 6457091,
       "youtubeSubscribers": 43600,
-      "tiktokFollowers": 136600
+      "tiktokFollowers": 136600,
+      "instagramFollowers": 162783,
+      "instagramEstimated": true
     },
     {
       "date": "2026-09-13",
       "youtubeViews": 6475978,
       "youtubeSubscribers": 43700,
-      "tiktokFollowers": 136800
+      "tiktokFollowers": 136800,
+      "instagramFollowers": 163006,
+      "instagramEstimated": true
     },
     {
       "date": "2026-09-14",
       "youtubeViews": 6540837,
       "youtubeSubscribers": 43700,
-      "tiktokFollowers": 137000
+      "tiktokFollowers": 137000,
+      "instagramFollowers": 163230,
+      "instagramEstimated": true
     },
     {
       "date": "2026-09-15",
