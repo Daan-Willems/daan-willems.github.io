@@ -180,6 +180,41 @@ const igPosts = computed(() => igData.value?.posts || [])
 // what the API actually returned -- and both sides use the same formula,
 // (likes + comments) / followers, which is the whole reason this comparison
 // is defensible. Renders nothing unless both halves are present.
+// YouTube channel views is the only measure with a long, clean history — 132
+// distinct daily values since April. TikTok followers and YouTube subscribers
+// move too, but sit three orders of magnitude below views, so they are shown as
+// growth figures rather than forced onto the same axis. Instagram is absent
+// before 2026-09-15: see scripts/backfill-history.mjs.
+const growthPoints = computed(() => {
+  const pts = (socialsData.value?.history || [])
+    .filter(p => p.youtubeViews)
+    .map(p => ({ date: p.date, value: p.youtubeViews as number }))
+  return pts.length >= 8 ? pts : null
+})
+
+const growthDeltas = computed(() => {
+  const h = socialsData.value?.history || []
+  const tr = (en: string, nl: string) => locale.value === 'en' ? en : nl
+  const rows: { label: string; to: number; pct: number }[] = []
+  for (const [key, label] of [
+    ['youtubeSubscribers', tr('YouTube subscribers', 'YouTube-abonnees')],
+    ['tiktokFollowers', tr('TikTok followers', 'TikTok-volgers')],
+  ] as const) {
+    const vals = h.map(p => p[key]).filter((v): v is number => !!v)
+    if (vals.length < 8 || !vals[0]) continue
+    const from = vals[0], to = vals[vals.length - 1]
+    rows.push({ label, to, pct: Math.round(((to - from) / from) * 100) })
+  }
+  return rows
+})
+
+const growthSpan = computed(() => {
+  const h = socialsData.value?.history || []
+  if (!h.length) return ''
+  const start = new Date(h[0].date).toLocaleDateString(locale.value, { month: 'long' })
+  return locale.value === 'en' ? `since ${start}` : `sinds ${start}`
+})
+
 const igBenchmark = computed(() => {
   const s = igData.value?.stats as Record<string, any> | undefined
   const b = content.value?.benchmarks?.instagram
@@ -499,6 +534,26 @@ useHead({
         :title="(socialsCopy as any).title"
         :intro="(socialsCopy as any).intro"
       >
+        <RevealOnScroll v-if="growthPoints">
+          <div class="growth-block">
+            <GrowthChart
+              :points="growthPoints"
+              :label="locale === 'en' ? 'Views on YouTube' : 'Weergaven op YouTube'"
+              :caption="growthSpan"
+              :locale="locale"
+              :table-label="locale === 'en' ? 'Show data' : 'Toon data'"
+              :hint-label="locale === 'en' ? 'Hover the chart for a date' : 'Beweeg over de grafiek voor een datum'"
+            />
+            <ul v-if="growthDeltas.length" class="growth-block__deltas">
+              <li v-for="d in growthDeltas" :key="d.label">
+                <span class="growth-block__delta">+{{ d.pct }}%</span>
+                <span class="growth-block__delta-label">{{ d.label }}</span>
+                <span class="growth-block__delta-now">{{ formatCompact(d.to) }}</span>
+              </li>
+            </ul>
+          </div>
+        </RevealOnScroll>
+
         <div class="platforms">
           <a
             v-if="ytChannel"
@@ -1553,6 +1608,50 @@ useHead({
   font-size: var(--fs-600);
   color: var(--c-fg);
   white-space: nowrap;
+}
+
+/* Growth chart block */
+.growth-block {
+  margin-bottom: var(--s-6);
+  padding: var(--s-5);
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius-lg);
+  background: var(--c-bg-elev-1);
+}
+
+.growth-block__deltas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3) var(--s-6);
+  margin: var(--s-5) 0 0;
+  padding: var(--s-4) 0 0;
+  border-top: 1px solid var(--c-line);
+  list-style: none;
+}
+
+.growth-block__deltas li {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-2);
+}
+
+.growth-block__delta {
+  font-family: var(--ff-display);
+  font-weight: 700;
+  font-size: var(--fs-500);
+  color: var(--c-gold);
+}
+
+.growth-block__delta-label {
+  color: var(--c-fg-muted);
+  font-size: var(--fs-300);
+}
+
+.growth-block__delta-now {
+  font-family: var(--ff-display);
+  font-weight: 700;
+  color: var(--c-fg);
+  font-size: var(--fs-300);
 }
 
 /* Benchmark comparison */

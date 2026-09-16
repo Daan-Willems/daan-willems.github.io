@@ -102,11 +102,22 @@ interface YouTubeData extends PlatformStatus {
   top?: YouTubeVideo[]
 }
 
+/** Daily growth series, seeded from git history by scripts/backfill-history.mjs. */
+export interface HistoryPoint {
+  date: string
+  youtubeViews?: number
+  youtubeSubscribers?: number
+  tiktokFollowers?: number
+  instagramFollowers?: number
+  instagramViews?: number
+}
+
 interface SocialsData {
   generatedAt?: string | null
   youtube?: YouTubeData
   tiktok?: TikTokData
   instagram?: InstagramData
+  history?: HistoryPoint[]
 }
 
 const STATE_KEY = 'socialsData'
@@ -134,10 +145,15 @@ export function useSocialsData() {
     error.value = null
     try {
       const v = Date.now()
-      const [youtube, tiktok, instagram] = await Promise.all([
+      const [youtube, tiktok, instagram, history] = await Promise.all([
         fetchPlatform<YouTubeData>('youtube', v),
         fetchPlatform<TikTokData>('tiktok', v),
         fetchPlatform<InstagramData>('instagram', v),
+        // Separate file, not per-platform: it is one shared series across all
+        // three, and it is read-only for the app.
+        $fetch<{ series: HistoryPoint[] }>(`/data/history.json?v=${v}`)
+          .then(r => r?.series ?? null)
+          .catch(() => null),
       ])
       if (!youtube && !tiktok && !instagram) throw new Error('no socials data available')
       const generatedAt = [youtube, tiktok, instagram]
@@ -150,6 +166,7 @@ export function useSocialsData() {
         youtube: youtube ?? undefined,
         tiktok: tiktok ?? undefined,
         instagram: instagram ?? undefined,
+        history: history ?? undefined,
       }
       state.value = res
       return res
