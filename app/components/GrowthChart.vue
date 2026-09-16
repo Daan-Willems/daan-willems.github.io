@@ -13,19 +13,17 @@ interface Point { date: string; value: number }
 const props = withDefaults(defineProps<{
   points: Point[]
   label: string
-  /** Shown under the endpoint value, e.g. "sinds april". */
-  caption?: string
+  /** Prefixes the auto-derived start month, e.g. "sinds" -> "sinds mei". */
+  captionPrefix?: string
   /** Formats a value for labels and tooltip. Defaults to compact notation. */
   format?: (n: number) => string
   /** Locale for date formatting in the tooltip and axis. */
   locale?: string
-  tableLabel?: string
   /** Shown in the tooltip slot while nothing is hovered, so its height is reserved. */
   hintLabel?: string
 }>(), {
-  caption: '',
+  captionPrefix: '',
   locale: 'nl',
-  tableLabel: 'Toon data',
   hintLabel: 'Beweeg over de grafiek voor een datum',
 })
 
@@ -125,6 +123,15 @@ const hovered = computed(() => hoverIndex.value == null ? null : clean.value[hov
 const longDate = (d: string) =>
   new Date(d).toLocaleDateString(props.locale, { day: 'numeric', month: 'long', year: 'numeric' })
 
+// Derived from this series' own first point rather than passed in: the five
+// charts start on different dates, and a shared caption said "sinds april" on
+// one that begins in May.
+const caption = computed(() => {
+  if (!props.captionPrefix || !first.value) return ''
+  const month = new Date(first.value.date).toLocaleDateString(props.locale, { month: 'long' })
+  return `${props.captionPrefix} ${month}`
+})
+
 const gradientId = useId()
 </script>
 
@@ -194,18 +201,6 @@ const gradientId = useId()
       <span v-else class="growth__tip-hint">{{ hintLabel }}</span>
     </output>
 
-    <details class="growth__table">
-      <summary>{{ tableLabel }}</summary>
-      <table>
-        <thead><tr><th scope="col">Datum</th><th scope="col">{{ label }}</th></tr></thead>
-        <tbody>
-          <tr v-for="p in clean" :key="p.date">
-            <td>{{ p.date }}</td>
-            <td>{{ p.value.toLocaleString(locale) }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </details>
   </figure>
 </template>
 
@@ -344,29 +339,4 @@ const gradientId = useId()
   color: var(--c-fg);
 }
 
-.growth__table {
-  margin-top: var(--s-3);
-  font-size: var(--fs-300);
-  color: var(--c-fg-muted);
-}
-
-.growth__table summary {
-  cursor: pointer;
-  opacity: 0.8;
-}
-
-.growth__table table {
-  margin-top: var(--s-2);
-  max-height: 14rem;
-  overflow: auto;
-  display: block;
-  border-collapse: collapse;
-}
-
-.growth__table th,
-.growth__table td {
-  text-align: left;
-  padding: 0.15rem var(--s-3) 0.15rem 0;
-  font-variant-numeric: tabular-nums;
-}
 </style>

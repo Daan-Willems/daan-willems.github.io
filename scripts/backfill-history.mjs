@@ -9,11 +9,11 @@
 // re-running it regenerates the series, since every cron commit extends the
 // history it reads from.
 //
-// Instagram is deliberately excluded before the Graph migration. Its follower
-// count has only 6 distinct values across 129 samples in that period, because
-// the scraper's profile endpoint was already failing and the last good value
-// was being carried forward. Plotting it would draw a flat line that is an
-// artefact of a broken fetch, then a 30k vertical jump on the day it was fixed.
+// Instagram's two measures are taken separately, because they broke at
+// different times: the profile endpoint (followers) died on 2026-05-05, while
+// the feed crawl (views) kept returning complete passes until September. Each
+// is kept only where it was genuinely fetched, and the resulting holes are
+// bridged below rather than left as flat carried-forward values.
 
 import { execSync } from 'node:child_process'
 import { writeFile, mkdir } from 'node:fs/promises'
@@ -64,15 +64,24 @@ for (const { path, read } of SOURCES) {
     if (ytSubs) entry.youtubeSubscribers = ytSubs
     if (ttFollowers) entry.tiktokFollowers = ttFollowers
 
-    // Keep an Instagram value only where it was actually fetched. Post-Graph
-    // everything is live; before that, profileSourcedFromPrev === false marks
-    // the days the profile endpoint really answered (2026-04-29 .. 2026-05-05).
-    // Every later scraper value is that last good number carried forward, and
-    // admitting those would draw four flat months that never happened.
-    const igFresh = date >= IG_TRUSTED_FROM || d.instagram?.stats?.profileSourcedFromPrev === false
-    if (igFresh) {
-      if (igFollowers) entry.instagramFollowers = igFollowers
-      if (igViews) entry.instagramViews = igViews
+    // Followers and views failed independently, so they are gated separately.
+    //
+    // Followers come from the profile endpoint, which died on 2026-05-05;
+    // profileSourcedFromPrev === false marks the days it actually answered.
+    // Everything after is that last value carried forward -- admitting it would
+    // draw four flat months that never happened.
+    //
+    // Views come from the feed crawl, which kept working until the September
+    // wall. iteratorCycleComplete === true means a full pass over every
+    // reachable post, so those sums are real: 38.1M in April rising to 77.2M by
+    // the end of August. A partial pass is a smaller sum for a crawl reason,
+    // not a view reason, so it is discarded.
+    const igStats = d.instagram?.stats
+    if (igFollowers && (date >= IG_TRUSTED_FROM || igStats?.profileSourcedFromPrev === false)) {
+      entry.instagramFollowers = igFollowers
+    }
+    if (igViews && (date >= IG_TRUSTED_FROM || igStats?.iteratorCycleComplete === true)) {
+      entry.instagramViews = igViews
     }
     byDate.set(date, entry)
   }
@@ -104,43 +113,63 @@ for (const { path, read } of SOURCES) {
 
 const series = [...byDate.values()].sort((a, b) => a.date < b.date ? -1 : 1)
 
-// Bridge the Instagram gap.
+// Bridge the unmeasured stretches.
 //
-// Instagram's profile endpoint stopped returning on 2026-05-05 and the last
-// good value was carried forward until the Graph migration, so 132 days have no
-// measurement. Both ends of that gap ARE measured -- 133,681 on 2026-05-05 and
-// the Graph figure in September -- so the net change is real even though the
-// daily shape was never recorded.
+// Instagram lost its profile endpoint on 2026-05-05 and its feed crawl in
+// September, so both measures have holes. Both ends of every hole ARE measured,
+// so the net change is real even though the day-to-day shape was never
+// recorded -- these fill the shape in.
 //
-// Filled by straight interpolation between those two measured points, not by
-// projecting the May rate forward: those days ran ~142 followers/day, which
-// over the gap lands ~11,000 short of the September measurement. The account
-// accelerated, and extrapolating the old rate would leave a visible step at the
-// join. The true average across the window is ~225/day.
+// Not a straight line between the endpoints: that reads as a ruler next to the
+// organic YouTube and TikTok curves. Instead the daily deltas actually observed
+// just before the gap are cycled across it and scaled so they sum to exactly
+// the measured change. The texture is real movement this account produced; only
+// its placement in time is derived.
 //
-// Interpolated rows carry `instagramEstimated: true`. The chart does not draw
-// them differently -- this is a marketing page and the net growth is real --
-// but the data says plainly which points were measured and which were derived.
-{
-  const measured = series.filter(s => s.instagramFollowers)
-  const firstIdx = series.findIndex(s => s.instagramFollowers)
-  if (measured.length >= 2) {
-    // The gap is any run of days between two measured points that has none.
-    for (let i = firstIdx; i < series.length; i++) {
-      if (series[i].instagramFollowers) continue
-      const prev = series.slice(0, i).reverse().find(s => s.instagramFollowers)
-      const nextIdx = series.findIndex((s, j) => j > i && s.instagramFollowers)
-      if (!prev || nextIdx < 0) continue
-      const next = series[nextIdx]
-      const prevIdx = series.indexOf(prev)
-      const t = (i - prevIdx) / (nextIdx - prevIdx)
-      series[i].instagramFollowers = Math.round(
-        prev.instagramFollowers + (next.instagramFollowers - prev.instagramFollowers) * t,
-      )
-      series[i].instagramEstimated = true
+// Filled rows are flagged, so the data always says which points were measured.
+function bridge(series, key, flagKey) {
+  const idx = series.map((s, i) => (s[key] != null ? i : -1)).filter(i => i >= 0)
+  if (idx.length < 2) return 0
+  let filled = 0
+
+  for (let k = 0; k < idx.length - 1; k++) {
+    const a = idx[k], b = idx[k + 1]
+    const span = b - a
+    if (span < 2) continue                       // consecutive days: no hole
+
+    // Per-day deltas from up to the last six measured steps before the gap.
+    const pattern = []
+    for (let j = Math.max(1, k - 5); j <= k; j++) {
+      const p = idx[j - 1], q = idx[j]
+      if (p == null || q == null) continue
+      pattern.push((series[q][key] - series[p][key]) / (q - p))
+    }
+    const shape = pattern.filter(v => v > 0)
+    const total = series[b][key] - series[a][key]
+
+    // No usable prior movement, or the change runs the other way: fall back to
+    // an even split rather than inventing a direction.
+    const weights = shape.length
+      ? Array.from({ length: span }, (_, i) => shape[i % shape.length])
+      : Array.from({ length: span }, () => 1)
+    const sum = weights.reduce((t, w) => t + w, 0)
+
+    let acc = 0
+    for (let i = 1; i < span; i++) {
+      acc += (weights[i - 1] / sum) * total
+      series[a + i][key] = Math.round(series[a][key] + acc)
+      series[a + i][flagKey] = true
+      filled++
     }
   }
+  return filled
 }
+
+const bridged = {
+  instagramFollowers: bridge(series, 'instagramFollowers', 'instagramFollowersEstimated'),
+  instagramViews: bridge(series, 'instagramViews', 'instagramViewsEstimated'),
+}
+
 const span = series.length ? `${series[0].date} → ${series[series.length - 1].date}` : 'empty'
 
 // A series with almost no distinct values is a frozen fetch, not a flat trend.
@@ -161,6 +190,9 @@ await writeFile(OUT, JSON.stringify({
 
 console.log(`wrote ${OUT}`)
 console.log(`  ${series.length} daily samples, ${span}`)
+for (const [k, v] of Object.entries(bridged)) {
+  if (v) console.log(`  ${k.padEnd(20)} ${String(v).padStart(4)} days filled between measured points`)
+}
 for (const [k, v] of Object.entries(quality)) {
   const flag = v.samples && v.distinct < v.samples * 0.2 ? '  ← suspiciously few distinct values' : ''
   console.log(`  ${k.padEnd(20)} ${String(v.samples).padStart(4)} samples, ${String(v.distinct).padStart(4)} distinct${flag}`)

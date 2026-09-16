@@ -185,7 +185,8 @@ const igPosts = computed(() => igData.value?.posts || [])
 // move too, but sit three orders of magnitude below views, so they are shown as
 // growth figures rather than forced onto the same axis. Instagram is absent
 // before 2026-09-15: see scripts/backfill-history.mjs.
-function seriesFrom(key: 'youtubeViews' | 'tiktokFollowers' | 'instagramFollowers') {
+type SeriesKey = 'youtubeViews' | 'youtubeSubscribers' | 'tiktokFollowers' | 'instagramFollowers' | 'instagramViews'
+function seriesFrom(key: SeriesKey) {
   const pts = (socialsData.value?.history || [])
     .filter(p => p[key])
     .map(p => ({ date: p.date, value: p[key] as number }))
@@ -194,39 +195,18 @@ function seriesFrom(key: 'youtubeViews' | 'tiktokFollowers' | 'instagramFollower
 const growthPoints = computed(() => seriesFrom('youtubeViews'))
 const tiktokPoints = computed(() => seriesFrom('tiktokFollowers'))
 const instagramPoints = computed(() => seriesFrom('instagramFollowers'))
+const instagramViewPoints = computed(() => seriesFrom('instagramViews'))
+const youtubeSubPoints = computed(() => seriesFrom('youtubeSubscribers'))
 
-// Instagram only started being measured properly at the Graph migration, so it
-// has too few points to plot. Say so rather than leaving a hole the reader has
-// to explain to themselves.
-const instagramPending = computed(() => {
-  const h = socialsData.value?.history || []
-  const days = h.filter(p => p.instagramFollowers).length
-  return days > 0 && days < 8 ? days : 0
-})
-
-const growthDeltas = computed(() => {
-  const h = socialsData.value?.history || []
-  const tr = (en: string, nl: string) => locale.value === 'en' ? en : nl
-  const rows: { label: string; to: number; pct: number }[] = []
-  // Only measures that are NOT charted above, so a figure never reads as a
-  // series the reader failed to find in a plot.
-  for (const [key, label] of [
-    ['youtubeSubscribers', tr('YouTube subscribers', 'YouTube-abonnees')],
-  ] as const) {
-    const vals = h.map(p => p[key]).filter((v): v is number => !!v)
-    if (vals.length < 8 || !vals[0]) continue
-    const from = vals[0], to = vals[vals.length - 1]
-    rows.push({ label, to, pct: Math.round(((to - from) / from) * 100) })
-  }
-  return rows
-})
-
-const growthSpan = computed(() => {
-  const h = socialsData.value?.history || []
-  if (!h.length) return ''
-  const start = new Date(h[0].date).toLocaleDateString(locale.value, { month: 'long' })
-  return locale.value === 'en' ? `since ${start}` : `sinds ${start}`
-})
+// Every measure is charted, so nothing sits in a footer looking like a series
+// the reader failed to find. Ordered by size: the biggest number leads.
+const growthCharts = computed(() => ([
+  { key: 'igv', points: instagramViewPoints.value, en: 'Views on Instagram', nl: 'Weergaven op Instagram' },
+  { key: 'ytv', points: growthPoints.value, en: 'Views on YouTube', nl: 'Weergaven op YouTube' },
+  { key: 'igf', points: instagramPoints.value, en: 'Followers on Instagram', nl: 'Volgers op Instagram' },
+  { key: 'ttf', points: tiktokPoints.value, en: 'Followers on TikTok', nl: 'Volgers op TikTok' },
+  { key: 'yts', points: youtubeSubPoints.value, en: 'Subscribers on YouTube', nl: 'Abonnees op YouTube' },
+].filter(c => c.points)))
 
 const igBenchmark = computed(() => {
   const s = igData.value?.stats as Record<string, any> | undefined
@@ -547,52 +527,21 @@ useHead({
         :title="(socialsCopy as any).title"
         :intro="(socialsCopy as any).intro"
       >
-        <RevealOnScroll v-if="growthPoints || tiktokPoints">
+        <RevealOnScroll v-if="growthCharts.length">
           <div class="growth-block">
-            <!-- Small multiples: views and followers differ by three orders of
-                 magnitude, so each gets its own axis instead of being forced
-                 onto a shared one. -->
+            <!-- Small multiples: views and followers differ by orders of
+                 magnitude, so each gets its own axis instead of a shared one. -->
             <div class="growth-block__charts">
               <GrowthChart
-                v-if="growthPoints"
-                :points="growthPoints"
-                :label="locale === 'en' ? 'Views on YouTube' : 'Weergaven op YouTube'"
-                :caption="growthSpan"
+                v-for="c in growthCharts"
+                :key="c.key"
+                :points="c.points"
+                :label="locale === 'en' ? c.en : c.nl"
+                :caption-prefix="locale === 'en' ? 'since' : 'sinds'"
                 :locale="locale"
-                :table-label="locale === 'en' ? 'Show data' : 'Toon data'"
-                :hint-label="locale === 'en' ? 'Hover for a date' : 'Beweeg voor een datum'"
-              />
-              <GrowthChart
-                v-if="tiktokPoints"
-                :points="tiktokPoints"
-                :label="locale === 'en' ? 'Followers on TikTok' : 'Volgers op TikTok'"
-                :caption="growthSpan"
-                :locale="locale"
-                :table-label="locale === 'en' ? 'Show data' : 'Toon data'"
-                :hint-label="locale === 'en' ? 'Hover for a date' : 'Beweeg voor een datum'"
-              />
-              <GrowthChart
-                v-if="instagramPoints"
-                :points="instagramPoints"
-                :label="locale === 'en' ? 'Followers on Instagram' : 'Volgers op Instagram'"
-                :caption="growthSpan"
-                :locale="locale"
-                :table-label="locale === 'en' ? 'Show data' : 'Toon data'"
                 :hint-label="locale === 'en' ? 'Hover for a date' : 'Beweeg voor een datum'"
               />
             </div>
-            <ul v-if="growthDeltas.length" class="growth-block__deltas">
-              <li v-for="d in growthDeltas" :key="d.label">
-                <span class="growth-block__delta">+{{ d.pct }}%</span>
-                <span class="growth-block__delta-label">{{ d.label }}</span>
-                <span class="growth-block__delta-now">{{ formatCompact(d.to) }}</span>
-              </li>
-              <li v-if="instagramPending" class="growth-block__pending">
-                {{ locale === 'en'
-                  ? `Instagram has been tracked for ${instagramPending} day${instagramPending === 1 ? '' : 's'} — its curve follows once there is enough to plot.`
-                  : `Instagram wordt ${instagramPending} dag${instagramPending === 1 ? '' : 'en'} gemeten — de grafiek volgt zodra er genoeg meetpunten zijn.` }}
-              </li>
-            </ul>
           </div>
         </RevealOnScroll>
 
@@ -1672,47 +1621,6 @@ useHead({
        platform should not need a media-query edit to lay out. */
     grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
   }
-}
-
-.growth-block__pending {
-  color: var(--c-fg-muted);
-  font-size: var(--fs-300);
-  opacity: 0.7;
-}
-
-.growth-block__deltas {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--s-3) var(--s-6);
-  margin: var(--s-5) 0 0;
-  padding: var(--s-4) 0 0;
-  border-top: 1px solid var(--c-line);
-  list-style: none;
-}
-
-.growth-block__deltas li {
-  display: flex;
-  align-items: baseline;
-  gap: var(--s-2);
-}
-
-.growth-block__delta {
-  font-family: var(--ff-display);
-  font-weight: 700;
-  font-size: var(--fs-500);
-  color: var(--c-gold);
-}
-
-.growth-block__delta-label {
-  color: var(--c-fg-muted);
-  font-size: var(--fs-300);
-}
-
-.growth-block__delta-now {
-  font-family: var(--ff-display);
-  font-weight: 700;
-  color: var(--c-fg);
-  font-size: var(--fs-300);
 }
 
 /* Benchmark comparison */
