@@ -82,6 +82,10 @@ for (const { path, read } of SOURCES) {
     }
     if (igViews && (date >= IG_TRUSTED_FROM || igStats?.iteratorCycleComplete === true)) {
       entry.instagramViews = igViews
+      // Which metric produced it. The scraper summed play_count, which counts
+      // replays; the Graph API returns view_count, which does not. They are
+      // different quantities and cannot share a line untouched.
+      entry.instagramViewsBasis = igStats?.source === 'graph' ? 'graph' : 'plays'
     }
     byDate.set(date, entry)
   }
@@ -163,6 +167,42 @@ function bridge(series, key, flagKey) {
     }
   }
   return filled
+}
+
+// Put the scraper's play counts onto the Graph API's views basis.
+//
+// Without this the series drops 1.2M between 2026-08-30 and 2026-09-15 -- not a
+// real decline (a cumulative counter cannot fall) but the seam between two
+// metrics. Plays include replays, views do not, so the old numbers read high.
+//
+// The factor is derived, not guessed: extend the scraper's own recent daily
+// rate to the date of the first Graph reading, and compare. That ratio is the
+// replay inflation, and scaling the whole pre-Graph stretch by it preserves the
+// shape and growth rate while making the join continuous.
+{
+  const idx = series.map((s, i) => (s.instagramViews != null ? i : -1)).filter(i => i >= 0)
+  const lastPlays = [...idx].reverse().find(i => series[i].instagramViewsBasis === 'plays')
+  const firstGraph = idx.find(i => series[i].instagramViewsBasis === 'graph')
+
+  if (lastPlays != null && firstGraph != null && firstGraph > lastPlays) {
+    // Daily rate over the last fortnight of scraper readings.
+    const window = idx.filter(i => i <= lastPlays && series[i].instagramViewsBasis === 'plays').slice(-6)
+    const a = window[0], b = window[window.length - 1]
+    const perDay = b > a ? (series[b].instagramViews - series[a].instagramViews) / (b - a) : 0
+    const projected = series[lastPlays].instagramViews + perDay * (firstGraph - lastPlays)
+    const factor = projected > 0 ? series[firstGraph].instagramViews / projected : 1
+
+    if (factor > 0.5 && factor < 1.5) {
+      for (const i of idx) {
+        if (series[i].instagramViewsBasis !== 'plays') continue
+        series[i].instagramViews = Math.round(series[i].instagramViews * factor)
+        series[i].instagramViewsRebased = true
+      }
+      console.log(`  instagramViews    rebased plays->views by x${factor.toFixed(4)} (${window.length} pts, ${Math.round(perDay).toLocaleString('en')}/day)`)
+    } else {
+      console.warn(`  ! instagramViews rebase factor ${factor.toFixed(3)} out of range; left unscaled`)
+    }
+  }
 }
 
 const bridged = {

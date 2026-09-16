@@ -1,5 +1,5 @@
 {
-  "backfilledAt": "2026-09-16T00:54:47.111Z",
+  "backfilledAt": "2026-09-16T01:01:36.201Z",
   "note": "Daily series reconstructed from git history. Instagram starts 2026-09-15 -- earlier values are a stalled fetch, not a flat trend.",
   "series": [
     {
@@ -56,7 +56,9 @@
       "youtubeViews": 2950465,
       "youtubeSubscribers": 28300,
       "tiktokFollowers": 114500,
-      "instagramViews": 49476325,
+      "instagramViews": 44968271,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 133918,
       "instagramFollowersEstimated": true
     },
@@ -65,7 +67,9 @@
       "youtubeViews": 2985807,
       "youtubeSubscribers": 28400,
       "tiktokFollowers": 114800,
-      "instagramViews": 49634782,
+      "instagramViews": 45112290,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 134023,
       "instagramFollowersEstimated": true
     },
@@ -74,7 +78,9 @@
       "youtubeViews": 3021532,
       "youtubeSubscribers": 28500,
       "tiktokFollowers": 115000,
-      "instagramViews": 49634782,
+      "instagramViews": 45112290,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 134460,
       "instagramFollowersEstimated": true
     },
@@ -83,7 +89,9 @@
       "youtubeViews": 3040986,
       "youtubeSubscribers": 28600,
       "tiktokFollowers": 115100,
-      "instagramViews": 49986930,
+      "instagramViews": 45432352,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 134612,
       "instagramFollowersEstimated": true
     },
@@ -92,7 +100,9 @@
       "youtubeViews": 3051217,
       "youtubeSubscribers": 28800,
       "tiktokFollowers": 115400,
-      "instagramViews": 50246436,
+      "instagramViews": 45668213,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 134841,
       "instagramFollowersEstimated": true
     },
@@ -101,7 +111,9 @@
       "youtubeViews": 3067140,
       "youtubeSubscribers": 28900,
       "tiktokFollowers": 115600,
-      "instagramViews": 50246436,
+      "instagramViews": 45668213,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 135024,
       "instagramFollowersEstimated": true
     },
@@ -110,7 +122,9 @@
       "youtubeViews": 3078689,
       "youtubeSubscribers": 29000,
       "tiktokFollowers": 115800,
-      "instagramViews": 50377402,
+      "instagramViews": 45787246,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 135260,
       "instagramFollowersEstimated": true
     },
@@ -119,7 +133,9 @@
       "youtubeViews": 3090634,
       "youtubeSubscribers": 29300,
       "tiktokFollowers": 115900,
-      "instagramViews": 50377402,
+      "instagramViews": 45787246,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 135366,
       "instagramFollowersEstimated": true
     },
@@ -128,7 +144,9 @@
       "youtubeViews": 3097463,
       "youtubeSubscribers": 29700,
       "tiktokFollowers": 116000,
-      "instagramViews": 50821465,
+      "instagramViews": 46190848,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 135803,
       "instagramFollowersEstimated": true
     },
@@ -137,7 +155,9 @@
       "youtubeViews": 3165205,
       "youtubeSubscribers": 30000,
       "tiktokFollowers": 116400,
-      "instagramViews": 50940619,
+      "instagramViews": 46299145,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 135954,
       "instagramFollowersEstimated": true
     },
@@ -146,7 +166,9 @@
       "youtubeViews": 3205943,
       "youtubeSubscribers": 30200,
       "tiktokFollowers": 116700,
-      "instagramViews": 50940619,
+      "instagramViews": 46299145,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 136183,
       "instagramFollowersEstimated": true
     },
@@ -155,7 +177,9 @@
       "youtubeViews": 3222871,
       "youtubeSubscribers": 30500,
       "tiktokFollowers": 116800,
-      "instagramViews": 51479678,
+      "instagramViews": 46789087,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 136366,
       "instagramFollowersEstimated": true
     },
@@ -164,7 +188,9 @@
       "youtubeViews": 3288197,
       "youtubeSubscribers": 30700,
       "tiktokFollowers": 117000,
-      "instagramViews": 51605333,
+      "instagramViews": 46903293,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 136603,
       "instagramFollowersEstimated": true
     },
@@ -173,7 +199,9 @@
       "youtubeViews": 3315287,
       "youtubeSubscribers": 31400,
       "tiktokFollowers": 118300,
-      "instagramViews": 51605333,
+      "instagramViews": 46903293,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 136708,
       "instagramFollowersEstimated": true
     },
@@ -184,7 +212,7 @@
       "tiktokFollowers": 119200,
       "instagramFollowers": 137145,
       "instagramFollowersEstimated": true,
-      "instagramViews": 52142778,
+      "instagramViews": 47391769,
       "instagramViewsEstimated": true
     },
     {
@@ -192,7 +220,9 @@
       "youtubeViews": 3362851,
       "youtubeSubscribers": 32000,
       "tiktokFollowers": 119600,
-      "instagramViews": 52286989,
+      "instagramViews": 47522840,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 137297,
       "instagramFollowersEstimated": true
     },
@@ -201,7 +231,9 @@
       "youtubeViews": 3394120,
       "youtubeSubscribers": 32200,
       "tiktokFollowers": 120700,
-      "instagramViews": 52286989,
+      "instagramViews": 47522840,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 137526,
       "instagramFollowersEstimated": true
     },
@@ -210,7 +242,9 @@
       "youtubeViews": 3410499,
       "youtubeSubscribers": 32300,
       "tiktokFollowers": 121300,
-      "instagramViews": 53036316,
+      "instagramViews": 48203892,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 137709,
       "instagramFollowersEstimated": true
     },
@@ -219,7 +253,9 @@
       "youtubeViews": 3423485,
       "youtubeSubscribers": 32400,
       "tiktokFollowers": 121700,
-      "instagramViews": 53036316,
+      "instagramViews": 48203892,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 137945,
       "instagramFollowersEstimated": true
     },
@@ -228,7 +264,9 @@
       "youtubeViews": 3460335,
       "youtubeSubscribers": 32600,
       "tiktokFollowers": 122000,
-      "instagramViews": 53384908,
+      "instagramViews": 48520721,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 138051,
       "instagramFollowersEstimated": true
     },
@@ -237,7 +275,9 @@
       "youtubeViews": 3490203,
       "youtubeSubscribers": 32800,
       "tiktokFollowers": 122200,
-      "instagramViews": 53384908,
+      "instagramViews": 48520721,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 138488,
       "instagramFollowersEstimated": true
     },
@@ -248,7 +288,7 @@
       "tiktokFollowers": 122300,
       "instagramFollowers": 138639,
       "instagramFollowersEstimated": true,
-      "instagramViews": 53504301,
+      "instagramViews": 48629235,
       "instagramViewsEstimated": true
     },
     {
@@ -256,7 +296,9 @@
       "youtubeViews": 3538739,
       "youtubeSubscribers": 33000,
       "tiktokFollowers": 122500,
-      "instagramViews": 53766791,
+      "instagramViews": 48867809,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 138868,
       "instagramFollowersEstimated": true
     },
@@ -265,7 +307,9 @@
       "youtubeViews": 3557020,
       "youtubeSubscribers": 33100,
       "tiktokFollowers": 123000,
-      "instagramViews": 53766791,
+      "instagramViews": 48867809,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 139051,
       "instagramFollowersEstimated": true
     },
@@ -276,7 +320,7 @@
       "tiktokFollowers": 123200,
       "instagramFollowers": 139288,
       "instagramFollowersEstimated": true,
-      "instagramViews": 54223738,
+      "instagramViews": 49283121,
       "instagramViewsEstimated": true
     },
     {
@@ -284,7 +328,9 @@
       "youtubeViews": 3581314,
       "youtubeSubscribers": 33200,
       "tiktokFollowers": 123400,
-      "instagramViews": 54436313,
+      "instagramViews": 49476327,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 139393,
       "instagramFollowersEstimated": true
     },
@@ -293,7 +339,9 @@
       "youtubeViews": 3615868,
       "youtubeSubscribers": 33300,
       "tiktokFollowers": 123400,
-      "instagramViews": 54436313,
+      "instagramViews": 49476327,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 139830,
       "instagramFollowersEstimated": true
     },
@@ -302,7 +350,9 @@
       "youtubeViews": 3630024,
       "youtubeSubscribers": 33400,
       "tiktokFollowers": 123600,
-      "instagramViews": 54607874,
+      "instagramViews": 49632256,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 139982,
       "instagramFollowersEstimated": true
     },
@@ -311,7 +361,9 @@
       "youtubeViews": 3641807,
       "youtubeSubscribers": 33400,
       "tiktokFollowers": 123600,
-      "instagramViews": 54607874,
+      "instagramViews": 49632256,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 140211,
       "instagramFollowersEstimated": true
     },
@@ -322,7 +374,7 @@
       "tiktokFollowers": 123700,
       "instagramFollowers": 140394,
       "instagramFollowersEstimated": true,
-      "instagramViews": 54716112,
+      "instagramViews": 49730632,
       "instagramViewsEstimated": true
     },
     {
@@ -330,7 +382,9 @@
       "youtubeViews": 3666186,
       "youtubeSubscribers": 33500,
       "tiktokFollowers": 123900,
-      "instagramViews": 54905875,
+      "instagramViews": 49903105,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 140630,
       "instagramFollowersEstimated": true
     },
@@ -339,7 +393,9 @@
       "youtubeViews": 3675517,
       "youtubeSubscribers": 33500,
       "tiktokFollowers": 124000,
-      "instagramViews": 54905875,
+      "instagramViews": 49903105,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 140736,
       "instagramFollowersEstimated": true
     },
@@ -350,7 +406,7 @@
       "tiktokFollowers": 124100,
       "instagramFollowers": 141173,
       "instagramFollowersEstimated": true,
-      "instagramViews": 55161427,
+      "instagramViews": 50135372,
       "instagramViewsEstimated": true
     },
     {
@@ -358,7 +414,9 @@
       "youtubeViews": 3709201,
       "youtubeSubscribers": 33700,
       "tiktokFollowers": 124100,
-      "instagramViews": 55292394,
+      "instagramViews": 50254406,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 141324,
       "instagramFollowersEstimated": true
     },
@@ -367,7 +425,9 @@
       "youtubeViews": 3722722,
       "youtubeSubscribers": 33700,
       "tiktokFollowers": 124200,
-      "instagramViews": 55292394,
+      "instagramViews": 50254406,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 141553,
       "instagramFollowersEstimated": true
     },
@@ -378,7 +438,7 @@
       "tiktokFollowers": 124400,
       "instagramFollowers": 141736,
       "instagramFollowersEstimated": true,
-      "instagramViews": 55477468,
+      "instagramViews": 50422617,
       "instagramViewsEstimated": true
     },
     {
@@ -388,7 +448,7 @@
       "tiktokFollowers": 124400,
       "instagramFollowers": 141973,
       "instagramFollowersEstimated": true,
-      "instagramViews": 55638205,
+      "instagramViews": 50568709,
       "instagramViewsEstimated": true
     },
     {
@@ -396,7 +456,9 @@
       "youtubeViews": 3750354,
       "youtubeSubscribers": 33900,
       "tiktokFollowers": 124700,
-      "instagramViews": 55846687,
+      "instagramViews": 50758195,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 142078,
       "instagramFollowersEstimated": true
     },
@@ -405,7 +467,9 @@
       "youtubeViews": 3758148,
       "youtubeSubscribers": 33900,
       "tiktokFollowers": 124800,
-      "instagramViews": 55846687,
+      "instagramViews": 50758195,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 142515,
       "instagramFollowersEstimated": true
     },
@@ -416,7 +480,7 @@
       "tiktokFollowers": 124900,
       "instagramFollowers": 142667,
       "instagramFollowersEstimated": true,
-      "instagramViews": 56002037,
+      "instagramViews": 50899390,
       "instagramViewsEstimated": true
     },
     {
@@ -426,7 +490,7 @@
       "tiktokFollowers": 124900,
       "instagramFollowers": 142896,
       "instagramFollowersEstimated": true,
-      "instagramViews": 56203533,
+      "instagramViews": 51082526,
       "instagramViewsEstimated": true
     },
     {
@@ -434,7 +498,9 @@
       "youtubeViews": 3820233,
       "youtubeSubscribers": 34000,
       "tiktokFollowers": 125000,
-      "instagramViews": 56396171,
+      "instagramViews": 51257612,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 143079,
       "instagramFollowersEstimated": true
     },
@@ -443,7 +509,9 @@
       "youtubeViews": 3834083,
       "youtubeSubscribers": 34000,
       "tiktokFollowers": 125100,
-      "instagramViews": 56396171,
+      "instagramViews": 51257612,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 143315,
       "instagramFollowersEstimated": true
     },
@@ -452,7 +520,9 @@
       "youtubeViews": 3856830,
       "youtubeSubscribers": 34100,
       "tiktokFollowers": 125200,
-      "instagramViews": 56801607,
+      "instagramViews": 51626107,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 143421,
       "instagramFollowersEstimated": true
     },
@@ -461,7 +531,9 @@
       "youtubeViews": 3865277,
       "youtubeSubscribers": 34100,
       "tiktokFollowers": 125400,
-      "instagramViews": 56801607,
+      "instagramViews": 51626107,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 143858,
       "instagramFollowersEstimated": true
     },
@@ -472,7 +544,7 @@
       "tiktokFollowers": 125400,
       "instagramFollowers": 144009,
       "instagramFollowersEstimated": true,
-      "instagramViews": 57400524,
+      "instagramViews": 52170454,
       "instagramViewsEstimated": true
     },
     {
@@ -480,7 +552,9 @@
       "youtubeViews": 3888441,
       "youtubeSubscribers": 34300,
       "tiktokFollowers": 125500,
-      "instagramViews": 57994245,
+      "instagramViews": 52710077,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 144238,
       "instagramFollowersEstimated": true
     },
@@ -489,7 +563,9 @@
       "youtubeViews": 3916672,
       "youtubeSubscribers": 34400,
       "tiktokFollowers": 125600,
-      "instagramViews": 57994245,
+      "instagramViews": 52710077,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 144421,
       "instagramFollowersEstimated": true
     },
@@ -500,7 +576,7 @@
       "tiktokFollowers": 125700,
       "instagramFollowers": 144658,
       "instagramFollowersEstimated": true,
-      "instagramViews": 58183445,
+      "instagramViews": 52882038,
       "instagramViewsEstimated": true
     },
     {
@@ -508,7 +584,9 @@
       "youtubeViews": 3963084,
       "youtubeSubscribers": 34500,
       "tiktokFollowers": 125800,
-      "instagramViews": 58602248,
+      "instagramViews": 53262682,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 144763,
       "instagramFollowersEstimated": true
     },
@@ -517,7 +595,9 @@
       "youtubeViews": 4014896,
       "youtubeSubscribers": 34600,
       "tiktokFollowers": 125800,
-      "instagramViews": 58602248,
+      "instagramViews": 53262682,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 145200,
       "instagramFollowersEstimated": true
     },
@@ -526,7 +606,9 @@
       "youtubeViews": 4057113,
       "youtubeSubscribers": 34700,
       "tiktokFollowers": 125900,
-      "instagramViews": 59136055,
+      "instagramViews": 53747851,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 145352,
       "instagramFollowersEstimated": true
     },
@@ -535,7 +617,9 @@
       "youtubeViews": 4078050,
       "youtubeSubscribers": 34800,
       "tiktokFollowers": 126000,
-      "instagramViews": 59136055,
+      "instagramViews": 53747851,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 145581,
       "instagramFollowersEstimated": true
     },
@@ -544,7 +628,9 @@
       "youtubeViews": 4097779,
       "youtubeSubscribers": 34900,
       "tiktokFollowers": 126100,
-      "instagramViews": 59578195,
+      "instagramViews": 54149705,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 145764,
       "instagramFollowersEstimated": true
     },
@@ -553,7 +639,9 @@
       "youtubeViews": 4119608,
       "youtubeSubscribers": 35000,
       "tiktokFollowers": 126100,
-      "instagramViews": 59578195,
+      "instagramViews": 54149705,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 146000,
       "instagramFollowersEstimated": true
     },
@@ -562,7 +650,9 @@
       "youtubeViews": 4153009,
       "youtubeSubscribers": 35100,
       "tiktokFollowers": 126200,
-      "instagramViews": 59836282,
+      "instagramViews": 54384276,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 146106,
       "instagramFollowersEstimated": true
     },
@@ -571,7 +661,9 @@
       "youtubeViews": 4158443,
       "youtubeSubscribers": 35200,
       "tiktokFollowers": 126300,
-      "instagramViews": 59836282,
+      "instagramViews": 54384276,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 146543,
       "instagramFollowersEstimated": true
     },
@@ -580,7 +672,9 @@
       "youtubeViews": 4214063,
       "youtubeSubscribers": 35300,
       "tiktokFollowers": 126300,
-      "instagramViews": 60274852,
+      "instagramViews": 54782886,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 146694,
       "instagramFollowersEstimated": true
     },
@@ -589,7 +683,9 @@
       "youtubeViews": 4298799,
       "youtubeSubscribers": 35400,
       "tiktokFollowers": 126500,
-      "instagramViews": 60274852,
+      "instagramViews": 54782886,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 146923,
       "instagramFollowersEstimated": true
     },
@@ -598,7 +694,9 @@
       "youtubeViews": 4320345,
       "youtubeSubscribers": 35500,
       "tiktokFollowers": 126600,
-      "instagramViews": 60720157,
+      "instagramViews": 55187616,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 147106,
       "instagramFollowersEstimated": true
     },
@@ -607,7 +705,9 @@
       "youtubeViews": 4340574,
       "youtubeSubscribers": 35600,
       "tiktokFollowers": 126600,
-      "instagramViews": 60720157,
+      "instagramViews": 55187616,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 147343,
       "instagramFollowersEstimated": true
     },
@@ -616,7 +716,9 @@
       "youtubeViews": 4373507,
       "youtubeSubscribers": 35700,
       "tiktokFollowers": 126700,
-      "instagramViews": 61247532,
+      "instagramViews": 55666939,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 147448,
       "instagramFollowersEstimated": true
     },
@@ -625,7 +727,9 @@
       "youtubeViews": 4410470,
       "youtubeSubscribers": 35700,
       "tiktokFollowers": 126900,
-      "instagramViews": 61247532,
+      "instagramViews": 55666939,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 147885,
       "instagramFollowersEstimated": true
     },
@@ -634,7 +738,9 @@
       "youtubeViews": 4427345,
       "youtubeSubscribers": 35800,
       "tiktokFollowers": 127000,
-      "instagramViews": 61698922,
+      "instagramViews": 56077201,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 148037,
       "instagramFollowersEstimated": true
     },
@@ -643,7 +749,9 @@
       "youtubeViews": 4462371,
       "youtubeSubscribers": 35900,
       "tiktokFollowers": 127100,
-      "instagramViews": 61698922,
+      "instagramViews": 56077201,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 148266,
       "instagramFollowersEstimated": true
     },
@@ -652,7 +760,9 @@
       "youtubeViews": 4498215,
       "youtubeSubscribers": 36000,
       "tiktokFollowers": 127400,
-      "instagramViews": 61823356,
+      "instagramViews": 56190297,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 148449,
       "instagramFollowersEstimated": true
     },
@@ -661,7 +771,9 @@
       "youtubeViews": 4517417,
       "youtubeSubscribers": 36100,
       "tiktokFollowers": 127600,
-      "instagramViews": 61823356,
+      "instagramViews": 56190297,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 148685,
       "instagramFollowersEstimated": true
     },
@@ -670,7 +782,9 @@
       "youtubeViews": 4534996,
       "youtubeSubscribers": 36200,
       "tiktokFollowers": 127700,
-      "instagramViews": 62178438,
+      "instagramViews": 56513026,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 148791,
       "instagramFollowersEstimated": true
     },
@@ -679,7 +793,9 @@
       "youtubeViews": 4583498,
       "youtubeSubscribers": 36300,
       "tiktokFollowers": 127800,
-      "instagramViews": 62178438,
+      "instagramViews": 56513026,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 149228,
       "instagramFollowersEstimated": true
     },
@@ -688,7 +804,9 @@
       "youtubeViews": 4606824,
       "youtubeSubscribers": 36400,
       "tiktokFollowers": 128000,
-      "instagramViews": 62374977,
+      "instagramViews": 56691657,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 149379,
       "instagramFollowersEstimated": true
     },
@@ -697,7 +815,9 @@
       "youtubeViews": 4642239,
       "youtubeSubscribers": 36500,
       "tiktokFollowers": 128100,
-      "instagramViews": 62374977,
+      "instagramViews": 56691657,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 149608,
       "instagramFollowersEstimated": true
     },
@@ -706,7 +826,9 @@
       "youtubeViews": 4690786,
       "youtubeSubscribers": 36600,
       "tiktokFollowers": 128200,
-      "instagramViews": 62784846,
+      "instagramViews": 57064181,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 149791,
       "instagramFollowersEstimated": true
     },
@@ -715,7 +837,9 @@
       "youtubeViews": 4730315,
       "youtubeSubscribers": 36700,
       "tiktokFollowers": 128400,
-      "instagramViews": 62923622,
+      "instagramViews": 57190312,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 150028,
       "instagramFollowersEstimated": true
     },
@@ -724,7 +848,9 @@
       "youtubeViews": 4752790,
       "youtubeSubscribers": 36700,
       "tiktokFollowers": 128500,
-      "instagramViews": 62923622,
+      "instagramViews": 57190312,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 150134,
       "instagramFollowersEstimated": true
     },
@@ -733,7 +859,9 @@
       "youtubeViews": 4770361,
       "youtubeSubscribers": 36800,
       "tiktokFollowers": 128600,
-      "instagramViews": 63306612,
+      "instagramViews": 57538406,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 150571,
       "instagramFollowersEstimated": true
     },
@@ -742,7 +870,9 @@
       "youtubeViews": 4808826,
       "youtubeSubscribers": 36800,
       "tiktokFollowers": 128600,
-      "instagramViews": 63306612,
+      "instagramViews": 57538406,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 150722,
       "instagramFollowersEstimated": true
     },
@@ -751,7 +881,9 @@
       "youtubeViews": 4833473,
       "youtubeSubscribers": 37000,
       "tiktokFollowers": 128800,
-      "instagramViews": 63647040,
+      "instagramViews": 57847815,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 150951,
       "instagramFollowersEstimated": true
     },
@@ -760,7 +892,9 @@
       "youtubeViews": 4851555,
       "youtubeSubscribers": 37200,
       "tiktokFollowers": 129000,
-      "instagramViews": 63647040,
+      "instagramViews": 57847815,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 151134,
       "instagramFollowersEstimated": true
     },
@@ -769,7 +903,9 @@
       "youtubeViews": 4897222,
       "youtubeSubscribers": 37400,
       "tiktokFollowers": 129400,
-      "instagramViews": 65114536,
+      "instagramViews": 59181600,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 151370,
       "instagramFollowersEstimated": true
     },
@@ -778,7 +914,9 @@
       "youtubeViews": 4933235,
       "youtubeSubscribers": 37600,
       "tiktokFollowers": 129900,
-      "instagramViews": 65114536,
+      "instagramViews": 59181600,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 151476,
       "instagramFollowersEstimated": true
     },
@@ -787,7 +925,9 @@
       "youtubeViews": 4957420,
       "youtubeSubscribers": 37700,
       "tiktokFollowers": 130000,
-      "instagramViews": 65765736,
+      "instagramViews": 59773466,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 151913,
       "instagramFollowersEstimated": true
     },
@@ -796,7 +936,9 @@
       "youtubeViews": 4977267,
       "youtubeSubscribers": 38000,
       "tiktokFollowers": 130200,
-      "instagramViews": 65765736,
+      "instagramViews": 59773466,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 152064,
       "instagramFollowersEstimated": true
     },
@@ -805,7 +947,9 @@
       "youtubeViews": 5035711,
       "youtubeSubscribers": 38300,
       "tiktokFollowers": 130300,
-      "instagramViews": 66100685,
+      "instagramViews": 60077896,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 152293,
       "instagramFollowersEstimated": true
     },
@@ -814,7 +958,9 @@
       "youtubeViews": 5060186,
       "youtubeSubscribers": 38400,
       "tiktokFollowers": 130400,
-      "instagramViews": 66100685,
+      "instagramViews": 60077896,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 152476,
       "instagramFollowersEstimated": true
     },
@@ -823,7 +969,9 @@
       "youtubeViews": 5092921,
       "youtubeSubscribers": 38600,
       "tiktokFollowers": 130500,
-      "instagramViews": 66663607,
+      "instagramViews": 60589527,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 152713,
       "instagramFollowersEstimated": true
     },
@@ -832,7 +980,9 @@
       "youtubeViews": 5135548,
       "youtubeSubscribers": 38700,
       "tiktokFollowers": 130600,
-      "instagramViews": 66663607,
+      "instagramViews": 60589527,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 152819,
       "instagramFollowersEstimated": true
     },
@@ -841,7 +991,9 @@
       "youtubeViews": 5165345,
       "youtubeSubscribers": 38800,
       "tiktokFollowers": 131200,
-      "instagramViews": 67206787,
+      "instagramViews": 61083215,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 153256,
       "instagramFollowersEstimated": true
     },
@@ -850,7 +1002,9 @@
       "youtubeViews": 5165345,
       "youtubeSubscribers": 38900,
       "tiktokFollowers": 131500,
-      "instagramViews": 67206787,
+      "instagramViews": 61083215,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 153407,
       "instagramFollowersEstimated": true
     },
@@ -859,7 +1013,9 @@
       "youtubeViews": 5165345,
       "youtubeSubscribers": 39600,
       "tiktokFollowers": 131800,
-      "instagramViews": 67855282,
+      "instagramViews": 61672622,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 153636,
       "instagramFollowersEstimated": true
     },
@@ -868,7 +1024,9 @@
       "youtubeViews": 5299835,
       "youtubeSubscribers": 40100,
       "tiktokFollowers": 132400,
-      "instagramViews": 67855282,
+      "instagramViews": 61672622,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 153819,
       "instagramFollowersEstimated": true
     },
@@ -877,7 +1035,9 @@
       "youtubeViews": 5331578,
       "youtubeSubscribers": 40400,
       "tiktokFollowers": 132700,
-      "instagramViews": 68285789,
+      "instagramViews": 62063903,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 154055,
       "instagramFollowersEstimated": true
     },
@@ -886,7 +1046,9 @@
       "youtubeViews": 5354058,
       "youtubeSubscribers": 40500,
       "tiktokFollowers": 133000,
-      "instagramViews": 68285789,
+      "instagramViews": 62063903,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 154161,
       "instagramFollowersEstimated": true
     },
@@ -897,7 +1059,7 @@
       "tiktokFollowers": 133200,
       "instagramFollowers": 154598,
       "instagramFollowersEstimated": true,
-      "instagramViews": 68637384,
+      "instagramViews": 62383462,
       "instagramViewsEstimated": true
     },
     {
@@ -905,7 +1067,9 @@
       "youtubeViews": 5447352,
       "youtubeSubscribers": 40800,
       "tiktokFollowers": 133400,
-      "instagramViews": 69057148,
+      "instagramViews": 62764979,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 154750,
       "instagramFollowersEstimated": true
     },
@@ -914,7 +1078,9 @@
       "youtubeViews": 5480957,
       "youtubeSubscribers": 40900,
       "tiktokFollowers": 133500,
-      "instagramViews": 69630995,
+      "instagramViews": 63286540,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 154978,
       "instagramFollowersEstimated": true
     },
@@ -923,7 +1089,9 @@
       "youtubeViews": 5518724,
       "youtubeSubscribers": 41000,
       "tiktokFollowers": 133600,
-      "instagramViews": 69881509,
+      "instagramViews": 63514228,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 155161,
       "instagramFollowersEstimated": true
     },
@@ -932,7 +1100,9 @@
       "youtubeViews": 5571432,
       "youtubeSubscribers": 41100,
       "tiktokFollowers": 133700,
-      "instagramViews": 69881509,
+      "instagramViews": 63514228,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 155398,
       "instagramFollowersEstimated": true
     },
@@ -941,7 +1111,9 @@
       "youtubeViews": 5598994,
       "youtubeSubscribers": 41200,
       "tiktokFollowers": 133800,
-      "instagramViews": 70066349,
+      "instagramViews": 63682227,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 155504,
       "instagramFollowersEstimated": true
     },
@@ -950,7 +1122,9 @@
       "youtubeViews": 5616781,
       "youtubeSubscribers": 41400,
       "tiktokFollowers": 133800,
-      "instagramViews": 70066349,
+      "instagramViews": 63682227,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 155941,
       "instagramFollowersEstimated": true
     },
@@ -959,7 +1133,9 @@
       "youtubeViews": 5631584,
       "youtubeSubscribers": 41400,
       "tiktokFollowers": 134000,
-      "instagramViews": 71645788,
+      "instagramViews": 65117754,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 156092,
       "instagramFollowersEstimated": true
     },
@@ -968,7 +1144,9 @@
       "youtubeViews": 5639047,
       "youtubeSubscribers": 41500,
       "tiktokFollowers": 134200,
-      "instagramViews": 72131527,
+      "instagramViews": 65559235,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 156321,
       "instagramFollowersEstimated": true
     },
@@ -977,7 +1155,9 @@
       "youtubeViews": 5658682,
       "youtubeSubscribers": 41600,
       "tiktokFollowers": 134300,
-      "instagramViews": 72131527,
+      "instagramViews": 65559235,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 156504,
       "instagramFollowersEstimated": true
     },
@@ -986,7 +1166,9 @@
       "youtubeViews": 5669319,
       "youtubeSubscribers": 41600,
       "tiktokFollowers": 134400,
-      "instagramViews": 72423797,
+      "instagramViews": 65824875,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 156740,
       "instagramFollowersEstimated": true
     },
@@ -995,7 +1177,9 @@
       "youtubeViews": 5706454,
       "youtubeSubscribers": 41700,
       "tiktokFollowers": 134500,
-      "instagramViews": 72641136,
+      "instagramViews": 66022411,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 156846,
       "instagramFollowersEstimated": true
     },
@@ -1004,7 +1188,9 @@
       "youtubeViews": 5725160,
       "youtubeSubscribers": 41900,
       "tiktokFollowers": 134600,
-      "instagramViews": 72641136,
+      "instagramViews": 66022411,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 157283,
       "instagramFollowersEstimated": true
     },
@@ -1013,7 +1199,9 @@
       "youtubeViews": 5739755,
       "youtubeSubscribers": 42000,
       "tiktokFollowers": 134700,
-      "instagramViews": 73316560,
+      "instagramViews": 66636293,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 157435,
       "instagramFollowersEstimated": true
     },
@@ -1022,7 +1210,9 @@
       "youtubeViews": 5776612,
       "youtubeSubscribers": 42200,
       "tiktokFollowers": 134800,
-      "instagramViews": 73595390,
+      "instagramViews": 66889718,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 157663,
       "instagramFollowersEstimated": true
     },
@@ -1031,7 +1221,9 @@
       "youtubeViews": 5807401,
       "youtubeSubscribers": 42300,
       "tiktokFollowers": 134900,
-      "instagramViews": 73595390,
+      "instagramViews": 66889718,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 157846,
       "instagramFollowersEstimated": true
     },
@@ -1040,7 +1232,9 @@
       "youtubeViews": 5825402,
       "youtubeSubscribers": 42400,
       "tiktokFollowers": 135100,
-      "instagramViews": 73873138,
+      "instagramViews": 67142159,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 158083,
       "instagramFollowersEstimated": true
     },
@@ -1049,7 +1243,9 @@
       "youtubeViews": 5839776,
       "youtubeSubscribers": 42400,
       "tiktokFollowers": 135300,
-      "instagramViews": 74242026,
+      "instagramViews": 67477435,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 158189,
       "instagramFollowersEstimated": true
     },
@@ -1058,7 +1254,9 @@
       "youtubeViews": 5863204,
       "youtubeSubscribers": 42500,
       "tiktokFollowers": 135600,
-      "instagramViews": 74242026,
+      "instagramViews": 67477435,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 158626,
       "instagramFollowersEstimated": true
     },
@@ -1067,7 +1265,9 @@
       "youtubeViews": 5899948,
       "youtubeSubscribers": 42600,
       "tiktokFollowers": 135700,
-      "instagramViews": 76453016,
+      "instagramViews": 69486970,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 158777,
       "instagramFollowersEstimated": true
     },
@@ -1076,7 +1276,9 @@
       "youtubeViews": 5915534,
       "youtubeSubscribers": 42700,
       "tiktokFollowers": 135900,
-      "instagramViews": 76914842,
+      "instagramViews": 69906716,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 159006,
       "instagramFollowersEstimated": true
     },
@@ -1085,7 +1287,9 @@
       "youtubeViews": 5946563,
       "youtubeSubscribers": 42700,
       "tiktokFollowers": 136000,
-      "instagramViews": 76914842,
+      "instagramViews": 69906716,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 159189,
       "instagramFollowersEstimated": true
     },
@@ -1096,7 +1300,7 @@
       "tiktokFollowers": 136100,
       "instagramFollowers": 159425,
       "instagramFollowersEstimated": true,
-      "instagramViews": 76946352,
+      "instagramViews": 69935355,
       "instagramViewsEstimated": true
     },
     {
@@ -1106,7 +1310,7 @@
       "tiktokFollowers": 136200,
       "instagramFollowers": 159531,
       "instagramFollowersEstimated": true,
-      "instagramViews": 76988202,
+      "instagramViews": 69973392,
       "instagramViewsEstimated": true
     },
     {
@@ -1114,7 +1318,9 @@
       "youtubeViews": 6026535,
       "youtubeSubscribers": 42900,
       "tiktokFollowers": 136300,
-      "instagramViews": 77239034,
+      "instagramViews": 70201370,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 159968,
       "instagramFollowersEstimated": true
     },
@@ -1123,7 +1329,9 @@
       "youtubeViews": 6084829,
       "youtubeSubscribers": 43000,
       "tiktokFollowers": 136300,
-      "instagramViews": 77239034,
+      "instagramViews": 70201370,
+      "instagramViewsBasis": "plays",
+      "instagramViewsRebased": true,
       "instagramFollowers": 160120,
       "instagramFollowersEstimated": true
     },
@@ -1134,7 +1342,7 @@
       "tiktokFollowers": 136400,
       "instagramFollowers": 160348,
       "instagramFollowersEstimated": true,
-      "instagramViews": 77048112,
+      "instagramViews": 71129533,
       "instagramViewsEstimated": true
     },
     {
@@ -1144,7 +1352,7 @@
       "tiktokFollowers": 136400,
       "instagramFollowers": 160531,
       "instagramFollowersEstimated": true,
-      "instagramViews": 77008233,
+      "instagramViews": 71323406,
       "instagramViewsEstimated": true
     },
     {
@@ -1154,7 +1362,7 @@
       "tiktokFollowers": 136400,
       "instagramFollowers": 160768,
       "instagramFollowersEstimated": true,
-      "instagramViews": 76998902,
+      "instagramViews": 71368770,
       "instagramViewsEstimated": true
     },
     {
@@ -1164,7 +1372,7 @@
       "tiktokFollowers": 136400,
       "instagramFollowers": 160874,
       "instagramFollowersEstimated": true,
-      "instagramViews": 76807980,
+      "instagramViews": 72296934,
       "instagramViewsEstimated": true
     },
     {
@@ -1174,7 +1382,7 @@
       "tiktokFollowers": 136600,
       "instagramFollowers": 161311,
       "instagramFollowersEstimated": true,
-      "instagramViews": 76768101,
+      "instagramViews": 72490806,
       "instagramViewsEstimated": true
     },
     {
@@ -1184,7 +1392,7 @@
       "tiktokFollowers": 136400,
       "instagramFollowers": 161462,
       "instagramFollowersEstimated": true,
-      "instagramViews": 76758769,
+      "instagramViews": 72536171,
       "instagramViewsEstimated": true
     },
     {
@@ -1194,7 +1402,7 @@
       "tiktokFollowers": 136400,
       "instagramFollowers": 161691,
       "instagramFollowersEstimated": true,
-      "instagramViews": 76567848,
+      "instagramViews": 73464334,
       "instagramViewsEstimated": true
     },
     {
@@ -1204,7 +1412,7 @@
       "tiktokFollowers": 136500,
       "instagramFollowers": 161874,
       "instagramFollowersEstimated": true,
-      "instagramViews": 76527968,
+      "instagramViews": 73658206,
       "instagramViewsEstimated": true
     },
     {
@@ -1214,7 +1422,7 @@
       "tiktokFollowers": 136600,
       "instagramFollowers": 162110,
       "instagramFollowersEstimated": true,
-      "instagramViews": 76518637,
+      "instagramViews": 73703571,
       "instagramViewsEstimated": true
     },
     {
@@ -1224,7 +1432,7 @@
       "tiktokFollowers": 136600,
       "instagramFollowers": 162216,
       "instagramFollowersEstimated": true,
-      "instagramViews": 76327715,
+      "instagramViews": 74631735,
       "instagramViewsEstimated": true
     },
     {
@@ -1234,7 +1442,7 @@
       "tiktokFollowers": 136600,
       "instagramFollowers": 162653,
       "instagramFollowersEstimated": true,
-      "instagramViews": 76287836,
+      "instagramViews": 74825607,
       "instagramViewsEstimated": true
     },
     {
@@ -1244,7 +1452,7 @@
       "tiktokFollowers": 136600,
       "instagramFollowers": 162805,
       "instagramFollowersEstimated": true,
-      "instagramViews": 76278504,
+      "instagramViews": 74870972,
       "instagramViewsEstimated": true
     },
     {
@@ -1254,7 +1462,7 @@
       "tiktokFollowers": 136800,
       "instagramFollowers": 163033,
       "instagramFollowersEstimated": true,
-      "instagramViews": 76087583,
+      "instagramViews": 75799135,
       "instagramViewsEstimated": true
     },
     {
@@ -1264,7 +1472,7 @@
       "tiktokFollowers": 137000,
       "instagramFollowers": 163216,
       "instagramFollowersEstimated": true,
-      "instagramViews": 76047703,
+      "instagramViews": 75993007,
       "instagramViewsEstimated": true
     },
     {
@@ -1273,7 +1481,8 @@
       "youtubeSubscribers": 43800,
       "tiktokFollowers": 137100,
       "instagramFollowers": 163453,
-      "instagramViews": 76038372
+      "instagramViews": 76038372,
+      "instagramViewsBasis": "graph"
     },
     {
       "date": "2026-09-16",
