@@ -29,6 +29,19 @@ jobs:
           YT_STALE_HOURS: '24'
         run: node scripts/fetch-socials.mjs --platform youtube
 
+      # history.json spans all three platforms, so exactly one workflow may
+      # write it -- three jobs editing one path would break the rebase-on-push
+      # that keeps the per-platform files conflict-free. This job owns it.
+      #
+      # success() on purpose, not !cancelled(): if the fetch failed, the served
+      # JSON still holds the last good numbers, and recording those as today's
+      # would draw a flat line that looks like stalled growth rather than a
+      # stalled fetch. A missing day is the honest outcome -- the line simply
+      # spans it.
+      - name: Append today to the growth history
+        if: ${{ success() }}
+        run: node scripts/append-history.mjs
+
       - name: Commit if changed
         # !cancelled(): the fetch step exits non-zero when a platform is past its
         # staleness threshold, and that alarm is wanted — but without this the
@@ -36,7 +49,7 @@ jobs:
         # the crawl can never accumulate its way back to fresh. Job still fails.
         if: ${{ !cancelled() }}
         run: |
-          FILES="public/data/socials.youtube.json data/youtube-collabs.json public/images/socials"
+          FILES="public/data/socials.youtube.json public/data/history.json data/youtube-collabs.json public/images/socials"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           # Stage first, then test the index: `git diff` alone can't see a
