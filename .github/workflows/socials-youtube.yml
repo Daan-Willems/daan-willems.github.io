@@ -17,6 +17,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # backfill-history.mjs reads the full commit history of the socials
+          # JSON; the default shallow clone would show it a single commit.
+          fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:
@@ -33,14 +37,12 @@ jobs:
       # write it -- three jobs editing one path would break the rebase-on-push
       # that keeps the per-platform files conflict-free. This job owns it.
       #
-      # success() on purpose, not !cancelled(): if the fetch failed, the served
-      # JSON still holds the last good numbers, and recording those as today's
-      # would draw a flat line that looks like stalled growth rather than a
-      # stalled fetch. A missing day is the honest outcome -- the line simply
-      # spans it.
-      - name: Append today to the growth history
+      # Regenerates the whole series from git rather than appending a row, so a
+      # missed day or a change to what we extract repairs itself on the next
+      # run. Measured at ~23s over 1,792 commits, against a 16MB clone.
+      - name: Rebuild the growth history
         if: ${{ success() }}
-        run: node scripts/append-history.mjs
+        run: node scripts/backfill-history.mjs
 
       - name: Commit if changed
         # !cancelled(): the fetch step exits non-zero when a platform is past its

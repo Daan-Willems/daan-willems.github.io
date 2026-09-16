@@ -71,6 +71,30 @@ for (const { path, read } of SOURCES) {
   }
 }
 
+// Fold in the working tree as well. Git only has what has been committed, so on
+// the first run of a day today's row would otherwise be missing until a later
+// run commits it -- this makes the series exact as of right now.
+{
+  const { readFileSync } = await import('node:fs')
+  const readNow = f => { try { return JSON.parse(readFileSync(resolve(ROOT, f), 'utf8')) } catch { return null } }
+  const yt = readNow('public/data/socials.youtube.json')
+  const tt = readNow('public/data/socials.tiktok.json')
+  const ig = readNow('public/data/socials.instagram.json')
+  const today = new Date().toISOString().slice(0, 10)
+  const entry = byDate.get(today) || { date: today }
+  const set = (k, v) => { if (Number.isFinite(v) && v > 0) entry[k] = v }
+  set('youtubeViews', yt?.channel?.viewCount)
+  set('youtubeSubscribers', yt?.channel?.subscriberCount)
+  set('tiktokFollowers', tt?.stats?.followerCount)
+  // Only once Instagram is coming from the Graph API -- a repeated stale
+  // scraper value would draw a flat line that reads as stalled growth.
+  if (ig?.stats?.source === 'graph') {
+    set('instagramFollowers', ig.stats.followerCount)
+    set('instagramViews', ig.stats.totalPlays)
+  }
+  if (Object.keys(entry).length > 1) byDate.set(today, entry)
+}
+
 const series = [...byDate.values()].sort((a, b) => a.date < b.date ? -1 : 1)
 const span = series.length ? `${series[0].date} → ${series[series.length - 1].date}` : 'empty'
 
