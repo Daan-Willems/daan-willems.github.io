@@ -185,20 +185,32 @@ const igPosts = computed(() => igData.value?.posts || [])
 // move too, but sit three orders of magnitude below views, so they are shown as
 // growth figures rather than forced onto the same axis. Instagram is absent
 // before 2026-09-15: see scripts/backfill-history.mjs.
-const growthPoints = computed(() => {
+function seriesFrom(key: 'youtubeViews' | 'tiktokFollowers' | 'instagramFollowers') {
   const pts = (socialsData.value?.history || [])
-    .filter(p => p.youtubeViews)
-    .map(p => ({ date: p.date, value: p.youtubeViews as number }))
+    .filter(p => p[key])
+    .map(p => ({ date: p.date, value: p[key] as number }))
   return pts.length >= 8 ? pts : null
+}
+const growthPoints = computed(() => seriesFrom('youtubeViews'))
+const tiktokPoints = computed(() => seriesFrom('tiktokFollowers'))
+
+// Instagram only started being measured properly at the Graph migration, so it
+// has too few points to plot. Say so rather than leaving a hole the reader has
+// to explain to themselves.
+const instagramPending = computed(() => {
+  const h = socialsData.value?.history || []
+  const days = h.filter(p => p.instagramFollowers).length
+  return days > 0 && days < 8 ? days : 0
 })
 
 const growthDeltas = computed(() => {
   const h = socialsData.value?.history || []
   const tr = (en: string, nl: string) => locale.value === 'en' ? en : nl
   const rows: { label: string; to: number; pct: number }[] = []
+  // Only measures that are NOT charted above, so a figure never reads as a
+  // series the reader failed to find in a plot.
   for (const [key, label] of [
     ['youtubeSubscribers', tr('YouTube subscribers', 'YouTube-abonnees')],
-    ['tiktokFollowers', tr('TikTok followers', 'TikTok-volgers')],
   ] as const) {
     const vals = h.map(p => p[key]).filter((v): v is number => !!v)
     if (vals.length < 8 || !vals[0]) continue
@@ -534,21 +546,41 @@ useHead({
         :title="(socialsCopy as any).title"
         :intro="(socialsCopy as any).intro"
       >
-        <RevealOnScroll v-if="growthPoints">
+        <RevealOnScroll v-if="growthPoints || tiktokPoints">
           <div class="growth-block">
-            <GrowthChart
-              :points="growthPoints"
-              :label="locale === 'en' ? 'Views on YouTube' : 'Weergaven op YouTube'"
-              :caption="growthSpan"
-              :locale="locale"
-              :table-label="locale === 'en' ? 'Show data' : 'Toon data'"
-              :hint-label="locale === 'en' ? 'Hover the chart for a date' : 'Beweeg over de grafiek voor een datum'"
-            />
+            <!-- Small multiples: views and followers differ by three orders of
+                 magnitude, so each gets its own axis instead of being forced
+                 onto a shared one. -->
+            <div class="growth-block__charts">
+              <GrowthChart
+                v-if="growthPoints"
+                :points="growthPoints"
+                :label="locale === 'en' ? 'Views on YouTube' : 'Weergaven op YouTube'"
+                :caption="growthSpan"
+                :locale="locale"
+                :table-label="locale === 'en' ? 'Show data' : 'Toon data'"
+                :hint-label="locale === 'en' ? 'Hover for a date' : 'Beweeg voor een datum'"
+              />
+              <GrowthChart
+                v-if="tiktokPoints"
+                :points="tiktokPoints"
+                :label="locale === 'en' ? 'Followers on TikTok' : 'Volgers op TikTok'"
+                :caption="growthSpan"
+                :locale="locale"
+                :table-label="locale === 'en' ? 'Show data' : 'Toon data'"
+                :hint-label="locale === 'en' ? 'Hover for a date' : 'Beweeg voor een datum'"
+              />
+            </div>
             <ul v-if="growthDeltas.length" class="growth-block__deltas">
               <li v-for="d in growthDeltas" :key="d.label">
                 <span class="growth-block__delta">+{{ d.pct }}%</span>
                 <span class="growth-block__delta-label">{{ d.label }}</span>
                 <span class="growth-block__delta-now">{{ formatCompact(d.to) }}</span>
+              </li>
+              <li v-if="instagramPending" class="growth-block__pending">
+                {{ locale === 'en'
+                  ? `Instagram has been tracked for ${instagramPending} day${instagramPending === 1 ? '' : 's'} — its curve follows once there is enough to plot.`
+                  : `Instagram wordt ${instagramPending} dag${instagramPending === 1 ? '' : 'en'} gemeten — de grafiek volgt zodra er genoeg meetpunten zijn.` }}
               </li>
             </ul>
           </div>
@@ -1617,6 +1649,23 @@ useHead({
   border: 1px solid var(--c-line);
   border-radius: var(--radius-lg);
   background: var(--c-bg-elev-1);
+}
+
+.growth-block__charts {
+  display: grid;
+  gap: var(--s-6);
+}
+
+@media (min-width: 60rem) {
+  .growth-block__charts {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.growth-block__pending {
+  color: var(--c-fg-muted);
+  font-size: var(--fs-300);
+  opacity: 0.7;
 }
 
 .growth-block__deltas {
