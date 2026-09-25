@@ -1,5 +1,5 @@
 {
-  "backfilledAt": "2026-09-25T17:06:10.858Z",
+  "backfilledAt": "2026-09-25T21:31:25.334Z",
   "note": "Daily series reconstructed from git history. Instagram starts 2026-09-15 -- earlier values are a stalled fetch, not a flat trend.",
   "series": [
     {
@@ -1570,8 +1570,8 @@
       "youtubeViews": 6835397,
       "youtubeSubscribers": 44200,
       "tiktokFollowers": 137300,
-      "instagramFollowers": 165088,
-      "instagramViews": 78983119,
+      "instagramFollowers": 165188,
+      "instagramViews": 79089284,
       "instagramViewsBasis": "graph"
     }
   ]
