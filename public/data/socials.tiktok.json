@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-01T06:20:03.314Z",
+  "generatedAt": "2026-10-01T13:43:10.469Z",
   "status": "ok",
-  "lastFetchedAt": "2026-10-01T06:20:01.876Z",
+  "lastFetchedAt": "2026-10-01T13:43:09.339Z",
   "handle": "daanwillemsautomotive",
   "profile": {
     "uniqueId": "daanwillemsautomotive",
@@ -19,5 +19,5 @@
     "videoCount": 132
   },
   "videos": [],
-  "lastSuccessAt": "2026-10-01T06:20:01.876Z"
+  "lastSuccessAt": "2026-10-01T13:43:09.339Z"
 }
