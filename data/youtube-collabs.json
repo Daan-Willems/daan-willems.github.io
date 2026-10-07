@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-06T22:37:19.031Z",
+  "updatedAt": "2026-10-07T05:50:55.487Z",
   "videos": {
     "VY4mU74ILBg": {
       "id": "VY4mU74ILBg",
@@ -11,11 +11,11 @@
       "thumbnail": "https://i.ytimg.com/vi/VY4mU74ILBg/maxresdefault.jpg",
       "matchedOn": "title",
       "excluded": false,
-      "viewCount": 362575,
-      "likeCount": 7420,
+      "viewCount": 362865,
+      "likeCount": 7421,
       "commentCount": 74,
       "durationSec": 1113,
-      "lastSeenAt": "2026-10-06T22:37:19.031Z"
+      "lastSeenAt": "2026-10-07T05:50:55.487Z"
     },
     "VAadL4gr3J0": {
       "id": "VAadL4gr3J0",
@@ -27,11 +27,11 @@
       "thumbnail": "https://i.ytimg.com/vi/VAadL4gr3J0/maxresdefault.jpg",
       "matchedOn": "title",
       "excluded": false,
-      "viewCount": 411279,
+      "viewCount": 411425,
       "likeCount": 11092,
       "commentCount": 488,
       "durationSec": 1911,
-      "lastSeenAt": "2026-10-06T22:37:19.031Z"
+      "lastSeenAt": "2026-10-07T05:50:55.487Z"
     },
     "EXd2uHN5OFc": {
       "id": "EXd2uHN5OFc",
@@ -47,7 +47,7 @@
       "likeCount": 62,
       "commentCount": 0,
       "durationSec": 24,
-      "lastSeenAt": "2026-10-06T22:37:19.031Z"
+      "lastSeenAt": "2026-10-07T05:50:55.487Z"
     },
     "t3s9LmCGOks": {
       "id": "t3s9LmCGOks",
@@ -63,7 +63,7 @@
       "likeCount": 35,
       "commentCount": 0,
       "durationSec": 25,
-      "lastSeenAt": "2026-10-06T22:37:19.031Z"
+      "lastSeenAt": "2026-10-07T05:50:55.487Z"
     },
     "7kW7peNG0xQ": {
       "id": "7kW7peNG0xQ",
@@ -79,7 +79,7 @@
       "likeCount": 87,
       "commentCount": 0,
       "durationSec": 18,
-      "lastSeenAt": "2026-10-06T22:37:19.031Z"
+      "lastSeenAt": "2026-10-07T05:50:55.487Z"
     },
     "iXa9mRbLCOc": {
       "id": "iXa9mRbLCOc",
@@ -95,7 +95,7 @@
       "likeCount": 27,
       "commentCount": 0,
       "durationSec": 25,
-      "lastSeenAt": "2026-10-06T22:37:19.031Z"
+      "lastSeenAt": "2026-10-07T05:50:55.487Z"
     },
     "6RaRcbX7sM4": {
       "id": "6RaRcbX7sM4",
@@ -111,7 +111,7 @@
       "likeCount": 91,
       "commentCount": 1,
       "durationSec": 11,
-      "lastSeenAt": "2026-10-06T22:37:19.031Z"
+      "lastSeenAt": "2026-10-07T05:50:55.487Z"
     },
     "HlGO-e4dv7w": {
       "id": "HlGO-e4dv7w",
@@ -127,7 +127,7 @@
       "likeCount": 38,
       "commentCount": 0,
       "durationSec": 20,
-      "lastSeenAt": "2026-10-06T22:37:19.031Z"
+      "lastSeenAt": "2026-10-07T05:50:55.487Z"
     },
     "RCSv3AdRFTU": {
       "id": "RCSv3AdRFTU",
@@ -143,7 +143,7 @@
       "likeCount": 46,
       "commentCount": 4,
       "durationSec": 19,
-      "lastSeenAt": "2026-10-06T22:37:19.031Z"
+      "lastSeenAt": "2026-10-07T05:50:55.487Z"
     },
     "vIr4sq2gZzg": {
       "id": "vIr4sq2gZzg",
@@ -159,7 +159,7 @@
       "likeCount": 51,
       "commentCount": 0,
       "durationSec": 15,
-      "lastSeenAt": "2026-10-06T22:37:19.031Z"
+      "lastSeenAt": "2026-10-07T05:50:55.487Z"
     },
     "f4ifgS9gZHc": {
       "id": "f4ifgS9gZHc",
@@ -171,11 +171,11 @@
       "thumbnail": "https://i.ytimg.com/vi/f4ifgS9gZHc/maxresdefault.jpg",
       "matchedOn": "description",
       "excluded": false,
-      "viewCount": 89085,
+      "viewCount": 89088,
       "likeCount": 536,
       "commentCount": 60,
       "durationSec": 21,
-      "lastSeenAt": "2026-10-06T22:37:19.031Z"
+      "lastSeenAt": "2026-10-07T05:50:55.487Z"
     },
     "VYsKYUIAtXg": {
       "id": "VYsKYUIAtXg",
@@ -191,7 +191,7 @@
       "likeCount": 102,
       "commentCount": 24,
       "durationSec": 23,
-      "lastSeenAt": "2026-10-06T22:37:19.031Z"
+      "lastSeenAt": "2026-10-07T05:50:55.487Z"
     },
     "4SQvJN6JNEk": {
       "id": "4SQvJN6JNEk",
@@ -203,11 +203,11 @@
       "thumbnail": "https://i.ytimg.com/vi/4SQvJN6JNEk/maxresdefault.jpg",
       "matchedOn": "title",
       "excluded": false,
-      "viewCount": 75247,
+      "viewCount": 75303,
       "likeCount": 702,
       "commentCount": 87,
       "durationSec": 7823,
-      "lastSeenAt": "2026-10-06T22:37:19.031Z"
+      "lastSeenAt": "2026-10-07T05:50:55.487Z"
     },
     "8akw7qEBWdU": {
       "id": "8akw7qEBWdU",
@@ -219,11 +219,11 @@
       "thumbnail": "https://i.ytimg.com/vi/8akw7qEBWdU/maxresdefault.jpg",
       "matchedOn": "title",
       "excluded": false,
-      "viewCount": 61217,
+      "viewCount": 61268,
       "likeCount": 651,
       "commentCount": 6,
       "durationSec": 90,
-      "lastSeenAt": "2026-10-06T22:37:19.031Z"
+      "lastSeenAt": "2026-10-07T05:50:55.487Z"
     },
     "sK7AAXk7GZ4": {
       "id": "sK7AAXk7GZ4",
@@ -235,11 +235,11 @@
       "thumbnail": "https://i.ytimg.com/vi/sK7AAXk7GZ4/maxresdefault.jpg",
       "matchedOn": "title",
       "excluded": false,
-      "viewCount": 36600,
+      "viewCount": 36608,
       "likeCount": 313,
       "commentCount": 8,
       "durationSec": 179,
-      "lastSeenAt": "2026-10-06T22:37:19.031Z"
+      "lastSeenAt": "2026-10-07T05:50:55.487Z"
     },
     "_p2vfDwt2rw": {
       "id": "_p2vfDwt2rw",
@@ -251,11 +251,11 @@
       "thumbnail": "https://i.ytimg.com/vi/_p2vfDwt2rw/maxresdefault.jpg",
       "matchedOn": "title",
       "excluded": false,
-      "viewCount": 23937,
+      "viewCount": 23938,
       "likeCount": 233,
       "commentCount": 15,
       "durationSec": 169,
-      "lastSeenAt": "2026-10-06T22:37:19.031Z"
+      "lastSeenAt": "2026-10-07T05:50:55.487Z"
     },
     "gZmQce02F-Q": {
       "id": "gZmQce02F-Q",
@@ -267,11 +267,11 @@
       "thumbnail": "https://i.ytimg.com/vi/gZmQce02F-Q/maxresdefault.jpg",
       "matchedOn": "title",
       "excluded": false,
-      "viewCount": 78371,
+      "viewCount": 78376,
       "likeCount": 599,
       "commentCount": 12,
       "durationSec": 180,
-      "lastSeenAt": "2026-10-06T22:37:19.031Z"
+      "lastSeenAt": "2026-10-07T05:50:55.487Z"
     },
     "RAoZqFLkxbo": {
       "id": "RAoZqFLkxbo",
@@ -283,11 +283,11 @@
       "thumbnail": "https://i.ytimg.com/vi/RAoZqFLkxbo/maxresdefault.jpg",
       "matchedOn": "title",
       "excluded": false,
-      "viewCount": 31119,
+      "viewCount": 31141,
       "likeCount": 779,
       "commentCount": 47,
       "durationSec": 1116,
-      "lastSeenAt": "2026-10-06T22:37:19.031Z"
+      "lastSeenAt": "2026-10-07T05:50:55.487Z"
     },
     "NqHdsPfRuh0": {
       "id": "NqHdsPfRuh0",
@@ -303,7 +303,7 @@
       "likeCount": 752,
       "commentCount": 89,
       "durationSec": 1785,
-      "lastSeenAt": "2026-10-06T22:37:19.031Z"
+      "lastSeenAt": "2026-10-07T05:50:55.487Z"
     },
     "R1uwCh7bjOg": {
       "id": "R1uwCh7bjOg",
@@ -315,11 +315,11 @@
       "thumbnail": "https://i.ytimg.com/vi/R1uwCh7bjOg/maxresdefault.jpg",
       "matchedOn": "title",
       "excluded": false,
-      "viewCount": 71270,
+      "viewCount": 71286,
       "likeCount": 1101,
       "commentCount": 63,
       "durationSec": 180,
-      "lastSeenAt": "2026-10-06T22:37:19.031Z"
+      "lastSeenAt": "2026-10-07T05:50:55.487Z"
     },
     "auv3EFnn_8g": {
       "id": "auv3EFnn_8g",
@@ -331,11 +331,11 @@
       "thumbnail": "https://i.ytimg.com/vi/auv3EFnn_8g/maxresdefault.jpg",
       "matchedOn": "title",
       "excluded": false,
-      "viewCount": 78931,
+      "viewCount": 78932,
       "likeCount": 847,
       "commentCount": 16,
       "durationSec": 179,
-      "lastSeenAt": "2026-10-06T22:37:19.031Z"
+      "lastSeenAt": "2026-10-07T05:50:55.487Z"
     },
     "NjjHCY0JDKM": {
       "id": "NjjHCY0JDKM",
@@ -347,11 +347,11 @@
       "thumbnail": "https://i.ytimg.com/vi/NjjHCY0JDKM/maxresdefault.jpg",
       "matchedOn": "title",
       "excluded": false,
-      "viewCount": 121837,
+      "viewCount": 121843,
       "likeCount": 1029,
       "commentCount": 31,
       "durationSec": 173,
-      "lastSeenAt": "2026-10-06T22:37:19.031Z"
+      "lastSeenAt": "2026-10-07T05:50:55.487Z"
     },
     "j_GCOvZEr1Y": {
       "id": "j_GCOvZEr1Y",
@@ -363,11 +363,11 @@
       "thumbnail": "https://i.ytimg.com/vi/j_GCOvZEr1Y/maxresdefault.jpg",
       "matchedOn": "title",
       "excluded": false,
-      "viewCount": 146666,
+      "viewCount": 146806,
       "likeCount": 3806,
       "commentCount": 239,
       "durationSec": 858,
-      "lastSeenAt": "2026-10-06T22:37:19.031Z"
+      "lastSeenAt": "2026-10-07T05:50:55.487Z"
     }
   }
 }
