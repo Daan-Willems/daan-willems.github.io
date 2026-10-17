@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-10-16T21:45:09.922Z",
+  "generatedAt": "2026-10-17T05:01:28.734Z",
   "status": "ok",
-  "lastFetchedAt": "2026-10-16T21:43:50.609Z",
+  "lastFetchedAt": "2026-10-17T05:00:24.476Z",
   "handle": "daanwillemsautomotive",
-  "lastSuccessAt": "2026-10-16T21:45:09.327Z",
+  "lastSuccessAt": "2026-10-17T05:01:27.558Z",
   "profile": {
     "userId": "17841453126941593",
     "username": "daanwillemsautomotive",
@@ -18,32 +18,32 @@
     "url": "https://www.instagram.com/daanwillemsautomotive/"
   },
   "stats": {
-    "followerCount": 168087,
+    "followerCount": 168126,
     "followingCount": 49,
     "mediaCount": 165,
-    "totalPlays": 84913722,
-    "totalLikes": 1680065,
-    "totalComments": 17608,
+    "totalPlays": 85025253,
+    "totalLikes": 1680760,
+    "totalComments": 17614,
     "sampledPostCount": 150,
     "ownedPostCount": 135,
     "collabPostCount": 15,
-    "collabViews": 6867160,
+    "collabViews": 6867794,
     "sampleComplete": true,
     "source": "graph",
-    "avgViewsPerPost": 566091,
-    "avgLikesPerPost": 11200,
+    "avgViewsPerPost": 566835,
+    "avgLikesPerPost": 11205,
     "engagementPerFollower": 6.73,
     "engagementPerView": 2,
     "postsPerWeek": 2.9,
     "sampleSpanDays": 363,
     "last30Days": {
       "posts": 13,
-      "views": 4090668
+      "views": 4140936
     },
     "topPost": {
       "url": "https://www.instagram.com/reel/DcYOlgeoWdA/",
-      "viewCount": 4054113,
-      "likeCount": 10049,
+      "viewCount": 4106579,
+      "likeCount": 10070,
       "publishedAt": "2026-08-23T10:03:38.000Z"
     }
   },
@@ -212,6 +212,11 @@
       "date": "2026-10-16",
       "followers": 168087,
       "views": 84913722
+    },
+    {
+      "date": "2026-10-17",
+      "followers": 168126,
+      "views": 85025253
     }
   ],
   "posts": [
@@ -223,9 +228,9 @@
       "publishedAt": "2026-10-16T10:03:49.000Z",
       "thumbnail": "/images/socials/ig-posts/DejRjI6o69I.jpg",
       "caption": "Doe je dans\n\nOutfit jorcustom \nKORTINGSCODE: Daan15\n\n#daanwillemsautomotive #automotive #humor #reel",
-      "likeCount": 8265,
-      "commentCount": 142,
-      "viewCount": 561740
+      "likeCount": 8739,
+      "commentCount": 146,
+      "viewCount": 601775
     },
     {
       "id": "Dee6JR5ozEo",
@@ -235,9 +240,9 @@
       "publishedAt": "2026-10-14T17:24:20.000Z",
       "thumbnail": "/images/socials/ig-posts/Dee6JR5ozEo.jpg",
       "caption": "Wel gelachen\n\nDe volledige video staat nu op ons YouTube-kanaal! 🎥\n\nCheck de link in bio 🔗\n\nOutfit jorcustom \nKORTINGSCODE: Daan15\n\n#daanwillemsautomotive #auto #humor #reel #linkinbio",
-      "likeCount": 4358,
+      "likeCount": 4389,
       "commentCount": 23,
-      "viewCount": 202840
+      "viewCount": 204570
     },
     {
       "id": "DebjGkMoOpX",
@@ -247,9 +252,9 @@
       "publishedAt": "2026-10-13T10:04:23.000Z",
       "thumbnail": "/images/socials/ig-posts/DebjGkMoOpX.jpg",
       "caption": "Windkracht 198 poh \n\nOutfit jorcustom \nKORTINGSCODE: Daan15\n\n#daanwillemsautomotive #automotive #auto #humor #reel",
-      "likeCount": 3342,
-      "commentCount": 44,
-      "viewCount": 213901
+      "likeCount": 3358,
+      "commentCount": 46,
+      "viewCount": 215272
     },
     {
       "id": "DeRXclGIPvN",
@@ -259,9 +264,9 @@
       "publishedAt": "2026-10-09T11:09:40.000Z",
       "thumbnail": "/images/socials/ig-posts/DeRXclGIPvN.jpg",
       "caption": "Deh vlugge vingert \n\nOutfit jorcustom \nKORTINGSCODE: Daan15\n\n#daanwillemsautomotive #automotive #auto #humor #reel",
-      "likeCount": 10119,
+      "likeCount": 10130,
       "commentCount": 156,
-      "viewCount": 500837
+      "viewCount": 502065
     },
     {
       "id": "DeJiI1yoeeB",
@@ -271,9 +276,9 @@
       "publishedAt": "2026-10-06T10:08:38.000Z",
       "thumbnail": "/images/socials/ig-posts/DeJiI1yoeeB.jpg",
       "caption": "Brnsbsokfnfbjskwnebtjdks deh \n\nOutfit jorcustom \nKORTINGSCODE: Daan15\n\n#daanwillemsautomotive #automotive #auto #humor #reel",
-      "likeCount": 3276,
+      "likeCount": 3278,
       "commentCount": 44,
-      "viewCount": 182845
+      "viewCount": 183663
     },
     {
       "id": "DeFEQD2BBoh",
@@ -283,9 +288,9 @@
       "publishedAt": "2026-10-04T16:34:03.000Z",
       "thumbnail": "/images/socials/ig-posts/DeFEQD2BBoh.jpg",
       "caption": "Rondje van de zaak met niekyholzken \n\nDit wil je niet missen… 👀🔥\nDe volledige video staat nu op ons YouTube-kanaal! 🎥\n\nCheck de link in bio 🔗\n\n#daanwillemsautomotive #auto #automotive #linkinbio #reel",
-      "likeCount": 5158,
+      "likeCount": 5163,
       "commentCount": 29,
-      "viewCount": 360875
+      "viewCount": 361955
     }
   ]
 }
