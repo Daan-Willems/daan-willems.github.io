@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-10-24T21:13:30.839Z",
+  "generatedAt": "2026-10-25T05:21:14.767Z",
   "status": "ok",
-  "lastFetchedAt": "2026-10-24T21:12:07.365Z",
+  "lastFetchedAt": "2026-10-25T05:20:06.393Z",
   "handle": "daanwillemsautomotive",
-  "lastSuccessAt": "2026-10-24T21:13:29.748Z",
+  "lastSuccessAt": "2026-10-25T05:21:14.608Z",
   "profile": {
     "userId": "17841453126941593",
     "username": "daanwillemsautomotive",
@@ -18,32 +18,32 @@
     "url": "https://www.instagram.com/daanwillemsautomotive/"
   },
   "stats": {
-    "followerCount": 168769,
+    "followerCount": 168772,
     "followingCount": 49,
     "mediaCount": 169,
-    "totalPlays": 87242298,
-    "totalLikes": 1701756,
+    "totalPlays": 87282691,
+    "totalLikes": 1701998,
     "totalComments": 17814,
     "sampledPostCount": 154,
     "ownedPostCount": 139,
     "collabPostCount": 15,
-    "collabViews": 6883395,
+    "collabViews": 6883676,
     "sampleComplete": true,
     "source": "graph",
-    "avgViewsPerPost": 566508,
-    "avgLikesPerPost": 11050,
+    "avgViewsPerPost": 566771,
+    "avgLikesPerPost": 11052,
     "engagementPerFollower": 6.62,
     "engagementPerView": 1.97,
     "postsPerWeek": 2.9,
     "sampleSpanDays": 370,
     "last30Days": {
       "posts": 14,
-      "views": 4338914
+      "views": 4348895
     },
     "topPost": {
       "url": "https://www.instagram.com/reel/DcYOlgeoWdA/",
-      "viewCount": 4794045,
-      "likeCount": 10410,
+      "viewCount": 4812715,
+      "likeCount": 10422,
       "publishedAt": "2026-08-23T10:03:38.000Z"
     }
   },
@@ -252,6 +252,11 @@
       "date": "2026-10-24",
       "followers": 168769,
       "views": 87242298
+    },
+    {
+      "date": "2026-10-25",
+      "followers": 168772,
+      "views": 87282691
     }
   ],
   "posts": [
@@ -263,9 +268,9 @@
       "publishedAt": "2026-10-23T10:00:44.000Z",
       "thumbnail": "/images/socials/ig-posts/De1Sw5gIBOx.jpg",
       "caption": "Pak hem dan\n\n#daanwillemsautomotive #auto #automotive #humor #reel",
-      "likeCount": 5781,
+      "likeCount": 5877,
       "commentCount": 73,
-      "viewCount": 328879
+      "viewCount": 333362
     },
     {
       "id": "Dew7XIFIGjw",
@@ -275,9 +280,9 @@
       "publishedAt": "2026-10-21T17:19:54.000Z",
       "thumbnail": "/images/socials/ig-posts/Dew7XIFIGjw.jpg",
       "caption": "Wazige gast\n\nDe volledige video staat nu op ons YouTube-kanaal! 🎥\n\nCheck de link in bio 🔗\n\n#daanwillemsautomotive #auto #humor #reel #linkinbio",
-      "likeCount": 3176,
+      "likeCount": 3186,
       "commentCount": 24,
-      "viewCount": 230293
+      "viewCount": 231341
     },
     {
       "id": "DeuafqyoP9f",
@@ -287,9 +292,9 @@
       "publishedAt": "2026-10-20T17:57:06.000Z",
       "thumbnail": "/images/socials/ig-posts/DeuafqyoP9f.jpg",
       "caption": "De volledige video staat nu op ons YouTube-kanaal! 🎥\n\nCheck de link in bio 🔗\n\n#daanwillemsautomotive #auto #automotive #reel #linkinbio",
-      "likeCount": 686,
+      "likeCount": 692,
       "commentCount": 3,
-      "viewCount": 115239
+      "viewCount": 115895
     },
     {
       "id": "DeohvlFo78w",
@@ -299,9 +304,9 @@
       "publishedAt": "2026-10-18T11:02:15.000Z",
       "thumbnail": "/images/socials/ig-posts/DeohvlFo78w.jpg",
       "caption": "De nieuwe aflevering van Rondje van de Zaak staat live! Dit keer met niemand minder dan jayjayboske van onder andere day1lifestyle 🔥 \n\nDeze wil je niet missen 👀👀\n\nCheck de volledige video via link in bio! 🔗 \n\n#daanwillemsautomotive #auto #automotive #youtube #linkinbio",
-      "likeCount": 1674,
+      "likeCount": 1676,
       "commentCount": 10,
-      "viewCount": 109694
+      "viewCount": 110013
     },
     {
       "id": "DejRjI6o69I",
@@ -311,9 +316,9 @@
       "publishedAt": "2026-10-16T10:03:49.000Z",
       "thumbnail": "/images/socials/ig-posts/DejRjI6o69I.jpg",
       "caption": "Doe je dans\n\nOutfit jorcustom \nKORTINGSCODE: Daan15\n\n#daanwillemsautomotive #automotive #humor #reel",
-      "likeCount": 11141,
+      "likeCount": 11159,
       "commentCount": 187,
-      "viewCount": 802941
+      "viewCount": 803930
     },
     {
       "id": "Dee6JR5ozEo",
@@ -323,9 +328,9 @@
       "publishedAt": "2026-10-14T17:24:20.000Z",
       "thumbnail": "/images/socials/ig-posts/Dee6JR5ozEo.jpg",
       "caption": "Wel gelachen\n\nDe volledige video staat nu op ons YouTube-kanaal! 🎥\n\nCheck de link in bio 🔗\n\nOutfit jorcustom \nKORTINGSCODE: Daan15\n\n#daanwillemsautomotive #auto #humor #reel #linkinbio",
-      "likeCount": 5059,
+      "likeCount": 5068,
       "commentCount": 25,
-      "viewCount": 242005
+      "viewCount": 242458
     }
   ]
 }
