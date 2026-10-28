@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-10-28T13:35:17.632Z",
+  "generatedAt": "2026-10-28T22:53:03.188Z",
   "status": "ok",
-  "lastFetchedAt": "2026-10-28T13:33:01.514Z",
+  "lastFetchedAt": "2026-10-28T22:51:56.487Z",
   "handle": "daanwillemsautomotive",
-  "lastSuccessAt": "2026-10-28T13:35:15.620Z",
+  "lastSuccessAt": "2026-10-28T22:53:02.890Z",
   "profile": {
     "userId": "17841453126941593",
     "username": "daanwillemsautomotive",
@@ -18,32 +18,32 @@
     "url": "https://www.instagram.com/daanwillemsautomotive/"
   },
   "stats": {
-    "followerCount": 168939,
+    "followerCount": 169002,
     "followingCount": 49,
-    "mediaCount": 171,
-    "totalPlays": 88053467,
-    "totalLikes": 1709615,
-    "totalComments": 17883,
-    "sampledPostCount": 156,
-    "ownedPostCount": 141,
+    "mediaCount": 172,
+    "totalPlays": 88270747,
+    "totalLikes": 1712533,
+    "totalComments": 17902,
+    "sampledPostCount": 157,
+    "ownedPostCount": 142,
     "collabPostCount": 15,
-    "collabViews": 6891350,
+    "collabViews": 6892815,
     "sampleComplete": true,
     "source": "graph",
-    "avgViewsPerPost": 564445,
-    "avgLikesPerPost": 10959,
-    "engagementPerFollower": 6.55,
+    "avgViewsPerPost": 562234,
+    "avgLikesPerPost": 10908,
+    "engagementPerFollower": 6.52,
     "engagementPerView": 1.96,
     "postsPerWeek": 2.9,
-    "sampleSpanDays": 374,
+    "sampleSpanDays": 375,
     "last30Days": {
-      "posts": 14,
-      "views": 4216004
+      "posts": 15,
+      "views": 4394012
     },
     "topPost": {
       "url": "https://www.instagram.com/reel/DcYOlgeoWdA/",
-      "viewCount": 4961852,
-      "likeCount": 10509,
+      "viewCount": 4977819,
+      "likeCount": 10525,
       "publishedAt": "2026-08-23T10:03:38.000Z"
     }
   },
@@ -270,11 +270,23 @@
     },
     {
       "date": "2026-10-28",
-      "followers": 168939,
-      "views": 88053467
+      "followers": 169002,
+      "views": 88270747
     }
   ],
   "posts": [
+    {
+      "id": "DfC-U6cIIBY",
+      "shortcode": "DfC-U6cIIBY",
+      "url": "https://www.instagram.com/reel/DfC-U6cIIBY/",
+      "type": "reel",
+      "publishedAt": "2026-10-28T17:34:21.000Z",
+      "thumbnail": "/images/socials/ig-posts/DfC-U6cIIBY.jpg",
+      "caption": "Subsidie is aangevraagd\n\nDe volledige video staat nu op ons YouTube-kanaal! 🎥\n\nCheck de link in bio 🔗\n\nOutfit jorcustom \nKORTINGSCODE: Daan15\n\n#daanwillemsautomotive #auto #humor #reel #linkinbio",
+      "likeCount": 1822,
+      "commentCount": 7,
+      "viewCount": 116286
+    },
     {
       "id": "DfAaVKcoSqq",
       "shortcode": "DfAaVKcoSqq",
@@ -283,9 +295,9 @@
       "publishedAt": "2026-10-27T17:39:01.000Z",
       "thumbnail": "/images/socials/ig-posts/DfAaVKcoSqq.jpg",
       "caption": "Wan apparaat zeg deh \n\nOutfit jorcustom \nKORTINGSCODE: Daan15\n\n#daanwillemsautomotive #humor #reel",
-      "likeCount": 2446,
-      "commentCount": 29,
-      "viewCount": 223803
+      "likeCount": 2860,
+      "commentCount": 34,
+      "viewCount": 254947
     },
     {
       "id": "De6ja3-Ie4O",
@@ -295,9 +307,9 @@
       "publishedAt": "2026-10-25T11:05:49.000Z",
       "thumbnail": "/images/socials/ig-posts/De6ja3-Ie4O.jpg",
       "caption": "Granaten in zijn handen. Beest van een gozer. \n\ncookietariq \n\nRondje van de zaak\n\nDe volledige video staat nu op ons YouTube-kanaal! 🎥\n\nCheck de link in bio 🔗\n\n#daanwillemsautomotive #auto #automotive #reel #linkinbio",
-      "likeCount": 1302,
+      "likeCount": 1322,
       "commentCount": 7,
-      "viewCount": 122534
+      "viewCount": 124946
     },
     {
       "id": "De1Sw5gIBOx",
@@ -307,9 +319,9 @@
       "publishedAt": "2026-10-23T10:00:44.000Z",
       "thumbnail": "/images/socials/ig-posts/De1Sw5gIBOx.jpg",
       "caption": "Pak hem dan\n\n#daanwillemsautomotive #auto #automotive #humor #reel",
-      "likeCount": 7210,
-      "commentCount": 92,
-      "viewCount": 405940
+      "likeCount": 7407,
+      "commentCount": 96,
+      "viewCount": 418685
     },
     {
       "id": "Dew7XIFIGjw",
@@ -319,9 +331,9 @@
       "publishedAt": "2026-10-21T17:19:54.000Z",
       "thumbnail": "/images/socials/ig-posts/Dew7XIFIGjw.jpg",
       "caption": "Wazige gast\n\nDe volledige video staat nu op ons YouTube-kanaal! 🎥\n\nCheck de link in bio 🔗\n\n#daanwillemsautomotive #auto #humor #reel #linkinbio",
-      "likeCount": 3478,
+      "likeCount": 3506,
       "commentCount": 25,
-      "viewCount": 250547
+      "viewCount": 253080
     },
     {
       "id": "DeuafqyoP9f",
@@ -331,21 +343,9 @@
       "publishedAt": "2026-10-20T17:57:06.000Z",
       "thumbnail": "/images/socials/ig-posts/DeuafqyoP9f.jpg",
       "caption": "De volledige video staat nu op ons YouTube-kanaal! 🎥\n\nCheck de link in bio 🔗\n\n#daanwillemsautomotive #auto #automotive #reel #linkinbio",
-      "likeCount": 761,
+      "likeCount": 766,
       "commentCount": 3,
-      "viewCount": 124243
-    },
-    {
-      "id": "DeohvlFo78w",
-      "shortcode": "DeohvlFo78w",
-      "url": "https://www.instagram.com/reel/DeohvlFo78w/",
-      "type": "reel",
-      "publishedAt": "2026-10-18T11:02:15.000Z",
-      "thumbnail": "/images/socials/ig-posts/DeohvlFo78w.jpg",
-      "caption": "De nieuwe aflevering van Rondje van de Zaak staat live! Dit keer met niemand minder dan jayjayboske van onder andere day1lifestyle 🔥 \n\nDeze wil je niet missen 👀👀\n\nCheck de volledige video via link in bio! 🔗 \n\n#daanwillemsautomotive #auto #automotive #youtube #linkinbio",
-      "likeCount": 1742,
-      "commentCount": 10,
-      "viewCount": 116089
+      "viewCount": 125480
     }
   ]
 }
