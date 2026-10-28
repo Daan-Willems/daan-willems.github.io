@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-10-27T22:39:03.416Z",
+  "generatedAt": "2026-10-28T06:20:17.508Z",
   "status": "ok",
-  "lastFetchedAt": "2026-10-27T22:37:53.347Z",
+  "lastFetchedAt": "2026-10-28T06:19:03.655Z",
   "handle": "daanwillemsautomotive",
-  "lastSuccessAt": "2026-10-27T22:39:03.201Z",
+  "lastSuccessAt": "2026-10-28T06:20:17.366Z",
   "profile": {
     "userId": "17841453126941593",
     "username": "daanwillemsautomotive",
@@ -18,32 +18,32 @@
     "url": "https://www.instagram.com/daanwillemsautomotive/"
   },
   "stats": {
-    "followerCount": 168923,
+    "followerCount": 168924,
     "followingCount": 49,
     "mediaCount": 171,
-    "totalPlays": 87918126,
-    "totalLikes": 1708393,
-    "totalComments": 17872,
+    "totalPlays": 87958611,
+    "totalLikes": 1708623,
+    "totalComments": 17874,
     "sampledPostCount": 156,
     "ownedPostCount": 141,
     "collabPostCount": 15,
-    "collabViews": 6890406,
+    "collabViews": 6890722,
     "sampleComplete": true,
     "source": "graph",
-    "avgViewsPerPost": 563578,
-    "avgLikesPerPost": 10951,
+    "avgViewsPerPost": 563837,
+    "avgLikesPerPost": 10953,
     "engagementPerFollower": 6.55,
     "engagementPerView": 1.96,
     "postsPerWeek": 2.9,
     "sampleSpanDays": 374,
     "last30Days": {
       "posts": 14,
-      "views": 4112777
+      "views": 4140118
     },
     "topPost": {
       "url": "https://www.instagram.com/reel/DcYOlgeoWdA/",
-      "viewCount": 4943818,
-      "likeCount": 10495,
+      "viewCount": 4953692,
+      "likeCount": 10500,
       "publishedAt": "2026-08-23T10:03:38.000Z"
     }
   },
@@ -267,6 +267,11 @@
       "date": "2026-10-27",
       "followers": 168923,
       "views": 87918126
+    },
+    {
+      "date": "2026-10-28",
+      "followers": 168924,
+      "views": 87958611
     }
   ],
   "posts": [
@@ -278,9 +283,9 @@
       "publishedAt": "2026-10-27T17:39:01.000Z",
       "thumbnail": "/images/socials/ig-posts/DfAaVKcoSqq.jpg",
       "caption": "Wan apparaat zeg deh \n\nOutfit jorcustom \nKORTINGSCODE: Daan15\n\n#daanwillemsautomotive #humor #reel",
-      "likeCount": 1692,
-      "commentCount": 20,
-      "viewCount": 144751
+      "likeCount": 1856,
+      "commentCount": 22,
+      "viewCount": 167005
     },
     {
       "id": "De6ja3-Ie4O",
@@ -290,9 +295,9 @@
       "publishedAt": "2026-10-25T11:05:49.000Z",
       "thumbnail": "/images/socials/ig-posts/De6ja3-Ie4O.jpg",
       "caption": "Granaten in zijn handen. Beest van een gozer. \n\ncookietariq \n\nRondje van de zaak\n\nDe volledige video staat nu op ons YouTube-kanaal! 🎥\n\nCheck de link in bio 🔗\n\n#daanwillemsautomotive #auto #automotive #reel #linkinbio",
-      "likeCount": 1279,
+      "likeCount": 1283,
       "commentCount": 7,
-      "viewCount": 120068
+      "viewCount": 120742
     },
     {
       "id": "De1Sw5gIBOx",
@@ -302,9 +307,9 @@
       "publishedAt": "2026-10-23T10:00:44.000Z",
       "thumbnail": "/images/socials/ig-posts/De1Sw5gIBOx.jpg",
       "caption": "Pak hem dan\n\n#daanwillemsautomotive #auto #automotive #humor #reel",
-      "likeCount": 7029,
+      "likeCount": 7054,
       "commentCount": 90,
-      "viewCount": 396195
+      "viewCount": 397721
     },
     {
       "id": "Dew7XIFIGjw",
@@ -314,9 +319,9 @@
       "publishedAt": "2026-10-21T17:19:54.000Z",
       "thumbnail": "/images/socials/ig-posts/Dew7XIFIGjw.jpg",
       "caption": "Wazige gast\n\nDe volledige video staat nu op ons YouTube-kanaal! 🎥\n\nCheck de link in bio 🔗\n\n#daanwillemsautomotive #auto #humor #reel #linkinbio",
-      "likeCount": 3450,
+      "likeCount": 3454,
       "commentCount": 25,
-      "viewCount": 248307
+      "viewCount": 248845
     },
     {
       "id": "DeuafqyoP9f",
@@ -326,9 +331,9 @@
       "publishedAt": "2026-10-20T17:57:06.000Z",
       "thumbnail": "/images/socials/ig-posts/DeuafqyoP9f.jpg",
       "caption": "De volledige video staat nu op ons YouTube-kanaal! 🎥\n\nCheck de link in bio 🔗\n\n#daanwillemsautomotive #auto #automotive #reel #linkinbio",
-      "likeCount": 757,
+      "likeCount": 758,
       "commentCount": 3,
-      "viewCount": 123266
+      "viewCount": 123514
     },
     {
       "id": "DeohvlFo78w",
@@ -338,9 +343,9 @@
       "publishedAt": "2026-10-18T11:02:15.000Z",
       "thumbnail": "/images/socials/ig-posts/DeohvlFo78w.jpg",
       "caption": "De nieuwe aflevering van Rondje van de Zaak staat live! Dit keer met niemand minder dan jayjayboske van onder andere day1lifestyle 🔥 \n\nDeze wil je niet missen 👀👀\n\nCheck de volledige video via link in bio! 🔗 \n\n#daanwillemsautomotive #auto #automotive #youtube #linkinbio",
-      "likeCount": 1734,
+      "likeCount": 1737,
       "commentCount": 10,
-      "viewCount": 115216
+      "viewCount": 115462
     }
   ]
 }
