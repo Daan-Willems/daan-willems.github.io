@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-10-31T21:54:06.129Z",
+  "generatedAt": "2026-11-01T06:53:14.996Z",
   "status": "ok",
-  "lastFetchedAt": "2026-10-31T21:52:23.285Z",
+  "lastFetchedAt": "2026-11-01T06:52:08.312Z",
   "handle": "daanwillemsautomotive",
-  "lastSuccessAt": "2026-10-31T21:54:05.160Z",
+  "lastSuccessAt": "2026-11-01T06:53:14.887Z",
   "profile": {
     "userId": "17841453126941593",
     "username": "daanwillemsautomotive",
@@ -18,32 +18,32 @@
     "url": "https://www.instagram.com/daanwillemsautomotive/"
   },
   "stats": {
-    "followerCount": 169290,
+    "followerCount": 169301,
     "followingCount": 49,
     "mediaCount": 173,
-    "totalPlays": 89193356,
-    "totalLikes": 1722630,
-    "totalComments": 18023,
+    "totalPlays": 89215640,
+    "totalLikes": 1722848,
+    "totalComments": 18024,
     "sampledPostCount": 158,
     "ownedPostCount": 143,
     "collabPostCount": 15,
-    "collabViews": 6897655,
+    "collabViews": 6897794,
     "sampleComplete": true,
     "source": "graph",
-    "avgViewsPerPost": 564515,
-    "avgLikesPerPost": 10903,
+    "avgViewsPerPost": 564656,
+    "avgLikesPerPost": 10904,
     "engagementPerFollower": 6.51,
     "engagementPerView": 1.95,
     "postsPerWeek": 2.9,
     "sampleSpanDays": 377,
     "last30Days": {
       "posts": 15,
-      "views": 4907232
+      "views": 4919814
     },
     "topPost": {
       "url": "https://www.instagram.com/reel/DcYOlgeoWdA/",
-      "viewCount": 5043237,
-      "likeCount": 10614,
+      "viewCount": 5049321,
+      "likeCount": 10618,
       "publishedAt": "2026-08-23T10:03:38.000Z"
     }
   },
@@ -287,6 +287,11 @@
       "date": "2026-10-31",
       "followers": 169290,
       "views": 89193356
+    },
+    {
+      "date": "2026-11-01",
+      "followers": 169301,
+      "views": 89215640
     }
   ],
   "posts": [
@@ -298,9 +303,9 @@
       "publishedAt": "2026-10-30T12:17:17.000Z",
       "thumbnail": "/images/socials/ig-posts/DfHjkVNov6_.jpg",
       "caption": "Gevaarlijke kwartet \n\n#daanwillemsautomotive #humor #reel #dance",
-      "likeCount": 4962,
+      "likeCount": 5014,
       "commentCount": 64,
-      "viewCount": 468860
+      "viewCount": 474456
     },
     {
       "id": "DfC-U6cIIBY",
@@ -310,9 +315,9 @@
       "publishedAt": "2026-10-28T17:34:21.000Z",
       "thumbnail": "/images/socials/ig-posts/DfC-U6cIIBY.jpg",
       "caption": "Subsidie is aangevraagd\n\nDe volledige video staat nu op ons YouTube-kanaal! 🎥\n\nCheck de link in bio 🔗\n\nOutfit jorcustom \nKORTINGSCODE: Daan15\n\n#daanwillemsautomotive #auto #humor #reel #linkinbio",
-      "likeCount": 2949,
+      "likeCount": 2964,
       "commentCount": 15,
-      "viewCount": 212850
+      "viewCount": 214226
     },
     {
       "id": "DfAaVKcoSqq",
@@ -322,9 +327,9 @@
       "publishedAt": "2026-10-27T17:39:01.000Z",
       "thumbnail": "/images/socials/ig-posts/DfAaVKcoSqq.jpg",
       "caption": "Wan apparaat zeg deh \n\nOutfit jorcustom \nKORTINGSCODE: Daan15\n\n#daanwillemsautomotive #humor #reel",
-      "likeCount": 3303,
+      "likeCount": 3322,
       "commentCount": 38,
-      "viewCount": 289793
+      "viewCount": 291001
     },
     {
       "id": "De6ja3-Ie4O",
@@ -334,9 +339,9 @@
       "publishedAt": "2026-10-25T11:05:49.000Z",
       "thumbnail": "/images/socials/ig-posts/De6ja3-Ie4O.jpg",
       "caption": "Granaten in zijn handen. Beest van een gozer. \n\ncookietariq \n\nRondje van de zaak\n\nDe volledige video staat nu op ons YouTube-kanaal! 🎥\n\nCheck de link in bio 🔗\n\n#daanwillemsautomotive #auto #automotive #reel #linkinbio",
-      "likeCount": 1404,
+      "likeCount": 1408,
       "commentCount": 7,
-      "viewCount": 135196
+      "viewCount": 135611
     },
     {
       "id": "De1Sw5gIBOx",
@@ -346,9 +351,9 @@
       "publishedAt": "2026-10-23T10:00:44.000Z",
       "thumbnail": "/images/socials/ig-posts/De1Sw5gIBOx.jpg",
       "caption": "Pak hem dan\n\n#daanwillemsautomotive #auto #automotive #humor #reel",
-      "likeCount": 8313,
-      "commentCount": 108,
-      "viewCount": 475631
+      "likeCount": 8335,
+      "commentCount": 109,
+      "viewCount": 477074
     },
     {
       "id": "Dew7XIFIGjw",
@@ -358,9 +363,9 @@
       "publishedAt": "2026-10-21T17:19:54.000Z",
       "thumbnail": "/images/socials/ig-posts/Dew7XIFIGjw.jpg",
       "caption": "Wazige gast\n\nDe volledige video staat nu op ons YouTube-kanaal! 🎥\n\nCheck de link in bio 🔗\n\n#daanwillemsautomotive #auto #humor #reel #linkinbio",
-      "likeCount": 3644,
+      "likeCount": 3647,
       "commentCount": 26,
-      "viewCount": 264859
+      "viewCount": 265292
     }
   ]
 }
