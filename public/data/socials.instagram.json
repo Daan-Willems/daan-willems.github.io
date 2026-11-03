@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-11-02T21:57:52.345Z",
+  "generatedAt": "2026-11-03T07:17:19.165Z",
   "status": "ok",
-  "lastFetchedAt": "2026-11-02T21:56:28.183Z",
+  "lastFetchedAt": "2026-11-03T07:15:48.288Z",
   "handle": "daanwillemsautomotive",
-  "lastSuccessAt": "2026-11-02T21:57:51.424Z",
+  "lastSuccessAt": "2026-11-03T07:17:18.617Z",
   "profile": {
     "userId": "17841453126941593",
     "username": "daanwillemsautomotive",
@@ -18,32 +18,32 @@
     "url": "https://www.instagram.com/daanwillemsautomotive/"
   },
   "stats": {
-    "followerCount": 169342,
+    "followerCount": 169335,
     "followingCount": 50,
     "mediaCount": 174,
-    "totalPlays": 89483128,
-    "totalLikes": 1726596,
-    "totalComments": 18049,
+    "totalPlays": 89506346,
+    "totalLikes": 1726935,
+    "totalComments": 18050,
     "sampledPostCount": 159,
     "ownedPostCount": 144,
     "collabPostCount": 15,
-    "collabViews": 6899458,
+    "collabViews": 6899604,
     "sampleComplete": true,
     "source": "graph",
-    "avgViewsPerPost": 562787,
-    "avgLikesPerPost": 10859,
+    "avgViewsPerPost": 562933,
+    "avgLikesPerPost": 10861,
     "engagementPerFollower": 6.48,
     "engagementPerView": 1.95,
     "postsPerWeek": 2.9,
     "sampleSpanDays": 379,
     "last30Days": {
       "posts": 15,
-      "views": 4841886
+      "views": 4859048
     },
     "topPost": {
       "url": "https://www.instagram.com/reel/DcYOlgeoWdA/",
-      "viewCount": 5073192,
-      "likeCount": 10641,
+      "viewCount": 5076084,
+      "likeCount": 10643,
       "publishedAt": "2026-08-23T10:03:38.000Z"
     }
   },
@@ -297,6 +297,11 @@
       "date": "2026-11-02",
       "followers": 169342,
       "views": 89483128
+    },
+    {
+      "date": "2026-11-03",
+      "followers": 169335,
+      "views": 89506346
     }
   ],
   "posts": [
@@ -308,9 +313,9 @@
       "publishedAt": "2026-11-01T18:26:26.000Z",
       "thumbnail": "/images/socials/ig-posts/DfNXoDGIV8f.jpg",
       "caption": "De motor is gestart❗️\n\nDe volledige video staat nu op ons YouTube-kanaal! 🎥\n\nCheck de link in bio 🔗\n\nOutfit: jorcustom \nKORTINGSCODE: Daan15\n\n#daanwillemsautomotive #humor #reel #linkinbio",
-      "likeCount": 1215,
+      "likeCount": 1236,
       "commentCount": 4,
-      "viewCount": 82213
+      "viewCount": 83677
     },
     {
       "id": "DfHjkVNov6_",
@@ -320,9 +325,9 @@
       "publishedAt": "2026-10-30T12:17:17.000Z",
       "thumbnail": "/images/socials/ig-posts/DfHjkVNov6_.jpg",
       "caption": "Gevaarlijke kwartet \n\n#daanwillemsautomotive #humor #reel #dance",
-      "likeCount": 5353,
+      "likeCount": 5369,
       "commentCount": 68,
-      "viewCount": 503286
+      "viewCount": 505039
     },
     {
       "id": "DfC-U6cIIBY",
@@ -332,9 +337,9 @@
       "publishedAt": "2026-10-28T17:34:21.000Z",
       "thumbnail": "/images/socials/ig-posts/DfC-U6cIIBY.jpg",
       "caption": "Subsidie is aangevraagd\n\nDe volledige video staat nu op ons YouTube-kanaal! 🎥\n\nCheck de link in bio 🔗\n\nOutfit jorcustom \nKORTINGSCODE: Daan15\n\n#daanwillemsautomotive #auto #humor #reel #linkinbio",
-      "likeCount": 3105,
+      "likeCount": 3118,
       "commentCount": 15,
-      "viewCount": 226635
+      "viewCount": 227507
     },
     {
       "id": "DfAaVKcoSqq",
@@ -344,9 +349,9 @@
       "publishedAt": "2026-10-27T17:39:01.000Z",
       "thumbnail": "/images/socials/ig-posts/DfAaVKcoSqq.jpg",
       "caption": "Wan apparaat zeg deh \n\nOutfit jorcustom \nKORTINGSCODE: Daan15\n\n#daanwillemsautomotive #humor #reel",
-      "likeCount": 3488,
+      "likeCount": 3500,
       "commentCount": 40,
-      "viewCount": 302146
+      "viewCount": 302709
     },
     {
       "id": "De6ja3-Ie4O",
@@ -356,9 +361,9 @@
       "publishedAt": "2026-10-25T11:05:49.000Z",
       "thumbnail": "/images/socials/ig-posts/De6ja3-Ie4O.jpg",
       "caption": "Granaten in zijn handen. Beest van een gozer. \n\ncookietariq \n\nRondje van de zaak\n\nDe volledige video staat nu op ons YouTube-kanaal! 🎥\n\nCheck de link in bio 🔗\n\n#daanwillemsautomotive #auto #automotive #reel #linkinbio",
-      "likeCount": 1432,
+      "likeCount": 1435,
       "commentCount": 7,
-      "viewCount": 138767
+      "viewCount": 139050
     },
     {
       "id": "De1Sw5gIBOx",
@@ -368,9 +373,9 @@
       "publishedAt": "2026-10-23T10:00:44.000Z",
       "thumbnail": "/images/socials/ig-posts/De1Sw5gIBOx.jpg",
       "caption": "Pak hem dan\n\n#daanwillemsautomotive #auto #automotive #humor #reel",
-      "likeCount": 8981,
-      "commentCount": 113,
-      "viewCount": 516555
+      "likeCount": 9148,
+      "commentCount": 114,
+      "viewCount": 526952
     }
   ]
 }
