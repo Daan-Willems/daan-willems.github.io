@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-17T08:15:57.492Z",
+  "generatedAt": "2026-11-17T21:11:12.369Z",
   "status": "ok",
-  "lastFetchedAt": "2026-11-17T08:15:56.729Z",
+  "lastFetchedAt": "2026-11-17T21:11:09.041Z",
   "handle": "daanwillemsautomotive",
   "profile": {
     "uniqueId": "daanwillemsautomotive",
@@ -16,8 +16,8 @@
     "followerCount": 140700,
     "followingCount": 10,
     "heartCount": 2800000,
-    "videoCount": 154
+    "videoCount": 155
   },
   "videos": [],
-  "lastSuccessAt": "2026-11-17T08:15:56.729Z"
+  "lastSuccessAt": "2026-11-17T21:11:09.041Z"
 }
