@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-11-24T00:24:28.753Z",
+  "generatedAt": "2026-11-24T10:27:48.520Z",
   "status": "ok",
-  "lastFetchedAt": "2026-11-24T00:23:23.675Z",
+  "lastFetchedAt": "2026-11-24T10:26:19.403Z",
   "handle": "daanwillemsautomotive",
-  "lastSuccessAt": "2026-11-24T00:24:28.188Z",
+  "lastSuccessAt": "2026-11-24T10:27:48.125Z",
   "profile": {
     "userId": "17841453126941593",
     "username": "daanwillemsautomotive",
@@ -18,31 +18,31 @@
     "url": "https://www.instagram.com/daanwillemsautomotive/"
   },
   "stats": {
-    "followerCount": 171735,
+    "followerCount": 171734,
     "followingCount": 53,
     "mediaCount": 183,
-    "totalPlays": 102365091,
-    "totalLikes": 2000533,
-    "totalComments": 20616,
+    "totalPlays": 102426818,
+    "totalLikes": 2002325,
+    "totalComments": 20638,
     "sampledPostCount": 168,
     "ownedPostCount": 153,
     "collabPostCount": 15,
-    "collabViews": 6921391,
+    "collabViews": 6921550,
     "sampleComplete": true,
     "source": "graph",
-    "avgViewsPerPost": 609316,
-    "avgLikesPerPost": 11908,
+    "avgViewsPerPost": 609683,
+    "avgLikesPerPost": 11919,
     "engagementPerFollower": 7.01,
-    "engagementPerView": 1.97,
+    "engagementPerView": 1.98,
     "postsPerWeek": 2.9,
     "sampleSpanDays": 400,
     "last30Days": {
       "posts": 14,
-      "views": 8917292
+      "views": 8932166
     },
     "topPost": {
       "url": "https://www.instagram.com/reel/DcYOlgeoWdA/",
-      "viewCount": 6203653,
+      "viewCount": 6203676,
       "likeCount": 11340,
       "publishedAt": "2026-08-23T10:03:38.000Z"
     }
@@ -405,8 +405,8 @@
     },
     {
       "date": "2026-11-24",
-      "followers": 171735,
-      "views": 102365091
+      "followers": 171734,
+      "views": 102426818
     }
   ],
   "posts": [
@@ -418,9 +418,9 @@
       "publishedAt": "2026-11-22T16:00:50.000Z",
       "thumbnail": "/images/socials/ig-posts/DgDLvvCo2nz.jpg",
       "caption": "Bijzondere beelden wel\n\nDe volledige video staat nu op ons YouTube-kanaal! 🎥\n\nCheck de link in bio 🔗\n\n#daanwillemsautomotive #auto #automotive #humor #reel",
-      "likeCount": 1528,
+      "likeCount": 1562,
       "commentCount": 5,
-      "viewCount": 92598
+      "viewCount": 93916
     },
     {
       "id": "Df9cWEUolB-",
@@ -430,9 +430,9 @@
       "publishedAt": "2026-11-20T10:29:51.000Z",
       "thumbnail": "/images/socials/ig-posts/Df9cWEUolB-.jpg",
       "caption": "Knijn\n\nFijne dag verder hoooooooi\n\n#daanwillemsautomotive #humor #reel",
-      "likeCount": 4928,
-      "commentCount": 50,
-      "viewCount": 319270
+      "likeCount": 4955,
+      "commentCount": 51,
+      "viewCount": 320667
     },
     {
       "id": "Df1xiyFooD6",
@@ -442,9 +442,9 @@
       "publishedAt": "2026-11-17T11:01:31.000Z",
       "thumbnail": "/images/socials/ig-posts/Df1xiyFooD6.jpg",
       "caption": "Ogen dicht en rammen\n\nOutfit: jorcustom \nKORTINGSCODE: Daan15\n\n#daanwillemsautomotive #humor #reel",
-      "likeCount": 11132,
+      "likeCount": 11160,
       "commentCount": 207,
-      "viewCount": 1419336
+      "viewCount": 1421276
     },
     {
       "id": "DfrhfELo272",
@@ -454,9 +454,9 @@
       "publishedAt": "2026-11-13T11:28:35.000Z",
       "thumbnail": "/images/socials/ig-posts/DfrhfELo272.jpg",
       "caption": "Die opa’s zijn gek hè👨🏻‍🦳\n\n#daanwillemsautomotive #humor #reel",
-      "likeCount": 6907,
+      "likeCount": 6914,
       "commentCount": 130,
-      "viewCount": 417585
+      "viewCount": 418287
     },
     {
       "id": "DfkcmVcImhe",
@@ -466,9 +466,9 @@
       "publishedAt": "2026-11-10T17:31:31.000Z",
       "thumbnail": "/images/socials/ig-posts/DfkcmVcImhe.jpg",
       "caption": "Kijk ze gaan\n\nOutfit jorcustom \nKORTINGSCODE: Daan15\n\n#daanwillemsautomotive #humor #reel",
-      "likeCount": 25844,
-      "commentCount": 334,
-      "viewCount": 1242716
+      "likeCount": 25914,
+      "commentCount": 335,
+      "viewCount": 1245753
     },
     {
       "id": "DffRchcI_Oj",
@@ -478,9 +478,9 @@
       "publishedAt": "2026-11-08T17:19:11.000Z",
       "thumbnail": "/images/socials/ig-posts/DffRchcI_Oj.jpg",
       "caption": "Klein wijnproeverijtje met de expert sjoerdkist \n\nDe volledige video staat nu op ons YouTube-kanaal! 🎥\n\nCheck de link in bio 🔗\n\n#daanwillemsautomotive #humor #reel #linkinbio",
-      "likeCount": 2115,
+      "likeCount": 2116,
       "commentCount": 21,
-      "viewCount": 184964
+      "viewCount": 185094
     }
   ]
 }
