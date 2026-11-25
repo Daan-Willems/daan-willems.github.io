@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-11-24T22:20:16.176Z",
+  "generatedAt": "2026-11-25T08:21:49.202Z",
   "status": "ok",
-  "lastFetchedAt": "2026-11-24T22:20:13.870Z",
+  "lastFetchedAt": "2026-11-25T08:21:47.457Z",
   "collabs": {
     "videoCount": 23,
-    "viewCount": 1862901,
+    "viewCount": 1863312,
     "likeCount": 30969
   },
   "channel": {
@@ -15,7 +15,7 @@
     "thumbnail": "/images/socials/avatars/youtube.jpg",
     "subscriberCount": 46400,
     "videoCount": 108,
-    "viewCount": 8373465,
+    "viewCount": 8383118,
     "bannerUrl": "https://yt3.googleusercontent.com/n2yJgGUAPlCi5Zv5tB6NflWMNyuRXIEj7dM30IeQ6BDW0nnUjOXbABuj4qIPUmtBr8InSej5"
   },
   "latest": [
@@ -26,8 +26,8 @@
       "description": "Welkom op het officiele Youtube-kanaal van Daan Willems! Krijg een unieke kijk in het werk en privéleven van Daan Willems.",
       "publishedAt": "2026-11-22T10:00:08Z",
       "thumbnail": "https://i.ytimg.com/vi/RNe-hRcA5Wo/maxresdefault.jpg",
-      "viewCount": 25588,
-      "likeCount": 335,
+      "viewCount": 26263,
+      "likeCount": 337,
       "durationSec": 1437
     },
     {
@@ -37,8 +37,8 @@
       "description": "Welkom op het officiele Youtube-kanaal van Daan Willems! Krijg een unieke kijk in het werk en privéleven van Daan Willems.",
       "publishedAt": "2026-11-18T16:00:00Z",
       "thumbnail": "https://i.ytimg.com/vi/RcxJsRvxFds/maxresdefault.jpg",
-      "viewCount": 59544,
-      "likeCount": 503,
+      "viewCount": 59968,
+      "likeCount": 505,
       "durationSec": 1222
     },
     {
@@ -48,7 +48,7 @@
       "description": "Welkom op het officiele Youtube-kanaal van Daan Willems! Krijg een unieke kijk in het werk en privéleven van Daan Willems.",
       "publishedAt": "2026-11-15T10:00:21Z",
       "thumbnail": "https://i.ytimg.com/vi/eBahKD6sWJs/maxresdefault.jpg",
-      "viewCount": 55581,
+      "viewCount": 55878,
       "likeCount": 672,
       "durationSec": 1372
     },
@@ -59,7 +59,7 @@
       "description": "Welkom op het officiele Youtube-kanaal van Daan Willems! Krijg een unieke kijk in het werk en privéleven van Daan Willems.",
       "publishedAt": "2026-11-12T14:25:24Z",
       "thumbnail": "https://i.ytimg.com/vi/3SYtGrjUccs/maxresdefault.jpg",
-      "viewCount": 102215,
+      "viewCount": 102442,
       "likeCount": 821,
       "durationSec": 1653
     },
@@ -70,7 +70,7 @@
       "description": "Welkom op het officiele Youtube-kanaal van Daan Willems! Krijg een unieke kijk in het werk en privéleven van Daan Willems.",
       "publishedAt": "2026-11-08T10:00:19Z",
       "thumbnail": "https://i.ytimg.com/vi/bnBM3-2j3ds/maxresdefault.jpg",
-      "viewCount": 42925,
+      "viewCount": 42977,
       "likeCount": 496,
       "durationSec": 2299
     },
@@ -81,7 +81,7 @@
       "description": "Welkom op het officiele Youtube-kanaal van Daan Willems! Krijg een unieke kijk in het werk en privéleven van Daan Willems.",
       "publishedAt": "2026-11-04T16:00:15Z",
       "thumbnail": "https://i.ytimg.com/vi/BLNVuvnVYnw/maxresdefault.jpg",
-      "viewCount": 42026,
+      "viewCount": 42054,
       "likeCount": 521,
       "durationSec": 1322
     }
@@ -94,9 +94,20 @@
       "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud Bekijk aanbod ...",
       "publishedAt": "2026-03-09T17:26:22Z",
       "thumbnail": "https://i.ytimg.com/vi/9vBJKYhhptM/maxresdefault.jpg",
-      "viewCount": 226237,
+      "viewCount": 226301,
       "likeCount": 4572,
       "durationSec": 713
+    },
+    {
+      "id": "AB2L1OJD_PA",
+      "url": "https://www.youtube.com/watch?v=AB2L1OJD_PA",
+      "title": "DAAN NAAR DE KAMASUTRA BEURS, GAAT FOUT!! DEEL 1 VLOG #20",
+      "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud CAMERAMAN + ...",
+      "publishedAt": "2026-03-29T09:20:30Z",
+      "thumbnail": "https://i.ytimg.com/vi/AB2L1OJD_PA/maxresdefault.jpg",
+      "viewCount": 183759,
+      "likeCount": 2312,
+      "durationSec": 1201
     },
     {
       "id": "N2Mr3ddlArc",
@@ -105,7 +116,7 @@
       "description": "Abonneer voor meer backstage content @ Daan Willems Automotive Emblemen Oeteldonk ...",
       "publishedAt": "2025-12-07T08:00:35Z",
       "thumbnail": "https://i.ytimg.com/vi/N2Mr3ddlArc/maxresdefault.jpg",
-      "viewCount": 172610,
+      "viewCount": 172625,
       "likeCount": 4131,
       "durationSec": 858
     },
@@ -116,7 +127,7 @@
       "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud editor + camera man ...",
       "publishedAt": "2026-02-22T09:45:55Z",
       "thumbnail": "https://i.ytimg.com/vi/D1e3PYe0t4A/maxresdefault.jpg",
-      "viewCount": 172964,
+      "viewCount": 173009,
       "likeCount": 2486,
       "durationSec": 711
     },
@@ -127,7 +138,7 @@
       "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud Cameraman ...",
       "publishedAt": "2026-04-05T06:45:03Z",
       "thumbnail": "https://i.ytimg.com/vi/wm0R5AMYmig/maxresdefault.jpg",
-      "viewCount": 155896,
+      "viewCount": 155923,
       "likeCount": 3107,
       "durationSec": 1626
     },
@@ -138,21 +149,10 @@
       "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud CAMERA MAN PLUS ...",
       "publishedAt": "2026-05-13T15:38:57Z",
       "thumbnail": "https://i.ytimg.com/vi/YZpn2Awy3pY/maxresdefault.jpg",
-      "viewCount": 150499,
+      "viewCount": 150531,
       "likeCount": 2442,
       "durationSec": 1125
-    },
-    {
-      "id": "KTJRmjAvIPg",
-      "url": "https://www.youtube.com/watch?v=KTJRmjAvIPg",
-      "title": "DAAN IS BOOS!!! &amp; BMW TAXEREN GAAT FOUT, VLOG #13",
-      "description": "DAAN WILLEMS AUTOMOTIVE In- en verkoop occasions Detailen Reparatie & onderhoud CAMERA MAN ...",
-      "publishedAt": "2026-02-25T16:05:56Z",
-      "thumbnail": "https://i.ytimg.com/vi/KTJRmjAvIPg/maxresdefault.jpg",
-      "viewCount": 150972,
-      "likeCount": 1971,
-      "durationSec": 834
     }
   ],
-  "lastSuccessAt": "2026-11-24T22:20:13.870Z"
+  "lastSuccessAt": "2026-11-25T08:21:47.457Z"
 }
